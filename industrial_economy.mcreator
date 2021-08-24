@@ -6881,6 +6881,36 @@
       "ids": {},
       "registry_name": "shop_gui",
       "path": "~/Shop"
+    },
+    {
+      "name": "Newprocedure",
+      "type": "procedure",
+      "sortid": 409,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "newprocedure",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Test"
     }
   ],
   "variable_elements": [
