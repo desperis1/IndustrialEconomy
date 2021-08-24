@@ -6853,6 +6853,46 @@
         ]
       },
       "path": "~/Commands/Admineditor"
+    },
+    {
+      "name": "Rocks",
+      "type": "tag",
+      "sortid": 414,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "rocks",
+      "path": "~/Tags"
+    },
+    {
+      "name": "Woods",
+      "type": "tag",
+      "sortid": 415,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "woods",
+      "path": "~/Tags"
+    },
+    {
+      "name": "JunkItems",
+      "type": "tag",
+      "sortid": 416,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "junk_items",
+      "path": "~/Tags"
+    },
+    {
+      "name": "IndustrialDiamond",
+      "type": "item",
+      "sortid": 417,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "industrial_diamond",
+      "path": "~/Items"
     }
   ],
   "variable_elements": [
@@ -7236,6 +7276,7 @@
       "item.mega_project.circuit_boarditem": "Circuit Board",
       "block.satis_mine.light_blue_concrete_slab": "Light Blue Concrete Slab",
       "advancements.turbo_fueladvancement.descr": "Turbo Fuel!",
+      "item.industrial_economy.industrial_diamond": "Industrial Diamond",
       "block.industrial_economy.caterium_nod_eblock": "Caterium  Node Block (active)",
       "block.mega_project.red_concrete_stairs": "Red Concrete Stairs",
       "block.satis_mine.crusher": "Crusher",
@@ -7810,6 +7851,10 @@
       },
       {
         "name": "Shop",
+        "children": []
+      },
+      {
+        "name": "Tags",
         "children": []
       }
     ]

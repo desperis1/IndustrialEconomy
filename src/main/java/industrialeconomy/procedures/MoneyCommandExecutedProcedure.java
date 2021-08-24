@@ -76,6 +76,17 @@ public class MoneyCommandExecutedProcedure {
 					capability.syncPlayerVariables(entity);
 				});
 			}
+			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
+				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent((((new Object() {
+					public String getText() {
+						String param = (String) cmdparams.get("1");
+						if (param != null) {
+							return param;
+						}
+						return "";
+					}
+				}.getText())) + "" + (" \u20AC ") + "" + ("sucessfully added."))), (false));
+			}
 		}
 	}
 }

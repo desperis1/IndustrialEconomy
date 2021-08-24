@@ -18,6 +18,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.Map;
 
 import industrialeconomy.item.SteelingotItem;
+import industrialeconomy.item.IndustrialDiamondItem;
 import industrialeconomy.item.DiamondsteelitemItem;
 
 import industrialeconomy.block.FoundryinactiveBlock;
@@ -327,7 +328,7 @@ public class FoundyblockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (1))).getItem() == Items.DIAMOND))) && ((((new Object() {
+			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (1))).getItem() == IndustrialDiamondItem.block))) && ((((new Object() {
 				public ItemStack getItemStack(BlockPos pos, int sltid) {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -398,7 +399,7 @@ public class FoundyblockUpdateTickProcedure {
 					TileEntity _ent = world.getTileEntity(new BlockPos((int) x, (int) y, (int) z));
 					if (_ent != null) {
 						final int _sltid = (int) (1);
-						final ItemStack _setstack = new ItemStack(Items.DIAMOND);
+						final ItemStack _setstack = new ItemStack(IndustrialDiamondItem.block);
 						_setstack.setCount((int) ((new Object() {
 							public int getAmount(IWorld world, BlockPos pos, int sltid) {
 								AtomicInteger _retval = new AtomicInteger(0);
