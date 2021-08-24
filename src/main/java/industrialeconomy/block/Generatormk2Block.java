@@ -46,7 +46,6 @@ import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.ItemStackHelper;
 import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.inventory.ISidedInventory;
-import net.minecraft.fluid.FluidState;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.entity.player.PlayerEntity;
@@ -70,7 +69,6 @@ import io.netty.buffer.Unpooled;
 
 import industrialeconomy.procedures.Generatormk2UpdateTickProcedure;
 import industrialeconomy.procedures.Generatormk2ClientDisplayRandomTickProcedure;
-import industrialeconomy.procedures.Generatormk2BlockDestroyedByPlayerProcedure;
 
 import industrialeconomy.gui.GeneratorMK2GUIGui;
 
@@ -181,24 +179,6 @@ public class Generatormk2Block extends IndustrialEconomyModElements.ModElement {
 				$_dependencies.put("world", world);
 				Generatormk2ClientDisplayRandomTickProcedure.executeProcedure($_dependencies);
 			}
-		}
-
-		@Override
-		public boolean removedByPlayer(BlockState blockstate, World world, BlockPos pos, PlayerEntity entity, boolean willHarvest, FluidState fluid) {
-			boolean retval = super.removedByPlayer(blockstate, world, pos, entity, willHarvest, fluid);
-			int x = pos.getX();
-			int y = pos.getY();
-			int z = pos.getZ();
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				$_dependencies.put("x", x);
-				$_dependencies.put("y", y);
-				$_dependencies.put("z", z);
-				$_dependencies.put("world", world);
-				Generatormk2BlockDestroyedByPlayerProcedure.executeProcedure($_dependencies);
-			}
-			return retval;
 		}
 
 		@Override

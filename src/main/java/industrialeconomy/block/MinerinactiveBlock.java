@@ -37,9 +37,7 @@ import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.container.ChestContainer;
 import net.minecraft.inventory.ItemStackHelper;
 import net.minecraft.inventory.ISidedInventory;
-import net.minecraft.fluid.FluidState;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.client.renderer.RenderTypeLookup;
@@ -60,7 +58,6 @@ import java.util.Collections;
 
 import industrialeconomy.procedures.MinerinactiveUpdateTickProcedure;
 import industrialeconomy.procedures.MinerblockBlockIsPlacedByProcedure;
-import industrialeconomy.procedures.MinerBlockINACTIVEdestroyedbyplayerProcedure;
 
 import industrialeconomy.itemgroup.ProjectMEGAItemGroup;
 
@@ -150,24 +147,6 @@ public class MinerinactiveBlock extends IndustrialEconomyModElements.ModElement 
 				MinerinactiveUpdateTickProcedure.executeProcedure($_dependencies);
 			}
 			world.getPendingBlockTicks().scheduleTick(new BlockPos(x, y, z), this, 20);
-		}
-
-		@Override
-		public boolean removedByPlayer(BlockState blockstate, World world, BlockPos pos, PlayerEntity entity, boolean willHarvest, FluidState fluid) {
-			boolean retval = super.removedByPlayer(blockstate, world, pos, entity, willHarvest, fluid);
-			int x = pos.getX();
-			int y = pos.getY();
-			int z = pos.getZ();
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				$_dependencies.put("x", x);
-				$_dependencies.put("y", y);
-				$_dependencies.put("z", z);
-				$_dependencies.put("world", world);
-				MinerBlockINACTIVEdestroyedbyplayerProcedure.executeProcedure($_dependencies);
-			}
-			return retval;
 		}
 
 		@Override

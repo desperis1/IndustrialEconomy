@@ -60,6 +60,9 @@
     "tickRandomly": false,
     "isReplaceable": false,
     "canProvidePower": false,
+    "emittedRedstonePower": {
+      "fixedValue": 15.0
+    },
     "colorOnMap": "DEFAULT",
     "creativePickItem": {
       "value": ""
@@ -77,6 +80,21 @@
     "isCustomSoundType": false,
     "soundOnStep": {
       "value": "STONE"
+    },
+    "breakSound": {
+      "value": ""
+    },
+    "stepSound": {
+      "value": ""
+    },
+    "placeSound": {
+      "value": ""
+    },
+    "hitSound": {
+      "value": ""
+    },
+    "fallSound": {
+      "value": ""
     },
     "luminance": 0,
     "unbreakable": false,
@@ -110,9 +128,6 @@
     },
     "onRandomUpdateEvent": {
       "name": "GeneratorMK1ClientDisplayRandomTick"
-    },
-    "onDestroyedByPlayer": {
-      "name": "GeneratorMK1BlockDestroyedByPlayer"
     },
     "onBlockPlayedBy": {
       "name": "GeneratorMK1BlockIsPlacedBy"

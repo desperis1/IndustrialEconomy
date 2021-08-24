@@ -1196,40 +1196,6 @@
       "path": "~/Machines/Miner"
     },
     {
-      "name": "MinerblockBlockDestroyedByPlayer",
-      "type": "procedure",
-      "sortid": 53,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "minerblock_block_destroyed_by_player",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      },
-      "path": "~/Machines/Miner"
-    },
-    {
       "name": "TurboFueladvancement",
       "type": "achievement",
       "sortid": 72,
@@ -1366,40 +1332,6 @@
       "ids": {},
       "registry_name": "diamond_steelblock",
       "path": "~/Blocks"
-    },
-    {
-      "name": "GeneratorMK1BlockDestroyedByPlayer",
-      "type": "procedure",
-      "sortid": 78,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "generator_mk_1_block_destroyed_by_player",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      },
-      "path": "~/Machines/GeneratorMK1"
     },
     {
       "name": "GeneratorMK1BlockIsPlacedBy",
@@ -3077,40 +3009,6 @@
       "path": "~/Machines/Miner"
     },
     {
-      "name": "MinerBlockINACTIVEdestroyedbyplayer",
-      "type": "procedure",
-      "sortid": 163,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "miner_block_inactiv_edestroyedbyplayer",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      },
-      "path": "~/Machines/Miner"
-    },
-    {
       "name": "ElectricFunanceinactiveUpdateTick",
       "type": "procedure",
       "sortid": 164,
@@ -3173,40 +3071,6 @@
       "registry_name": "generator_mk_2inactive_update_tick",
       "metadata": {
         "dependencies": [
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      },
-      "path": "~/Machines/GeneratorMK2"
-    },
-    {
-      "name": "Generatormk2BlockDestroyedByPlayer",
-      "type": "procedure",
-      "sortid": 167,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "generatormk_2_block_destroyed_by_player",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
           {
             "name": "x",
             "type": "number"

@@ -126,9 +126,6 @@
     "onTickUpdate": {
       "name": "MinerinactiveUpdateTick"
     },
-    "onDestroyedByPlayer": {
-      "name": "MinerBlockINACTIVEdestroyedbyplayer"
-    },
     "onBlockPlayedBy": {
       "name": "MinerblockBlockIsPlacedBy"
     },
