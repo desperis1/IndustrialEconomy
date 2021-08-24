@@ -149,11 +149,6 @@ public class LandUseDoorProcedure {
 							private void run() {
 								if (entity instanceof PlayerEntity)
 									((PlayerEntity) entity).closeScreen();
-								if (!world.isRemote()) {
-									MinecraftServer mcserv = ServerLifecycleHooks.getCurrentServer();
-									if (mcserv != null)
-										mcserv.getPlayerList().func_232641_a_(new StringTextComponent("Closed."), ChatType.SYSTEM, Util.DUMMY_UUID);
-								}
 								MinecraftForge.EVENT_BUS.unregister(this);
 							}
 						}.start(world, (int) 2);
