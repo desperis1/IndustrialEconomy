@@ -24,22 +24,22 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.matrix.MatrixStack;
 
 @OnlyIn(Dist.CLIENT)
-public class AdminMenuGuiWindow extends ContainerScreen<AdminMenuGui.GuiContainerMod> {
+public class NodesShopGUIGuiWindow extends ContainerScreen<NodesShopGUIGui.GuiContainerMod> {
 	private World world;
 	private int x, y, z;
 	private PlayerEntity entity;
-	private final static HashMap guistate = AdminMenuGui.guistate;
-	public AdminMenuGuiWindow(AdminMenuGui.GuiContainerMod container, PlayerInventory inventory, ITextComponent text) {
+	private final static HashMap guistate = NodesShopGUIGui.guistate;
+	public NodesShopGUIGuiWindow(NodesShopGUIGui.GuiContainerMod container, PlayerInventory inventory, ITextComponent text) {
 		super(container, inventory, text);
 		this.world = container.world;
 		this.x = container.x;
 		this.y = container.y;
 		this.z = container.z;
 		this.entity = container.entity;
-		this.xSize = 280;
-		this.ySize = 205;
+		this.xSize = 281;
+		this.ySize = 185;
 	}
-	private static final ResourceLocation texture = new ResourceLocation("industrial_economy:textures/admin_menu.png");
+	private static final ResourceLocation texture = new ResourceLocation("industrial_economy:textures/nodes_shop_gui.png");
 	@Override
 	public void render(MatrixStack ms, int mouseX, int mouseY, float partialTicks) {
 		this.renderBackground(ms);
@@ -75,9 +75,9 @@ public class AdminMenuGuiWindow extends ContainerScreen<AdminMenuGui.GuiContaine
 
 	@Override
 	protected void drawGuiContainerForegroundLayer(MatrixStack ms, int mouseX, int mouseY) {
-		this.font.drawString(ms, "Admin Menu", 116, 15, -10092442);
-		this.font.drawString(ms, "" + ((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-				.orElse(new IndustrialEconomyModVariables.PlayerVariables())).admin_editor) + "", 95, 142, -12829636);
+		this.font.drawString(ms, "Nodes Shop", 5, 4, -12829636);
+		this.font.drawString(ms, "Your money" + ((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+				.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money) + " \u20AC", 78, 4, -13382656);
 	}
 
 	@Override
@@ -90,34 +90,34 @@ public class AdminMenuGuiWindow extends ContainerScreen<AdminMenuGui.GuiContaine
 	public void init(Minecraft minecraft, int width, int height) {
 		super.init(minecraft, width, height);
 		minecraft.keyboardListener.enableRepeatEvents(true);
-		this.addButton(new Button(this.guiLeft + 12, this.guiTop + 31, 110, 20, new StringTextComponent("Survival/Creative"), e -> {
+		this.addButton(new Button(this.guiLeft + 5, this.guiTop + 16, 70, 20, new StringTextComponent("Iron Node"), e -> {
 			if (true) {
-				IndustrialEconomyMod.PACKET_HANDLER.sendToServer(new AdminMenuGui.ButtonPressedMessage(0, x, y, z));
-				AdminMenuGui.handleButtonAction(entity, 0, x, y, z);
+				IndustrialEconomyMod.PACKET_HANDLER.sendToServer(new NodesShopGUIGui.ButtonPressedMessage(0, x, y, z));
+				NodesShopGUIGui.handleButtonAction(entity, 0, x, y, z);
 			}
 		}));
-		this.addButton(new Button(this.guiLeft + 12, this.guiTop + 84, 65, 20, new StringTextComponent("Sun/Rain"), e -> {
+		this.addButton(new Button(this.guiLeft + 149, this.guiTop + 16, 80, 20, new StringTextComponent("Copper Node"), e -> {
 			if (true) {
-				IndustrialEconomyMod.PACKET_HANDLER.sendToServer(new AdminMenuGui.ButtonPressedMessage(1, x, y, z));
-				AdminMenuGui.handleButtonAction(entity, 1, x, y, z);
+				IndustrialEconomyMod.PACKET_HANDLER.sendToServer(new NodesShopGUIGui.ButtonPressedMessage(1, x, y, z));
+				NodesShopGUIGui.handleButtonAction(entity, 1, x, y, z);
 			}
 		}));
-		this.addButton(new Button(this.guiLeft + 12, this.guiTop + 58, 70, 20, new StringTextComponent("Day/Night"), e -> {
+		this.addButton(new Button(this.guiLeft + 5, this.guiTop + 43, 90, 20, new StringTextComponent("Caterium Node"), e -> {
 			if (true) {
-				IndustrialEconomyMod.PACKET_HANDLER.sendToServer(new AdminMenuGui.ButtonPressedMessage(2, x, y, z));
-				AdminMenuGui.handleButtonAction(entity, 2, x, y, z);
+				IndustrialEconomyMod.PACKET_HANDLER.sendToServer(new NodesShopGUIGui.ButtonPressedMessage(2, x, y, z));
+				NodesShopGUIGui.handleButtonAction(entity, 2, x, y, z);
 			}
 		}));
-		this.addButton(new Button(this.guiLeft + 11, this.guiTop + 111, 70, 20, new StringTextComponent("Clear Lag"), e -> {
+		this.addButton(new Button(this.guiLeft + 149, this.guiTop + 43, 70, 20, new StringTextComponent("Coal Node"), e -> {
 			if (true) {
-				IndustrialEconomyMod.PACKET_HANDLER.sendToServer(new AdminMenuGui.ButtonPressedMessage(3, x, y, z));
-				AdminMenuGui.handleButtonAction(entity, 3, x, y, z);
+				IndustrialEconomyMod.PACKET_HANDLER.sendToServer(new NodesShopGUIGui.ButtonPressedMessage(3, x, y, z));
+				NodesShopGUIGui.handleButtonAction(entity, 3, x, y, z);
 			}
 		}));
-		this.addButton(new Button(this.guiLeft + 12, this.guiTop + 137, 80, 20, new StringTextComponent("AdminEditor"), e -> {
+		this.addButton(new Button(this.guiLeft + 5, this.guiTop + 70, 95, 20, new StringTextComponent("SandStone Node"), e -> {
 			if (true) {
-				IndustrialEconomyMod.PACKET_HANDLER.sendToServer(new AdminMenuGui.ButtonPressedMessage(4, x, y, z));
-				AdminMenuGui.handleButtonAction(entity, 4, x, y, z);
+				IndustrialEconomyMod.PACKET_HANDLER.sendToServer(new NodesShopGUIGui.ButtonPressedMessage(4, x, y, z));
+				NodesShopGUIGui.handleButtonAction(entity, 4, x, y, z);
 			}
 		}));
 	}

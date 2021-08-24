@@ -6883,15 +6883,29 @@
       "path": "~/Shop"
     },
     {
-      "name": "Newprocedure",
-      "type": "procedure",
+      "name": "NodesShopGUI",
+      "type": "gui",
       "sortid": 409,
       "compiles": true,
       "locked_code": false,
       "ids": {},
-      "registry_name": "newprocedure",
+      "registry_name": "nodes_shop_gui",
+      "path": "~/Shop"
+    },
+    {
+      "name": "NodesCommandExecuted",
+      "type": "procedure",
+      "sortid": 410,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "nodes_command_executed",
       "metadata": {
         "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
           {
             "name": "x",
             "type": "number"
@@ -6910,7 +6924,35 @@
           }
         ]
       },
-      "path": "~/Test"
+      "path": "~/Shop"
+    },
+    {
+      "name": "Nodes",
+      "type": "command",
+      "sortid": 410,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "nodes",
+      "path": "~/Shop"
+    },
+    {
+      "name": "AdminmenuadmineditorOnClicked",
+      "type": "procedure",
+      "sortid": 411,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "adminmenuadmineditor_on_clicked",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/AdminMenu"
     }
   ],
   "variable_elements": [
@@ -7195,6 +7237,12 @@
       "type": "string",
       "scope": "player_persistent",
       "value": "\"\""
+    },
+    {
+      "name": "admin_editor",
+      "type": "logic",
+      "scope": "player_persistent",
+      "value": "false"
     }
   ],
   "sound_elements": [

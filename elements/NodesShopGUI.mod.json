@@ -1,0 +1,103 @@
+{
+  "_fv": 24,
+  "_type": "gui",
+  "definition": {
+    "type": 1,
+    "width": 281,
+    "height": 185,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 11,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "text": "Nodes Shop",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "Nodes Shop",
+          "x": 78,
+          "y": 32
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Iron Node",
+          "width": 70,
+          "height": 20,
+          "name": "Iron Node",
+          "x": 78,
+          "y": 44
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Copper Node",
+          "width": 80,
+          "height": 20,
+          "name": "Copper Node",
+          "x": 222,
+          "y": 44
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Caterium Node",
+          "width": 90,
+          "height": 20,
+          "name": "Caterium Node",
+          "x": 78,
+          "y": 71
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Coal Node",
+          "width": 70,
+          "height": 20,
+          "name": "Coal Node",
+          "x": 222,
+          "y": 71
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "SandStone Node",
+          "width": 95,
+          "height": 20,
+          "name": "SandStone Node",
+          "x": 78,
+          "y": 98
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Your money<VAR:player_money> €",
+          "color": {
+            "value": -13382656,
+            "falpha": 0.0
+          },
+          "name": "Your money<VAR:player_money> €",
+          "x": 151,
+          "y": 32
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

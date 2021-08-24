@@ -258,6 +258,7 @@ public class IndustrialEconomyModVariables {
 			nbt.putDouble("player_money", instance.player_money);
 			nbt.putString("players_city_name", instance.players_city_name);
 			nbt.putString("belong_to_city", instance.belong_to_city);
+			nbt.putBoolean("admin_editor", instance.admin_editor);
 			return nbt;
 		}
 
@@ -306,6 +307,7 @@ public class IndustrialEconomyModVariables {
 			instance.player_money = nbt.getDouble("player_money");
 			instance.players_city_name = nbt.getString("players_city_name");
 			instance.belong_to_city = nbt.getString("belong_to_city");
+			instance.admin_editor = nbt.getBoolean("admin_editor");
 		}
 	}
 
@@ -352,6 +354,7 @@ public class IndustrialEconomyModVariables {
 		public double player_money = 15000.0;
 		public String players_city_name = "\"\"";
 		public String belong_to_city = "\"\"";
+		public boolean admin_editor = false;
 		public void syncPlayerVariables(Entity entity) {
 			if (entity instanceof ServerPlayerEntity)
 				IndustrialEconomyMod.PACKET_HANDLER.send(PacketDistributor.PLAYER.with(() -> (ServerPlayerEntity) entity),
@@ -419,6 +422,7 @@ public class IndustrialEconomyModVariables {
 		clone.player_money = original.player_money;
 		clone.players_city_name = original.players_city_name;
 		clone.belong_to_city = original.belong_to_city;
+		clone.admin_editor = original.admin_editor;
 		if (!event.isWasDeath()) {
 			clone.DSA_NightVision = original.DSA_NightVision;
 			clone.DSA_Jetpack = original.DSA_Jetpack;
@@ -492,6 +496,7 @@ public class IndustrialEconomyModVariables {
 					variables.player_money = message.data.player_money;
 					variables.players_city_name = message.data.players_city_name;
 					variables.belong_to_city = message.data.belong_to_city;
+					variables.admin_editor = message.data.admin_editor;
 				}
 			});
 			context.setPacketHandled(true);

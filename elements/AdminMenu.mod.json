@@ -78,6 +78,33 @@
           "x": 85,
           "y": 129
         }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "AdminEditor",
+          "onClick": {
+            "name": "AdminmenuadmineditorOnClicked"
+          },
+          "width": 80,
+          "height": 20,
+          "name": "AdminEditor",
+          "x": 86,
+          "y": 155
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "<VAR:admin_editor>",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "<VAR:admin_editor>",
+          "x": 169,
+          "y": 160
+        }
       }
     ],
     "gridSettings": {

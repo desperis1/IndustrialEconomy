@@ -27,6 +27,7 @@ import java.util.Map;
 import java.util.HashMap;
 
 import industrialeconomy.procedures.ClearlagExecutedProcedure;
+import industrialeconomy.procedures.AdminmenuadmineditorOnClickedProcedure;
 import industrialeconomy.procedures.AdminmenuSurvivalCreativeProcedure;
 import industrialeconomy.procedures.AdminmenuSunRainProcedure;
 import industrialeconomy.procedures.AdminmenuDayNightProcedure;
@@ -208,6 +209,13 @@ public class AdminMenuGui extends IndustrialEconomyModElements.ModElement {
 				Map<String, Object> $_dependencies = new HashMap<>();
 				$_dependencies.put("entity", entity);
 				ClearlagExecutedProcedure.executeProcedure($_dependencies);
+			}
+		}
+		if (buttonID == 4) {
+			{
+				Map<String, Object> $_dependencies = new HashMap<>();
+				$_dependencies.put("entity", entity);
+				AdminmenuadmineditorOnClickedProcedure.executeProcedure($_dependencies);
 			}
 		}
 	}

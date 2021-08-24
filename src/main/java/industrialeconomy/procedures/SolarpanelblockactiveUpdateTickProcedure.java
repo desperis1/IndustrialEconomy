@@ -1,16 +1,10 @@
 package industrialeconomy.procedures;
 
-import net.minecraftforge.fml.server.ServerLifecycleHooks;
-
 import net.minecraft.world.World;
 import net.minecraft.world.IWorld;
-import net.minecraft.util.text.StringTextComponent;
-import net.minecraft.util.text.ChatType;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.Util;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.state.Property;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.block.BlockState;
 
@@ -122,11 +116,6 @@ public class SolarpanelblockactiveUpdateTickProcedure {
 					}.getValue(world, new BlockPos((int) players_hub_x, (int) players_hub_y, (int) players_hub_z), "Energy")) + 200));
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
-			}
-			if (!world.isRemote()) {
-				MinecraftServer mcserv = ServerLifecycleHooks.getCurrentServer();
-				if (mcserv != null)
-					mcserv.getPlayerList().func_232641_a_(new StringTextComponent("solar panel +200 energy"), ChatType.SYSTEM, Util.DUMMY_UUID);
 			}
 		} else {
 			if (!world.isRemote()) {
