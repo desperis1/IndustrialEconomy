@@ -1,0 +1,10 @@
+{
+  "parent": "industrial_economy:custom/hub_1_fixed",
+  "textures": {
+    "all": "industrial_economy:blocks/hub1_top",
+    "particle": "industrial_economy:blocks/hub1_top",
+    "2": "industrial_economy:blocks/hub1_top",
+    "3": "industrial_economy:blocks/iron_block_orig",
+    "missing": "industrial_economy:blocks/"
+  }
+}

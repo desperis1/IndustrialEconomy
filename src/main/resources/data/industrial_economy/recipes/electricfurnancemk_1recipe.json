@@ -1,0 +1,42 @@
+{
+  "group": "electricfurnanacemk1",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "345",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "industrial_economy:steel_block"
+    },
+    "1": {
+      "item": "industrial_economy:diamondsteelitem"
+    },
+    "2": {
+      "item": "industrial_economy:steel_block"
+    },
+    "3": {
+      "item": "industrial_economy:circuit_boarditem"
+    },
+    "4": {
+      "item": "industrial_economy:highspeedconectoritem"
+    },
+    "5": {
+      "item": "industrial_economy:circuit_boarditem"
+    },
+    "6": {
+      "item": "industrial_economy:steel_block"
+    },
+    "7": {
+      "item": "minecraft:furnace"
+    },
+    "8": {
+      "item": "industrial_economy:steel_block"
+    }
+  },
+  "result": {
+    "item": "industrial_economy:electric_funanceinactive",
+    "count": 1
+  }
+}

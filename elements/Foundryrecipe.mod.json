@@ -1,0 +1,46 @@
+{
+  "_fv": 24,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "recipeRetstackSize": 1,
+    "group": "foundry",
+    "recipeShapeless": false,
+    "recipeSlots": [
+      {
+        "value": "Blocks.IRON_BLOCK"
+      },
+      {
+        "value": "Blocks.HOPPER"
+      },
+      {
+        "value": "Blocks.IRON_BLOCK"
+      },
+      {
+        "value": "CUSTOM:CircuitBoarditem"
+      },
+      {
+        "value": "Items.BUCKET"
+      },
+      {
+        "value": "CUSTOM:CircuitBoarditem"
+      },
+      {
+        "value": "Blocks.IRON_BLOCK"
+      },
+      {
+        "value": "CUSTOM:CateriumBlock"
+      },
+      {
+        "value": "Blocks.IRON_BLOCK"
+      }
+    ],
+    "recipeReturnStack": {
+      "value": "CUSTOM:Foundryinactive"
+    },
+    "name": "foundryrecipe",
+    "namespace": "mod"
+  }
+}

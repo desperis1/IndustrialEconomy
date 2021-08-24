@@ -1,0 +1,46 @@
+{
+  "_fv": 24,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "recipeRetstackSize": 1,
+    "group": "hub",
+    "recipeShapeless": false,
+    "recipeSlots": [
+      {
+        "value": "Blocks.FURNACE"
+      },
+      {
+        "value": "Blocks.CHEST"
+      },
+      {
+        "value": "Blocks.CRAFTING_TABLE"
+      },
+      {
+        "value": "CUSTOM:CopperSheetItem"
+      },
+      {
+        "value": "CUSTOM:CircuitBoarditem"
+      },
+      {
+        "value": "CUSTOM:CopperSheetItem"
+      },
+      {
+        "value": "Blocks.IRON_BLOCK"
+      },
+      {
+        "value": "Blocks.IRON_BLOCK"
+      },
+      {
+        "value": "Blocks.IRON_BLOCK"
+      }
+    ],
+    "recipeReturnStack": {
+      "value": "CUSTOM:Hub"
+    },
+    "name": "hub_recipe",
+    "namespace": "mod"
+  }
+}

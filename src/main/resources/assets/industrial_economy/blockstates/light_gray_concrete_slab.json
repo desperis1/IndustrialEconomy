@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "industrial_economy:block/light_gray_concrete_slab"
+    },
+    "type=top": {
+      "model": "industrial_economy:block/light_gray_concrete_slab_top"
+    },
+    "type=double": {
+      "model": "industrial_economy:block/light_gray_concrete_slab_full"
+    }
+  }
+}

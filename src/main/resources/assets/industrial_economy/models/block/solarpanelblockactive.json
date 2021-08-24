@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "industrial_economy:blocks/solarpanelside",
+    "up": "industrial_economy:blocks/solarpanel_active",
+    "north": "industrial_economy:blocks/solarpanelside",
+    "east": "industrial_economy:blocks/solarpanelside",
+    "south": "industrial_economy:blocks/solarpanelside",
+    "west": "industrial_economy:blocks/solarpanelside",
+    "particle": "industrial_economy:blocks/solarpanelside"
+  }
+}

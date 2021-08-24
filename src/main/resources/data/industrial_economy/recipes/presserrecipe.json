@@ -1,0 +1,42 @@
+{
+  "group": "presser",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "345",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "industrial_economy:steel_block"
+    },
+    "1": {
+      "item": "minecraft:piston"
+    },
+    "2": {
+      "item": "industrial_economy:steel_block"
+    },
+    "3": {
+      "item": "minecraft:piston"
+    },
+    "4": {
+      "item": "industrial_economy:highspeedconectoritem"
+    },
+    "5": {
+      "item": "minecraft:piston"
+    },
+    "6": {
+      "item": "industrial_economy:steel_block"
+    },
+    "7": {
+      "item": "minecraft:piston"
+    },
+    "8": {
+      "item": "industrial_economy:steel_block"
+    }
+  },
+  "result": {
+    "item": "industrial_economy:presserblock",
+    "count": 1
+  }
+}

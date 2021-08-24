@@ -1,0 +1,46 @@
+{
+  "_fv": 24,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "recipeRetstackSize": 1,
+    "group": "armorchargermk2",
+    "recipeShapeless": false,
+    "recipeSlots": [
+      {
+        "value": "CUSTOM:Highspeedconectoritem"
+      },
+      {
+        "value": "CUSTOM:DiamondSteelblock"
+      },
+      {
+        "value": "CUSTOM:Highspeedconectoritem"
+      },
+      {
+        "value": "CUSTOM:DiamondSteelblock"
+      },
+      {
+        "value": "CUSTOM:Armorcharger"
+      },
+      {
+        "value": "CUSTOM:DiamondSteelblock"
+      },
+      {
+        "value": "CUSTOM:Highspeedconectoritem"
+      },
+      {
+        "value": "CUSTOM:DiamondSteelblock"
+      },
+      {
+        "value": "CUSTOM:Highspeedconectoritem"
+      }
+    ],
+    "recipeReturnStack": {
+      "value": "CUSTOM:Armorchargermk2"
+    },
+    "name": "armorchargermk_2recipe",
+    "namespace": "mod"
+  }
+}

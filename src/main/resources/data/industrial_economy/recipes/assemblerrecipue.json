@@ -1,0 +1,42 @@
+{
+  "group": "assembler",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "345",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "industrial_economy:steel_block"
+    },
+    "1": {
+      "item": "industrial_economy:highspeedconectoritem"
+    },
+    "2": {
+      "item": "industrial_economy:steel_block"
+    },
+    "3": {
+      "item": "industrial_economy:circuit_boarditem"
+    },
+    "4": {
+      "item": "industrial_economy:constructorblock"
+    },
+    "5": {
+      "item": "industrial_economy:circuit_boarditem"
+    },
+    "6": {
+      "item": "industrial_economy:steel_block"
+    },
+    "7": {
+      "item": "industrial_economy:highspeedconectoritem"
+    },
+    "8": {
+      "item": "industrial_economy:steel_block"
+    }
+  },
+  "result": {
+    "item": "industrial_economy:assemblerblock",
+    "count": 1
+  }
+}

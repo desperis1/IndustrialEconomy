@@ -1,0 +1,42 @@
+{
+  "display": {
+    "icon": {
+      "item": "industrial_economy:caterium_ingot"
+    },
+    "title": {
+      "translate": "advancements.cateriumadvancement.title"
+    },
+    "description": {
+      "translate": "advancements.cateriumadvancement.descr"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "cateriumadvancement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "industrial_economy:caterium_ingot",
+            "count": {
+              "min": 1,
+              "max": 1
+            }
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 1500,
+    "recipes": [
+      "industrial_economy:caterium_ore_block_recipe",
+      "industrial_economy:caterium_block_ore_recipe",
+      "industrial_economy:caterium_ore_smelting"
+    ]
+  },
+  "parent": "industrial_economy:hub_crafted_achievment"
+}

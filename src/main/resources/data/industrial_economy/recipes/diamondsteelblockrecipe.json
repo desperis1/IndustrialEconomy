@@ -1,0 +1,42 @@
+{
+  "group": "diamond_steel_block",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "345",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "industrial_economy:diamondsteelitem"
+    },
+    "1": {
+      "item": "industrial_economy:diamondsteelitem"
+    },
+    "2": {
+      "item": "industrial_economy:diamondsteelitem"
+    },
+    "3": {
+      "item": "industrial_economy:diamondsteelitem"
+    },
+    "4": {
+      "item": "industrial_economy:diamondsteelitem"
+    },
+    "5": {
+      "item": "industrial_economy:diamondsteelitem"
+    },
+    "6": {
+      "item": "industrial_economy:diamondsteelitem"
+    },
+    "7": {
+      "item": "industrial_economy:diamondsteelitem"
+    },
+    "8": {
+      "item": "industrial_economy:diamondsteelitem"
+    }
+  },
+  "result": {
+    "item": "industrial_economy:diamond_steelblock",
+    "count": 1
+  }
+}

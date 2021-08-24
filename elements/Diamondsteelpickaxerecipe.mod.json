@@ -1,0 +1,46 @@
+{
+  "_fv": 24,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "recipeRetstackSize": 1,
+    "group": "diamondsteel_pickaxe",
+    "recipeShapeless": false,
+    "recipeSlots": [
+      {
+        "value": "CUSTOM:Diamondsteelitem"
+      },
+      {
+        "value": "CUSTOM:Diamondsteelitem"
+      },
+      {
+        "value": "CUSTOM:Diamondsteelitem"
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": "Items.DIAMOND"
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": "Items.DIAMOND"
+      },
+      {
+        "value": ""
+      }
+    ],
+    "recipeReturnStack": {
+      "value": "CUSTOM:DiamondSteelpickaxe"
+    },
+    "name": "diamondsteelpickaxerecipe",
+    "namespace": "mod"
+  }
+}

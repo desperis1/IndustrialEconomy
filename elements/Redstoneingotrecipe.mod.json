@@ -1,0 +1,46 @@
+{
+  "_fv": 24,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "recipeRetstackSize": 2,
+    "group": "redstone_ingot",
+    "recipeShapeless": false,
+    "recipeSlots": [
+      {
+        "value": ""
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": "Items.REDSTONE"
+      },
+      {
+        "value": "Items.REDSTONE"
+      },
+      {
+        "value": "Items.REDSTONE"
+      },
+      {
+        "value": "Items.REDSTONE"
+      },
+      {
+        "value": "Items.REDSTONE"
+      },
+      {
+        "value": "Items.REDSTONE"
+      }
+    ],
+    "recipeReturnStack": {
+      "value": "CUSTOM:Redstoneingotitem"
+    },
+    "name": "redstoneingotrecipe",
+    "namespace": "mod"
+  }
+}

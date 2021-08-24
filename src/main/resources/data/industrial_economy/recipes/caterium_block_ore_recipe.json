@@ -1,0 +1,13 @@
+{
+  "group": "mega",
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "industrial_economy:caterium_block"
+    }
+  ],
+  "result": {
+    "item": "industrial_economy:caterium_ingot",
+    "count": 9
+  }
+}

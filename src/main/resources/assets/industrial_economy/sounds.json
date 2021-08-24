@@ -1,0 +1,31 @@
+{
+  "plasma_shoot": {
+    "category": "master",
+    "subtitle": "subtitles.plasma_shoot",
+    "sounds": [
+      {
+        "name": "industrial_economy:plazma_shoot",
+        "stream": false
+      }
+    ]
+  },
+  "plazma": {
+    "category": "block",
+    "subtitle": "subtitles.plazma",
+    "sounds": [
+      {
+        "name": "industrial_economy:plazma",
+        "stream": false
+      }
+    ]
+  },
+  "jetpack_sound": {
+    "category": "player",
+    "sounds": [
+      {
+        "name": "industrial_economy:jetpack",
+        "stream": false
+      }
+    ]
+  }
+}

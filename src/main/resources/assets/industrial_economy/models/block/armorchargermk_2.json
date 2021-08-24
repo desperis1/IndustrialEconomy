@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "industrial_economy:blocks/generatormk2_bottom",
+    "up": "industrial_economy:blocks/armorcharger_mk2_top",
+    "north": "industrial_economy:blocks/generatormk2_side",
+    "east": "industrial_economy:blocks/generatormk2_side",
+    "south": "industrial_economy:blocks/generatormk2_side",
+    "west": "industrial_economy:blocks/generatormk2_side",
+    "particle": "industrial_economy:blocks/generatormk2_bottom"
+  }
+}

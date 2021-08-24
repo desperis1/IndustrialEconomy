@@ -1,0 +1,12 @@
+{
+  "_fv": 24,
+  "_type": "keybind",
+  "definition": {
+    "triggerKey": "NUMPAD0",
+    "keyBindingName": "Diamond Steel Armor GUI",
+    "keyBindingCategoryKey": "misc",
+    "onKeyPressed": {
+      "name": "DSArmorkeybindOnKeyPressed"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "_fv": 24,
+  "_type": "tool",
+  "definition": {
+    "renderType": 0,
+    "texture": "diamondsteel_axe",
+    "customModelName": "Normal",
+    "name": "Diamond Steel Axe",
+    "specialInfo": [],
+    "creativeTab": {
+      "value": "CUSTOM:ProjectMEGA"
+    },
+    "toolType": "Axe",
+    "harvestLevel": 1,
+    "efficiency": 15.0,
+    "attackSpeed": 5.0,
+    "enchantability": 2,
+    "damageVsEntity": 12.0,
+    "usageCount": 98000,
+    "blocksAffected": [],
+    "hasGlow": false,
+    "repairItems": [],
+    "immuneToFire": false,
+    "stayInGridWhenCrafting": false,
+    "damageOnCrafting": false,
+    "onBlockDestroyedWithTool": {
+      "name": "DiamondsteelaxeBlockDestroyedWithTool"
+    }
+  }
+}

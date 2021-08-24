@@ -1,0 +1,43 @@
+{
+  "display": {
+    "icon": {
+      "item": "industrial_economy:copper_sheet_item"
+    },
+    "title": {
+      "translate": "advancements.copperadvancement.title"
+    },
+    "description": {
+      "translate": "advancements.copperadvancement.descr"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "copperadvancement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "industrial_economy:copper_ingot",
+            "count": {
+              "min": 1,
+              "max": 1
+            }
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 500,
+    "recipes": [
+      "industrial_economy:copper_ore_smelting",
+      "industrial_economy:copper_ore_block_recipe",
+      "industrial_economy:copper_block_ore_recipe",
+      "industrial_economy:coppersheetrecipe"
+    ]
+  },
+  "parent": "industrial_economy:hub_crafted_achievment"
+}

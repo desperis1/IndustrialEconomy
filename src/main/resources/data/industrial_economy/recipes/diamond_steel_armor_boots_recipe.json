@@ -1,0 +1,26 @@
+{
+  "group": "diamondsteelarmorboots",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "0 2",
+    "3 5"
+  ],
+  "key": {
+    "0": {
+      "item": "industrial_economy:diamondsteelplate"
+    },
+    "2": {
+      "item": "industrial_economy:diamondsteelplate"
+    },
+    "3": {
+      "item": "industrial_economy:diamondsteelplate"
+    },
+    "5": {
+      "item": "industrial_economy:diamondsteelplate"
+    }
+  },
+  "result": {
+    "item": "industrial_economy:diamond_steel_armor_boots",
+    "count": 1
+  }
+}

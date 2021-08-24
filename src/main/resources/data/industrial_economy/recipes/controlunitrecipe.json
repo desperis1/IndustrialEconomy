@@ -1,0 +1,42 @@
+{
+  "group": "controlunitrecipe",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "345",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "industrial_economy:highspeedconectoritem"
+    },
+    "1": {
+      "item": "industrial_economy:circuit_boarditem"
+    },
+    "2": {
+      "item": "industrial_economy:highspeedconectoritem"
+    },
+    "3": {
+      "item": "industrial_economy:ai_limiteritem"
+    },
+    "4": {
+      "item": "industrial_economy:diamondsteelplate"
+    },
+    "5": {
+      "item": "industrial_economy:ai_limiteritem"
+    },
+    "6": {
+      "item": "industrial_economy:cateriumwireitem"
+    },
+    "7": {
+      "item": "industrial_economy:cateriumwireitem"
+    },
+    "8": {
+      "item": "industrial_economy:cateriumwireitem"
+    }
+  },
+  "result": {
+    "item": "industrial_economy:control_unit",
+    "count": 1
+  }
+}

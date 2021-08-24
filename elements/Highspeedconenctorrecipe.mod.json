@@ -1,0 +1,46 @@
+{
+  "_fv": 24,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "recipeRetstackSize": 1,
+    "group": "highspeedconnector",
+    "recipeShapeless": false,
+    "recipeSlots": [
+      {
+        "value": "CUSTOM:CopperSheetItem"
+      },
+      {
+        "value": "CUSTOM:CircuitBoarditem"
+      },
+      {
+        "value": "CUSTOM:CopperSheetItem"
+      },
+      {
+        "value": "CUSTOM:CircuitBoarditem"
+      },
+      {
+        "value": "CUSTOM:CateriumBlock"
+      },
+      {
+        "value": "CUSTOM:CircuitBoarditem"
+      },
+      {
+        "value": "CUSTOM:SteelBlock"
+      },
+      {
+        "value": "CUSTOM:Cateriumwireitem"
+      },
+      {
+        "value": "CUSTOM:SteelBlock"
+      }
+    ],
+    "recipeReturnStack": {
+      "value": "CUSTOM:Highspeedconectoritem"
+    },
+    "name": "highspeedconenctorrecipe",
+    "namespace": "mod"
+  }
+}

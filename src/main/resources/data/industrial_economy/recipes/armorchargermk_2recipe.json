@@ -1,0 +1,42 @@
+{
+  "group": "armorchargermk2",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "345",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "industrial_economy:highspeedconectoritem"
+    },
+    "1": {
+      "item": "industrial_economy:diamond_steelblock"
+    },
+    "2": {
+      "item": "industrial_economy:highspeedconectoritem"
+    },
+    "3": {
+      "item": "industrial_economy:diamond_steelblock"
+    },
+    "4": {
+      "item": "industrial_economy:armorcharger"
+    },
+    "5": {
+      "item": "industrial_economy:diamond_steelblock"
+    },
+    "6": {
+      "item": "industrial_economy:highspeedconectoritem"
+    },
+    "7": {
+      "item": "industrial_economy:diamond_steelblock"
+    },
+    "8": {
+      "item": "industrial_economy:highspeedconectoritem"
+    }
+  },
+  "result": {
+    "item": "industrial_economy:armorchargermk_2",
+    "count": 1
+  }
+}

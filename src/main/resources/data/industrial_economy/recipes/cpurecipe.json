@@ -1,0 +1,42 @@
+{
+  "group": "cpurecipe",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "345",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "industrial_economy:highspeedconectoritem"
+    },
+    "1": {
+      "item": "industrial_economy:control_unit"
+    },
+    "2": {
+      "item": "industrial_economy:highspeedconectoritem"
+    },
+    "3": {
+      "item": "industrial_economy:control_unit"
+    },
+    "4": {
+      "item": "industrial_economy:ai_limiteritem"
+    },
+    "5": {
+      "item": "industrial_economy:control_unit"
+    },
+    "6": {
+      "item": "industrial_economy:highspeedconectoritem"
+    },
+    "7": {
+      "item": "industrial_economy:control_unit"
+    },
+    "8": {
+      "item": "industrial_economy:highspeedconectoritem"
+    }
+  },
+  "result": {
+    "item": "industrial_economy:cpu",
+    "count": 1
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "_fv": 24,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "recipeRetstackSize": 1,
+    "group": "diamondsteelplate",
+    "recipeShapeless": false,
+    "recipeSlots": [
+      {
+        "value": "CUSTOM:Diamondscrewitem"
+      },
+      {
+        "value": "CUSTOM:Ironplate"
+      },
+      {
+        "value": "CUSTOM:Diamondscrewitem"
+      },
+      {
+        "value": "CUSTOM:Heavyironblock"
+      },
+      {
+        "value": "CUSTOM:DiamondSteelblock"
+      },
+      {
+        "value": "CUSTOM:Heavyironblock"
+      },
+      {
+        "value": "CUSTOM:Diamondscrewitem"
+      },
+      {
+        "value": "CUSTOM:Ironplate"
+      },
+      {
+        "value": "CUSTOM:Diamondscrewitem"
+      }
+    ],
+    "recipeReturnStack": {
+      "value": "CUSTOM:Diamondsteelplate"
+    },
+    "name": "diamondsteelplaterecipe",
+    "namespace": "mod"
+  }
+}

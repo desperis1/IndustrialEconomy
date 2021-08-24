@@ -1,0 +1,8 @@
+{
+  "parent": "block/stairs",
+  "textures": {
+    "bottom": "industrial_economy:blocks/pink_concrete",
+    "top": "industrial_economy:blocks/pink_concrete",
+    "side": "industrial_economy:blocks/pink_concrete"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "group": "turbofuel2",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "345",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "industrial_economy:turbofuelitem"
+    },
+    "1": {
+      "item": "industrial_economy:turbofuelitem"
+    },
+    "2": {
+      "item": "industrial_economy:turbofuelitem"
+    },
+    "3": {
+      "item": "industrial_economy:turbofuelitem"
+    },
+    "4": {
+      "item": "industrial_economy:redstoneingotitem"
+    },
+    "5": {
+      "item": "industrial_economy:turbofuelitem"
+    },
+    "6": {
+      "item": "industrial_economy:turbofuelitem"
+    },
+    "7": {
+      "item": "industrial_economy:turbofuelitem"
+    },
+    "8": {
+      "item": "industrial_economy:turbofuelitem"
+    }
+  },
+  "result": {
+    "item": "industrial_economy:turbofuelitem_2",
+    "count": 1
+  }
+}

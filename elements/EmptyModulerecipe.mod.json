@@ -1,0 +1,46 @@
+{
+  "_fv": 24,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "recipeRetstackSize": 1,
+    "group": "emptymoudle",
+    "recipeShapeless": false,
+    "recipeSlots": [
+      {
+        "value": "CUSTOM:ControlUnit"
+      },
+      {
+        "value": "CUSTOM:Cpu"
+      },
+      {
+        "value": "CUSTOM:ControlUnit"
+      },
+      {
+        "value": "CUSTOM:ControlUnit"
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": "CUSTOM:ControlUnit"
+      },
+      {
+        "value": "CUSTOM:ControlUnit"
+      },
+      {
+        "value": "CUSTOM:ControlUnit"
+      },
+      {
+        "value": "CUSTOM:ControlUnit"
+      }
+    ],
+    "recipeReturnStack": {
+      "value": "CUSTOM:Emptymodule"
+    },
+    "name": "empty_modulerecipe",
+    "namespace": "mod"
+  }
+}

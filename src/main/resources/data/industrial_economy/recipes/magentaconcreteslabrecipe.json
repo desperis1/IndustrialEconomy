@@ -1,0 +1,22 @@
+{
+  "group": "industrial_economy",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012"
+  ],
+  "key": {
+    "0": {
+      "item": "minecraft:magenta_concrete"
+    },
+    "1": {
+      "item": "minecraft:magenta_concrete"
+    },
+    "2": {
+      "item": "minecraft:magenta_concrete"
+    }
+  },
+  "result": {
+    "item": "industrial_economy:magenta_concrete_slab",
+    "count": 6
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "industrial_economy:block/electric_furnance_block"
+    },
+    "facing=east": {
+      "model": "industrial_economy:block/electric_furnance_block",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "industrial_economy:block/electric_furnance_block",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "industrial_economy:block/electric_furnance_block",
+      "y": 270
+    }
+  }
+}

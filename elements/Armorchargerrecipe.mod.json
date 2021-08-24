@@ -1,0 +1,46 @@
+{
+  "_fv": 24,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "recipeRetstackSize": 1,
+    "group": "armorchargerrecipe",
+    "recipeShapeless": false,
+    "recipeSlots": [
+      {
+        "value": "CUSTOM:Diamondsteelitem"
+      },
+      {
+        "value": "CUSTOM:DiamondSteelblock"
+      },
+      {
+        "value": "CUSTOM:Diamondsteelitem"
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": "CUSTOM:GeneratorMK1"
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": "CUSTOM:Heavyironblock"
+      },
+      {
+        "value": "CUSTOM:Heavyironblock"
+      },
+      {
+        "value": "CUSTOM:Heavyironblock"
+      }
+    ],
+    "recipeReturnStack": {
+      "value": "CUSTOM:Armorcharger"
+    },
+    "name": "armorchargerrecipe",
+    "namespace": "mod"
+  }
+}

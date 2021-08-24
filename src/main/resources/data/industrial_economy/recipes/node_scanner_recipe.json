@@ -1,0 +1,36 @@
+{
+  "group": "nodescanner",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " 1 ",
+    "345",
+    "678"
+  ],
+  "key": {
+    "1": {
+      "item": "industrial_economy:redstoneingotitem"
+    },
+    "3": {
+      "item": "industrial_economy:cateriumwireitem"
+    },
+    "4": {
+      "item": "minecraft:diamond"
+    },
+    "5": {
+      "item": "industrial_economy:cateriumwireitem"
+    },
+    "6": {
+      "item": "industrial_economy:circuit_boarditem"
+    },
+    "7": {
+      "item": "industrial_economy:circuit_boarditem"
+    },
+    "8": {
+      "item": "industrial_economy:circuit_boarditem"
+    }
+  },
+  "result": {
+    "item": "industrial_economy:node_scanner_tool",
+    "count": 1
+  }
+}

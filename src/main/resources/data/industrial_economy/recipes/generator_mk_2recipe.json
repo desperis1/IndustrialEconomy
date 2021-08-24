@@ -1,0 +1,42 @@
+{
+  "group": "generatormk2",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "345",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "industrial_economy:diamond_steelblock"
+    },
+    "1": {
+      "item": "industrial_economy:highspeedconectoritem"
+    },
+    "2": {
+      "item": "industrial_economy:diamond_steelblock"
+    },
+    "3": {
+      "item": "industrial_economy:circuit_boarditem"
+    },
+    "4": {
+      "item": "industrial_economy:generator_mk_1inactive"
+    },
+    "5": {
+      "item": "industrial_economy:circuit_boarditem"
+    },
+    "6": {
+      "item": "industrial_economy:diamond_steelblock"
+    },
+    "7": {
+      "item": "industrial_economy:highspeedconectoritem"
+    },
+    "8": {
+      "item": "industrial_economy:diamond_steelblock"
+    }
+  },
+  "result": {
+    "item": "industrial_economy:generator_mk_2inactive",
+    "count": 1
+  }
+}

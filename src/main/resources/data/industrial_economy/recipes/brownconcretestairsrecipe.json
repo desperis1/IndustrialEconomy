@@ -1,0 +1,33 @@
+{
+  "group": "industrial_economy",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "0  ",
+    "34 ",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "minecraft:brown_concrete"
+    },
+    "3": {
+      "item": "minecraft:brown_concrete"
+    },
+    "4": {
+      "item": "minecraft:brown_concrete"
+    },
+    "6": {
+      "item": "minecraft:brown_concrete"
+    },
+    "7": {
+      "item": "minecraft:brown_concrete"
+    },
+    "8": {
+      "item": "minecraft:brown_concrete"
+    }
+  },
+  "result": {
+    "item": "industrial_economy:brown_concrete_stairs",
+    "count": 4
+  }
+}

@@ -1,0 +1,121 @@
+{
+  "_fv": 24,
+  "_type": "gui",
+  "definition": {
+    "type": 1,
+    "width": 179,
+    "height": 195,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 15,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "text": "Assembler",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Assembler",
+          "x": 191,
+          "y": 27
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "color": {
+            "value": -6710887,
+            "falpha": 0.0
+          },
+          "id": 0,
+          "disableStackInteraction": false,
+          "dropItemsWhenNotBound": true,
+          "name": "Slot #0",
+          "x": 149,
+          "y": 40
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "id": 1,
+          "disableStackInteraction": false,
+          "dropItemsWhenNotBound": true,
+          "name": "Slot #1",
+          "x": 262,
+          "y": 40
+        }
+      },
+      {
+        "type": "outputslot",
+        "data": {
+          "id": 2,
+          "disableStackInteraction": false,
+          "dropItemsWhenNotBound": true,
+          "name": "Slot #2",
+          "x": 203,
+          "y": 59
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Working",
+          "color": {
+            "value": -16711885,
+            "falpha": 0.0
+          },
+          "displayCondition": {
+            "name": "GeneratorWorkingLabel"
+          },
+          "name": "Working",
+          "x": 195,
+          "y": 43
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Change Recipe",
+          "onClick": {
+            "name": "AssemblerChangeRecipeONclick"
+          },
+          "width": 90,
+          "height": 20,
+          "name": "Change Recipe",
+          "x": 168,
+          "y": 111
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Recipe: <BNBT:text:Recipe>",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "Recipe: <BNBT:text:Recipe>",
+          "x": 157,
+          "y": 92
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "_fv": 24,
+  "_type": "gui",
+  "definition": {
+    "type": 1,
+    "width": 176,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "text": "Builder",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "Builder",
+          "x": 193,
+          "y": 41
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "id": 0,
+          "disableStackInteraction": false,
+          "dropItemsWhenNotBound": true,
+          "name": "Slot #0",
+          "x": 200,
+          "y": 70
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Material is: <VAR:buildgun_material>",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "Material is: <VAR:buildgun_material>",
+          "x": 132,
+          "y": 53
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Clear",
+          "onClick": {
+            "name": "Builderclearprocedure"
+          },
+          "width": 50,
+          "height": 20,
+          "name": "Clear",
+          "x": 135,
+          "y": 69
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Build",
+          "onClick": {
+            "name": "Builderbuildprocedure"
+          },
+          "width": 50,
+          "height": 20,
+          "name": "Build",
+          "x": 235,
+          "y": 69
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Give me Markers.",
+          "onClick": {
+            "name": "Givememarkersbutton"
+          },
+          "width": 105,
+          "height": 20,
+          "name": "Give me Markers.",
+          "x": 159,
+          "y": 94
+        }
+      }
+    ],
+    "onTick": {
+      "name": "BuilderGUIThisGUIIsOpened"
+    },
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

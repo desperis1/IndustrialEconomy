@@ -1,0 +1,49 @@
+{
+  "_fv": 24,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 176,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "text": "Diamond Steel Sword",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "Diamond Steel Sword",
+          "x": 163,
+          "y": 43
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Thor Power",
+          "onClick": {
+            "name": "Lightingpowertonclick"
+          },
+          "width": 95,
+          "height": 20,
+          "name": "Thor Power",
+          "x": 163,
+          "y": 62
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

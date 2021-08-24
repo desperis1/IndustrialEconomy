@@ -1,0 +1,39 @@
+{
+  "group": "concretemixer",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "3 5",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "industrial_economy:steel_block"
+    },
+    "1": {
+      "item": "industrial_economy:ai_limiteritem"
+    },
+    "2": {
+      "item": "industrial_economy:steel_block"
+    },
+    "3": {
+      "item": "industrial_economy:ironplate"
+    },
+    "5": {
+      "item": "industrial_economy:ironplate"
+    },
+    "6": {
+      "item": "industrial_economy:steel_block"
+    },
+    "7": {
+      "item": "industrial_economy:ironplate"
+    },
+    "8": {
+      "item": "industrial_economy:steel_block"
+    }
+  },
+  "result": {
+    "item": "industrial_economy:concretemixer",
+    "count": 1
+  }
+}

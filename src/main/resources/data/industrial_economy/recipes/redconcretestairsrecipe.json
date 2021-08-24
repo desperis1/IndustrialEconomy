@@ -1,0 +1,33 @@
+{
+  "group": "industrial_economy",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "0  ",
+    "34 ",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "minecraft:red_concrete"
+    },
+    "3": {
+      "item": "minecraft:red_concrete"
+    },
+    "4": {
+      "item": "minecraft:red_concrete"
+    },
+    "6": {
+      "item": "minecraft:red_concrete"
+    },
+    "7": {
+      "item": "minecraft:red_concrete"
+    },
+    "8": {
+      "item": "minecraft:red_concrete"
+    }
+  },
+  "result": {
+    "item": "industrial_economy:red_concrete_stairs",
+    "count": 4
+  }
+}

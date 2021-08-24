@@ -1,0 +1,39 @@
+{
+  "group": "emptymoudle",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "3 5",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "industrial_economy:control_unit"
+    },
+    "1": {
+      "item": "industrial_economy:cpu"
+    },
+    "2": {
+      "item": "industrial_economy:control_unit"
+    },
+    "3": {
+      "item": "industrial_economy:control_unit"
+    },
+    "5": {
+      "item": "industrial_economy:control_unit"
+    },
+    "6": {
+      "item": "industrial_economy:control_unit"
+    },
+    "7": {
+      "item": "industrial_economy:control_unit"
+    },
+    "8": {
+      "item": "industrial_economy:control_unit"
+    }
+  },
+  "result": {
+    "item": "industrial_economy:emptymodule",
+    "count": 1
+  }
+}

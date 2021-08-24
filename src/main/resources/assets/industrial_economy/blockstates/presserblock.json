@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "industrial_economy:block/presserblock"
+    },
+    "facing=east": {
+      "model": "industrial_economy:block/presserblock",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "industrial_economy:block/presserblock",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "industrial_economy:block/presserblock",
+      "y": 270
+    }
+  }
+}

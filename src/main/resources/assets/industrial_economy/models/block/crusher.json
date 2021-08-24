@@ -1,0 +1,12 @@
+{
+  "parent": "industrial_economy:custom/drticka",
+  "textures": {
+    "all": "industrial_economy:blocks/hopper_top",
+    "particle": "industrial_economy:blocks/hopper_top",
+    "0": "industrial_economy:blocks/bedrock",
+    "1": "industrial_economy:blocks/cobblestone",
+    "2": "industrial_economy:blocks/gold_block",
+    "3": "industrial_economy:blocks/blast_furnace_top",
+    "4": "industrial_economy:blocks/barrel_side"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "_fv": 24,
+  "_type": "command",
+  "definition": {
+    "commandName": "land",
+    "permissionLevel": "No requirement",
+    "onCommandExecuted": {
+      "name": "LandCommandExecuted"
+    }
+  }
+}

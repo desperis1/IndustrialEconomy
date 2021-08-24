@@ -1,0 +1,42 @@
+{
+  "group": "industrial_economy",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "345",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "industrial_economy:cateriumwireitem"
+    },
+    "1": {
+      "item": "industrial_economy:highspeedconectoritem"
+    },
+    "2": {
+      "item": "industrial_economy:cateriumwireitem"
+    },
+    "3": {
+      "item": "industrial_economy:cateriumwireitem"
+    },
+    "4": {
+      "item": "industrial_economy:ai_limiteritem"
+    },
+    "5": {
+      "item": "industrial_economy:cateriumwireitem"
+    },
+    "6": {
+      "item": "industrial_economy:steel_block"
+    },
+    "7": {
+      "item": "industrial_economy:diamondsteelplate"
+    },
+    "8": {
+      "item": "industrial_economy:steel_block"
+    }
+  },
+  "result": {
+    "item": "industrial_economy:solarpanelblockinactive",
+    "count": 1
+  }
+}

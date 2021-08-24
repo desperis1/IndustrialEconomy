@@ -1,0 +1,16 @@
+{
+  "group": "sunnymodulerecipe",
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:glowstone_dust"
+    },
+    {
+      "item": "industrial_economy:emptymodule"
+    }
+  ],
+  "result": {
+    "item": "industrial_economy:sunny_hu_bmodule",
+    "count": 1
+  }
+}

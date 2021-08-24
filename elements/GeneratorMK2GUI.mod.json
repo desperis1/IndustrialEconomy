@@ -1,0 +1,95 @@
+{
+  "_fv": 24,
+  "_type": "gui",
+  "definition": {
+    "type": 1,
+    "width": 176,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "text": "GENERATOR",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "GENERATOR",
+          "x": 167,
+          "y": 41
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "MK 2",
+          "color": {
+            "value": -16724788,
+            "falpha": 0.0
+          },
+          "name": "MK 2",
+          "x": 223,
+          "y": 41
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "color": {
+            "value": -6684673,
+            "falpha": 0.0
+          },
+          "id": 0,
+          "disableStackInteraction": false,
+          "dropItemsWhenNotBound": true,
+          "name": "Slot #0",
+          "x": 200,
+          "y": 67
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "<BNBT:number:GeneratorEnergy>",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "<BNBT:number:GeneratorEnergy>",
+          "x": 138,
+          "y": 96
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Working",
+          "color": {
+            "value": -16738048,
+            "falpha": 0.0
+          },
+          "displayCondition": {
+            "name": "GeneratorWorkingLabel"
+          },
+          "name": "Working",
+          "x": 193,
+          "y": 52
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

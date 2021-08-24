@@ -1,0 +1,76 @@
+{
+  "_fv": 24,
+  "_type": "gui",
+  "definition": {
+    "type": 1,
+    "width": 176,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "outputslot",
+        "data": {
+          "id": 0,
+          "disableStackInteraction": false,
+          "dropItemsWhenNotBound": true,
+          "name": "Slot #0",
+          "x": 202,
+          "y": 68
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Copper Extractor",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "Copper Extractor",
+          "x": 172,
+          "y": 43
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Working",
+          "color": {
+            "value": -16711936,
+            "falpha": 0.0
+          },
+          "displayCondition": {
+            "name": "GeneratorWorkingLabel"
+          },
+          "name": "Working",
+          "x": 193,
+          "y": 54
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "ON/OFF",
+          "onClick": {
+            "name": "Extractoronoff"
+          },
+          "width": 55,
+          "height": 20,
+          "name": "ON/OFF",
+          "x": 184,
+          "y": 89
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

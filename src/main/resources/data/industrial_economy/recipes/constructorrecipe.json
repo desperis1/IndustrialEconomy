@@ -1,0 +1,42 @@
+{
+  "group": "constructor",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "345",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "minecraft:iron_block"
+    },
+    "1": {
+      "item": "minecraft:crafting_table"
+    },
+    "2": {
+      "item": "minecraft:iron_block"
+    },
+    "3": {
+      "item": "minecraft:stone_bricks"
+    },
+    "4": {
+      "item": "industrial_economy:circuit_boarditem"
+    },
+    "5": {
+      "item": "minecraft:stone_bricks"
+    },
+    "6": {
+      "item": "minecraft:stone_bricks"
+    },
+    "7": {
+      "item": "industrial_economy:circuit_boarditem"
+    },
+    "8": {
+      "item": "minecraft:stone_bricks"
+    }
+  },
+  "result": {
+    "item": "industrial_economy:constructorblock",
+    "count": 1
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "group": "blockstoingots",
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "industrial_economy:steel_block"
+    }
+  ],
+  "result": {
+    "item": "industrial_economy:steelingot",
+    "count": 9
+  }
+}

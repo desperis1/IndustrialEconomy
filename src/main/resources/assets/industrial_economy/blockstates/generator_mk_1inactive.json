@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "industrial_economy:block/generator_mk_1inactive"
+    },
+    "facing=east": {
+      "model": "industrial_economy:block/generator_mk_1inactive",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "industrial_economy:block/generator_mk_1inactive",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "industrial_economy:block/generator_mk_1inactive",
+      "y": 270
+    }
+  }
+}

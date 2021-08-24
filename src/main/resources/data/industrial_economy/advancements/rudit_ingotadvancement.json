@@ -1,0 +1,40 @@
+{
+  "display": {
+    "icon": {
+      "item": "industrial_economy:redstoneingotitem"
+    },
+    "title": {
+      "translate": "advancements.rudit_ingotadvancement.title"
+    },
+    "description": {
+      "translate": "advancements.rudit_ingotadvancement.descr"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "rudit_ingotadvancement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "minecraft:redstone",
+            "count": {
+              "min": 1,
+              "max": 1
+            }
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 700,
+    "recipes": [
+      "industrial_economy:redstoneingotrecipe"
+    ]
+  },
+  "parent": "industrial_economy:hub_crafted_achievment"
+}

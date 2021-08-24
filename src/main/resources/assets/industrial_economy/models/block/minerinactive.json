@@ -1,0 +1,9 @@
+{
+  "parent": "industrial_economy:custom/miner_inactive",
+  "textures": {
+    "all": "industrial_economy:blocks/minerfaces_inactive",
+    "particle": "industrial_economy:blocks/minerfaces_inactive",
+    "0": "industrial_economy:blocks/iron_block_orig",
+    "1": "industrial_economy:blocks/minerfaces_inactive"
+  }
+}

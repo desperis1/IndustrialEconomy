@@ -1,0 +1,16 @@
+{
+  "group": "daymodulerecipe",
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:diamond"
+    },
+    {
+      "item": "industrial_economy:emptymodule"
+    }
+  ],
+  "result": {
+    "item": "industrial_economy:permadayupgrade",
+    "count": 1
+  }
+}

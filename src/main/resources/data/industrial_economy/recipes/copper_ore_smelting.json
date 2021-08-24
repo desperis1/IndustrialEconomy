@@ -1,0 +1,12 @@
+{
+  "group": "industrial_economy",
+  "type": "minecraft:smelting",
+  "experience": 0.7,
+  "cookingtime": 200,
+  "ingredient": {
+    "item": "industrial_economy:copper_ore"
+  },
+  "result": {
+    "item": "industrial_economy:copper_ingot"
+  }
+}

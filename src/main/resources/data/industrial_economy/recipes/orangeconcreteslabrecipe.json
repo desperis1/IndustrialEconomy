@@ -1,0 +1,22 @@
+{
+  "group": "industrial_economy",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012"
+  ],
+  "key": {
+    "0": {
+      "item": "minecraft:orange_concrete"
+    },
+    "1": {
+      "item": "minecraft:orange_concrete"
+    },
+    "2": {
+      "item": "minecraft:orange_concrete"
+    }
+  },
+  "result": {
+    "item": "industrial_economy:orange_concrete_slab",
+    "count": 6
+  }
+}

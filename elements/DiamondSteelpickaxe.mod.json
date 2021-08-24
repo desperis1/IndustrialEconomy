@@ -1,0 +1,33 @@
+{
+  "_fv": 24,
+  "_type": "tool",
+  "definition": {
+    "renderType": 0,
+    "texture": "diamond_steel_pickaxe",
+    "customModelName": "Normal",
+    "name": "Diamond Steel Pickaxe",
+    "specialInfo": [],
+    "creativeTab": {
+      "value": "CUSTOM:ProjectMEGA"
+    },
+    "toolType": "Pickaxe",
+    "harvestLevel": 3,
+    "efficiency": 15.0,
+    "attackSpeed": 1.0,
+    "enchantability": 15,
+    "damageVsEntity": 10.0,
+    "usageCount": 115000,
+    "blocksAffected": [],
+    "hasGlow": false,
+    "repairItems": [],
+    "immuneToFire": false,
+    "stayInGridWhenCrafting": false,
+    "damageOnCrafting": false,
+    "onItemInUseTick": {
+      "name": "DiamondSteelpickaxeToolInHandTick"
+    },
+    "onBlockDestroyedWithTool": {
+      "name": "DiamondSteelpickaxeBlockDestroyedWithTool"
+    }
+  }
+}

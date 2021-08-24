@@ -1,0 +1,36 @@
+{
+  "group": "armorchargerrecipe",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    " 4 ",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "industrial_economy:diamondsteelitem"
+    },
+    "1": {
+      "item": "industrial_economy:diamond_steelblock"
+    },
+    "2": {
+      "item": "industrial_economy:diamondsteelitem"
+    },
+    "4": {
+      "item": "industrial_economy:generator_mk_1"
+    },
+    "6": {
+      "item": "industrial_economy:heavyironblock"
+    },
+    "7": {
+      "item": "industrial_economy:heavyironblock"
+    },
+    "8": {
+      "item": "industrial_economy:heavyironblock"
+    }
+  },
+  "result": {
+    "item": "industrial_economy:armorcharger",
+    "count": 1
+  }
+}

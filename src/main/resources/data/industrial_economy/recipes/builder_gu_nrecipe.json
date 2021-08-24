@@ -1,0 +1,31 @@
+{
+  "group": "buildergunrecipe",
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "industrial_economy:redstoneingotitem"
+    },
+    {
+      "item": "industrial_economy:diamondsteelitem"
+    },
+    {
+      "item": "industrial_economy:control_unit"
+    },
+    {
+      "item": "industrial_economy:diamondsteelitem"
+    },
+    {
+      "item": "industrial_economy:diamondsteelitem"
+    },
+    {
+      "item": "industrial_economy:diamondsteelitem"
+    },
+    {
+      "item": "industrial_economy:diamondsteelitem"
+    }
+  ],
+  "result": {
+    "item": "industrial_economy:buildertool",
+    "count": 1
+  }
+}

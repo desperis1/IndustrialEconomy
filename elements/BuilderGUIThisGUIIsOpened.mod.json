@@ -1,0 +1,7 @@
+{
+  "_fv": 24,
+  "_type": "procedure",
+  "definition": {
+    "procedurexml": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?><xml xmlns=\"https://developers.google.com/blockly/xml\"><block deletable=\"false\" type=\"event_trigger\" x=\"411\" y=\"105\"><field name=\"trigger\">no_ext_trigger</field><next><block type=\"controls_if\"><value name=\"IF0\"><block type=\"math_binary_ops\"><field name=\"OP\">LT</field><value name=\"A\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><value name=\"B\"><block type=\"gui_get_amount_inslot\"><value name=\"slotid\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><value name=\"entity\"><block type=\"entity_from_deps\"/></value></block></value></block></value><statement name=\"DO0\"><block type=\"variables_set_itemstack\"><field name=\"VAR\">global:buildgun_material</field><value name=\"VAL\"><block type=\"gui_get_item_inslot\"><value name=\"slotid\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><value name=\"entity\"><block type=\"entity_from_deps\"/></value></block></value><next><block type=\"gui_clear_slot\"><value name=\"slotid\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value><value name=\"entity\"><block type=\"entity_from_deps\"/></value></block></next><value name=\"entity\"><block type=\"entity_from_deps\"/></value><mutation has_entity=\"true\" is_player_var=\"true\"/></block></statement></block></next></block></xml>"
+  }
+}

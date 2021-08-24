@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "industrial_economy:block/crusher"
+    },
+    "facing=east": {
+      "model": "industrial_economy:block/crusher",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "industrial_economy:block/crusher",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "industrial_economy:block/crusher",
+      "y": 270
+    }
+  }
+}

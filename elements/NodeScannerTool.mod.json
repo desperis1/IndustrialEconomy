@@ -1,0 +1,32 @@
+{
+  "_fv": 24,
+  "_type": "tool",
+  "definition": {
+    "renderType": 0,
+    "texture": "scanner",
+    "customModelName": "Normal",
+    "name": "Node Scanner",
+    "specialInfo": [
+      "This scanner can scan for nodes in radius 50 blocks  \\. Need to be charged"
+    ],
+    "creativeTab": {
+      "value": "CUSTOM:ProjectMEGA"
+    },
+    "toolType": "Special",
+    "harvestLevel": 0,
+    "efficiency": 0.0,
+    "attackSpeed": 0.0,
+    "enchantability": 2,
+    "damageVsEntity": 0.0,
+    "usageCount": 100,
+    "blocksAffected": [],
+    "hasGlow": false,
+    "repairItems": [],
+    "immuneToFire": false,
+    "stayInGridWhenCrafting": false,
+    "damageOnCrafting": false,
+    "onRightClickedInAir": {
+      "name": "NodeScannerRightClickedOnBlock"
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "mappings": {
+    "default": {
+      "map": {
+        "0": "heavyiron_block"
+      },
+      "name": "default"
+    }
+  }
+}

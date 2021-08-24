@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "industrial_economy:blocks/sandstone_bottom",
+    "up": "industrial_economy:blocks/limestone_node",
+    "north": "industrial_economy:blocks/sandstone",
+    "east": "industrial_economy:blocks/sandstone",
+    "south": "industrial_economy:blocks/sandstone",
+    "west": "industrial_economy:blocks/sandstone",
+    "particle": "industrial_economy:blocks/sandstone_bottom"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "group": "diamondsteel_axe",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "01",
+    "23",
+    " 5"
+  ],
+  "key": {
+    "0": {
+      "item": "industrial_economy:diamondsteelitem"
+    },
+    "1": {
+      "item": "industrial_economy:diamondsteelitem"
+    },
+    "2": {
+      "item": "industrial_economy:diamondsteelitem"
+    },
+    "3": {
+      "item": "minecraft:diamond"
+    },
+    "5": {
+      "item": "minecraft:diamond"
+    }
+  },
+  "result": {
+    "item": "industrial_economy:diamondsteelaxe",
+    "count": 1
+  }
+}

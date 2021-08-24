@@ -1,0 +1,30 @@
+{
+  "_fv": 24,
+  "_type": "tool",
+  "definition": {
+    "renderType": 0,
+    "texture": "diamondsteel_sword",
+    "customModelName": "Normal",
+    "name": "Diamond Steel Sword",
+    "specialInfo": [],
+    "creativeTab": {
+      "value": "CUSTOM:ProjectMEGA"
+    },
+    "toolType": "Sword",
+    "harvestLevel": 1,
+    "efficiency": 15.0,
+    "attackSpeed": 4.0,
+    "enchantability": 2,
+    "damageVsEntity": 15.0,
+    "usageCount": 75000,
+    "blocksAffected": [],
+    "hasGlow": false,
+    "repairItems": [],
+    "immuneToFire": false,
+    "stayInGridWhenCrafting": false,
+    "damageOnCrafting": false,
+    "onRightClickedInAir": {
+      "name": "DiamondSteelSwordRightClickedOnBlock"
+    }
+  }
+}

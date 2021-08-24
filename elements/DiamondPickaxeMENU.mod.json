@@ -1,0 +1,12 @@
+{
+  "_fv": 24,
+  "_type": "keybind",
+  "definition": {
+    "triggerKey": "B",
+    "keyBindingName": "Diamond Tools/Builder Menu",
+    "keyBindingCategoryKey": "gameplay",
+    "onKeyPressed": {
+      "name": "DiamondSteelpickaxeRightClickedOnBlock"
+    }
+  }
+}

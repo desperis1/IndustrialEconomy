@@ -1,0 +1,11 @@
+{
+  "mappings": {
+    "default": {
+      "map": {
+        "0": "iron_block_orig",
+        "1": "minerfaces_inactive"
+      },
+      "name": "default"
+    }
+  }
+}

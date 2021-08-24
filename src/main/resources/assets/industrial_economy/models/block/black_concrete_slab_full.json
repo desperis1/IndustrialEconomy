@@ -1,0 +1,8 @@
+{
+  "parent": "block/cube_bottom_top",
+  "textures": {
+    "bottom": "industrial_economy:blocks/black_concrete",
+    "top": "industrial_economy:blocks/black_concrete",
+    "side": "industrial_economy:blocks/black_concrete"
+  }
+}

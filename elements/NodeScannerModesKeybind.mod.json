@@ -1,0 +1,12 @@
+{
+  "_fv": 24,
+  "_type": "keybind",
+  "definition": {
+    "triggerKey": "V",
+    "keyBindingName": "Node Scanner Modes",
+    "keyBindingCategoryKey": "misc",
+    "onKeyPressed": {
+      "name": "NodeScannerModesKeybindOnKeyPressed"
+    }
+  }
+}

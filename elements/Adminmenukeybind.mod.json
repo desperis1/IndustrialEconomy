@@ -1,0 +1,12 @@
+{
+  "_fv": 24,
+  "_type": "keybind",
+  "definition": {
+    "triggerKey": "F12",
+    "keyBindingName": "Admin Menu",
+    "keyBindingCategoryKey": "misc",
+    "onKeyPressed": {
+      "name": "AdminmenukeybindOnKeyPressed"
+    }
+  }
+}

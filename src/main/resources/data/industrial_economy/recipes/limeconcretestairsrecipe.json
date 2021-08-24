@@ -1,0 +1,33 @@
+{
+  "group": "industrial_economy",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "0  ",
+    "34 ",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "minecraft:lime_concrete"
+    },
+    "3": {
+      "item": "minecraft:lime_concrete"
+    },
+    "4": {
+      "item": "minecraft:lime_concrete"
+    },
+    "6": {
+      "item": "minecraft:lime_concrete"
+    },
+    "7": {
+      "item": "minecraft:lime_concrete"
+    },
+    "8": {
+      "item": "minecraft:lime_concrete"
+    }
+  },
+  "result": {
+    "item": "industrial_economy:lime_concrete_stairs",
+    "count": 4
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "group": "circuitboard",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "345",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "industrial_economy:caterium_ingot"
+    },
+    "1": {
+      "item": "industrial_economy:copper_sheet_item"
+    },
+    "2": {
+      "item": "industrial_economy:caterium_ingot"
+    },
+    "3": {
+      "item": "industrial_economy:caterium_ingot"
+    },
+    "4": {
+      "item": "industrial_economy:copper_sheet_item"
+    },
+    "5": {
+      "item": "industrial_economy:caterium_ingot"
+    },
+    "6": {
+      "item": "industrial_economy:caterium_ingot"
+    },
+    "7": {
+      "item": "industrial_economy:copper_sheet_item"
+    },
+    "8": {
+      "item": "industrial_economy:caterium_ingot"
+    }
+  },
+  "result": {
+    "item": "industrial_economy:circuit_boarditem",
+    "count": 1
+  }
+}

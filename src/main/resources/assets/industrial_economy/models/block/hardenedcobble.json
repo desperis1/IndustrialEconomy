@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "industrial_economy:blocks/hardenedsbble_block",
+    "particle": "industrial_economy:blocks/hardenedsbble_block"
+  }
+}

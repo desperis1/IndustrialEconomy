@@ -1,0 +1,46 @@
+{
+  "_fv": 24,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "recipeRetstackSize": 1,
+    "group": "turbofuel3",
+    "recipeShapeless": false,
+    "recipeSlots": [
+      {
+        "value": "CUSTOM:Turbofuelitem2"
+      },
+      {
+        "value": "CUSTOM:Turbofuelitem2"
+      },
+      {
+        "value": "CUSTOM:Turbofuelitem2"
+      },
+      {
+        "value": "CUSTOM:Turbofuelitem2"
+      },
+      {
+        "value": "Items.GOLD_NUGGET"
+      },
+      {
+        "value": "CUSTOM:Turbofuelitem2"
+      },
+      {
+        "value": "CUSTOM:Turbofuelitem2"
+      },
+      {
+        "value": "CUSTOM:Turbofuelitem2"
+      },
+      {
+        "value": "CUSTOM:Turbofuelitem2"
+      }
+    ],
+    "recipeReturnStack": {
+      "value": "CUSTOM:Turbofuelitem3"
+    },
+    "name": "turbofuelrecipe_3",
+    "namespace": "mod"
+  }
+}

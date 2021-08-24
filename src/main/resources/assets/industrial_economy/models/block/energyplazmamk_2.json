@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "industrial_economy:blocks/blank_transparent",
+    "up": "industrial_economy:blocks/blank_transparent",
+    "north": "industrial_economy:blocks/energy_plazma_mk2",
+    "east": "industrial_economy:blocks/energy_plazma_mk2",
+    "south": "industrial_economy:blocks/energy_plazma_mk2",
+    "west": "industrial_economy:blocks/energy_plazma_mk2",
+    "particle": "industrial_economy:blocks/blank_transparent"
+  }
+}

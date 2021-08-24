@@ -1,0 +1,39 @@
+{
+  "group": "heavframe_block",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "3 5",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "industrial_economy:heavyironblock"
+    },
+    "1": {
+      "item": "industrial_economy:ironplate"
+    },
+    "2": {
+      "item": "industrial_economy:heavyironblock"
+    },
+    "3": {
+      "item": "industrial_economy:modularframe"
+    },
+    "5": {
+      "item": "industrial_economy:modularframe"
+    },
+    "6": {
+      "item": "industrial_economy:heavyironblock"
+    },
+    "7": {
+      "item": "industrial_economy:ironplate"
+    },
+    "8": {
+      "item": "industrial_economy:heavyironblock"
+    }
+  },
+  "result": {
+    "item": "industrial_economy:heavyframe",
+    "count": 1
+  }
+}

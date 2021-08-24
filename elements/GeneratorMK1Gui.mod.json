@@ -1,0 +1,78 @@
+{
+  "_fv": 24,
+  "_type": "gui",
+  "definition": {
+    "type": 1,
+    "width": 176,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "text": "Generator MK1",
+          "color": {
+            "value": -52429,
+            "falpha": 0.0
+          },
+          "name": "Generator MK1",
+          "x": 179,
+          "y": 40
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Working",
+          "color": {
+            "value": -13369549,
+            "falpha": 0.0
+          },
+          "displayCondition": {
+            "name": "GeneratorWorkingLabel"
+          },
+          "name": "Working",
+          "x": 196,
+          "y": 51
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "id": 0,
+          "disableStackInteraction": false,
+          "dropItemsWhenNotBound": true,
+          "name": "Slot #0",
+          "x": 203,
+          "y": 73
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "<BNBT:number:GeneratorEnergy>",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "<BNBT:number:GeneratorEnergy>",
+          "x": 204,
+          "y": 99
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "industrial_economy:block/foundyblock"
+    },
+    "facing=east": {
+      "model": "industrial_economy:block/foundyblock",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "industrial_economy:block/foundyblock",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "industrial_economy:block/foundyblock",
+      "y": 270
+    }
+  }
+}

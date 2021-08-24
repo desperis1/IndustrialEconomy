@@ -1,0 +1,114 @@
+{
+  "_fv": 24,
+  "_type": "gui",
+  "definition": {
+    "type": 1,
+    "width": 375,
+    "height": 187,
+    "inventoryOffsetX": -101,
+    "inventoryOffsetY": 14,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "button",
+        "data": {
+          "text": "Auto Filter",
+          "onClick": {
+            "name": "AutoFilterbutton"
+          },
+          "width": 85,
+          "height": 20,
+          "name": "Auto Filter",
+          "x": 35,
+          "y": 33
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "<VAR:player_rock_points>",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "<VAR:player_rock_points>",
+          "x": 236,
+          "y": 196
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Points:",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "Points:",
+          "x": 196,
+          "y": 196
+        }
+      },
+      {
+        "type": "outputslot",
+        "data": {
+          "id": 0,
+          "disableStackInteraction": false,
+          "dropItemsWhenNotBound": true,
+          "name": "Slot #0",
+          "x": 293,
+          "y": 170
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Change Points",
+          "onClick": {
+            "name": "Pointsbutton"
+          },
+          "width": 90,
+          "height": 20,
+          "name": "Change Points",
+          "x": 195,
+          "y": 169
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Player Level: <VAR:integer:player_minnig_level>",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "Player Level: <VAR:integer:player_minnig_level>",
+          "x": 296,
+          "y": 32
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "3x3 Area",
+          "onClick": {
+            "name": "Threebythreeareabuttonpress"
+          },
+          "width": 65,
+          "height": 20,
+          "name": "3x3 Area",
+          "x": 41,
+          "y": 58
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

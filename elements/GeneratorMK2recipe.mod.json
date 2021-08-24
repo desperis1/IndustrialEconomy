@@ -1,0 +1,46 @@
+{
+  "_fv": 24,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "recipeRetstackSize": 1,
+    "group": "generatormk2",
+    "recipeShapeless": false,
+    "recipeSlots": [
+      {
+        "value": "CUSTOM:DiamondSteelblock"
+      },
+      {
+        "value": "CUSTOM:Highspeedconectoritem"
+      },
+      {
+        "value": "CUSTOM:DiamondSteelblock"
+      },
+      {
+        "value": "CUSTOM:CircuitBoarditem"
+      },
+      {
+        "value": "CUSTOM:GeneratorMK1inactive"
+      },
+      {
+        "value": "CUSTOM:CircuitBoarditem"
+      },
+      {
+        "value": "CUSTOM:DiamondSteelblock"
+      },
+      {
+        "value": "CUSTOM:Highspeedconectoritem"
+      },
+      {
+        "value": "CUSTOM:DiamondSteelblock"
+      }
+    ],
+    "recipeReturnStack": {
+      "value": "CUSTOM:GeneratorMK2inactive"
+    },
+    "name": "generator_mk_2recipe",
+    "namespace": "mod"
+  }
+}

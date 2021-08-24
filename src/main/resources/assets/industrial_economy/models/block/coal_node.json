@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "industrial_economy:blocks/coal_ore",
+    "up": "industrial_economy:blocks/coal_node_top",
+    "north": "industrial_economy:blocks/coal_ore",
+    "east": "industrial_economy:blocks/coal_ore",
+    "south": "industrial_economy:blocks/coal_ore",
+    "west": "industrial_economy:blocks/coal_ore",
+    "particle": "industrial_economy:blocks/coal_ore"
+  }
+}

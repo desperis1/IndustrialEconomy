@@ -1,0 +1,91 @@
+{
+  "_fv": 24,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 280,
+    "height": 205,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "text": "Admin Menu",
+          "color": {
+            "value": -10092442,
+            "falpha": 0.0
+          },
+          "name": "Admin Menu",
+          "x": 190,
+          "y": 33
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Survival/Creative",
+          "onClick": {
+            "name": "AdminmenuSurvivalCreative"
+          },
+          "width": 110,
+          "height": 20,
+          "name": "Survival/Creative",
+          "x": 86,
+          "y": 49
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Sun/Rain",
+          "onClick": {
+            "name": "AdminmenuSunRain"
+          },
+          "width": 65,
+          "height": 20,
+          "name": "Sun/Rain",
+          "x": 86,
+          "y": 102
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Day/Night",
+          "onClick": {
+            "name": "AdminmenuDayNight"
+          },
+          "width": 70,
+          "height": 20,
+          "name": "Day/Night",
+          "x": 86,
+          "y": 76
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Clear Lag",
+          "onClick": {
+            "name": "ClearlagExecuted"
+          },
+          "width": 70,
+          "height": 20,
+          "name": "Clear Lag",
+          "x": 85,
+          "y": 129
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "industrial_economy:block/caterium_node_block_inactive"
+    }
+  }
+}

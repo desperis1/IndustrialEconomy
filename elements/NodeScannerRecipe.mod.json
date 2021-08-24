@@ -1,0 +1,46 @@
+{
+  "_fv": 24,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "recipeRetstackSize": 1,
+    "group": "nodescanner",
+    "recipeShapeless": false,
+    "recipeSlots": [
+      {
+        "value": ""
+      },
+      {
+        "value": "CUSTOM:Redstoneingotitem"
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": "CUSTOM:Cateriumwireitem"
+      },
+      {
+        "value": "Items.DIAMOND"
+      },
+      {
+        "value": "CUSTOM:Cateriumwireitem"
+      },
+      {
+        "value": "CUSTOM:CircuitBoarditem"
+      },
+      {
+        "value": "CUSTOM:CircuitBoarditem"
+      },
+      {
+        "value": "CUSTOM:CircuitBoarditem"
+      }
+    ],
+    "recipeReturnStack": {
+      "value": "CUSTOM:NodeScannerTool"
+    },
+    "name": "node_scanner_recipe",
+    "namespace": "mod"
+  }
+}

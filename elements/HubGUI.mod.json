@@ -1,0 +1,323 @@
+{
+  "_fv": 24,
+  "_type": "gui",
+  "definition": {
+    "type": 1,
+    "width": 396,
+    "height": 228,
+    "inventoryOffsetX": 113,
+    "inventoryOffsetY": -4,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "text": "HUB",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "HUB",
+          "x": 213,
+          "y": 9
+        }
+      },
+      {
+        "type": "outputslot",
+        "data": {
+          "color": {
+            "value": -26317,
+            "falpha": 0.0
+          },
+          "id": 0,
+          "disableStackInteraction": false,
+          "dropItemsWhenNotBound": true,
+          "name": "Slot #0",
+          "x": 105,
+          "y": 60
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Iron Mined",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "Iron Mined",
+          "x": 27,
+          "y": 64
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Coal Mined",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "Coal Mined",
+          "x": 27,
+          "y": 46
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Caterium Mined",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "Caterium Mined",
+          "x": 22,
+          "y": 28
+        }
+      },
+      {
+        "type": "outputslot",
+        "data": {
+          "color": {
+            "value": -10066330,
+            "falpha": 0.0
+          },
+          "id": 1,
+          "disableStackInteraction": false,
+          "dropItemsWhenNotBound": true,
+          "name": "Slot #1",
+          "x": 105,
+          "y": 42
+        }
+      },
+      {
+        "type": "outputslot",
+        "data": {
+          "color": {
+            "value": -3355648,
+            "falpha": 0.0
+          },
+          "id": 2,
+          "disableStackInteraction": false,
+          "dropItemsWhenNotBound": true,
+          "name": "Slot #2",
+          "x": 105,
+          "y": 24
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "<BNBT:number:Coal>",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "<BNBT:number:Coal>",
+          "x": 137,
+          "y": 46
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "<BNBT:number:Iron>",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "<BNBT:number:Iron>",
+          "x": 137,
+          "y": 64
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "<BNBT:number:Caterium>",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "<BNBT:number:Caterium>",
+          "x": 137,
+          "y": 29
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Energy:",
+          "color": {
+            "value": -16724737,
+            "falpha": 0.0
+          },
+          "name": "Energy:",
+          "x": 23,
+          "y": 11
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "<BNBT:number:Energy>",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "<BNBT:number:Energy>",
+          "x": 62,
+          "y": 12
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Copper Mined",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "Copper Mined",
+          "x": 23,
+          "y": 82
+        }
+      },
+      {
+        "type": "outputslot",
+        "data": {
+          "color": {
+            "value": -26317,
+            "falpha": 0.0
+          },
+          "id": 3,
+          "disableStackInteraction": false,
+          "dropItemsWhenNotBound": true,
+          "name": "Slot #3",
+          "x": 105,
+          "y": 78
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "<BNBT:number:Copper>",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "<BNBT:number:Copper>",
+          "x": 137,
+          "y": 82
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Upgrades",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "Upgrades",
+          "x": 306,
+          "y": 194
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "<VAR:miners_level>",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "<VAR:miners_level>",
+          "x": 360,
+          "y": 216
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Miner Levels",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "Miner Levels",
+          "x": 346,
+          "y": 204
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "color": {
+            "value": -16737793,
+            "falpha": 0.0
+          },
+          "id": 4,
+          "disableStackInteraction": false,
+          "dropItemsWhenNotBound": true,
+          "name": "Slot #4",
+          "x": 317,
+          "y": 206
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "SandStone Mined",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "SandStone Mined",
+          "x": 22,
+          "y": 100
+        }
+      },
+      {
+        "type": "outputslot",
+        "data": {
+          "color": {
+            "value": -154,
+            "falpha": 0.0
+          },
+          "id": 5,
+          "disableStackInteraction": false,
+          "dropItemsWhenNotBound": true,
+          "name": "Slot #5",
+          "x": 105,
+          "y": 96
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "<BNBT:number:SandStone>",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "<BNBT:number:SandStone>",
+          "x": 137,
+          "y": 100
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "group": "industrial_economy",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "0",
+    "1"
+  ],
+  "key": {
+    "0": {
+      "item": "industrial_economy:caterium_ore"
+    },
+    "1": {
+      "item": "minecraft:hopper"
+    }
+  },
+  "result": {
+    "item": "industrial_economy:caterium_extractor",
+    "count": 1
+  }
+}
