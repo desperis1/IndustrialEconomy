@@ -27,6 +27,9 @@
         "type": "button",
         "data": {
           "text": "Iron Node",
+          "onClick": {
+            "name": "NodesShopIronNodeOnClick"
+          },
           "width": 70,
           "height": 20,
           "name": "Iron Node",
@@ -38,6 +41,9 @@
         "type": "button",
         "data": {
           "text": "Copper Node",
+          "onClick": {
+            "name": "NodeShopCopperNodeOnClick"
+          },
           "width": 80,
           "height": 20,
           "name": "Copper Node",
@@ -49,6 +55,9 @@
         "type": "button",
         "data": {
           "text": "Caterium Node",
+          "onClick": {
+            "name": "NodeShopCateriumNodeOnClick"
+          },
           "width": 90,
           "height": 20,
           "name": "Caterium Node",
@@ -60,6 +69,9 @@
         "type": "button",
         "data": {
           "text": "Coal Node",
+          "onClick": {
+            "name": "NodeShopCoalNodeOnClick"
+          },
           "width": 70,
           "height": 20,
           "name": "Coal Node",
@@ -71,6 +83,9 @@
         "type": "button",
         "data": {
           "text": "SandStone Node",
+          "onClick": {
+            "name": "NodeShopSandStoneNodeOnClick"
+          },
           "width": 95,
           "height": 20,
           "name": "SandStone Node",
@@ -89,6 +104,71 @@
           "name": "Your money<VAR:player_money> €",
           "x": 151,
           "y": 32
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "5000 €",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "5000 €",
+          "x": 151,
+          "y": 49
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "3500 €",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "3500 €",
+          "x": 295,
+          "y": 76
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "5000 €",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "5000 €",
+          "x": 176,
+          "y": 104
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "6000 €",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "6000 €",
+          "x": 305,
+          "y": 49
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "6000 €",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "6000 €",
+          "x": 171,
+          "y": 77
         }
       }
     ],

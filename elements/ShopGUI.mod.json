@@ -22,6 +22,20 @@
           "x": 197,
           "y": 19
         }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Nodes",
+          "onClick": {
+            "name": "ShopNODESButtorOnClick"
+          },
+          "width": 50,
+          "height": 20,
+          "name": "Nodes",
+          "x": 55,
+          "y": 34
+        }
       }
     ],
     "gridSettings": {

@@ -26,7 +26,7 @@ public class BackcommandCommand {
 	@SubscribeEvent
 	public static void registerCommands(RegisterCommandsEvent event) {
 		event.getDispatcher()
-				.register(LiteralArgumentBuilder.<CommandSource>literal("back").requires(s -> s.hasPermissionLevel(1))
+				.register(LiteralArgumentBuilder.<CommandSource>literal("back")
 						.then(Commands.argument("arguments", StringArgumentType.greedyString()).executes(BackcommandCommand::execute))
 						.executes(BackcommandCommand::execute));
 	}

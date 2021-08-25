@@ -2,10 +2,10 @@
   "_fv": 24,
   "_type": "command",
   "definition": {
-    "commandName": "nodes",
+    "commandName": "shop",
     "permissionLevel": "No requirement",
     "onCommandExecuted": {
-      "name": "NodesCommandExecuted"
+      "name": "ShopCommandExecuted"
     }
   }
 }

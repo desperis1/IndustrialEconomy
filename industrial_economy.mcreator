@@ -518,37 +518,6 @@
       "path": "~/Nodes"
     },
     {
-      "name": "IronnodestructureAdditionalGenerationCondition",
-      "type": "procedure",
-      "sortid": 24,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "ironnodestructure_additional_generation_condition",
-      "metadata": {
-        "return_type": "logic",
-        "dependencies": [
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      },
-      "path": "~/Nodes"
-    },
-    {
       "name": "CoalNodeUpdateTick",
       "type": "procedure",
       "sortid": 31,
@@ -623,37 +592,6 @@
       "path": "~/Nodes"
     },
     {
-      "name": "CoalNodestructureAdditionalGenerationCondition",
-      "type": "procedure",
-      "sortid": 34,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "coal_nodestructure_additional_generation_condition",
-      "metadata": {
-        "return_type": "logic",
-        "dependencies": [
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      },
-      "path": "~/Nodes"
-    },
-    {
       "name": "HubBlockIsPlacedBy",
       "type": "procedure",
       "sortid": 37,
@@ -686,37 +624,6 @@
         ]
       },
       "path": "~/HUB"
-    },
-    {
-      "name": "CateriumNodeGrassAdditionalGenerationCondition",
-      "type": "procedure",
-      "sortid": 28,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "caterium_node_grass_additional_generation_condition",
-      "metadata": {
-        "return_type": "logic",
-        "dependencies": [
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      },
-      "path": "~/Nodes"
     },
     {
       "name": "CoalNode",
@@ -1474,37 +1381,6 @@
       "ids": {},
       "registry_name": "rudit_ingotadvancement",
       "path": "~/Achievments"
-    },
-    {
-      "name": "CopperNodeStructureAdditionalGenerationCondition",
-      "type": "procedure",
-      "sortid": 69,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "copper_node_structure_additional_generation_condition",
-      "metadata": {
-        "return_type": "logic",
-        "dependencies": [
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      },
-      "path": "~/Nodes"
     },
     {
       "name": "Chargergui",
@@ -6306,6 +6182,10 @@
           {
             "name": "cmdparams",
             "type": "map"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
         ]
       },
@@ -6761,50 +6641,6 @@
       "path": "~/Shop"
     },
     {
-      "name": "NodesCommandExecuted",
-      "type": "procedure",
-      "sortid": 410,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "nodes_command_executed",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      },
-      "path": "~/Shop"
-    },
-    {
-      "name": "Nodes",
-      "type": "command",
-      "sortid": 410,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "nodes",
-      "path": "~/Shop"
-    },
-    {
       "name": "AdminmenuadmineditorOnClicked",
       "type": "procedure",
       "sortid": 411,
@@ -6938,6 +6774,262 @@
       "ids": {},
       "registry_name": "woodmaterials",
       "path": "~/Tags"
+    },
+    {
+      "name": "Foodforsale",
+      "type": "tag",
+      "sortid": 424,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "foodforsale",
+      "path": "~/Tags"
+    },
+    {
+      "name": "InfostickRightClickedOnBlock",
+      "type": "procedure",
+      "sortid": 425,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "infostick_right_clicked_on_block",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Items"
+    },
+    {
+      "name": "Infostick",
+      "type": "item",
+      "sortid": 425,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "infostick",
+      "path": "~/Items"
+    },
+    {
+      "name": "NodesShopIronNodeOnClick",
+      "type": "procedure",
+      "sortid": 426,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "nodes_shop_iron_node_on_click",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Shop"
+    },
+    {
+      "name": "NodeShopCoalNodeOnClick",
+      "type": "procedure",
+      "sortid": 427,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "node_shop_coal_node_on_click",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Shop"
+    },
+    {
+      "name": "NodeShopCopperNodeOnClick",
+      "type": "procedure",
+      "sortid": 428,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "node_shop_copper_node_on_click",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Shop"
+    },
+    {
+      "name": "NodeShopCateriumNodeOnClick",
+      "type": "procedure",
+      "sortid": 429,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "node_shop_caterium_node_on_click",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Shop"
+    },
+    {
+      "name": "NodeShopSandStoneNodeOnClick",
+      "type": "procedure",
+      "sortid": 430,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "node_shop_sand_stone_node_on_click",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Shop"
+    },
+    {
+      "name": "ShopNODESButtorOnClick",
+      "type": "procedure",
+      "sortid": 431,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "shop_nodes_buttor_on_click",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Shop"
+    },
+    {
+      "name": "ShopCommandExecuted",
+      "type": "procedure",
+      "sortid": 432,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "shop_command_executed",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Shop"
+    },
+    {
+      "name": "Shop",
+      "type": "command",
+      "sortid": 432,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "shop",
+      "path": "~/Shop"
+    },
+    {
+      "name": "ConcretemixerBlockIsPlacedBy",
+      "type": "procedure",
+      "sortid": 433,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "concretemixer_block_is_placed_by",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Machines/ConcreteMixer"
     }
   ],
   "variable_elements": [
@@ -7275,6 +7367,7 @@
       "block.satis_mine.green_concrete_slab": "Green Concrete Slab",
       "block.industrial_economy.foundyblock": "Foundry",
       "block.industrial_economy.magenta_concrete_slab": "Magenta Concrete Slab",
+      "item.industrial_economy.infostick": "Info Stick",
       "block.industrial_economy.light_gray_concrete_stairs": "Light Gray Concrete Stairs",
       "block.industrial_economy.caterium_node_block_inactive": "Caterium Node Block Inactive",
       "block.satis_mine.red_concrete_stairs": "Red Concrete Stairs",

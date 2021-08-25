@@ -31,6 +31,8 @@ import java.util.function.Supplier;
 import java.util.Map;
 import java.util.HashMap;
 
+import industrialeconomy.procedures.ShopNODESButtorOnClickProcedure;
+
 import industrialeconomy.IndustrialEconomyModElements;
 
 import industrialeconomy.IndustrialEconomyMod;
@@ -360,6 +362,17 @@ public class ShopGUIGui extends IndustrialEconomyModElements.ModElement {
 		// security measure to prevent arbitrary chunk generation
 		if (!world.isBlockLoaded(new BlockPos(x, y, z)))
 			return;
+		if (buttonID == 0) {
+			{
+				Map<String, Object> $_dependencies = new HashMap<>();
+				$_dependencies.put("entity", entity);
+				$_dependencies.put("x", x);
+				$_dependencies.put("y", y);
+				$_dependencies.put("z", z);
+				$_dependencies.put("world", world);
+				ShopNODESButtorOnClickProcedure.executeProcedure($_dependencies);
+			}
+		}
 	}
 
 	private static void handleSlotAction(PlayerEntity entity, int slotID, int changeType, int meta, int x, int y, int z) {

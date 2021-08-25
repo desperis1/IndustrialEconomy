@@ -4,6 +4,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.IWorld;
 import net.minecraft.world.GameType;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -13,6 +14,7 @@ import net.minecraft.client.network.play.NetworkPlayerInfo;
 import net.minecraft.client.entity.player.AbstractClientPlayerEntity;
 import net.minecraft.client.Minecraft;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.BlockState;
 
 import java.util.Map;
 
@@ -56,6 +58,15 @@ public class IronOreNodeBlockBlockIsPlacedByProcedure {
 				|| ((world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z))).getBlock() == Blocks.GRASS_BLOCK))) {
 			world.setBlockState(new BlockPos((int) x, (int) y, (int) z), Blocks.AIR.getDefaultState(), 3);
 			world.setBlockState(new BlockPos((int) x, (int) (y - 1), (int) z), IronOreNodeBlockBlock.block.getDefaultState(), 3);
+			if (!world.isRemote()) {
+				BlockPos _bp = new BlockPos((int) x, (int) (y - 1), (int) z);
+				TileEntity _tileEntity = world.getTileEntity(_bp);
+				BlockState _bs = world.getBlockState(_bp);
+				if (_tileEntity != null)
+					_tileEntity.getTileData().putDouble("can_be_mined", 5000);
+				if (world instanceof World)
+					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
+			}
 			world.setBlockState(new BlockPos((int) (x - 1), (int) (y - 1), (int) z), Blocks.IRON_ORE.getDefaultState(), 3);
 			world.setBlockState(new BlockPos((int) (x + 1), (int) (y - 1), (int) z), Blocks.IRON_ORE.getDefaultState(), 3);
 			world.setBlockState(new BlockPos((int) x, (int) (y - 1), (int) (z - 1)), Blocks.IRON_ORE.getDefaultState(), 3);

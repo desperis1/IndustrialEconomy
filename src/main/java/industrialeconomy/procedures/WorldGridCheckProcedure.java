@@ -89,7 +89,7 @@ public class WorldGridCheckProcedure {
 				player_name = (String) (entity.getDisplayName().getString());
 				grid_X = (double) Math.floor((x / 20));
 				grid_Z = (double) Math.floor((z / 20));
-				if ((((false) == (IndustrialEconomyModVariables.WorldVariables.get(world).lands
+				if (((!(IndustrialEconomyModVariables.WorldVariables.get(world).lands
 						.contains(((player_name) + "" + (":") + "" + (grid_X) + "" + (":") + "" + (grid_Z) + "" + (",")))))
 						&& (IndustrialEconomyModVariables.WorldVariables.get(world).is_city
 								.contains(((":") + "" + (grid_X) + "" + (":") + "" + (grid_Z) + "" + (",")))))) {
@@ -129,8 +129,13 @@ public class WorldGridCheckProcedure {
 					}
 				}
 				if (((AllowedBlocksInWorldProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world)) == (true))
-						&& ((false) == (IndustrialEconomyModVariables.WorldVariables.get(world).is_city
+						&& (!(IndustrialEconomyModVariables.WorldVariables.get(world).is_city
 								.contains(((":") + "" + (grid_X) + "" + (":") + "" + (grid_Z) + "" + (","))))))) {
+					return (true);
+				} else if (((IndustrialEconomyModVariables.WorldVariables.get(world).lands
+						.contains(((player_name) + "" + (":") + "" + (grid_X) + "" + (":") + "" + (grid_Z) + "" + (","))))
+						&& (IndustrialEconomyModVariables.WorldVariables.get(world).is_city
+								.contains(((":") + "" + (grid_X) + "" + (":") + "" + (grid_Z) + "" + (",")))))) {
 					return (true);
 				} else {
 					if (entity instanceof PlayerEntity && !entity.world.isRemote()) {

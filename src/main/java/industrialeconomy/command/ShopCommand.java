@@ -15,20 +15,20 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.Arrays;
 
-import industrialeconomy.procedures.NodesCommandExecutedProcedure;
+import industrialeconomy.procedures.ShopCommandExecutedProcedure;
 
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import com.mojang.brigadier.arguments.StringArgumentType;
 
 @Mod.EventBusSubscriber
-public class NodesCommand {
+public class ShopCommand {
 	@SubscribeEvent
 	public static void registerCommands(RegisterCommandsEvent event) {
 		event.getDispatcher()
-				.register(LiteralArgumentBuilder.<CommandSource>literal("nodes")
-						.then(Commands.argument("arguments", StringArgumentType.greedyString()).executes(NodesCommand::execute))
-						.executes(NodesCommand::execute));
+				.register(LiteralArgumentBuilder.<CommandSource>literal("shop")
+						.then(Commands.argument("arguments", StringArgumentType.greedyString()).executes(ShopCommand::execute))
+						.executes(ShopCommand::execute));
 	}
 
 	private static int execute(CommandContext<CommandSource> ctx) {
@@ -53,7 +53,7 @@ public class NodesCommand {
 			$_dependencies.put("y", y);
 			$_dependencies.put("z", z);
 			$_dependencies.put("world", world);
-			NodesCommandExecutedProcedure.executeProcedure($_dependencies);
+			ShopCommandExecutedProcedure.executeProcedure($_dependencies);
 		}
 		return 0;
 	}

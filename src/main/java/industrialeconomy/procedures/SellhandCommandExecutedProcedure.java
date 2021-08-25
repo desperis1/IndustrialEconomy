@@ -30,27 +30,7 @@ public class SellhandCommandExecutedProcedure {
 		double items_amount = 0;
 		ItemStack itemforsell = ItemStack.EMPTY;
 		itemforsell = ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY);
-		if ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY).getItem() == Items.DIAMOND)) {
-			if (entity instanceof PlayerEntity) {
-				ItemStack _stktoremove = new ItemStack(Items.DIAMOND);
-				((PlayerEntity) entity).inventory.func_234564_a_(p -> _stktoremove.getItem() == p.getItem(), (int) 1,
-						((PlayerEntity) entity).container.func_234641_j_());
-			}
-			{
-				double _setval = (double) (((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-						.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money) + 100);
-				entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-					capability.player_money = _setval;
-					capability.syncPlayerVariables(entity);
-				});
-			}
-			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-				((PlayerEntity) entity).sendStatusMessage(
-						new StringTextComponent(
-								(("You sell ") + "" + ((new ItemStack(Items.DIAMOND).getDisplayName().getString())) + "" + ("for 100\u20AC"))),
-						(false));
-			}
-		}
+		items_amount = (double) ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)).getCount());
 		if ((BlockTags.getCollection().getTagByID(new ResourceLocation(("industrial_economy:rocks_tag").toLowerCase(java.util.Locale.ENGLISH)))
 				.contains((new Object() {
 					public BlockState toBlock(ItemStack _stk) {
@@ -60,8 +40,6 @@ public class SellhandCommandExecutedProcedure {
 						return Blocks.AIR.getDefaultState();
 					}
 				}.toBlock((itemforsell))).getBlock()))) {
-			items_amount = (double) ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY))
-					.getCount());
 			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
 				((PlayerEntity) entity)
 						.sendStatusMessage(
@@ -94,8 +72,6 @@ public class SellhandCommandExecutedProcedure {
 						return Blocks.AIR.getDefaultState();
 					}
 				}.toBlock((itemforsell))).getBlock()))) {
-			items_amount = (double) ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY))
-					.getCount());
 			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
 				((PlayerEntity) entity)
 						.sendStatusMessage(
@@ -128,8 +104,6 @@ public class SellhandCommandExecutedProcedure {
 						return Blocks.AIR.getDefaultState();
 					}
 				}.toBlock((itemforsell))).getBlock()))) {
-			items_amount = (double) ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY))
-					.getCount());
 			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
 				((PlayerEntity) entity)
 						.sendStatusMessage(
@@ -155,8 +129,6 @@ public class SellhandCommandExecutedProcedure {
 		}
 		if ((ItemTags.getCollection().getTagByID(new ResourceLocation(("industrial_economy:junk_items").toLowerCase(java.util.Locale.ENGLISH)))
 				.contains((itemforsell).getItem()))) {
-			items_amount = (double) ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY))
-					.getCount());
 			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
 				((PlayerEntity) entity)
 						.sendStatusMessage(
@@ -178,6 +150,126 @@ public class SellhandCommandExecutedProcedure {
 					capability.player_money = _setval;
 					capability.syncPlayerVariables(entity);
 				});
+			}
+		}
+		if ((ItemTags.getCollection().getTagByID(new ResourceLocation(("industrial_economy:foodforsale").toLowerCase(java.util.Locale.ENGLISH)))
+				.contains((itemforsell).getItem()))) {
+			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
+				((PlayerEntity) entity)
+						.sendStatusMessage(
+								new StringTextComponent((("You sell some ") + ""
+										+ ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
+												.getDisplayName().getString()))
+										+ "" + (" for ") + "" + ((items_amount * 2)) + "" + ("\u20AC"))),
+								(false));
+			}
+			if (entity instanceof PlayerEntity) {
+				ItemStack _stktoremove = ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY);
+				((PlayerEntity) entity).inventory.func_234564_a_(p -> _stktoremove.getItem() == p.getItem(), (int) items_amount,
+						((PlayerEntity) entity).container.func_234641_j_());
+			}
+			{
+				double _setval = (double) (((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+						.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money) + (items_amount * 2));
+				entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+					capability.player_money = _setval;
+					capability.syncPlayerVariables(entity);
+				});
+			}
+		}
+		if (((itemforsell).getItem() == Items.DIAMOND)) {
+			{
+				double _setval = (double) (((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+						.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money) + (items_amount * 150));
+				entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+					capability.player_money = _setval;
+					capability.syncPlayerVariables(entity);
+				});
+			}
+			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
+				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent((("You sell ") + "" + (((itemforsell).getDisplayName().getString()))
+						+ "" + (" for ") + "" + ((items_amount * 150)) + "" + (" \u20AC"))), (false));
+			}
+			if (entity instanceof PlayerEntity) {
+				ItemStack _stktoremove = (itemforsell);
+				((PlayerEntity) entity).inventory.func_234564_a_(p -> _stktoremove.getItem() == p.getItem(), (int) items_amount,
+						((PlayerEntity) entity).container.func_234641_j_());
+			}
+		}
+		if (((itemforsell).getItem() == Items.EMERALD)) {
+			{
+				double _setval = (double) (((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+						.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money) + (items_amount * 300));
+				entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+					capability.player_money = _setval;
+					capability.syncPlayerVariables(entity);
+				});
+			}
+			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
+				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent((("You sell ") + "" + (((itemforsell).getDisplayName().getString()))
+						+ "" + (" for ") + "" + ((items_amount * 300)) + "" + (" \u20AC"))), (false));
+			}
+			if (entity instanceof PlayerEntity) {
+				ItemStack _stktoremove = (itemforsell);
+				((PlayerEntity) entity).inventory.func_234564_a_(p -> _stktoremove.getItem() == p.getItem(), (int) items_amount,
+						((PlayerEntity) entity).container.func_234641_j_());
+			}
+		}
+		if (((itemforsell).getItem() == Items.GOLD_INGOT)) {
+			{
+				double _setval = (double) (((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+						.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money) + (items_amount * 15));
+				entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+					capability.player_money = _setval;
+					capability.syncPlayerVariables(entity);
+				});
+			}
+			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
+				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent((("You sell ") + "" + (((itemforsell).getDisplayName().getString()))
+						+ "" + (" for ") + "" + ((items_amount * 15)) + "" + (" \u20AC"))), (false));
+			}
+			if (entity instanceof PlayerEntity) {
+				ItemStack _stktoremove = (itemforsell);
+				((PlayerEntity) entity).inventory.func_234564_a_(p -> _stktoremove.getItem() == p.getItem(), (int) items_amount,
+						((PlayerEntity) entity).container.func_234641_j_());
+			}
+		}
+		if (((itemforsell).getItem() == Items.IRON_INGOT)) {
+			{
+				double _setval = (double) (((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+						.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money) + (items_amount * 2.5));
+				entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+					capability.player_money = _setval;
+					capability.syncPlayerVariables(entity);
+				});
+			}
+			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
+				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent((("You sell ") + "" + (((itemforsell).getDisplayName().getString()))
+						+ "" + (" for ") + "" + ((items_amount * 2.5)) + "" + (" \u20AC"))), (false));
+			}
+			if (entity instanceof PlayerEntity) {
+				ItemStack _stktoremove = (itemforsell);
+				((PlayerEntity) entity).inventory.func_234564_a_(p -> _stktoremove.getItem() == p.getItem(), (int) items_amount,
+						((PlayerEntity) entity).container.func_234641_j_());
+			}
+		}
+		if (((itemforsell).getItem() == Items.COAL)) {
+			{
+				double _setval = (double) (((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+						.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money) + (items_amount * 1.5));
+				entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+					capability.player_money = _setval;
+					capability.syncPlayerVariables(entity);
+				});
+			}
+			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
+				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent((("You sell ") + "" + (((itemforsell).getDisplayName().getString()))
+						+ "" + (" for ") + "" + ((items_amount * 1.5)) + "" + (" \u20AC"))), (false));
+			}
+			if (entity instanceof PlayerEntity) {
+				ItemStack _stktoremove = (itemforsell);
+				((PlayerEntity) entity).inventory.func_234564_a_(p -> _stktoremove.getItem() == p.getItem(), (int) items_amount,
+						((PlayerEntity) entity).container.func_234641_j_());
 			}
 		}
 	}

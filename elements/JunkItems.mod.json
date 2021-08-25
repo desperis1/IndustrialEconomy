@@ -90,6 +90,9 @@
       },
       {
         "value": "Items.SNOWBALL"
+      },
+      {
+        "value": "Items.ROTTEN_FLESH"
       }
     ],
     "blocks": [],

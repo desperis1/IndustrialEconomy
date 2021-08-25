@@ -42,8 +42,19 @@ public class AllowedBlocksInWorldProcedure {
 				|| (Blocks.SOUL_WALL_TORCH == (world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock()))) {
 			return (true);
 		}
-		if (((Blocks.DIRT == (world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock())
-				|| (Blocks.OAK_SAPLING == (world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock()))) {
+		if (((Blocks.DIRT == (world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock()) || ((Blocks.OAK_SAPLING == (world
+				.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock())
+				|| ((Blocks.SPRUCE_SAPLING == (world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock())
+						|| ((Blocks.BIRCH_SAPLING == (world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock())
+								|| ((Blocks.JUNGLE_SAPLING == (world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock())
+										|| ((Blocks.ACACIA_SAPLING == (world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock())
+												|| ((Blocks.DARK_OAK_SAPLING == (world.getBlockState(new BlockPos((int) x, (int) y, (int) z)))
+														.getBlock())
+														|| ((Blocks.SUGAR_CANE == (world.getBlockState(new BlockPos((int) x, (int) y, (int) z)))
+																.getBlock())
+																|| (Blocks.BAMBOO_SAPLING == (world
+																		.getBlockState(new BlockPos((int) x, (int) y, (int) z)))
+																				.getBlock())))))))))) {
 			return (true);
 		}
 		return (false);

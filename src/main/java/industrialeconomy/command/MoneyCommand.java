@@ -50,6 +50,7 @@ public class MoneyCommand {
 			Map<String, Object> $_dependencies = new HashMap<>();
 			$_dependencies.put("entity", entity);
 			$_dependencies.put("cmdparams", cmdparams);
+			$_dependencies.put("world", world);
 			MoneyCommandExecutedProcedure.executeProcedure($_dependencies);
 		}
 		return 0;
