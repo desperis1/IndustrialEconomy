@@ -3,7 +3,7 @@
   "_type": "command",
   "definition": {
     "commandName": "home",
-    "permissionLevel": "1",
+    "permissionLevel": "No requirement",
     "onCommandExecuted": {
       "name": "HomeCommandExecuted"
     }

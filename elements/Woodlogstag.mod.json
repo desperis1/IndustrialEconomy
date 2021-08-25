@@ -1,0 +1,83 @@
+{
+  "_fv": 24,
+  "_type": "tag",
+  "definition": {
+    "type": "Blocks",
+    "items": [],
+    "blocks": [
+      {
+        "value": "Blocks.LOG"
+      },
+      {
+        "value": "Blocks.LOG#0"
+      },
+      {
+        "value": "Blocks.LOG#1"
+      },
+      {
+        "value": "Blocks.LOG#2"
+      },
+      {
+        "value": "Blocks.LOG#3"
+      },
+      {
+        "value": "Blocks.LOG2"
+      },
+      {
+        "value": "Blocks.LOG2#0"
+      },
+      {
+        "value": "Blocks.LOG2#1"
+      },
+      {
+        "value": "Blocks.STRIPPED_OAK_LOG"
+      },
+      {
+        "value": "Blocks.STRIPPED_SPRUCE_LOG"
+      },
+      {
+        "value": "Blocks.STRIPPED_BIRCH_LOG"
+      },
+      {
+        "value": "Blocks.STRIPPED_JUNGLE_LOG"
+      },
+      {
+        "value": "Blocks.STRIPPED_ACACIA_LOG"
+      },
+      {
+        "value": "Blocks.STRIPPED_DARK_OAK_LOG"
+      },
+      {
+        "value": "Blocks.STRIPPED_WARPED_STEM"
+      },
+      {
+        "value": "Blocks.STRIPPED_CRIMSON_STEM"
+      },
+      {
+        "value": "Blocks.OAK_WOOD"
+      },
+      {
+        "value": "Blocks.SPRUCE_WOOD"
+      },
+      {
+        "value": "Blocks.BIRCH_WOOD"
+      },
+      {
+        "value": "Blocks.JUNGLE_WOOD"
+      },
+      {
+        "value": "Blocks.ACACIA_WOOD"
+      },
+      {
+        "value": "Blocks.WARPED_STEM"
+      },
+      {
+        "value": "Blocks.CRIMSON_STEM"
+      }
+    ],
+    "functions": [],
+    "entities": [],
+    "name": "woodlogstag",
+    "namespace": "mod"
+  }
+}

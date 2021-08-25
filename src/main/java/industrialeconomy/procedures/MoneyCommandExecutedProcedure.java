@@ -1,11 +1,14 @@
 package industrialeconomy.procedures;
 
+import net.minecraft.world.IWorld;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.Entity;
 
 import java.util.Map;
+import java.util.List;
 import java.util.HashMap;
+import java.util.ArrayList;
 
 import industrialeconomy.IndustrialEconomyModVariables;
 
@@ -23,8 +26,16 @@ public class MoneyCommandExecutedProcedure {
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency cmdparams for procedure MoneyCommandExecuted!");
 			return;
 		}
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency world for procedure MoneyCommandExecuted!");
+			return;
+		}
 		Entity entity = (Entity) dependencies.get("entity");
 		HashMap cmdparams = (HashMap) dependencies.get("cmdparams");
+		IWorld world = (IWorld) dependencies.get("world");
+		String player_paying_to = "";
+		double amount = 0;
 		if ((((new Object() {
 			public String getText() {
 				String param = (String) cmdparams.get("0");
@@ -86,6 +97,122 @@ public class MoneyCommandExecutedProcedure {
 						return "";
 					}
 				}.getText())) + "" + (" \u20AC ") + "" + ("sucessfully added."))), (false));
+			}
+		} else if ((((new Object() {
+			public String getText() {
+				String param = (String) cmdparams.get("0");
+				if (param != null) {
+					return param;
+				}
+				return "";
+			}
+		}.getText())).equals("pay"))) {
+			if (((((new Object() {
+				public String getText() {
+					String param = (String) cmdparams.get("0");
+					if (param != null) {
+						return param;
+					}
+					return "";
+				}
+			}.getText())).equals("pay")) && (((new Object() {
+				public String getText() {
+					String param = (String) cmdparams.get("1");
+					if (param != null) {
+						return param;
+					}
+					return "";
+				}
+			}.getText())).equals("")))) {
+				if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
+					((PlayerEntity) entity).sendStatusMessage(new StringTextComponent((("Example usage:") + "" + ("/money pay playername amount"))),
+							(false));
+				}
+			}
+			if ((((((new Object() {
+				public String getText() {
+					String param = (String) cmdparams.get("0");
+					if (param != null) {
+						return param;
+					}
+					return "";
+				}
+			}.getText())).equals("pay")) && (!(((new Object() {
+				public String getText() {
+					String param = (String) cmdparams.get("1");
+					if (param != null) {
+						return param;
+					}
+					return "";
+				}
+			}.getText())).equals("")))) && (!(((new Object() {
+				public String getText() {
+					String param = (String) cmdparams.get("2");
+					if (param != null) {
+						return param;
+					}
+					return "";
+				}
+			}.getText())).equals(""))))) {
+				amount = (double) new Object() {
+					double convert(String s) {
+						try {
+							return Double.parseDouble(s.trim());
+						} catch (Exception e) {
+						}
+						return 0;
+					}
+				}.convert((new Object() {
+					public String getText() {
+						String param = (String) cmdparams.get("2");
+						if (param != null) {
+							return param;
+						}
+						return "";
+					}
+				}.getText()));
+				{
+					List<? extends PlayerEntity> _players = new ArrayList<>(world.getPlayers());
+					for (Entity entityiterator : _players) {
+						if ((((new Object() {
+							public String getText() {
+								String param = (String) cmdparams.get("1");
+								if (param != null) {
+									return param;
+								}
+								return "";
+							}
+						}.getText())).equals((entityiterator.getDisplayName().getString())))) {
+							{
+								double _setval = (double) (((entityiterator
+										.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+										.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money) + amount);
+								entityiterator.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+										.ifPresent(capability -> {
+											capability.player_money = _setval;
+											capability.syncPlayerVariables(entityiterator);
+										});
+							}
+							{
+								double _setval = (double) (((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+										.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money) - amount);
+								entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+									capability.player_money = _setval;
+									capability.syncPlayerVariables(entity);
+								});
+							}
+							if (entityiterator instanceof PlayerEntity && !entityiterator.world.isRemote()) {
+								((PlayerEntity) entityiterator).sendStatusMessage(
+										new StringTextComponent((("You receive ") + "" + (amount) + "" + ("\u20AC from ") + "" + (entity))), (false));
+							}
+							if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
+								((PlayerEntity) entity).sendStatusMessage(
+										new StringTextComponent((("You send ") + "" + (amount) + "" + ("\u20AC to ") + "" + (entityiterator))),
+										(false));
+							}
+						}
+					}
+				}
 			}
 		}
 	}

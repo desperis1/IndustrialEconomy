@@ -6239,6 +6239,10 @@
             "type": "entity"
           },
           {
+            "name": "y",
+            "type": "number"
+          },
+          {
             "name": "x",
             "type": "number"
           },
@@ -6855,36 +6859,6 @@
       "path": "~/Commands/Admineditor"
     },
     {
-      "name": "Rocks",
-      "type": "tag",
-      "sortid": 414,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "rocks",
-      "path": "~/Tags"
-    },
-    {
-      "name": "Woods",
-      "type": "tag",
-      "sortid": 415,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "woods",
-      "path": "~/Tags"
-    },
-    {
-      "name": "JunkItems",
-      "type": "tag",
-      "sortid": 416,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "junk_items",
-      "path": "~/Tags"
-    },
-    {
       "name": "IndustrialDiamond",
       "type": "item",
       "sortid": 417,
@@ -6893,6 +6867,77 @@
       "ids": {},
       "registry_name": "industrial_diamond",
       "path": "~/Items"
+    },
+    {
+      "name": "AllowedBlocksInWorld",
+      "type": "procedure",
+      "sortid": 419,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "allowed_blocks_in_world",
+      "metadata": {
+        "return_type": "logic",
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Extra"
+    },
+    {
+      "name": "RocksTAG",
+      "type": "tag",
+      "sortid": 420,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "rocks_tag",
+      "path": "~/Tags"
+    },
+    {
+      "name": "JunkItems",
+      "type": "tag",
+      "sortid": 421,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "junk_items",
+      "path": "~/Tags"
+    },
+    {
+      "name": "Woodlogstag",
+      "type": "tag",
+      "sortid": 422,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "woodlogstag",
+      "path": "~/Tags"
+    },
+    {
+      "name": "Woodmaterials",
+      "type": "tag",
+      "sortid": 423,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "woodmaterials",
+      "path": "~/Tags"
     }
   ],
   "variable_elements": [

@@ -64,7 +64,7 @@ public class LandCommandExecutedProcedure {
 					}
 				} else {
 					if (((((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money) > 10000)
+							.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money) >= 10000)
 							&& (IndustrialEconomyModVariables.WorldVariables.get(world).is_city
 									.contains(((":") + "" + (grid_X) + "" + (":") + "" + (grid_Z) + "" + (",")))))) {
 						{

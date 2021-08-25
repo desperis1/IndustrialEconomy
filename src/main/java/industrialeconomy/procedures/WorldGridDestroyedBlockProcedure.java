@@ -1,6 +1,5 @@
 package industrialeconomy.procedures;
 
-import net.minecraftforge.fml.server.ServerLifecycleHooks;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.eventbus.api.Event;
@@ -8,9 +7,6 @@ import net.minecraftforge.event.world.BlockEvent;
 
 import net.minecraft.world.IWorld;
 import net.minecraft.util.text.StringTextComponent;
-import net.minecraft.util.text.ChatType;
-import net.minecraft.util.Util;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.Entity;
@@ -76,26 +72,8 @@ public class WorldGridDestroyedBlockProcedure {
 				.orElse(new IndustrialEconomyModVariables.PlayerVariables())).admin_editor) == (false))) {
 			if (((entity instanceof PlayerEntity) || (entity instanceof ServerPlayerEntity))) {
 				player_name = (String) (entity.getDisplayName().getString());
-				if (!world.isRemote()) {
-					MinecraftServer mcserv = ServerLifecycleHooks.getCurrentServer();
-					if (mcserv != null)
-						mcserv.getPlayerList().func_232641_a_(new StringTextComponent((("Playername: ") + "" + (player_name))), ChatType.SYSTEM,
-								Util.DUMMY_UUID);
-				}
 				grid_X = (double) Math.floor((x / 20));
-				if (!world.isRemote()) {
-					MinecraftServer mcserv = ServerLifecycleHooks.getCurrentServer();
-					if (mcserv != null)
-						mcserv.getPlayerList().func_232641_a_(new StringTextComponent((("land X grid: ") + "" + (grid_X))), ChatType.SYSTEM,
-								Util.DUMMY_UUID);
-				}
 				grid_Z = (double) Math.floor((z / 20));
-				if (!world.isRemote()) {
-					MinecraftServer mcserv = ServerLifecycleHooks.getCurrentServer();
-					if (mcserv != null)
-						mcserv.getPlayerList().func_232641_a_(new StringTextComponent((("Land Z grid: ") + "" + (grid_Z))), ChatType.SYSTEM,
-								Util.DUMMY_UUID);
-				}
 				if (((IndustrialEconomyModVariables.WorldVariables.get(world).lands
 						.contains(((player_name) + "" + (":") + "" + (grid_X) + "" + (":") + "" + (grid_Z) + "" + (","))))
 						&& (IndustrialEconomyModVariables.WorldVariables.get(world).is_city

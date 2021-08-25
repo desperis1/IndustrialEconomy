@@ -1,6 +1,5 @@
 package industrialeconomy.procedures;
 
-import net.minecraftforge.fml.server.ServerLifecycleHooks;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.eventbus.api.Event;
@@ -10,12 +9,10 @@ import net.minecraftforge.common.MinecraftForge;
 
 import net.minecraft.world.IWorld;
 import net.minecraft.util.text.StringTextComponent;
-import net.minecraft.util.text.ChatType;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.Util;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.server.MinecraftServer;
+import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.block.Blocks;
@@ -90,74 +87,74 @@ public class LandUseDoorProcedure {
 		String player_name = "";
 		if ((((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 				.orElse(new IndustrialEconomyModVariables.PlayerVariables())).admin_editor) == (false))) {
-			if (((BlockTags.getCollection().getTagByID(new ResourceLocation(("minecraft:doors").toLowerCase(java.util.Locale.ENGLISH)))
-					.contains((world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock()))
-					|| (BlockTags.getCollection().getTagByID(new ResourceLocation(("minecraft:trapdoor").toLowerCase(java.util.Locale.ENGLISH)))
-							.contains((world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock())))) {
+			if (((entity instanceof PlayerEntity) || (entity instanceof ServerPlayerEntity))) {
 				grid_X = (double) Math.floor((x / 20));
 				grid_Z = (double) Math.floor((z / 20));
-				if ((!(IndustrialEconomyModVariables.WorldVariables.get(world).lands
-						.contains(((player_name) + "" + (":") + "" + (grid_X) + "" + (":") + "" + (grid_Z) + "" + (",")))))) {
-					if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-						((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("You dont own this land."), (true));
-					}
-					if (dependencies.get("event") != null) {
-						Object _obj = dependencies.get("event");
-						if (_obj instanceof Event) {
-							Event _evt = (Event) _obj;
-							if (_evt.isCancelable())
-								_evt.setCanceled(true);
+				player_name = (String) (entity.getDisplayName().getString());
+				if (((BlockTags.getCollection().getTagByID(new ResourceLocation(("minecraft:doors").toLowerCase(java.util.Locale.ENGLISH)))
+						.contains((world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock()))
+						|| (BlockTags.getCollection().getTagByID(new ResourceLocation(("minecraft:trapdoor").toLowerCase(java.util.Locale.ENGLISH)))
+								.contains((world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock())))) {
+					if ((!(IndustrialEconomyModVariables.WorldVariables.get(world).lands
+							.contains(((player_name) + "" + (":") + "" + (grid_X) + "" + (":") + "" + (grid_Z) + "" + (",")))))) {
+						if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
+							((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("You dont own this land."), (true));
 						}
-					}
-				} else {
-					return (true);
-				}
-			}
-			if (((world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock() == Blocks.CHEST)) {
-				if (!world.isRemote()) {
-					MinecraftServer mcserv = ServerLifecycleHooks.getCurrentServer();
-					if (mcserv != null)
-						mcserv.getPlayerList().func_232641_a_(new StringTextComponent("This is chest"), ChatType.SYSTEM, Util.DUMMY_UUID);
-				}
-				grid_X = (double) Math.floor((x / 20));
-				grid_Z = (double) Math.floor((z / 20));
-				if ((!(IndustrialEconomyModVariables.WorldVariables.get(world).lands
-						.contains(((player_name) + "" + (":") + "" + (grid_X) + "" + (":") + "" + (grid_Z) + "" + (",")))))) {
-					if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-						((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("You dont own this land"), (true));
-					}
-					for (int index0 = 0; index0 < (int) (20); index0++) {
-						new Object() {
-							private int ticks = 0;
-							private float waitTicks;
-							private IWorld world;
-							public void start(IWorld world, int waitTicks) {
-								this.waitTicks = waitTicks;
-								MinecraftForge.EVENT_BUS.register(this);
-								this.world = world;
+						if (dependencies.get("event") != null) {
+							Object _obj = dependencies.get("event");
+							if (_obj instanceof Event) {
+								Event _evt = (Event) _obj;
+								if (_evt.isCancelable())
+									_evt.setCanceled(true);
 							}
-
-							@SubscribeEvent
-							public void tick(TickEvent.ServerTickEvent event) {
-								if (event.phase == TickEvent.Phase.END) {
-									this.ticks += 1;
-									if (this.ticks >= this.waitTicks)
-										run();
+						}
+					} else {
+						return (true);
+					}
+				}
+				if (((world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock() == Blocks.CHEST)) {
+					grid_X = (double) Math.floor((x / 20));
+					grid_Z = (double) Math.floor((z / 20));
+					if (((IndustrialEconomyModVariables.WorldVariables.get(world).is_city
+							.contains(((":") + "" + (grid_X) + "" + (":") + "" + (grid_Z) + "" + (","))))
+							&& (!(IndustrialEconomyModVariables.WorldVariables.get(world).lands
+									.contains(((player_name) + "" + (":") + "" + (grid_X) + "" + (":") + "" + (grid_Z) + "" + (","))))))) {
+						if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
+							((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("You dont own this land"), (true));
+						}
+						for (int index0 = 0; index0 < (int) (20); index0++) {
+							new Object() {
+								private int ticks = 0;
+								private float waitTicks;
+								private IWorld world;
+								public void start(IWorld world, int waitTicks) {
+									this.waitTicks = waitTicks;
+									MinecraftForge.EVENT_BUS.register(this);
+									this.world = world;
 								}
-							}
 
-							private void run() {
-								if (entity instanceof PlayerEntity)
-									((PlayerEntity) entity).closeScreen();
-								MinecraftForge.EVENT_BUS.unregister(this);
-							}
-						}.start(world, (int) 2);
+								@SubscribeEvent
+								public void tick(TickEvent.ServerTickEvent event) {
+									if (event.phase == TickEvent.Phase.END) {
+										this.ticks += 1;
+										if (this.ticks >= this.waitTicks)
+											run();
+									}
+								}
+
+								private void run() {
+									if (entity instanceof PlayerEntity)
+										((PlayerEntity) entity).closeScreen();
+									MinecraftForge.EVENT_BUS.unregister(this);
+								}
+							}.start(world, (int) 2);
+						}
+					} else {
+						return (true);
 					}
-				} else {
-					return (true);
 				}
+				return (false);
 			}
-			return (false);
 		}
 		return (false);
 	}

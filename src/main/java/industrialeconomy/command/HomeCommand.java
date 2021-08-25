@@ -26,7 +26,7 @@ public class HomeCommand {
 	@SubscribeEvent
 	public static void registerCommands(RegisterCommandsEvent event) {
 		event.getDispatcher()
-				.register(LiteralArgumentBuilder.<CommandSource>literal("home").requires(s -> s.hasPermissionLevel(1))
+				.register(LiteralArgumentBuilder.<CommandSource>literal("home")
 						.then(Commands.argument("arguments", StringArgumentType.greedyString()).executes(HomeCommand::execute))
 						.executes(HomeCommand::execute));
 	}

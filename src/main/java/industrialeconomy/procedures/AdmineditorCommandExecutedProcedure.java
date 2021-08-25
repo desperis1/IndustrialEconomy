@@ -57,7 +57,7 @@ public class AdmineditorCommandExecutedProcedure {
 				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("/admineditor playername true/false"), (false));
 			}
 		}
-		if ((((!(((new Object() {
+		if (((online_players.contains((new Object() {
 			public String getText() {
 				String param = (String) cmdparams.get("1");
 				if (param != null) {
@@ -65,15 +65,7 @@ public class AdmineditorCommandExecutedProcedure {
 				}
 				return "";
 			}
-		}.getText())).equals(""))) && (online_players.contains((new Object() {
-			public String getText() {
-				String param = (String) cmdparams.get("1");
-				if (param != null) {
-					return param;
-				}
-				return "";
-			}
-		}.getText())))) && (((new Object() {
+		}.getText()))) && (((new Object() {
 			public String getText() {
 				String param = (String) cmdparams.get("2");
 				if (param != null) {
@@ -101,7 +93,7 @@ public class AdmineditorCommandExecutedProcedure {
 				}.getText())) + "" + ("now has Admin Editor Enabled!"))), (false));
 			}
 		}
-		if ((((!(((new Object() {
+		if (((online_players.contains((new Object() {
 			public String getText() {
 				String param = (String) cmdparams.get("1");
 				if (param != null) {
@@ -109,15 +101,7 @@ public class AdmineditorCommandExecutedProcedure {
 				}
 				return "";
 			}
-		}.getText())).equals(""))) && (online_players.contains((new Object() {
-			public String getText() {
-				String param = (String) cmdparams.get("1");
-				if (param != null) {
-					return param;
-				}
-				return "";
-			}
-		}.getText())))) && (((new Object() {
+		}.getText()))) && (((new Object() {
 			public String getText() {
 				String param = (String) cmdparams.get("2");
 				if (param != null) {

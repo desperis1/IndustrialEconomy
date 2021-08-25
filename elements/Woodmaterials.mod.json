@@ -27,106 +27,7 @@
         "value": "Blocks.CRIMSON_PLANKS"
       },
       {
-        "value": "Blocks.WARPED_PLANKS"
-      },
-      {
-        "value": "Blocks.LOG"
-      },
-      {
-        "value": "Blocks.LOG#0"
-      },
-      {
-        "value": "Blocks.LOG#1"
-      },
-      {
-        "value": "Blocks.LOG#2"
-      },
-      {
-        "value": "Blocks.LOG#3"
-      },
-      {
-        "value": "Blocks.LOG2"
-      },
-      {
-        "value": "Blocks.LOG2#0"
-      },
-      {
-        "value": "Blocks.LOG2#1"
-      },
-      {
-        "value": "Blocks.WARPED_STEM"
-      },
-      {
-        "value": "Blocks.CRIMSON_STEM"
-      },
-      {
-        "value": "Blocks.STRIPPED_OAK_LOG"
-      },
-      {
-        "value": "Blocks.STRIPPED_SPRUCE_LOG"
-      },
-      {
-        "value": "Blocks.STRIPPED_BIRCH_LOG"
-      },
-      {
-        "value": "Blocks.STRIPPED_JUNGLE_LOG"
-      },
-      {
-        "value": "Blocks.STRIPPED_ACACIA_LOG"
-      },
-      {
-        "value": "Blocks.STRIPPED_DARK_OAK_LOG"
-      },
-      {
-        "value": "Blocks.STRIPPED_WARPED_STEM"
-      },
-      {
-        "value": "Blocks.STRIPPED_CRIMSON_STEM"
-      },
-      {
-        "value": "Blocks.OAK_WOOD"
-      },
-      {
-        "value": "Blocks.SPRUCE_WOOD"
-      },
-      {
-        "value": "Blocks.BIRCH_WOOD"
-      },
-      {
-        "value": "Blocks.JUNGLE_WOOD"
-      },
-      {
-        "value": "Blocks.ACACIA_WOOD"
-      },
-      {
-        "value": "Blocks.DARK_OAK_WOOD"
-      },
-      {
-        "value": "Blocks.WARPED_HYPHAE"
-      },
-      {
-        "value": "Blocks.CRIMSON_HYPHAE"
-      },
-      {
-        "value": "Blocks.STRIPPED_OAK_WOOD"
-      },
-      {
-        "value": "Blocks.STRIPPED_SPRUCE_WOOD"
-      },
-      {
-        "value": "Blocks.STRIPPED_BIRCH_WOOD"
-      },
-      {
-        "value": "Blocks.STRIPPED_JUNGLE_WOOD"
-      },
-      {
-        "value": "Blocks.STRIPPED_ACACIA_WOOD"
-      },
-      {
-        "value": "Blocks.STRIPPED_DARK_OAK_WOOD"
-      },
-      {
-        "value": "Blocks.STRIPPED_WARPED_HYPHAE"
+        "value": "Blocks.WARPED_WART_BLOCK"
       },
       {
         "value": "Blocks.OAK_STAIRS"
@@ -156,7 +57,7 @@
         "value": "Blocks.CHEST"
       },
       {
-        "value": "Blocks.TRAPPED_CHEST"
+        "value": "Blocks.STANDING_SIGN"
       },
       {
         "value": "Blocks.SPRUCE_SIGN"
@@ -228,9 +129,6 @@
         "value": "Blocks.WARPED_DOOR"
       },
       {
-        "value": "Blocks.IRON_DOOR"
-      },
-      {
         "value": "Blocks.TRAPDOOR"
       },
       {
@@ -258,9 +156,6 @@
         "value": "Blocks.LADDER"
       },
       {
-        "value": "Blocks.POLISHED_BLACKSTONE_BUTTON"
-      },
-      {
         "value": "Blocks.WOODEN_BUTTON"
       },
       {
@@ -268,6 +163,21 @@
       },
       {
         "value": "Blocks.BIRCH_BUTTON"
+      },
+      {
+        "value": "Blocks.JUNGLE_BUTTON"
+      },
+      {
+        "value": "Blocks.ACACIA_BUTTON"
+      },
+      {
+        "value": "Blocks.DARK_OAK_BUTTON"
+      },
+      {
+        "value": "Blocks.CRIMSON_BUTTON"
+      },
+      {
+        "value": "Blocks.WARPED_BUTTON"
       },
       {
         "value": "Blocks.WOODEN_PRESSURE_PLATE"
@@ -369,15 +279,6 @@
         "value": "Blocks.STONE_SLAB#2"
       },
       {
-        "value": "Blocks.SCAFFOLDING"
-      },
-      {
-        "value": "Blocks.BARREL"
-      },
-      {
-        "value": "Blocks.CARTOGRAPHY_TABLE"
-      },
-      {
         "value": "Blocks.FLETCHING_TABLE"
       },
       {
@@ -389,7 +290,7 @@
     ],
     "functions": [],
     "entities": [],
-    "name": "woods",
-    "namespace": "forge"
+    "name": "wood_materials",
+    "namespace": "mod"
   }
 }
