@@ -76,6 +76,7 @@ public class PresserGUIGuiWindow extends ContainerScreen<PresserGUIGui.GuiContai
 		this.font.drawString(ms, "Presser", 70, 4, -13421773);
 		if (GeneratorWorkingLabelProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world)))
 			this.font.drawString(ms, "Working", 66, 33, -16738048);
+		this.font.drawString(ms, "500 MW", 137, 4, -16763956);
 	}
 
 	@Override

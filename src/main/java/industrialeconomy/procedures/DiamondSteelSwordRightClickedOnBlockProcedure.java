@@ -15,6 +15,7 @@ import net.minecraft.entity.effect.LightningBoltEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.CreatureEntity;
 
 import java.util.stream.Collectors;
 import java.util.function.Function;
@@ -75,7 +76,7 @@ public class DiamondSteelSwordRightClickedOnBlockProcedure {
 							}
 						}.compareDistOf(x, y, z)).collect(Collectors.toList());
 				for (Entity entityiterator : _entfound) {
-					if (((entityiterator instanceof LivingEntity) && ((!(entityiterator instanceof ArmorStandEntity))
+					if (((entityiterator instanceof CreatureEntity) && ((!(entityiterator instanceof ArmorStandEntity))
 							&& ((!(entityiterator instanceof PlayerEntity)) || (!(entityiterator instanceof ServerPlayerEntity)))))) {
 						if (world instanceof ServerWorld) {
 							LightningBoltEntity _ent = EntityType.LIGHTNING_BOLT.create((World) world);

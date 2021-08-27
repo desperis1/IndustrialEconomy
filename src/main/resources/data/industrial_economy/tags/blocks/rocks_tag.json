@@ -122,6 +122,9 @@
     "minecraft:prismarine_slab",
     "minecraft:prismarine_brick_slab",
     "minecraft:dark_prismarine_slab",
-    "minecraft:prismarine_wall"
+    "minecraft:prismarine_wall",
+    "minecraft:dirt",
+    "minecraft:coarse_dirt",
+    "minecraft:podzol"
   ]
 }

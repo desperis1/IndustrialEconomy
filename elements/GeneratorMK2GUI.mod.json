@@ -63,8 +63,8 @@
             "falpha": 0.0
           },
           "name": "<BNBT:number:GeneratorEnergy>",
-          "x": 138,
-          "y": 96
+          "x": 201,
+          "y": 95
         }
       },
       {
@@ -81,6 +81,19 @@
           "name": "Working",
           "x": 193,
           "y": 52
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "+500 MW",
+          "color": {
+            "value": -16763956,
+            "falpha": 0.0
+          },
+          "name": "+500 MW",
+          "x": 260,
+          "y": 42
         }
       }
     ],

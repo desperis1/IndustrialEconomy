@@ -17,10 +17,10 @@
       "item": "industrial_economy:diamondsteelitem"
     },
     "4": {
-      "item": "minecraft:diamond"
+      "item": "industrial_economy:industrial_diamond"
     },
     "7": {
-      "item": "minecraft:diamond"
+      "item": "industrial_economy:industrial_diamond"
     }
   },
   "result": {

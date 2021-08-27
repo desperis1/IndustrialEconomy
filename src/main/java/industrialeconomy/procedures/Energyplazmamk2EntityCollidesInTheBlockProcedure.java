@@ -105,8 +105,8 @@ public class Energyplazmamk2EntityCollidesInTheBlockProcedure {
 					return tileEntity.getTileData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos((int) players_hub_x, (int) players_hub_y, (int) players_hub_z),
-				"Energy")) > 1000) == (((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+		}.getValue(world, new BlockPos((int) players_hub_x, (int) players_hub_y, (int) players_hub_z), "Energy")) > 1000)
+				&& (((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 						.orElse(new IndustrialEconomyModVariables.PlayerVariables())).DSA_energy) < 15000))) {
 			if (!world.isRemote()) {
 				BlockPos _bp = new BlockPos((int) players_hub_x, (int) players_hub_y, (int) players_hub_z);

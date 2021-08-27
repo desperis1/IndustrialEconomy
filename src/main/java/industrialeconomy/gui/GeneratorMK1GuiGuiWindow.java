@@ -75,7 +75,7 @@ public class GeneratorMK1GuiGuiWindow extends ContainerScreen<GeneratorMK1GuiGui
 
 	@Override
 	protected void drawGuiContainerForegroundLayer(MatrixStack ms, int mouseX, int mouseY) {
-		this.font.drawString(ms, "Generator MK1", 53, 3, -52429);
+		this.font.drawString(ms, "Generator MK1", 54, 3, -52429);
 		if (GeneratorWorkingLabelProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world)))
 			this.font.drawString(ms, "Working", 70, 14, -13369549);
 		this.font.drawString(ms, "" + (new Object() {
@@ -86,6 +86,7 @@ public class GeneratorMK1GuiGuiWindow extends ContainerScreen<GeneratorMK1GuiGui
 				return 0;
 			}
 		}.getValue(new BlockPos((int) x, (int) y, (int) z), "GeneratorEnergy")) + "", 78, 62, -16777216);
+		this.font.drawString(ms, "+25 MW", 138, 3, -16763956);
 	}
 
 	@Override

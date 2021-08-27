@@ -46,10 +46,10 @@ import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.ItemStackHelper;
 import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.inventory.ISidedInventory;
-import net.minecraft.fluid.FluidState;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.client.Minecraft;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.SoundType;
@@ -70,7 +70,9 @@ import io.netty.buffer.Unpooled;
 
 import industrialeconomy.procedures.FoundyblockUpdateTickProcedure;
 import industrialeconomy.procedures.FoundyblockClientDisplayRandomTickProcedure;
-import industrialeconomy.procedures.FoundyblockBlockDestroyedByPlayerProcedure;
+import industrialeconomy.procedures.FoundryinactiveBlockIsPlacedByProcedure;
+
+import industrialeconomy.itemgroup.ProjectMEGAItemGroup;
 
 import industrialeconomy.gui.FoundryGUIGui;
 
@@ -90,7 +92,8 @@ public class FoundyblockBlock extends IndustrialEconomyModElements.ModElement {
 	@Override
 	public void initElements() {
 		elements.blocks.add(() -> new CustomBlock());
-		elements.items.add(() -> new BlockItem(block, new Item.Properties().group(null)).setRegistryName(block.getRegistryName()));
+		elements.items
+				.add(() -> new BlockItem(block, new Item.Properties().group(ProjectMEGAItemGroup.tab)).setRegistryName(block.getRegistryName()));
 	}
 	private static class TileEntityRegisterHandler {
 		@SubscribeEvent
@@ -136,7 +139,7 @@ public class FoundyblockBlock extends IndustrialEconomyModElements.ModElement {
 			List<ItemStack> dropsOriginal = super.getDrops(state, builder);
 			if (!dropsOriginal.isEmpty())
 				return dropsOriginal;
-			return Collections.singletonList(new ItemStack(FoundryinactiveBlock.block));
+			return Collections.singletonList(new ItemStack(this, 1));
 		}
 
 		@Override
@@ -184,8 +187,8 @@ public class FoundyblockBlock extends IndustrialEconomyModElements.ModElement {
 		}
 
 		@Override
-		public boolean removedByPlayer(BlockState blockstate, World world, BlockPos pos, PlayerEntity entity, boolean willHarvest, FluidState fluid) {
-			boolean retval = super.removedByPlayer(blockstate, world, pos, entity, willHarvest, fluid);
+		public void onBlockPlacedBy(World world, BlockPos pos, BlockState blockstate, LivingEntity entity, ItemStack itemstack) {
+			super.onBlockPlacedBy(world, pos, blockstate, entity, itemstack);
 			int x = pos.getX();
 			int y = pos.getY();
 			int z = pos.getZ();
@@ -196,9 +199,8 @@ public class FoundyblockBlock extends IndustrialEconomyModElements.ModElement {
 				$_dependencies.put("y", y);
 				$_dependencies.put("z", z);
 				$_dependencies.put("world", world);
-				FoundyblockBlockDestroyedByPlayerProcedure.executeProcedure($_dependencies);
+				FoundryinactiveBlockIsPlacedByProcedure.executeProcedure($_dependencies);
 			}
-			return retval;
 		}
 
 		@Override

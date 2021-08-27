@@ -19,7 +19,7 @@
             "falpha": 0.0
           },
           "name": "Generator MK1",
-          "x": 179,
+          "x": 180,
           "y": 40
         }
       },
@@ -64,6 +64,19 @@
           "name": "<BNBT:number:GeneratorEnergy>",
           "x": 204,
           "y": 99
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "+25 MW",
+          "color": {
+            "value": -16763956,
+            "falpha": 0.0
+          },
+          "name": "+25 MW",
+          "x": 264,
+          "y": 40
         }
       }
     ],

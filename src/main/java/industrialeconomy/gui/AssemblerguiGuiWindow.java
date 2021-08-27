@@ -90,6 +90,7 @@ public class AssemblerguiGuiWindow extends ContainerScreen<AssemblerguiGui.GuiCo
 				return "";
 			}
 		}.getValue(new BlockPos((int) x, (int) y, (int) z), "Recipe")) + "", 33, 69, -12829636);
+		this.font.drawString(ms, "200 MW", 141, 4, -16763956);
 	}
 
 	@Override

@@ -292,14 +292,25 @@ public class Generatormk2UpdateTickProcedure {
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
 		}
-		if (((new Object() {
-			public double getValue(IWorld world, BlockPos pos, String tag) {
+		if ((((true) == (new Object() {
+			public boolean getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
-					return tileEntity.getTileData().getDouble(tag);
-				return -1;
+					return tileEntity.getTileData().getBoolean(tag);
+				return false;
 			}
-		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "GeneratorEnergy")) > 1)) {
+		}.getValue(world,
+				new BlockPos((int) IndustrialEconomyModVariables.WorldVariables.get(world).server_x,
+						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_y,
+						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_z),
+				((owner) + "" + ("_") + "" + ("isOnline"))))) && ((new Object() {
+					public double getValue(IWorld world, BlockPos pos, String tag) {
+						TileEntity tileEntity = world.getTileEntity(pos);
+						if (tileEntity != null)
+							return tileEntity.getTileData().getDouble(tag);
+						return -1;
+					}
+				}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "GeneratorEnergy")) > 1))) {
 			if (!world.isRemote()) {
 				BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 				TileEntity _tileEntity = world.getTileEntity(_bp);

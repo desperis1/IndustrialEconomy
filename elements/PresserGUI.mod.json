@@ -63,6 +63,19 @@
           "x": 192,
           "y": 70
         }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "500 MW",
+          "color": {
+            "value": -16763956,
+            "falpha": 0.0
+          },
+          "name": "500 MW",
+          "x": 263,
+          "y": 41
+        }
       }
     ],
     "gridSettings": {

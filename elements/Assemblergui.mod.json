@@ -108,6 +108,19 @@
           "x": 157,
           "y": 92
         }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "200 MW",
+          "color": {
+            "value": -16763956,
+            "falpha": 0.0
+          },
+          "name": "200 MW",
+          "x": 265,
+          "y": 27
+        }
       }
     ],
     "gridSettings": {

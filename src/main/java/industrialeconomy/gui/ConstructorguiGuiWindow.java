@@ -40,7 +40,7 @@ public class ConstructorguiGuiWindow extends ContainerScreen<ConstructorguiGui.G
 		this.y = container.y;
 		this.z = container.z;
 		this.entity = container.entity;
-		this.xSize = 174;
+		this.xSize = 176;
 		this.ySize = 187;
 	}
 	private static final ResourceLocation texture = new ResourceLocation("industrial_economy:textures/constructorgui.png");
@@ -79,9 +79,9 @@ public class ConstructorguiGuiWindow extends ContainerScreen<ConstructorguiGui.G
 
 	@Override
 	protected void drawGuiContainerForegroundLayer(MatrixStack ms, int mouseX, int mouseY) {
-		this.font.drawString(ms, "CONSTRUCTOR", 56, 5, -16777216);
+		this.font.drawString(ms, "CONSTRUCTOR", 57, 5, -16777216);
 		if (GeneratorWorkingLabelProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world)))
-			this.font.drawString(ms, "Working", 66, 36, -16711936);
+			this.font.drawString(ms, "Working", 67, 36, -16711936);
 		this.font.drawString(ms, "Recipe: " + (new Object() {
 			public String getValue(BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
@@ -89,7 +89,8 @@ public class ConstructorguiGuiWindow extends ContainerScreen<ConstructorguiGui.G
 					return tileEntity.getTileData().getString(tag);
 				return "";
 			}
-		}.getValue(new BlockPos((int) x, (int) y, (int) z), "Recipe")) + "", 31, 17, -12829636);
+		}.getValue(new BlockPos((int) x, (int) y, (int) z), "Recipe")) + "", 32, 17, -12829636);
+		this.font.drawString(ms, "20 MW", 141, 4, -16763956);
 	}
 
 	@Override
@@ -102,7 +103,7 @@ public class ConstructorguiGuiWindow extends ContainerScreen<ConstructorguiGui.G
 	public void init(Minecraft minecraft, int width, int height) {
 		super.init(minecraft, width, height);
 		minecraft.keyboardListener.enableRepeatEvents(true);
-		this.addButton(new Button(this.guiLeft + 41, this.guiTop + 79, 90, 20, new StringTextComponent("Change Recipe"), e -> {
+		this.addButton(new Button(this.guiLeft + 42, this.guiTop + 79, 90, 20, new StringTextComponent("Change Recipe"), e -> {
 			if (true) {
 				IndustrialEconomyMod.PACKET_HANDLER.sendToServer(new ConstructorguiGui.ButtonPressedMessage(0, x, y, z));
 				ConstructorguiGui.handleButtonAction(entity, 0, x, y, z);

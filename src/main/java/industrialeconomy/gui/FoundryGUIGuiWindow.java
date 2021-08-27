@@ -73,9 +73,10 @@ public class FoundryGUIGuiWindow extends ContainerScreen<FoundryGUIGui.GuiContai
 
 	@Override
 	protected void drawGuiContainerForegroundLayer(MatrixStack ms, int mouseX, int mouseY) {
-		this.font.drawString(ms, "Foundry", 69, 4, -65536);
+		this.font.drawString(ms, "Foundry", 70, 3, -65536);
 		if (GeneratorWorkingLabelProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world)))
 			this.font.drawString(ms, "Working", 69, 34, -16738048);
+		this.font.drawString(ms, "1000 MW", 133, 3, -16763956);
 	}
 
 	@Override

@@ -194,10 +194,6 @@ public class MoneyCommandExecutedProcedure {
 									((PlayerEntity) entity).sendStatusMessage(new StringTextComponent((("You send ") + "" + (amount) + ""
 											+ ("\u20AC to ") + "" + ((entityiterator.getDisplayName().getString())))), (false));
 								}
-							} else {
-								if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-									((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("Player not found"), (false));
-								}
 							}
 						}
 					}

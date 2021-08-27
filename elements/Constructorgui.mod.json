@@ -3,7 +3,7 @@
   "_type": "gui",
   "definition": {
     "type": 1,
-    "width": 174,
+    "width": 176,
     "height": 187,
     "inventoryOffsetX": 0,
     "inventoryOffsetY": 14,
@@ -89,6 +89,19 @@
           "name": "Change Recipe",
           "x": 168,
           "y": 106
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "20 MW",
+          "color": {
+            "value": -16763956,
+            "falpha": 0.0
+          },
+          "name": "20 MW",
+          "x": 267,
+          "y": 31
         }
       }
     ],

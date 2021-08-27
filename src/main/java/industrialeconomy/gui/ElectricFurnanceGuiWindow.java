@@ -76,6 +76,7 @@ public class ElectricFurnanceGuiWindow extends ContainerScreen<ElectricFurnanceG
 		this.font.drawString(ms, "Electric Furnance", 44, 4, -16751002);
 		if (GeneratorWorkingLabelProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world)))
 			this.font.drawString(ms, "Working", 69, 30, -13369600);
+		this.font.drawString(ms, "100MW", 141, 4, -16764007);
 	}
 
 	@Override

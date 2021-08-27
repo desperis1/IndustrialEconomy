@@ -36,7 +36,7 @@ public class SteeldiamondguiGuiWindow extends ContainerScreen<SteeldiamondguiGui
 		this.y = container.y;
 		this.z = container.z;
 		this.entity = container.entity;
-		this.xSize = 375;
+		this.xSize = 256;
 		this.ySize = 187;
 	}
 	private static final ResourceLocation texture = new ResourceLocation("industrial_economy:textures/steeldiamondgui.png");
@@ -75,11 +75,8 @@ public class SteeldiamondguiGuiWindow extends ContainerScreen<SteeldiamondguiGui
 
 	@Override
 	protected void drawGuiContainerForegroundLayer(MatrixStack ms, int mouseX, int mouseY) {
-		this.font.drawString(ms, "" + ((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-				.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_rock_points) + "", 210, 169, -12829636);
-		this.font.drawString(ms, "Points:", 170, 169, -12829636);
 		this.font.drawString(ms, "Player Level: " + (int) ((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-				.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_minnig_level) + "", 270, 5, -12829636);
+				.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_minnig_level) + "", 44, 94, -12829636);
 	}
 
 	@Override
@@ -92,22 +89,16 @@ public class SteeldiamondguiGuiWindow extends ContainerScreen<SteeldiamondguiGui
 	public void init(Minecraft minecraft, int width, int height) {
 		super.init(minecraft, width, height);
 		minecraft.keyboardListener.enableRepeatEvents(true);
-		this.addButton(new Button(this.guiLeft + 9, this.guiTop + 6, 85, 20, new StringTextComponent("Auto Filter"), e -> {
+		this.addButton(new Button(this.guiLeft + 82, this.guiTop + 6, 85, 20, new StringTextComponent("Auto Sell"), e -> {
 			if (true) {
 				IndustrialEconomyMod.PACKET_HANDLER.sendToServer(new SteeldiamondguiGui.ButtonPressedMessage(0, x, y, z));
 				SteeldiamondguiGui.handleButtonAction(entity, 0, x, y, z);
 			}
 		}));
-		this.addButton(new Button(this.guiLeft + 169, this.guiTop + 142, 90, 20, new StringTextComponent("Change Points"), e -> {
+		this.addButton(new Button(this.guiLeft + 91, this.guiTop + 31, 65, 20, new StringTextComponent("3x3 Area"), e -> {
 			if (true) {
 				IndustrialEconomyMod.PACKET_HANDLER.sendToServer(new SteeldiamondguiGui.ButtonPressedMessage(1, x, y, z));
 				SteeldiamondguiGui.handleButtonAction(entity, 1, x, y, z);
-			}
-		}));
-		this.addButton(new Button(this.guiLeft + 15, this.guiTop + 31, 65, 20, new StringTextComponent("3x3 Area"), e -> {
-			if (true) {
-				IndustrialEconomyMod.PACKET_HANDLER.sendToServer(new SteeldiamondguiGui.ButtonPressedMessage(2, x, y, z));
-				SteeldiamondguiGui.handleButtonAction(entity, 2, x, y, z);
 			}
 		}));
 	}

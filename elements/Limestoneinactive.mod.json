@@ -39,7 +39,7 @@
     "hasGravity": false,
     "isWaterloggable": false,
     "creativeTab": {
-      "value": "CUSTOM:ProjectMEGA"
+      "value": "No creative tab entry"
     },
     "destroyTool": "Not specified",
     "customDrop": {
@@ -123,9 +123,6 @@
     "fluidRestrictions": [],
     "onTickUpdate": {
       "name": "LimestoneinactiveUpdateTick"
-    },
-    "onBlockPlayedBy": {
-      "name": "LimestoneinactiveBlockIsPlacedBy"
     },
     "spawnWorldTypes": [],
     "restrictionBiomes": [],

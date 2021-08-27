@@ -370,6 +370,15 @@
       },
       {
         "value": "Blocks.PRISMARINE_WALL"
+      },
+      {
+        "value": "Blocks.DIRT#0"
+      },
+      {
+        "value": "Blocks.DIRT#1"
+      },
+      {
+        "value": "Blocks.DIRT#2"
       }
     ],
     "functions": [],

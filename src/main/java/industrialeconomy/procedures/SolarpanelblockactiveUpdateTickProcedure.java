@@ -90,8 +90,20 @@ public class SolarpanelblockactiveUpdateTickProcedure {
 						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_y,
 						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_z),
 				((owner) + "" + ("hub_Z"))));
-		if ((((world instanceof World) ? ((World) world).isDaytime() : false)
-				&& (world.canBlockSeeSky(new BlockPos((int) x, (int) (y + 1), (int) z))))) {
+		if ((((true) == (new Object() {
+			public boolean getValue(IWorld world, BlockPos pos, String tag) {
+				TileEntity tileEntity = world.getTileEntity(pos);
+				if (tileEntity != null)
+					return tileEntity.getTileData().getBoolean(tag);
+				return false;
+			}
+		}.getValue(world,
+				new BlockPos((int) IndustrialEconomyModVariables.WorldVariables.get(world).server_x,
+						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_y,
+						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_z),
+				((owner) + "" + ("_") + "" + ("isOnline")))))
+				&& (((world instanceof World) ? ((World) world).isDaytime() : false)
+						&& (world.canBlockSeeSky(new BlockPos((int) x, (int) (y + 1), (int) z)))))) {
 			if (!world.isRemote()) {
 				BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 				TileEntity _tileEntity = world.getTileEntity(_bp);

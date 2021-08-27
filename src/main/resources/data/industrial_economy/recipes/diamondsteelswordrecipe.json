@@ -14,7 +14,7 @@
       "item": "industrial_economy:diamondsteelitem"
     },
     "2": {
-      "item": "minecraft:diamond"
+      "item": "industrial_economy:industrial_diamond"
     }
   },
   "result": {

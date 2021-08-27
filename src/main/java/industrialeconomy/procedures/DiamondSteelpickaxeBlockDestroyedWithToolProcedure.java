@@ -7,6 +7,7 @@ import net.minecraft.util.Direction;
 import net.minecraft.item.ItemStack;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Entity;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.Block;
 
 import java.util.Random;
@@ -48,9 +49,10 @@ public class DiamondSteelpickaxeBlockDestroyedWithToolProcedure {
 		IWorld world = (IWorld) dependencies.get("world");
 		if (((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY).getOrCreateTag()
 				.getBoolean("3x3")) == (true))) {
-			if (((!(entity.isSneaking())) && ((((entity.rotationPitch) < (-60)) || ((entity.rotationPitch) > 60))
-					&& ((world.getBlockState(new BlockPos((int) x, (int) y, (int) z)))
-							.getMaterial() == net.minecraft.block.material.Material.ROCK)))) {
+			if (((!((world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock() == Blocks.BEDROCK))
+					&& ((!(entity.isSneaking())) && ((((entity.rotationPitch) < (-60)) || ((entity.rotationPitch) > 60))
+							&& ((world.getBlockState(new BlockPos((int) x, (int) y, (int) z)))
+									.getMaterial() == net.minecraft.block.material.Material.ROCK))))) {
 				if (world instanceof World) {
 					Block.spawnDrops(world.getBlockState(new BlockPos((int) (x - 1), (int) y, (int) (z - 1))), (World) world,
 							new BlockPos((int) x, (int) y, (int) z));

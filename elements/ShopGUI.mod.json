@@ -36,6 +36,20 @@
           "x": 55,
           "y": 34
         }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Food",
+          "onClick": {
+            "name": "ShopFOODButtonOnClick"
+          },
+          "width": 45,
+          "height": 20,
+          "name": "Food",
+          "x": 57,
+          "y": 58
+        }
       }
     ],
     "gridSettings": {

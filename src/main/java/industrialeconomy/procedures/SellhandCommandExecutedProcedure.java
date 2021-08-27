@@ -180,7 +180,7 @@ public class SellhandCommandExecutedProcedure {
 		if (((itemforsell).getItem() == Items.DIAMOND)) {
 			{
 				double _setval = (double) (((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-						.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money) + (items_amount * 150));
+						.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money) + (items_amount * 500));
 				entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 					capability.player_money = _setval;
 					capability.syncPlayerVariables(entity);
@@ -188,7 +188,7 @@ public class SellhandCommandExecutedProcedure {
 			}
 			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
 				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent((("You sell ") + "" + (((itemforsell).getDisplayName().getString()))
-						+ "" + (" for ") + "" + ((items_amount * 150)) + "" + (" \u20AC"))), (false));
+						+ "" + (" for ") + "" + ((items_amount * 500)) + "" + (" \u20AC"))), (false));
 			}
 			if (entity instanceof PlayerEntity) {
 				ItemStack _stktoremove = (itemforsell);
@@ -199,7 +199,7 @@ public class SellhandCommandExecutedProcedure {
 		if (((itemforsell).getItem() == Items.EMERALD)) {
 			{
 				double _setval = (double) (((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-						.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money) + (items_amount * 300));
+						.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money) + (items_amount * 850));
 				entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 					capability.player_money = _setval;
 					capability.syncPlayerVariables(entity);
@@ -207,7 +207,7 @@ public class SellhandCommandExecutedProcedure {
 			}
 			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
 				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent((("You sell ") + "" + (((itemforsell).getDisplayName().getString()))
-						+ "" + (" for ") + "" + ((items_amount * 300)) + "" + (" \u20AC"))), (false));
+						+ "" + (" for ") + "" + ((items_amount * 850)) + "" + (" \u20AC"))), (false));
 			}
 			if (entity instanceof PlayerEntity) {
 				ItemStack _stktoremove = (itemforsell);
@@ -218,7 +218,7 @@ public class SellhandCommandExecutedProcedure {
 		if (((itemforsell).getItem() == Items.GOLD_INGOT)) {
 			{
 				double _setval = (double) (((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-						.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money) + (items_amount * 15));
+						.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money) + (items_amount * 50));
 				entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 					capability.player_money = _setval;
 					capability.syncPlayerVariables(entity);
@@ -226,7 +226,7 @@ public class SellhandCommandExecutedProcedure {
 			}
 			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
 				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent((("You sell ") + "" + (((itemforsell).getDisplayName().getString()))
-						+ "" + (" for ") + "" + ((items_amount * 15)) + "" + (" \u20AC"))), (false));
+						+ "" + (" for ") + "" + ((items_amount * 50)) + "" + (" \u20AC"))), (false));
 			}
 			if (entity instanceof PlayerEntity) {
 				ItemStack _stktoremove = (itemforsell);

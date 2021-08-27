@@ -15,7 +15,6 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.Entity;
-import net.minecraft.block.Blocks;
 import net.minecraft.block.BlockState;
 
 import java.util.Map;
@@ -24,6 +23,8 @@ import java.util.HashMap;
 import industrialeconomy.IndustrialEconomyModVariables;
 
 import industrialeconomy.IndustrialEconomyMod;
+
+import com.google.common.collect.ImmutableMap;
 
 public class LandUseDoorProcedure {
 	@Mod.EventBusSubscriber
@@ -112,7 +113,7 @@ public class LandUseDoorProcedure {
 						return (true);
 					}
 				}
-				if (((world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock() == Blocks.CHEST)) {
+				if (((true) == DisallowedToOpenProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world)))) {
 					grid_X = (double) Math.floor((x / 20));
 					grid_Z = (double) Math.floor((z / 20));
 					if (((IndustrialEconomyModVariables.WorldVariables.get(world).is_city
@@ -122,7 +123,7 @@ public class LandUseDoorProcedure {
 						if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
 							((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("You dont own this land"), (true));
 						}
-						for (int index0 = 0; index0 < (int) (20); index0++) {
+						for (int index0 = 0; index0 < (int) (40); index0++) {
 							new Object() {
 								private int ticks = 0;
 								private float waitTicks;
@@ -147,7 +148,7 @@ public class LandUseDoorProcedure {
 										((PlayerEntity) entity).closeScreen();
 									MinecraftForge.EVENT_BUS.unregister(this);
 								}
-							}.start(world, (int) 2);
+							}.start(world, (int) 1);
 						}
 					} else {
 						return (true);

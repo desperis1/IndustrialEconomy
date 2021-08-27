@@ -1,0 +1,129 @@
+{
+  "_fv": 24,
+  "_type": "gui",
+  "definition": {
+    "type": 1,
+    "width": 362,
+    "height": 215,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 28,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "text": "Food Shop",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "Food Shop",
+          "x": 130,
+          "y": 17
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Your Money: <VAR:player_money> €",
+          "color": {
+            "value": -16751104,
+            "falpha": 0.0
+          },
+          "name": "Your Money: <VAR:player_money> €",
+          "x": 179,
+          "y": 17
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "16x Bread",
+          "onClick": {
+            "name": "FoodShopBreadOnClick"
+          },
+          "width": 70,
+          "height": 20,
+          "name": "16x Bread",
+          "x": 41,
+          "y": 30
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "32 €",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "32 €",
+          "x": 113,
+          "y": 35
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "16x Steak",
+          "onClick": {
+            "name": "FoodShopSteakOnClick"
+          },
+          "width": 70,
+          "height": 20,
+          "name": "16x Steak",
+          "x": 41,
+          "y": 55
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "32 €",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "32 €",
+          "x": 113,
+          "y": 60
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "16x Chicken",
+          "onClick": {
+            "name": "FoodShopChickenOnClick"
+          },
+          "width": 80,
+          "height": 20,
+          "name": "16x Chicken",
+          "x": 40,
+          "y": 82
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "32 €",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "32 €",
+          "x": 124,
+          "y": 87
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

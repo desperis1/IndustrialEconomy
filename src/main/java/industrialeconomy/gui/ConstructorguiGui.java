@@ -116,9 +116,9 @@ public class ConstructorguiGui extends IndustrialEconomyModElements.ModElement {
 					}
 				}
 			}
-			this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 29, 34) {
+			this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 30, 34) {
 			}));
-			this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, 132, 34) {
+			this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, 133, 34) {
 				@Override
 				public boolean isItemValid(ItemStack stack) {
 					return false;
@@ -128,9 +128,9 @@ public class ConstructorguiGui extends IndustrialEconomyModElements.ModElement {
 			int sj;
 			for (si = 0; si < 3; ++si)
 				for (sj = 0; sj < 9; ++sj)
-					this.addSlot(new Slot(inv, sj + (si + 1) * 9, -1 + 8 + sj * 18, 24 + 84 + si * 18));
+					this.addSlot(new Slot(inv, sj + (si + 1) * 9, 0 + 8 + sj * 18, 24 + 84 + si * 18));
 			for (si = 0; si < 9; ++si)
-				this.addSlot(new Slot(inv, si, -1 + 8 + si * 18, 24 + 142));
+				this.addSlot(new Slot(inv, si, 0 + 8 + si * 18, 24 + 142));
 		}
 
 		public Map<Integer, Slot> get() {

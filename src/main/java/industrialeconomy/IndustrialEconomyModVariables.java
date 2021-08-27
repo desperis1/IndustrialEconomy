@@ -239,7 +239,6 @@ public class IndustrialEconomyModVariables {
 			nbt.putDouble("hub_coal_save", instance.hub_coal_save);
 			nbt.putDouble("hub_iron_save", instance.hub_iron_save);
 			nbt.putBoolean("diamondsteel_itembuffer", instance.diamondsteel_itembuffer);
-			nbt.putDouble("player_rock_points", instance.player_rock_points);
 			nbt.putDouble("player_minnig_level", instance.player_minnig_level);
 			nbt.putDouble("miners_level", instance.miners_level);
 			nbt.putDouble("hub_sandstone_save", instance.hub_sandstone_save);
@@ -288,7 +287,6 @@ public class IndustrialEconomyModVariables {
 			instance.hub_coal_save = nbt.getDouble("hub_coal_save");
 			instance.hub_iron_save = nbt.getDouble("hub_iron_save");
 			instance.diamondsteel_itembuffer = nbt.getBoolean("diamondsteel_itembuffer");
-			instance.player_rock_points = nbt.getDouble("player_rock_points");
 			instance.player_minnig_level = nbt.getDouble("player_minnig_level");
 			instance.miners_level = nbt.getDouble("miners_level");
 			instance.hub_sandstone_save = nbt.getDouble("hub_sandstone_save");
@@ -335,7 +333,6 @@ public class IndustrialEconomyModVariables {
 		public double hub_coal_save = 0;
 		public double hub_iron_save = 0;
 		public boolean diamondsteel_itembuffer = false;
-		public double player_rock_points = 0;
 		public double player_minnig_level = 1.0;
 		public double miners_level = 1.0;
 		public double hub_sandstone_save = 0;
@@ -403,7 +400,6 @@ public class IndustrialEconomyModVariables {
 		clone.hub_coal_save = original.hub_coal_save;
 		clone.hub_iron_save = original.hub_iron_save;
 		clone.diamondsteel_itembuffer = original.diamondsteel_itembuffer;
-		clone.player_rock_points = original.player_rock_points;
 		clone.player_minnig_level = original.player_minnig_level;
 		clone.miners_level = original.miners_level;
 		clone.hub_sandstone_save = original.hub_sandstone_save;
@@ -477,7 +473,6 @@ public class IndustrialEconomyModVariables {
 					variables.hub_coal_save = message.data.hub_coal_save;
 					variables.hub_iron_save = message.data.hub_iron_save;
 					variables.diamondsteel_itembuffer = message.data.diamondsteel_itembuffer;
-					variables.player_rock_points = message.data.player_rock_points;
 					variables.player_minnig_level = message.data.player_minnig_level;
 					variables.miners_level = message.data.miners_level;
 					variables.hub_sandstone_save = message.data.hub_sandstone_save;

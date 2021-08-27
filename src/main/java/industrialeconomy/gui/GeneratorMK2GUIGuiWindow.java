@@ -84,9 +84,10 @@ public class GeneratorMK2GUIGuiWindow extends ContainerScreen<GeneratorMK2GUIGui
 					return tileEntity.getTileData().getDouble(tag);
 				return 0;
 			}
-		}.getValue(new BlockPos((int) x, (int) y, (int) z), "GeneratorEnergy")) + "", 12, 59, -12829636);
+		}.getValue(new BlockPos((int) x, (int) y, (int) z), "GeneratorEnergy")) + "", 75, 58, -12829636);
 		if (GeneratorWorkingLabelProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world)))
 			this.font.drawString(ms, "Working", 67, 15, -16738048);
+		this.font.drawString(ms, "+500 MW", 134, 5, -16763956);
 	}
 
 	@Override

@@ -35,7 +35,6 @@ import net.minecraft.inventory.container.ChestContainer;
 import net.minecraft.inventory.ItemStackHelper;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.BlockState;
@@ -51,9 +50,6 @@ import java.util.HashMap;
 import java.util.Collections;
 
 import industrialeconomy.procedures.LimestoneinactiveUpdateTickProcedure;
-import industrialeconomy.procedures.LimestoneinactiveBlockIsPlacedByProcedure;
-
-import industrialeconomy.itemgroup.ProjectMEGAItemGroup;
 
 import industrialeconomy.IndustrialEconomyModElements;
 
@@ -71,8 +67,7 @@ public class LimestoneinactiveBlock extends IndustrialEconomyModElements.ModElem
 	@Override
 	public void initElements() {
 		elements.blocks.add(() -> new CustomBlock());
-		elements.items
-				.add(() -> new BlockItem(block, new Item.Properties().group(ProjectMEGAItemGroup.tab)).setRegistryName(block.getRegistryName()));
+		elements.items.add(() -> new BlockItem(block, new Item.Properties().group(null)).setRegistryName(block.getRegistryName()));
 	}
 	private static class TileEntityRegisterHandler {
 		@SubscribeEvent
@@ -125,23 +120,6 @@ public class LimestoneinactiveBlock extends IndustrialEconomyModElements.ModElem
 				LimestoneinactiveUpdateTickProcedure.executeProcedure($_dependencies);
 			}
 			world.getPendingBlockTicks().scheduleTick(new BlockPos(x, y, z), this, 10);
-		}
-
-		@Override
-		public void onBlockPlacedBy(World world, BlockPos pos, BlockState blockstate, LivingEntity entity, ItemStack itemstack) {
-			super.onBlockPlacedBy(world, pos, blockstate, entity, itemstack);
-			int x = pos.getX();
-			int y = pos.getY();
-			int z = pos.getZ();
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				$_dependencies.put("x", x);
-				$_dependencies.put("y", y);
-				$_dependencies.put("z", z);
-				$_dependencies.put("world", world);
-				LimestoneinactiveBlockIsPlacedByProcedure.executeProcedure($_dependencies);
-			}
 		}
 
 		@Override

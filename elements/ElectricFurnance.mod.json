@@ -71,6 +71,19 @@
           "x": 195,
           "y": 67
         }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "100MW",
+          "color": {
+            "value": -16764007,
+            "falpha": 0.0
+          },
+          "name": "100MW",
+          "x": 267,
+          "y": 41
+        }
       }
     ],
     "gridSettings": {

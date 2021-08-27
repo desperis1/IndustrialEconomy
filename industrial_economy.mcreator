@@ -2713,24 +2713,6 @@
       "path": "~/Tools/DiamondSteelTools"
     },
     {
-      "name": "Pointsbutton",
-      "type": "procedure",
-      "sortid": 153,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "pointsbutton",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          }
-        ]
-      },
-      "path": "~/Tools/DiamondSteelTools"
-    },
-    {
       "name": "DiamondSteelpickaxeRightClickedOnBlock",
       "type": "procedure",
       "sortid": 154,
@@ -3030,46 +3012,6 @@
       "path": "~/Tools/DiamondSteelTools"
     },
     {
-      "name": "Foundryinactive",
-      "type": "block",
-      "sortid": 171,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "foundryinactive",
-      "path": "~/Machines/Foundry"
-    },
-    {
-      "name": "FoundryinactiveUpdateTick",
-      "type": "procedure",
-      "sortid": 172,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "foundryinactive_update_tick",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      },
-      "path": "~/Machines/Foundry"
-    },
-    {
       "name": "FoundryinactiveBlockIsPlacedBy",
       "type": "procedure",
       "sortid": 173,
@@ -3111,40 +3053,6 @@
       "locked_code": false,
       "ids": {},
       "registry_name": "foundryinactive_block_destroyed_by_player",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      },
-      "path": "~/Machines/Foundry"
-    },
-    {
-      "name": "FoundyblockBlockDestroyedByPlayer",
-      "type": "procedure",
-      "sortid": 175,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "foundyblock_block_destroyed_by_player",
       "metadata": {
         "dependencies": [
           {
@@ -4437,7 +4345,7 @@
       "compiles": true,
       "locked_code": false,
       "ids": {},
-      "registry_name": "limestoneinactive_block_is_placed_by",
+      "registry_name": "limestoneactive_block_is_placed_by",
       "metadata": {
         "dependencies": [
           {
@@ -7030,6 +6938,244 @@
         ]
       },
       "path": "~/Machines/ConcreteMixer"
+    },
+    {
+      "name": "FoodShopGUI",
+      "type": "gui",
+      "sortid": 434,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "food_shop_gui",
+      "path": "~/Shop"
+    },
+    {
+      "name": "ShopFOODButtonOnClick",
+      "type": "procedure",
+      "sortid": 435,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "shop_food_button_on_click",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Shop"
+    },
+    {
+      "name": "FoodShopBreadOnClick",
+      "type": "procedure",
+      "sortid": 436,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "food_shop_bread_on_click",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Shop"
+    },
+    {
+      "name": "FoodShopSteakOnClick",
+      "type": "procedure",
+      "sortid": 437,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "food_shop_steak_on_click",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Shop"
+    },
+    {
+      "name": "FoodShopChickenOnClick",
+      "type": "procedure",
+      "sortid": 438,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "food_shop_chicken_on_click",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Shop"
+    },
+    {
+      "name": "DisallowedToOpen",
+      "type": "procedure",
+      "sortid": 439,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "disallowed_to_open",
+      "metadata": {
+        "return_type": "logic",
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Extra"
+    },
+    {
+      "name": "PlayerDiesSaveLocaion",
+      "type": "procedure",
+      "sortid": 440,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "player_dies_save_location",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          }
+        ]
+      },
+      "path": "~/Extra"
+    },
+    {
+      "name": "WorldGridAnimalKill",
+      "type": "procedure",
+      "sortid": 441,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "world_grid_animal_kill",
+      "metadata": {
+        "return_type": "logic",
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Extra"
+    },
+    {
+      "name": "PlayerJoinWorld",
+      "type": "procedure",
+      "sortid": 442,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "player_join_world",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Extra"
+    },
+    {
+      "name": "PlayerLeavesWorld",
+      "type": "procedure",
+      "sortid": 443,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "player_leaves_world",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Extra"
     }
   ],
   "variable_elements": [
@@ -7202,12 +7348,6 @@
       "value": "false"
     },
     {
-      "name": "player_rock_points",
-      "type": "number",
-      "scope": "player_persistent",
-      "value": "0"
-    },
-    {
       "name": "player_minnig_level",
       "type": "number",
       "scope": "player_persistent",
@@ -7365,8 +7505,8 @@
       "block.mega_project.limestoneinactive": "Limestone (Inactive)",
       "item.mega_project.perma_night_module": "Perma Night Module",
       "block.satis_mine.green_concrete_slab": "Green Concrete Slab",
-      "block.industrial_economy.foundyblock": "Foundry",
       "block.industrial_economy.magenta_concrete_slab": "Magenta Concrete Slab",
+      "block.industrial_economy.foundyblock": "Foundry",
       "item.industrial_economy.infostick": "Info Stick",
       "block.industrial_economy.light_gray_concrete_stairs": "Light Gray Concrete Stairs",
       "block.industrial_economy.caterium_node_block_inactive": "Caterium Node Block Inactive",
@@ -7389,11 +7529,11 @@
       "block.mega_project.constructorblock": "Constructor",
       "key.satis_mine.node_scanner_modes_keybind": "Node Scanner Modes",
       "block.industrial_economy.assemblerblock": "Assembler",
-      "advancements.rudit_ingotadvancement.descr": "Advanced Redstone",
       "block.satis_mine.lime_concrete_stairs": "Lime Concrete Stairs",
-      "item.mega_project.diamond_steel_armor_chestplate": "Diamond Steel Chestplate",
-      "item.mega_project.diamondscrewitem": "Diamond screw",
+      "advancements.rudit_ingotadvancement.descr": "Advanced Redstone",
       "item.industrial_economy.diamond_steel_armor_boots": "DiamondS teel Boots",
+      "item.mega_project.diamondscrewitem": "Diamond screw",
+      "item.mega_project.diamond_steel_armor_chestplate": "Diamond Steel Chestplate",
       "block.mega_project.haarp": "Haarp!",
       "block.industrial_economy.armorchargermk_2": "Armor Charger MK2",
       "key.satis_mine.plasmashootkeybind": "Plasma Shoot",
@@ -7453,8 +7593,8 @@
       "item.mega_project.cpu": "CPU",
       "item.industrial_economy.emptymodule": "Empty Module",
       "block.satis_mine.pink_concrete_stairs": "Pink Concrete Stairs",
-      "block.satis_mine.coal_node": "Coal Node(active)",
       "block.industrial_economy.cyan_concrete_slab": "Cyan Concrete Slab",
+      "block.satis_mine.coal_node": "Coal Node(active)",
       "block.mega_project.purple_concrete_stairs": "Purple Concrete Stairs",
       "advancements.allrecipescheat.descr": "Unlock Recipe Cheat",
       "item.mega_project.diamond_steelpickaxe": "Diamond Steel Pickaxe",
@@ -7465,8 +7605,8 @@
       "block.mega_project.orange_concrete_stairs": "Orange Concrete Stairs",
       "item.satis_mine.highspeedconectoritem": "High Speed Connector",
       "item.mega_project.control_unit": "Control Unit",
-      "item.industrial_economy.diamond_steel_armor_leggings": "Diamond Steel Leggings",
       "block.industrial_economy.position_1block": "Position 1",
+      "item.industrial_economy.diamond_steel_armor_leggings": "Diamond Steel Leggings",
       "item.industrial_economy.perma_night_module": "Perma Night Module",
       "block.industrial_economy.red_concrete_stairs": "Red Concrete Stairs",
       "block.mega_project.magenta_concrete_slab": "Magenta Concrete Slab",
@@ -7501,8 +7641,8 @@
       "block.satis_mine.ironextractor": "Iron Extractor",
       "item.mega_project.ironplate": "Iron Plate",
       "item.industrial_economy.diamondstellshovel": "Diamondstellshovel",
-      "block.industrial_economy.generator_mk_1inactive": "Generator MK 1",
       "enchantment.industrial_economy.cheap_plasma": "Cheap Plasma",
+      "block.industrial_economy.generator_mk_1inactive": "Generator MK 1",
       "block.industrial_economy.minerinactive": "Miner MK1",
       "item.mega_project.copper_ingot": "Copper",
       "item.mega_project.buildertool": "Builder Gun",
@@ -7516,8 +7656,8 @@
       "block.mega_project.armorcharger": "Armor Charger",
       "block.industrial_economy.green_concrete_slab": "Green Concrete Slab",
       "item.satis_mine.diamond_steelpickaxe": "Diamond Steel Pickaxe",
-      "block.mega_project.steel_block": "Steel Block",
       "block.satis_mine.armorchargermk_2": "Armor Charger MK2",
+      "block.mega_project.steel_block": "Steel Block",
       "block.satis_mine.coal_extractor": "Coal Extractor",
       "block.mega_project.copper_extractor": "Copper Extractor",
       "item.mega_project.turbofuelitem": "Turbofuel Mk.1",
@@ -7633,7 +7773,6 @@
       "block.satis_mine.pink_concrete_slab": "Pink Concrete Slab",
       "block.mega_project.presserblock": "Presser",
       "block.industrial_economy.energyplazmamk_2": "Energy Plazma",
-      "block.industrial_economy.foundryinactive": "Foundry",
       "block.industrial_economy.position_2block": "Position 2.",
       "block.satis_mine.cyan_concrete_stairs": "Cyan Concrete Stairs",
       "key.satis_mine.adminmenukeybind": "Admin Menu",
@@ -8016,5 +8155,5 @@
     "modElementsPackage": "industrialeconomy",
     "lockBaseModFiles": false
   },
-  "mcreatorVersion": 202100233614
+  "mcreatorVersion": 202100235315
 }
