@@ -6,11 +6,11 @@
     "xpReward": 0.0,
     "cookingTime": 200,
     "recipeRetstackSize": 1,
-    "group": "diamondsteel",
+    "group": "diamondsteelhoerecipe",
     "recipeShapeless": false,
     "recipeSlots": [
       {
-        "value": ""
+        "value": "CUSTOM:Diamondsteelplate"
       },
       {
         "value": "CUSTOM:Diamondsteelplate"
@@ -38,9 +38,9 @@
       }
     ],
     "recipeReturnStack": {
-      "value": "CUSTOM:Diamondstellshovel"
+      "value": "CUSTOM:DiamondSteelHOe"
     },
-    "name": "diamondsteelshovelrecipe",
+    "name": "diamond_steel_recipe",
     "namespace": "mod"
   }
 }

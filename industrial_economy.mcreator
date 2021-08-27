@@ -6122,6 +6122,10 @@
           {
             "name": "entity",
             "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
         ]
       },
@@ -7176,6 +7180,96 @@
         ]
       },
       "path": "~/Extra"
+    },
+    {
+      "name": "DiamondSteelHOeRightClickedOnBlock",
+      "type": "procedure",
+      "sortid": 444,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "diamond_steel_h_oe_right_clicked_on_block",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Tools/DiamondSteelTools"
+    },
+    {
+      "name": "DiamondSteelHOe",
+      "type": "tool",
+      "sortid": 444,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "diamond_steel_h_oe",
+      "path": "~/Tools/DiamondSteelTools"
+    },
+    {
+      "name": "DiamondSteelRecipe",
+      "type": "recipe",
+      "sortid": 445,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "diamond_steel_recipe",
+      "path": "~/Tools/DiamondSteelTools"
+    },
+    {
+      "name": "SetpriceCommandExecuted",
+      "type": "procedure",
+      "sortid": 446,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "setprice_command_executed",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "cmdparams",
+            "type": "map"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Commands"
+    },
+    {
+      "name": "Setprice",
+      "type": "command",
+      "sortid": 446,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "setprice",
+      "path": "~/Commands"
     }
   ],
   "variable_elements": [
@@ -7650,6 +7744,7 @@
       "block.mega_project.black_concrete_slab": "Black Concrete Slab",
       "block.mega_project.crusher": "Crusher",
       "block.satis_mine.generator_mk_1inactive": "Generator MK 1",
+      "item.industrial_economy.diamond_steel_h_oe": "Diamond Steel Hoe",
       "block.satis_mine.cyan_concrete_slab": "Cyan Concrete Slab",
       "item.industrial_economy.ai_limiteritem": "Ai Limiter",
       "block.satis_mine.foundyblock": "Foundry",

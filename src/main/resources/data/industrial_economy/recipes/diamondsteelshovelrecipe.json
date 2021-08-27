@@ -8,13 +8,13 @@
   ],
   "key": {
     "0": {
-      "item": "industrial_economy:diamondsteelitem"
+      "item": "industrial_economy:diamondsteelplate"
     },
     "1": {
-      "item": "industrial_economy:industrial_diamond"
+      "item": "industrial_economy:diamondsteelitem"
     },
     "2": {
-      "item": "industrial_economy:industrial_diamond"
+      "item": "industrial_economy:diamondsteelitem"
     }
   },
   "result": {

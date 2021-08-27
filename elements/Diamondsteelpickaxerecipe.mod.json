@@ -10,10 +10,16 @@
     "recipeShapeless": false,
     "recipeSlots": [
       {
-        "value": "CUSTOM:Diamondsteelitem"
+        "value": "CUSTOM:Diamondsteelplate"
       },
       {
-        "value": "CUSTOM:Diamondsteelitem"
+        "value": "CUSTOM:Diamondsteelplate"
+      },
+      {
+        "value": "CUSTOM:Diamondsteelplate"
+      },
+      {
+        "value": ""
       },
       {
         "value": "CUSTOM:Diamondsteelitem"
@@ -22,16 +28,10 @@
         "value": ""
       },
       {
-        "value": "CUSTOM:IndustrialDiamond"
-      },
-      {
         "value": ""
       },
       {
-        "value": ""
-      },
-      {
-        "value": "CUSTOM:IndustrialDiamond"
+        "value": "CUSTOM:Diamondsteelitem"
       },
       {
         "value": ""

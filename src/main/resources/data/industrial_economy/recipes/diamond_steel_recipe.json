@@ -1,9 +1,9 @@
 {
-  "group": "diamondsteel_axe",
+  "group": "diamondsteelhoerecipe",
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "01",
-    "23",
+    " 3",
     " 5"
   ],
   "key": {
@@ -11,9 +11,6 @@
       "item": "industrial_economy:diamondsteelplate"
     },
     "1": {
-      "item": "industrial_economy:diamondsteelplate"
-    },
-    "2": {
       "item": "industrial_economy:diamondsteelplate"
     },
     "3": {
@@ -24,7 +21,7 @@
     }
   },
   "result": {
-    "item": "industrial_economy:diamondsteelaxe",
+    "item": "industrial_economy:diamond_steel_h_oe",
     "count": 1
   }
 }
