@@ -7584,6 +7584,242 @@
         ]
       },
       "path": "~/HUB"
+    },
+    {
+      "name": "AutoSell",
+      "type": "block",
+      "sortid": 459,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "auto_sell",
+      "path": "~/Blocks/Autosell"
+    },
+    {
+      "name": "AutoSellBlockIsPlacedBy",
+      "type": "procedure",
+      "sortid": 460,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "auto_sell_block_is_placed_by",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Blocks/Autosell"
+    },
+    {
+      "name": "AutoSellGUI",
+      "type": "gui",
+      "sortid": 461,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "auto_sell_gui",
+      "path": "~/Blocks/Autosell"
+    },
+    {
+      "name": "AutoSellUpdateTick",
+      "type": "procedure",
+      "sortid": 462,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "auto_sell_update_tick",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Blocks/Autosell"
+    },
+    {
+      "name": "MachinesShopGUI",
+      "type": "gui",
+      "sortid": 463,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "machines_shop_gui",
+      "path": "~/Shop"
+    },
+    {
+      "name": "MachinesShopElectriFurnanceOnClick",
+      "type": "procedure",
+      "sortid": 464,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "machines_shop_electri_furnance_on_click",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Shop"
+    },
+    {
+      "name": "MachinesShopMinerOnClick",
+      "type": "procedure",
+      "sortid": 465,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "machines_shop_miner_on_click",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Shop"
+    },
+    {
+      "name": "MachinesShopFoundryOnClick",
+      "type": "procedure",
+      "sortid": 466,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "machines_shop_foundry_on_click",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Shop"
+    },
+    {
+      "name": "MachinesShopConstructorOnClick",
+      "type": "procedure",
+      "sortid": 467,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "machines_shop_constructor_on_click",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Shop"
+    },
+    {
+      "name": "MachinesShopAssemblerOnClick",
+      "type": "procedure",
+      "sortid": 468,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "machines_shop_assembler_on_click",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Shop"
+    },
+    {
+      "name": "MachniesShopAutoSellOnClick",
+      "type": "procedure",
+      "sortid": 469,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "machnies_shop_auto_sell_on_click",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Shop"
+    },
+    {
+      "name": "ShopMACHINESBUTTONonclick",
+      "type": "procedure",
+      "sortid": 470,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "shop_machinesbutto_nonclick",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Shop"
     }
   ],
   "variable_elements": [
@@ -7925,8 +8161,8 @@
       "block.mega_project.limestoneinactive": "Limestone (Inactive)",
       "item.mega_project.perma_night_module": "Perma Night Module",
       "block.satis_mine.green_concrete_slab": "Green Concrete Slab",
-      "block.industrial_economy.foundyblock": "Foundry",
       "block.industrial_economy.magenta_concrete_slab": "Magenta Concrete Slab",
+      "block.industrial_economy.foundyblock": "Foundry",
       "item.industrial_economy.infostick": "Info Stick",
       "block.industrial_economy.light_gray_concrete_stairs": "Light Gray Concrete Stairs",
       "block.industrial_economy.caterium_node_block_inactive": "Caterium Node Block Inactive",
@@ -7937,6 +8173,7 @@
       "block.industrial_economy.modularframe": "Modular Frame",
       "block.mega_project.iron_ore_node_block": "Iron Ore Node Block(active)",
       "advancements.cateriumadvancement.title": "Caterium",
+      "block.industrial_economy.auto_sell": "Auto Sell",
       "item.mega_project.cateriumwireitem": "Caterium wire",
       "item.satis_mine.cateriumroditem": "Caterium rod",
       "block.industrial_economy.coal_extractor": "Coal Extractor",
@@ -7949,11 +8186,11 @@
       "block.mega_project.constructorblock": "Constructor",
       "key.satis_mine.node_scanner_modes_keybind": "Node Scanner Modes",
       "block.industrial_economy.assemblerblock": "Assembler",
-      "advancements.rudit_ingotadvancement.descr": "Advanced Redstone",
       "block.satis_mine.lime_concrete_stairs": "Lime Concrete Stairs",
-      "item.mega_project.diamond_steel_armor_chestplate": "Diamond Steel Chestplate",
-      "item.mega_project.diamondscrewitem": "Diamond screw",
+      "advancements.rudit_ingotadvancement.descr": "Advanced Redstone",
       "item.industrial_economy.diamond_steel_armor_boots": "DiamondS teel Boots",
+      "item.mega_project.diamondscrewitem": "Diamond screw",
+      "item.mega_project.diamond_steel_armor_chestplate": "Diamond Steel Chestplate",
       "block.mega_project.haarp": "Haarp!",
       "block.industrial_economy.armorchargermk_2": "Armor Charger MK2",
       "key.satis_mine.plasmashootkeybind": "Plasma Shoot",
@@ -8000,9 +8237,9 @@
       "block.satis_mine.red_concrete_slab": "Red Concrete Slab",
       "block.industrial_economy.orange_concrete_stairs": "Orange Concrete Stairs",
       "item.industrial_economy.buildertool": "Builder Gun",
-      "block.industrial_economy.iron_ore_node_block": "Iron Ore Node Block(active)",
-      "block.satis_mine.yellow_concrete_stairs": "Yellow Concrete Stairs",
       "enchantment.satis_mine.better_cool_down_enchantment": "Better CoolDown",
+      "block.satis_mine.yellow_concrete_stairs": "Yellow Concrete Stairs",
+      "block.industrial_economy.iron_ore_node_block": "Iron Ore Node Block(active)",
       "block.industrial_economy.lime_concrete_slab": "Lime Concrete Slab",
       "block.mega_project.heavyframe": "Heavy Frame",
       "block.satis_mine.heavyframe": "Heavy Frame",
@@ -8012,8 +8249,8 @@
       "item.mega_project.cpu": "CPU",
       "item.industrial_economy.emptymodule": "Empty Module",
       "block.satis_mine.pink_concrete_stairs": "Pink Concrete Stairs",
-      "block.satis_mine.coal_node": "Coal Node(active)",
       "block.industrial_economy.cyan_concrete_slab": "Cyan Concrete Slab",
+      "block.satis_mine.coal_node": "Coal Node(active)",
       "block.mega_project.purple_concrete_stairs": "Purple Concrete Stairs",
       "advancements.allrecipescheat.descr": "Unlock Recipe Cheat",
       "item.mega_project.diamond_steelpickaxe": "Diamond Steel Pickaxe",
@@ -8024,8 +8261,8 @@
       "block.mega_project.orange_concrete_stairs": "Orange Concrete Stairs",
       "item.satis_mine.highspeedconectoritem": "High Speed Connector",
       "item.mega_project.control_unit": "Control Unit",
-      "item.industrial_economy.diamond_steel_armor_leggings": "Diamond Steel Leggings",
       "block.industrial_economy.position_1block": "Position 1",
+      "item.industrial_economy.diamond_steel_armor_leggings": "Diamond Steel Leggings",
       "block.industrial_economy.red_concrete_stairs": "Red Concrete Stairs",
       "block.mega_project.magenta_concrete_slab": "Magenta Concrete Slab",
       "item.industrial_economy.cateriumroditem": "Caterium rod",
@@ -8059,8 +8296,8 @@
       "block.satis_mine.ironextractor": "Iron Extractor",
       "item.mega_project.ironplate": "Iron Plate",
       "item.industrial_economy.diamondstellshovel": "Diamond Steel Shovel",
-      "block.industrial_economy.generator_mk_1inactive": "Generator MK 1",
       "enchantment.industrial_economy.cheap_plasma": "Cheap Plasma",
+      "block.industrial_economy.generator_mk_1inactive": "Generator MK 1",
       "block.industrial_economy.minerinactive": "Miner MK1",
       "item.mega_project.copper_ingot": "Copper",
       "item.mega_project.buildertool": "Builder Gun",
@@ -8075,8 +8312,8 @@
       "block.mega_project.armorcharger": "Armor Charger",
       "block.industrial_economy.green_concrete_slab": "Green Concrete Slab",
       "item.satis_mine.diamond_steelpickaxe": "Diamond Steel Pickaxe",
-      "block.mega_project.steel_block": "Steel Block",
       "block.satis_mine.armorchargermk_2": "Armor Charger MK2",
+      "block.mega_project.steel_block": "Steel Block",
       "block.satis_mine.coal_extractor": "Coal Extractor",
       "block.mega_project.copper_extractor": "Copper Extractor",
       "item.mega_project.turbofuelitem": "Turbofuel Mk.1",
@@ -8366,6 +8603,10 @@
           },
           {
             "name": "ServerBlock",
+            "children": []
+          },
+          {
+            "name": "Autosell",
             "children": []
           }
         ]

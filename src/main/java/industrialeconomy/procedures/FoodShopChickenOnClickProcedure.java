@@ -33,7 +33,7 @@ public class FoodShopChickenOnClickProcedure {
 				double _setval = (double) (((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 						.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money) - 32);
 				entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-					capability.player_number_of_land = _setval;
+					capability.player_money = _setval;
 					capability.syncPlayerVariables(entity);
 				});
 			}

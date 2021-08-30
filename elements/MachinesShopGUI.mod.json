@@ -1,0 +1,197 @@
+{
+  "_fv": 24,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 376,
+    "height": 213,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "text": "Machines Shop",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "Machines Shop",
+          "x": 176,
+          "y": 18
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Electric Furnance",
+          "onClick": {
+            "name": "MachinesShopElectriFurnanceOnClick"
+          },
+          "width": 110,
+          "height": 20,
+          "name": "Electric Furnance",
+          "x": 31,
+          "y": 29
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Miner",
+          "onClick": {
+            "name": "MachinesShopMinerOnClick"
+          },
+          "width": 50,
+          "height": 20,
+          "name": "Miner",
+          "x": 31,
+          "y": 52
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Foundry",
+          "onClick": {
+            "name": "MachinesShopFoundryOnClick"
+          },
+          "width": 60,
+          "height": 20,
+          "name": "Foundry",
+          "x": 31,
+          "y": 74
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Constructor",
+          "onClick": {
+            "name": "MachinesShopConstructorOnClick"
+          },
+          "width": 80,
+          "height": 20,
+          "name": "Constructor",
+          "x": 31,
+          "y": 96
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Assembler",
+          "onClick": {
+            "name": "MachinesShopAssemblerOnClick"
+          },
+          "width": 70,
+          "height": 20,
+          "name": "Assembler",
+          "x": 31,
+          "y": 118
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Auto Sell",
+          "onClick": {
+            "name": "MachniesShopAutoSellOnClick"
+          },
+          "width": 70,
+          "height": 20,
+          "name": "Auto Sell",
+          "x": 31,
+          "y": 140
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "500 €",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "500 €",
+          "x": 146,
+          "y": 34
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "500 €",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "500 €",
+          "x": 86,
+          "y": 57
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "250 €",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "250 €",
+          "x": 115,
+          "y": 100
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "1250 €",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "1250 €",
+          "x": 103,
+          "y": 123
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "750 €",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "750 €",
+          "x": 104,
+          "y": 145
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "600 €",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "600 €",
+          "x": 94,
+          "y": 78
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

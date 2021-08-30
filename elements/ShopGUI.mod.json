@@ -47,8 +47,22 @@
           "width": 45,
           "height": 20,
           "name": "Food",
-          "x": 57,
-          "y": 58
+          "x": 55,
+          "y": 55
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Machines",
+          "onClick": {
+            "name": "ShopMACHINESBUTTONonclick"
+          },
+          "width": 65,
+          "height": 20,
+          "name": "Machines",
+          "x": 55,
+          "y": 76
         }
       }
     ],

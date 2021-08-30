@@ -53,14 +53,14 @@ public class LandCommandExecutedProcedure {
 					+ (grid_Z) + "" + (","));
 			if ((IndustrialEconomyModVariables.WorldVariables.get(world).is_city.contains(city_checker))) {
 				if ((IndustrialEconomyModVariables.WorldVariables.get(world).lands
-						.contains(((":") + "" + (grid_X) + "" + (":") + "" + (grid_Z) + "" + (","))))) {
-					if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-						((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("This land is owned by someone else"), (true));
-					}
-				} else if ((IndustrialEconomyModVariables.WorldVariables.get(world).lands
 						.contains(((player_name) + "" + (":") + "" + (grid_X) + "" + (":") + "" + (grid_Z) + "" + (","))))) {
 					if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
 						((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("This land is owned by you"), (true));
+					}
+				} else if ((IndustrialEconomyModVariables.WorldVariables.get(world).lands
+						.contains(((":") + "" + (grid_X) + "" + (":") + "" + (grid_Z) + "" + (","))))) {
+					if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
+						((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("This land is owned by someone else"), (true));
 					}
 				} else {
 					if (((((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
