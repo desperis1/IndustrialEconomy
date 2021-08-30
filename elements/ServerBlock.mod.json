@@ -34,8 +34,8 @@
     ],
     "name": "ServerBlock",
     "specialInfo": [],
-    "hardness": 1000.0,
-    "resistance": 1000.0,
+    "hardness": 10000.0,
+    "resistance": 10000.0,
     "hasGravity": false,
     "isWaterloggable": false,
     "creativeTab": {

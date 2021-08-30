@@ -252,12 +252,14 @@ public class IndustrialEconomyModVariables {
 			nbt.putDouble("builder_pos1_x", instance.builder_pos1_x);
 			nbt.putDouble("DSA_energy", instance.DSA_energy);
 			nbt.putDouble("DSA_PlasmaShoot_Cooldown", instance.DSA_PlasmaShoot_Cooldown);
-			nbt.putDouble("player_home_dimension", instance.player_home_dimension);
+			nbt.putString("player_home_dimension", instance.player_home_dimension);
 			nbt.putDouble("player_number_of_land", instance.player_number_of_land);
 			nbt.putDouble("player_money", instance.player_money);
 			nbt.putString("players_city_name", instance.players_city_name);
 			nbt.putString("belong_to_city", instance.belong_to_city);
 			nbt.putBoolean("admin_editor", instance.admin_editor);
+			nbt.putString("player_back_dimension", instance.player_back_dimension);
+			nbt.putDouble("energy_required_for_next_level", instance.energy_required_for_next_level);
 			return nbt;
 		}
 
@@ -300,12 +302,14 @@ public class IndustrialEconomyModVariables {
 			instance.builder_pos1_x = nbt.getDouble("builder_pos1_x");
 			instance.DSA_energy = nbt.getDouble("DSA_energy");
 			instance.DSA_PlasmaShoot_Cooldown = nbt.getDouble("DSA_PlasmaShoot_Cooldown");
-			instance.player_home_dimension = nbt.getDouble("player_home_dimension");
+			instance.player_home_dimension = nbt.getString("player_home_dimension");
 			instance.player_number_of_land = nbt.getDouble("player_number_of_land");
 			instance.player_money = nbt.getDouble("player_money");
 			instance.players_city_name = nbt.getString("players_city_name");
 			instance.belong_to_city = nbt.getString("belong_to_city");
 			instance.admin_editor = nbt.getBoolean("admin_editor");
+			instance.player_back_dimension = nbt.getString("player_back_dimension");
+			instance.energy_required_for_next_level = nbt.getDouble("energy_required_for_next_level");
 		}
 	}
 
@@ -346,12 +350,14 @@ public class IndustrialEconomyModVariables {
 		public double builder_pos1_x = 0;
 		public double DSA_energy = 0;
 		public double DSA_PlasmaShoot_Cooldown = 0;
-		public double player_home_dimension = 0;
+		public String player_home_dimension = "";
 		public double player_number_of_land = 0.0;
 		public double player_money = 15000.0;
 		public String players_city_name = "\"\"";
 		public String belong_to_city = "\"\"";
 		public boolean admin_editor = false;
+		public String player_back_dimension = "\"\"";
+		public double energy_required_for_next_level = 0;
 		public void syncPlayerVariables(Entity entity) {
 			if (entity instanceof ServerPlayerEntity)
 				IndustrialEconomyMod.PACKET_HANDLER.send(PacketDistributor.PLAYER.with(() -> (ServerPlayerEntity) entity),
@@ -419,6 +425,8 @@ public class IndustrialEconomyModVariables {
 		clone.players_city_name = original.players_city_name;
 		clone.belong_to_city = original.belong_to_city;
 		clone.admin_editor = original.admin_editor;
+		clone.player_back_dimension = original.player_back_dimension;
+		clone.energy_required_for_next_level = original.energy_required_for_next_level;
 		if (!event.isWasDeath()) {
 			clone.DSA_NightVision = original.DSA_NightVision;
 			clone.DSA_Jetpack = original.DSA_Jetpack;
@@ -492,6 +500,8 @@ public class IndustrialEconomyModVariables {
 					variables.players_city_name = message.data.players_city_name;
 					variables.belong_to_city = message.data.belong_to_city;
 					variables.admin_editor = message.data.admin_editor;
+					variables.player_back_dimension = message.data.player_back_dimension;
+					variables.energy_required_for_next_level = message.data.energy_required_for_next_level;
 				}
 			});
 			context.setPacketHandled(true);

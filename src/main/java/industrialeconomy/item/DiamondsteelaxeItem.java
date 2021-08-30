@@ -54,7 +54,7 @@ public class DiamondsteelaxeItem extends IndustrialEconomyModElements.ModElement
 			}
 
 			public Ingredient getRepairMaterial() {
-				return Ingredient.EMPTY;
+				return Ingredient.fromStacks(new ItemStack(DiamondsteelplateItem.block));
 			}
 		}, 1, 1f, new Item.Properties().group(ProjectMEGAItemGroup.tab)) {
 			@Override

@@ -22,6 +22,8 @@ import industrialeconomy.item.Turbofuelitem2Item;
 
 import industrialeconomy.block.GeneratorMK1Block;
 
+import industrialeconomy.IndustrialEconomyModVariables;
+
 import industrialeconomy.IndustrialEconomyMod;
 
 public class GeneratorMK1inactiveUpdateTickProcedure {
@@ -50,6 +52,15 @@ public class GeneratorMK1inactiveUpdateTickProcedure {
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		IWorld world = (IWorld) dependencies.get("world");
+		String owner = "";
+		owner = (String) (new Object() {
+			public String getValue(IWorld world, BlockPos pos, String tag) {
+				TileEntity tileEntity = world.getTileEntity(pos);
+				if (tileEntity != null)
+					return tileEntity.getTileData().getString(tag);
+				return "";
+			}
+		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "owner"));
 		if (((new Object() {
 			public ItemStack getItemStack(BlockPos pos, int sltid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
@@ -242,14 +253,25 @@ public class GeneratorMK1inactiveUpdateTickProcedure {
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
 		}
-		if (((new Object() {
+		if ((((new Object() {
 			public double getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
 					return tileEntity.getTileData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "GeneratorEnergy")) > 1)) {
+		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "GeneratorEnergy")) > 1) && ((true) == (new Object() {
+			public boolean getValue(IWorld world, BlockPos pos, String tag) {
+				TileEntity tileEntity = world.getTileEntity(pos);
+				if (tileEntity != null)
+					return tileEntity.getTileData().getBoolean(tag);
+				return false;
+			}
+		}.getValue(world,
+				new BlockPos((int) IndustrialEconomyModVariables.WorldVariables.get(world).server_x,
+						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_y,
+						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_z),
+				((owner) + "" + ("_isOnline"))))))) {
 			{
 				BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 				BlockState _bs = GeneratorMK1Block.block.getDefaultState();

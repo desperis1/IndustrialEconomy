@@ -3291,26 +3291,6 @@
           {
             "name": "entity",
             "type": "entity"
-          },
-          {
-            "name": "itemstack",
-            "type": "itemstack"
-          },
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
           }
         ]
       },
@@ -5882,36 +5862,6 @@
       "path": "~/Blocks/SlabsStairs/Recipes"
     },
     {
-      "name": "PermaNightModule",
-      "type": "item",
-      "sortid": 379,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "perma_night_module",
-      "path": "~/HUB/Modules"
-    },
-    {
-      "name": "Rainhubmodule",
-      "type": "item",
-      "sortid": 380,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "rainhubmodule",
-      "path": "~/HUB/Modules"
-    },
-    {
-      "name": "SunnyHUBmodule",
-      "type": "item",
-      "sortid": 381,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "sunny_hu_bmodule",
-      "path": "~/HUB/Modules"
-    },
-    {
       "name": "Emptymodule",
       "type": "item",
       "sortid": 382,
@@ -5930,46 +5880,6 @@
       "ids": {},
       "registry_name": "empty_modulerecipe",
       "path": "~/Items"
-    },
-    {
-      "name": "Sunnymodulerecipe",
-      "type": "recipe",
-      "sortid": 384,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "sunnymodulerecipe",
-      "path": "~/HUB/Modules"
-    },
-    {
-      "name": "Permanightmodulerecipe",
-      "type": "recipe",
-      "sortid": 385,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "permanightmodulerecipe",
-      "path": "~/HUB/Modules"
-    },
-    {
-      "name": "Rainmodulerecipe",
-      "type": "recipe",
-      "sortid": 386,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "rainmodulerecipe",
-      "path": "~/HUB/Modules"
-    },
-    {
-      "name": "Daymodulerecipe",
-      "type": "recipe",
-      "sortid": 387,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "daymodulerecipe",
-      "path": "~/HUB/Modules"
     },
     {
       "name": "LandCommandExecuted",
@@ -7270,6 +7180,410 @@
       "ids": {},
       "registry_name": "setprice",
       "path": "~/Commands"
+    },
+    {
+      "name": "AssemblerblockBlockIsPlacedBy",
+      "type": "procedure",
+      "sortid": 447,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "assemblerblock_block_is_placed_by",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Machines/Assembler"
+    },
+    {
+      "name": "CateriumNODEblockOnBlockRightClicked",
+      "type": "procedure",
+      "sortid": 448,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "caterium_nod_eblock_on_block_right_clicked",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Nodes"
+    },
+    {
+      "name": "CateriumNodeBlockInactiveOnBlockRightClicked",
+      "type": "procedure",
+      "sortid": 449,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "caterium_node_block_inactive_on_block_right_clicked",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Nodes"
+    },
+    {
+      "name": "IronOreNodeBlockOnBlockRightClicked",
+      "type": "procedure",
+      "sortid": 450,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "iron_ore_node_block_on_block_right_clicked",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Nodes"
+    },
+    {
+      "name": "IronOreNodeBlockInactiveOnBlockRightClicked",
+      "type": "procedure",
+      "sortid": 451,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "iron_ore_node_block_inactive_on_block_right_clicked",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Nodes"
+    },
+    {
+      "name": "CoalNodeOnBlockRightClicked",
+      "type": "procedure",
+      "sortid": 452,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "coal_node_on_block_right_clicked",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Nodes"
+    },
+    {
+      "name": "CoalNodeInactiveOnBlockRightClicked",
+      "type": "procedure",
+      "sortid": 453,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "coal_node_inactive_on_block_right_clicked",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Nodes"
+    },
+    {
+      "name": "CopperNodeOnBlockRightClicked",
+      "type": "procedure",
+      "sortid": 454,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "copper_node_on_block_right_clicked",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Nodes"
+    },
+    {
+      "name": "CopperNodeInactveOnBlockRightClicked",
+      "type": "procedure",
+      "sortid": 455,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "copper_node_inactve_on_block_right_clicked",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Nodes"
+    },
+    {
+      "name": "LimestoneinactiveOnBlockRightClicked",
+      "type": "procedure",
+      "sortid": 456,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "limestoneinactive_on_block_right_clicked",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Nodes"
+    },
+    {
+      "name": "LimestoneactiveOnBlockRightClicked",
+      "type": "procedure",
+      "sortid": 457,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "limestoneactive_on_block_right_clicked",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Nodes"
+    },
+    {
+      "name": "HubUpgradeMinersOnClick",
+      "type": "procedure",
+      "sortid": 458,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "hub_upgrade_miners_on_click",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/HUB"
     }
   ],
   "variable_elements": [
@@ -7521,9 +7835,9 @@
     },
     {
       "name": "player_home_dimension",
-      "type": "number",
+      "type": "string",
       "scope": "player_persistent",
-      "value": "0"
+      "value": ""
     },
     {
       "name": "player_number_of_land",
@@ -7554,6 +7868,18 @@
       "type": "logic",
       "scope": "player_persistent",
       "value": "false"
+    },
+    {
+      "name": "player_back_dimension",
+      "type": "string",
+      "scope": "player_persistent",
+      "value": "\"\""
+    },
+    {
+      "name": "energy_required_for_next_level",
+      "type": "number",
+      "scope": "player_persistent",
+      "value": "0"
     }
   ],
   "sound_elements": [
@@ -7599,8 +7925,8 @@
       "block.mega_project.limestoneinactive": "Limestone (Inactive)",
       "item.mega_project.perma_night_module": "Perma Night Module",
       "block.satis_mine.green_concrete_slab": "Green Concrete Slab",
-      "block.industrial_economy.magenta_concrete_slab": "Magenta Concrete Slab",
       "block.industrial_economy.foundyblock": "Foundry",
+      "block.industrial_economy.magenta_concrete_slab": "Magenta Concrete Slab",
       "item.industrial_economy.infostick": "Info Stick",
       "block.industrial_economy.light_gray_concrete_stairs": "Light Gray Concrete Stairs",
       "block.industrial_economy.caterium_node_block_inactive": "Caterium Node Block Inactive",
@@ -7623,11 +7949,11 @@
       "block.mega_project.constructorblock": "Constructor",
       "key.satis_mine.node_scanner_modes_keybind": "Node Scanner Modes",
       "block.industrial_economy.assemblerblock": "Assembler",
-      "block.satis_mine.lime_concrete_stairs": "Lime Concrete Stairs",
       "advancements.rudit_ingotadvancement.descr": "Advanced Redstone",
-      "item.industrial_economy.diamond_steel_armor_boots": "DiamondS teel Boots",
-      "item.mega_project.diamondscrewitem": "Diamond screw",
+      "block.satis_mine.lime_concrete_stairs": "Lime Concrete Stairs",
       "item.mega_project.diamond_steel_armor_chestplate": "Diamond Steel Chestplate",
+      "item.mega_project.diamondscrewitem": "Diamond screw",
+      "item.industrial_economy.diamond_steel_armor_boots": "DiamondS teel Boots",
       "block.mega_project.haarp": "Haarp!",
       "block.industrial_economy.armorchargermk_2": "Armor Charger MK2",
       "key.satis_mine.plasmashootkeybind": "Plasma Shoot",
@@ -7639,7 +7965,6 @@
       "item.mega_project.recipe_c_hangeritem": "Recipe Hanger",
       "block.mega_project.white_concrete_slab": "White Concrete Slab",
       "key.industrial_economy.ds_armorkeybind": "Diamond Steel Armor GUI",
-      "item.industrial_economy.rainhubmodule": "Rain Upgrade Module",
       "key.satis_mine.jetpack_key_bind": "Jetpack",
       "block.mega_project.pink_concrete_slab": "Pink Concrete Slab",
       "block.satis_mine.steel_block": "Steel Block",
@@ -7675,9 +8000,9 @@
       "block.satis_mine.red_concrete_slab": "Red Concrete Slab",
       "block.industrial_economy.orange_concrete_stairs": "Orange Concrete Stairs",
       "item.industrial_economy.buildertool": "Builder Gun",
-      "enchantment.satis_mine.better_cool_down_enchantment": "Better CoolDown",
-      "block.satis_mine.yellow_concrete_stairs": "Yellow Concrete Stairs",
       "block.industrial_economy.iron_ore_node_block": "Iron Ore Node Block(active)",
+      "block.satis_mine.yellow_concrete_stairs": "Yellow Concrete Stairs",
+      "enchantment.satis_mine.better_cool_down_enchantment": "Better CoolDown",
       "block.industrial_economy.lime_concrete_slab": "Lime Concrete Slab",
       "block.mega_project.heavyframe": "Heavy Frame",
       "block.satis_mine.heavyframe": "Heavy Frame",
@@ -7687,8 +8012,8 @@
       "item.mega_project.cpu": "CPU",
       "item.industrial_economy.emptymodule": "Empty Module",
       "block.satis_mine.pink_concrete_stairs": "Pink Concrete Stairs",
-      "block.industrial_economy.cyan_concrete_slab": "Cyan Concrete Slab",
       "block.satis_mine.coal_node": "Coal Node(active)",
+      "block.industrial_economy.cyan_concrete_slab": "Cyan Concrete Slab",
       "block.mega_project.purple_concrete_stairs": "Purple Concrete Stairs",
       "advancements.allrecipescheat.descr": "Unlock Recipe Cheat",
       "item.mega_project.diamond_steelpickaxe": "Diamond Steel Pickaxe",
@@ -7699,9 +8024,8 @@
       "block.mega_project.orange_concrete_stairs": "Orange Concrete Stairs",
       "item.satis_mine.highspeedconectoritem": "High Speed Connector",
       "item.mega_project.control_unit": "Control Unit",
-      "block.industrial_economy.position_1block": "Position 1",
       "item.industrial_economy.diamond_steel_armor_leggings": "Diamond Steel Leggings",
-      "item.industrial_economy.perma_night_module": "Perma Night Module",
+      "block.industrial_economy.position_1block": "Position 1",
       "block.industrial_economy.red_concrete_stairs": "Red Concrete Stairs",
       "block.mega_project.magenta_concrete_slab": "Magenta Concrete Slab",
       "item.industrial_economy.cateriumroditem": "Caterium rod",
@@ -7734,9 +8058,9 @@
       "advancements.turbo_fueladvancement.title": "Turbo Fuel",
       "block.satis_mine.ironextractor": "Iron Extractor",
       "item.mega_project.ironplate": "Iron Plate",
-      "item.industrial_economy.diamondstellshovel": "Diamondstellshovel",
-      "enchantment.industrial_economy.cheap_plasma": "Cheap Plasma",
+      "item.industrial_economy.diamondstellshovel": "Diamond Steel Shovel",
       "block.industrial_economy.generator_mk_1inactive": "Generator MK 1",
+      "enchantment.industrial_economy.cheap_plasma": "Cheap Plasma",
       "block.industrial_economy.minerinactive": "Miner MK1",
       "item.mega_project.copper_ingot": "Copper",
       "item.mega_project.buildertool": "Builder Gun",
@@ -7751,8 +8075,8 @@
       "block.mega_project.armorcharger": "Armor Charger",
       "block.industrial_economy.green_concrete_slab": "Green Concrete Slab",
       "item.satis_mine.diamond_steelpickaxe": "Diamond Steel Pickaxe",
-      "block.satis_mine.armorchargermk_2": "Armor Charger MK2",
       "block.mega_project.steel_block": "Steel Block",
+      "block.satis_mine.armorchargermk_2": "Armor Charger MK2",
       "block.satis_mine.coal_extractor": "Coal Extractor",
       "block.mega_project.copper_extractor": "Copper Extractor",
       "item.mega_project.turbofuelitem": "Turbofuel Mk.1",
@@ -8004,7 +8328,6 @@
       "block.mega_project.brown_concrete_stairs": "Brown Concrete Stairs",
       "block.satis_mine.hub": "Hub",
       "block.industrial_economy.generator_mk_1": "Generator MK 1",
-      "item.industrial_economy.sunny_hu_bmodule": "Sunny  Upgrade Module",
       "block.satis_mine.foundryinactive": "Foundry",
       "item.industrial_economy.steelingot": "Steel Ingot",
       "block.mega_project.brown_concrete_slab": "Brown Concrete Slab",

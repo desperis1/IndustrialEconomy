@@ -11,10 +11,15 @@ import net.minecraft.block.BlockState;
 import java.util.Map;
 
 import industrialeconomy.block.MinerblockBlock;
+import industrialeconomy.block.LimestoneinactiveBlock;
 import industrialeconomy.block.LimestoneactiveBlock;
+import industrialeconomy.block.IronOreNodeBlockInactiveBlock;
 import industrialeconomy.block.IronOreNodeBlockBlock;
+import industrialeconomy.block.CopperNodeInactveBlock;
 import industrialeconomy.block.CopperNodeBlock;
+import industrialeconomy.block.CoalNodeInactiveBlock;
 import industrialeconomy.block.CoalNodeBlock;
+import industrialeconomy.block.CateriumNodeBlockInactiveBlock;
 import industrialeconomy.block.CateriumNODEblockBlock;
 
 import industrialeconomy.IndustrialEconomyModVariables;
@@ -153,6 +158,156 @@ public class MinerinactiveUpdateTickProcedure {
 					_tileEntity.getTileData().putBoolean("Working", (false));
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
+			}
+			if (((LimestoneactiveBlock.block == (world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z))).getBlock()) && ((new Object() {
+				public double getValue(IWorld world, BlockPos pos, String tag) {
+					TileEntity tileEntity = world.getTileEntity(pos);
+					if (tileEntity != null)
+						return tileEntity.getTileData().getDouble(tag);
+					return -1;
+				}
+			}.getValue(world, new BlockPos((int) x, (int) (y - 1), (int) z), "can_be_mined")) == 0))) {
+				{
+					BlockPos _bp = new BlockPos((int) x, (int) (y - 1), (int) z);
+					BlockState _bs = LimestoneinactiveBlock.block.getDefaultState();
+					BlockState _bso = world.getBlockState(_bp);
+					TileEntity _te = world.getTileEntity(_bp);
+					CompoundNBT _bnbt = null;
+					if (_te != null) {
+						_bnbt = _te.write(new CompoundNBT());
+						_te.remove();
+					}
+					world.setBlockState(_bp, _bs, 3);
+					if (_bnbt != null) {
+						_te = world.getTileEntity(_bp);
+						if (_te != null) {
+							try {
+								_te.read(_bso, _bnbt);
+							} catch (Exception ignored) {
+							}
+						}
+					}
+				}
+			}
+			if (((CoalNodeBlock.block == (world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z))).getBlock()) && ((new Object() {
+				public double getValue(IWorld world, BlockPos pos, String tag) {
+					TileEntity tileEntity = world.getTileEntity(pos);
+					if (tileEntity != null)
+						return tileEntity.getTileData().getDouble(tag);
+					return -1;
+				}
+			}.getValue(world, new BlockPos((int) x, (int) (y - 1), (int) z), "can_be_mined")) == 0))) {
+				{
+					BlockPos _bp = new BlockPos((int) x, (int) (y - 1), (int) z);
+					BlockState _bs = CoalNodeInactiveBlock.block.getDefaultState();
+					BlockState _bso = world.getBlockState(_bp);
+					TileEntity _te = world.getTileEntity(_bp);
+					CompoundNBT _bnbt = null;
+					if (_te != null) {
+						_bnbt = _te.write(new CompoundNBT());
+						_te.remove();
+					}
+					world.setBlockState(_bp, _bs, 3);
+					if (_bnbt != null) {
+						_te = world.getTileEntity(_bp);
+						if (_te != null) {
+							try {
+								_te.read(_bso, _bnbt);
+							} catch (Exception ignored) {
+							}
+						}
+					}
+				}
+			}
+			if (((IronOreNodeBlockBlock.block == (world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z))).getBlock()) && ((new Object() {
+				public double getValue(IWorld world, BlockPos pos, String tag) {
+					TileEntity tileEntity = world.getTileEntity(pos);
+					if (tileEntity != null)
+						return tileEntity.getTileData().getDouble(tag);
+					return -1;
+				}
+			}.getValue(world, new BlockPos((int) x, (int) (y - 1), (int) z), "can_be_mined")) == 0))) {
+				{
+					BlockPos _bp = new BlockPos((int) x, (int) (y - 1), (int) z);
+					BlockState _bs = IronOreNodeBlockInactiveBlock.block.getDefaultState();
+					BlockState _bso = world.getBlockState(_bp);
+					TileEntity _te = world.getTileEntity(_bp);
+					CompoundNBT _bnbt = null;
+					if (_te != null) {
+						_bnbt = _te.write(new CompoundNBT());
+						_te.remove();
+					}
+					world.setBlockState(_bp, _bs, 3);
+					if (_bnbt != null) {
+						_te = world.getTileEntity(_bp);
+						if (_te != null) {
+							try {
+								_te.read(_bso, _bnbt);
+							} catch (Exception ignored) {
+							}
+						}
+					}
+				}
+			}
+			if (((CateriumNODEblockBlock.block == (world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z))).getBlock()) && ((new Object() {
+				public double getValue(IWorld world, BlockPos pos, String tag) {
+					TileEntity tileEntity = world.getTileEntity(pos);
+					if (tileEntity != null)
+						return tileEntity.getTileData().getDouble(tag);
+					return -1;
+				}
+			}.getValue(world, new BlockPos((int) x, (int) (y - 1), (int) z), "can_be_mined")) == 0))) {
+				{
+					BlockPos _bp = new BlockPos((int) x, (int) (y - 1), (int) z);
+					BlockState _bs = CateriumNodeBlockInactiveBlock.block.getDefaultState();
+					BlockState _bso = world.getBlockState(_bp);
+					TileEntity _te = world.getTileEntity(_bp);
+					CompoundNBT _bnbt = null;
+					if (_te != null) {
+						_bnbt = _te.write(new CompoundNBT());
+						_te.remove();
+					}
+					world.setBlockState(_bp, _bs, 3);
+					if (_bnbt != null) {
+						_te = world.getTileEntity(_bp);
+						if (_te != null) {
+							try {
+								_te.read(_bso, _bnbt);
+							} catch (Exception ignored) {
+							}
+						}
+					}
+				}
+			}
+			if (((CopperNodeBlock.block == (world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z))).getBlock()) && ((new Object() {
+				public double getValue(IWorld world, BlockPos pos, String tag) {
+					TileEntity tileEntity = world.getTileEntity(pos);
+					if (tileEntity != null)
+						return tileEntity.getTileData().getDouble(tag);
+					return -1;
+				}
+			}.getValue(world, new BlockPos((int) x, (int) (y - 1), (int) z), "can_be_mined")) == 0))) {
+				{
+					BlockPos _bp = new BlockPos((int) x, (int) (y - 1), (int) z);
+					BlockState _bs = CopperNodeInactveBlock.block.getDefaultState();
+					BlockState _bso = world.getBlockState(_bp);
+					TileEntity _te = world.getTileEntity(_bp);
+					CompoundNBT _bnbt = null;
+					if (_te != null) {
+						_bnbt = _te.write(new CompoundNBT());
+						_te.remove();
+					}
+					world.setBlockState(_bp, _bs, 3);
+					if (_bnbt != null) {
+						_te = world.getTileEntity(_bp);
+						if (_te != null) {
+							try {
+								_te.read(_bso, _bnbt);
+							} catch (Exception ignored) {
+							}
+						}
+					}
+				}
 			}
 		}
 	}

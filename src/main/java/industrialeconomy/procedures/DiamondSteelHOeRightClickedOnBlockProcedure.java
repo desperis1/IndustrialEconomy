@@ -62,9 +62,19 @@ public class DiamondSteelHOeRightClickedOnBlockProcedure {
 					entityToSpawn.setPickupDelay((int) 10);
 					world.addEntity(entityToSpawn);
 				}
+				if (world instanceof World && !world.isRemote()) {
+					ItemEntity entityToSpawn = new ItemEntity((World) world, x, y, z, new ItemStack(Items.WHEAT_SEEDS));
+					entityToSpawn.setPickupDelay((int) 10);
+					world.addEntity(entityToSpawn);
+				}
+				if (world instanceof World && !world.isRemote()) {
+					ItemEntity entityToSpawn = new ItemEntity((World) world, x, y, z, new ItemStack(Items.WHEAT_SEEDS));
+					entityToSpawn.setPickupDelay((int) 10);
+					world.addEntity(entityToSpawn);
+				}
 				{
 					ItemStack _ist = ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY);
-					if (_ist.attemptDamageItem((int) 1, new Random(), null)) {
+					if (_ist.attemptDamageItem((int) 2, new Random(), null)) {
 						_ist.shrink(1);
 						_ist.setDamage(0);
 					}
@@ -84,9 +94,19 @@ public class DiamondSteelHOeRightClickedOnBlockProcedure {
 					entityToSpawn.setPickupDelay((int) 10);
 					world.addEntity(entityToSpawn);
 				}
+				if (world instanceof World && !world.isRemote()) {
+					ItemEntity entityToSpawn = new ItemEntity((World) world, x, y, z, new ItemStack(Items.BEETROOT_SEEDS));
+					entityToSpawn.setPickupDelay((int) 10);
+					world.addEntity(entityToSpawn);
+				}
+				if (world instanceof World && !world.isRemote()) {
+					ItemEntity entityToSpawn = new ItemEntity((World) world, x, y, z, new ItemStack(Items.BEETROOT_SEEDS));
+					entityToSpawn.setPickupDelay((int) 10);
+					world.addEntity(entityToSpawn);
+				}
 				{
 					ItemStack _ist = ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY);
-					if (_ist.attemptDamageItem((int) 1, new Random(), null)) {
+					if (_ist.attemptDamageItem((int) 2, new Random(), null)) {
 						_ist.shrink(1);
 						_ist.setDamage(0);
 					}
@@ -106,9 +126,19 @@ public class DiamondSteelHOeRightClickedOnBlockProcedure {
 					entityToSpawn.setPickupDelay((int) 10);
 					world.addEntity(entityToSpawn);
 				}
+				if (world instanceof World && !world.isRemote()) {
+					ItemEntity entityToSpawn = new ItemEntity((World) world, x, y, z, new ItemStack(Items.CARROT));
+					entityToSpawn.setPickupDelay((int) 10);
+					world.addEntity(entityToSpawn);
+				}
+				if (world instanceof World && !world.isRemote()) {
+					ItemEntity entityToSpawn = new ItemEntity((World) world, x, y, z, new ItemStack(Items.CARROT));
+					entityToSpawn.setPickupDelay((int) 10);
+					world.addEntity(entityToSpawn);
+				}
 				{
 					ItemStack _ist = ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY);
-					if (_ist.attemptDamageItem((int) 1, new Random(), null)) {
+					if (_ist.attemptDamageItem((int) 2, new Random(), null)) {
 						_ist.shrink(1);
 						_ist.setDamage(0);
 					}
@@ -128,9 +158,19 @@ public class DiamondSteelHOeRightClickedOnBlockProcedure {
 					entityToSpawn.setPickupDelay((int) 10);
 					world.addEntity(entityToSpawn);
 				}
+				if (world instanceof World && !world.isRemote()) {
+					ItemEntity entityToSpawn = new ItemEntity((World) world, x, y, z, new ItemStack(Items.POTATO));
+					entityToSpawn.setPickupDelay((int) 10);
+					world.addEntity(entityToSpawn);
+				}
+				if (world instanceof World && !world.isRemote()) {
+					ItemEntity entityToSpawn = new ItemEntity((World) world, x, y, z, new ItemStack(Items.POTATO));
+					entityToSpawn.setPickupDelay((int) 10);
+					world.addEntity(entityToSpawn);
+				}
 				{
 					ItemStack _ist = ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY);
-					if (_ist.attemptDamageItem((int) 1, new Random(), null)) {
+					if (_ist.attemptDamageItem((int) 2, new Random(), null)) {
 						_ist.shrink(1);
 						_ist.setDamage(0);
 					}

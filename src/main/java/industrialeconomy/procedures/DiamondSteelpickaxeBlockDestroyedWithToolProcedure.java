@@ -49,7 +49,8 @@ public class DiamondSteelpickaxeBlockDestroyedWithToolProcedure {
 		IWorld world = (IWorld) dependencies.get("world");
 		if (((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY).getOrCreateTag()
 				.getBoolean("3x3")) == (true))) {
-			if (((!((world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock() == Blocks.BEDROCK))
+			if ((((!((world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z))).getBlock() == Blocks.BEDROCK))
+					|| (!((world.getBlockState(new BlockPos((int) x, (int) (y - 2), (int) z))).getBlock() == Blocks.BEDROCK)))
 					&& ((!(entity.isSneaking())) && ((((entity.rotationPitch) < (-60)) || ((entity.rotationPitch) > 60))
 							&& ((world.getBlockState(new BlockPos((int) x, (int) y, (int) z)))
 									.getMaterial() == net.minecraft.block.material.Material.ROCK))))) {

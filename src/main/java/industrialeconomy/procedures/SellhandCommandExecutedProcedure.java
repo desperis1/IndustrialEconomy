@@ -39,23 +39,6 @@ public class SellhandCommandExecutedProcedure {
 		ItemStack itemforsell = ItemStack.EMPTY;
 		double items_amount = 0;
 		double price_from_server = 0;
-		if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-			((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("executed"), (false));
-		}
-		if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-			((PlayerEntity) entity).sendStatusMessage(new StringTextComponent(("" + ((new Object() {
-				public double getValue(IWorld world, BlockPos pos, String tag) {
-					TileEntity tileEntity = world.getTileEntity(pos);
-					if (tileEntity != null)
-						return tileEntity.getTileData().getDouble(tag);
-					return -1;
-				}
-			}.getValue(world,
-					new BlockPos((int) IndustrialEconomyModVariables.WorldVariables.get(world).server_x,
-							(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_y,
-							(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_z),
-					((((itemforsell).getDisplayName().getString())) + "" + ("_price"))))))), (false));
-		}
 		itemforsell = ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY);
 		items_amount = (double) ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)).getCount());
 		if (((new Object() {
@@ -70,9 +53,6 @@ public class SellhandCommandExecutedProcedure {
 						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_y,
 						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_z),
 				((((itemforsell).getDisplayName().getString())) + "" + ("_price")))) > 0)) {
-			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("in right if"), (false));
-			}
 			price_from_server = (double) (new Object() {
 				public double getValue(IWorld world, BlockPos pos, String tag) {
 					TileEntity tileEntity = world.getTileEntity(pos);

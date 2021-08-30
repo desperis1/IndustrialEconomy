@@ -6,8 +6,10 @@ import net.minecraftforge.event.entity.player.PlayerEvent;
 
 import net.minecraft.world.World;
 import net.minecraft.world.IWorld;
+import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.block.BlockState;
 
@@ -55,6 +57,31 @@ public class PlayerJoinWorldProcedure {
 			BlockState _bs = world.getBlockState(_bp);
 			if (_tileEntity != null)
 				_tileEntity.getTileData().putBoolean((((entity.getDisplayName().getString())) + "" + ("_") + "" + ("isOnline")), (true));
+			if (world instanceof World)
+				((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
+		}
+		if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
+			((PlayerEntity) entity).sendStatusMessage(new StringTextComponent((("Hello ") + "" + ((entity.getDisplayName().getString())))), (false));
+		}
+		if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
+			((PlayerEntity) entity)
+					.sendStatusMessage(
+							new StringTextComponent((("You have: ") + ""
+									+ (((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+											.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money))
+									+ "" + (" \u20AC"))),
+							(false));
+		}
+		if (!world.isRemote()) {
+			BlockPos _bp = new BlockPos((int) IndustrialEconomyModVariables.WorldVariables.get(world).server_x,
+					(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_y,
+					(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_z);
+			TileEntity _tileEntity = world.getTileEntity(_bp);
+			BlockState _bs = world.getBlockState(_bp);
+			if (_tileEntity != null)
+				_tileEntity.getTileData().putDouble((((entity.getDisplayName().getString())) + "" + ("_minerLevel")),
+						((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+								.orElse(new IndustrialEconomyModVariables.PlayerVariables())).miners_level));
 			if (world instanceof World)
 				((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 		}

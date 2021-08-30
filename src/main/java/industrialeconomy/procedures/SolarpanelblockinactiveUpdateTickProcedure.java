@@ -12,6 +12,8 @@ import java.util.Map;
 
 import industrialeconomy.block.SolarpanelblockactiveBlock;
 
+import industrialeconomy.IndustrialEconomyModVariables;
+
 import industrialeconomy.IndustrialEconomyMod;
 
 public class SolarpanelblockinactiveUpdateTickProcedure {
@@ -40,8 +42,29 @@ public class SolarpanelblockinactiveUpdateTickProcedure {
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		IWorld world = (IWorld) dependencies.get("world");
-		if (((world.canBlockSeeSky(new BlockPos((int) x, (int) (y + 1), (int) z)))
-				&& ((world instanceof World) ? ((World) world).isDaytime() : false))) {
+		String owner = "";
+		owner = (String) (new Object() {
+			public String getValue(IWorld world, BlockPos pos, String tag) {
+				TileEntity tileEntity = world.getTileEntity(pos);
+				if (tileEntity != null)
+					return tileEntity.getTileData().getString(tag);
+				return "";
+			}
+		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "owner"));
+		if ((((true) == (new Object() {
+			public boolean getValue(IWorld world, BlockPos pos, String tag) {
+				TileEntity tileEntity = world.getTileEntity(pos);
+				if (tileEntity != null)
+					return tileEntity.getTileData().getBoolean(tag);
+				return false;
+			}
+		}.getValue(world,
+				new BlockPos((int) IndustrialEconomyModVariables.WorldVariables.get(world).server_x,
+						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_y,
+						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_z),
+				((owner) + "" + ("_isOnline")))))
+				&& ((world.canBlockSeeSky(new BlockPos((int) x, (int) (y + 1), (int) z)))
+						&& ((world instanceof World) ? ((World) world).isDaytime() : false)))) {
 			{
 				BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 				BlockState _bs = SolarpanelblockactiveBlock.block.getDefaultState();

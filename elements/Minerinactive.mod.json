@@ -36,7 +36,7 @@
     "specialInfo": [
       "Can be placed on Resource Node and it mine it for you"
     ],
-    "hardness": 40.0,
+    "hardness": 10.0,
     "resistance": 15.0,
     "hasGravity": false,
     "isWaterloggable": false,

@@ -138,7 +138,7 @@ public class HubGUIGui extends IndustrialEconomyModElements.ModElement {
 					return false;
 				}
 			}));
-			this.customSlots.put(4, this.addSlot(new SlotItemHandler(internal, 4, 302, 201) {
+			this.customSlots.put(4, this.addSlot(new SlotItemHandler(internal, 4, 7, 202) {
 			}));
 			this.customSlots.put(5, this.addSlot(new SlotItemHandler(internal, 5, 90, 91) {
 				@Override

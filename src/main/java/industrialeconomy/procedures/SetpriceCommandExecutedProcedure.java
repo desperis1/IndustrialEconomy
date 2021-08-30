@@ -129,10 +129,6 @@ public class SetpriceCommandExecutedProcedure {
 							}
 						}.getText()))) + "" + (" \u20AC"))), (false));
 			}
-			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent(
-						(("debug message:    ") + "" + (((((item_in_hand).getDisplayName().getString())) + "" + ("_price"))))), (false));
-			}
 		}
 	}
 }

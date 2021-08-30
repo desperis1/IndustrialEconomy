@@ -77,7 +77,7 @@ public class ServerBlockBlock extends IndustrialEconomyModElements.ModElement {
 
 	public static class CustomBlock extends Block {
 		public CustomBlock() {
-			super(Block.Properties.create(Material.IRON).sound(SoundType.METAL).hardnessAndResistance(1000f, 1000f).setLightLevel(s -> 0));
+			super(Block.Properties.create(Material.IRON).sound(SoundType.METAL).hardnessAndResistance(10000f, 10000f).setLightLevel(s -> 0));
 			setRegistryName("server_block");
 		}
 

@@ -216,19 +216,6 @@
       {
         "type": "label",
         "data": {
-          "text": "Upgrades",
-          "color": {
-            "value": -12829636,
-            "falpha": 0.0
-          },
-          "name": "Upgrades",
-          "x": 306,
-          "y": 194
-        }
-      },
-      {
-        "type": "label",
-        "data": {
           "text": "<VAR:miners_level>",
           "color": {
             "value": -12829636,
@@ -266,8 +253,8 @@
           "disableStackInteraction": false,
           "dropItemsWhenNotBound": true,
           "name": "Slot #4",
-          "x": 317,
-          "y": 206
+          "x": 22,
+          "y": 207
         }
       },
       {
@@ -309,6 +296,17 @@
           "name": "<BNBT:number:SandStone>",
           "x": 137,
           "y": 100
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Upgrade Miners",
+          "width": 95,
+          "height": 20,
+          "name": "Upgrade Miners",
+          "x": 248,
+          "y": 209
         }
       }
     ],

@@ -5,7 +5,7 @@
     "renderType": 0,
     "texture": "diamond_steel_shovel",
     "customModelName": "Normal",
-    "name": "Diamondstellshovel",
+    "name": "Diamond Steel Shovel",
     "specialInfo": [],
     "creativeTab": {
       "value": "CUSTOM:ProjectMEGA"
@@ -19,7 +19,11 @@
     "usageCount": 115144,
     "blocksAffected": [],
     "hasGlow": false,
-    "repairItems": [],
+    "repairItems": [
+      {
+        "value": "CUSTOM:Diamondsteelplate"
+      }
+    ],
     "immuneToFire": false,
     "stayInGridWhenCrafting": false,
     "damageOnCrafting": false

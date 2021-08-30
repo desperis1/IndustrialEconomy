@@ -19,6 +19,7 @@ import java.util.Map;
 import industrialeconomy.item.TurbofuelitemItem;
 import industrialeconomy.item.ScrewItem;
 import industrialeconomy.item.IronplateItem;
+import industrialeconomy.item.IndustrialDiamondItem;
 import industrialeconomy.item.DiamondscrewitemItem;
 import industrialeconomy.item.CopperSheetItemItem;
 import industrialeconomy.item.CircuitBoarditemItem;
@@ -59,6 +60,15 @@ public class AssemblerblockUpdateTickProcedure {
 		double players_hub_x = 0;
 		double players_hub_y = 0;
 		double players_hub_z = 0;
+		String owner = "";
+		owner = (String) (new Object() {
+			public String getValue(IWorld world, BlockPos pos, String tag) {
+				TileEntity tileEntity = world.getTileEntity(pos);
+				if (tileEntity != null)
+					return tileEntity.getTileData().getString(tag);
+				return "";
+			}
+		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "owner"));
 		players_hub_x = (double) (new Object() {
 			public double getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
@@ -70,7 +80,7 @@ public class AssemblerblockUpdateTickProcedure {
 				new BlockPos((int) IndustrialEconomyModVariables.WorldVariables.get(world).server_x,
 						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_y,
 						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_z),
-				((IndustrialEconomyModVariables.WorldVariables.get(world).lands) + "" + ("hub_X"))));
+				((owner) + "" + ("hub_X"))));
 		players_hub_y = (double) (new Object() {
 			public double getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
@@ -82,7 +92,7 @@ public class AssemblerblockUpdateTickProcedure {
 				new BlockPos((int) IndustrialEconomyModVariables.WorldVariables.get(world).server_x,
 						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_y,
 						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_z),
-				((IndustrialEconomyModVariables.WorldVariables.get(world).lands) + "" + ("hub_Y"))));
+				((owner) + "" + ("hub_Y"))));
 		players_hub_z = (double) (new Object() {
 			public double getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
@@ -94,7 +104,7 @@ public class AssemblerblockUpdateTickProcedure {
 				new BlockPos((int) IndustrialEconomyModVariables.WorldVariables.get(world).server_x,
 						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_y,
 						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_z),
-				((IndustrialEconomyModVariables.WorldVariables.get(world).lands) + "" + ("hub_Z"))));
+				((owner) + "" + ("hub_Z"))));
 		if ((200 < (new Object() {
 			public double getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
@@ -336,7 +346,7 @@ public class AssemblerblockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (1))).getItem() == Items.DIAMOND))) && ((((new Object() {
+			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (1))).getItem() == IndustrialDiamondItem.block))) && ((((new Object() {
 				public ItemStack getItemStack(BlockPos pos, int sltid) {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -407,7 +417,7 @@ public class AssemblerblockUpdateTickProcedure {
 					TileEntity _ent = world.getTileEntity(new BlockPos((int) x, (int) y, (int) z));
 					if (_ent != null) {
 						final int _sltid = (int) (1);
-						final ItemStack _setstack = new ItemStack(Items.DIAMOND);
+						final ItemStack _setstack = new ItemStack(IndustrialDiamondItem.block);
 						_setstack.setCount((int) ((new Object() {
 							public int getAmount(IWorld world, BlockPos pos, int sltid) {
 								AtomicInteger _retval = new AtomicInteger(0);

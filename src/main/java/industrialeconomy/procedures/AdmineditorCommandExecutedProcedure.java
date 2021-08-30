@@ -34,13 +34,6 @@ public class AdmineditorCommandExecutedProcedure {
 		Entity entity = (Entity) dependencies.get("entity");
 		HashMap cmdparams = (HashMap) dependencies.get("cmdparams");
 		IWorld world = (IWorld) dependencies.get("world");
-		String online_players = "";
-		{
-			List<? extends PlayerEntity> _players = new ArrayList<>(world.getPlayers());
-			for (Entity entityiterator : _players) {
-				online_players = (String) ((online_players) + "" + (",") + "" + ((entityiterator.getDisplayName().getString())));
-			}
-		}
 		if ((((new Object() {
 			public String getText() {
 				String param = (String) cmdparams.get("0");
@@ -57,7 +50,7 @@ public class AdmineditorCommandExecutedProcedure {
 				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("/admineditor playername true/false"), (false));
 			}
 		}
-		if (((online_players.contains((new Object() {
+		if (((!(((new Object() {
 			public String getText() {
 				String param = (String) cmdparams.get("1");
 				if (param != null) {
@@ -65,7 +58,7 @@ public class AdmineditorCommandExecutedProcedure {
 				}
 				return "";
 			}
-		}.getText()))) && (((new Object() {
+		}.getText())).equals(""))) && (((new Object() {
 			public String getText() {
 				String param = (String) cmdparams.get("2");
 				if (param != null) {
@@ -75,25 +68,40 @@ public class AdmineditorCommandExecutedProcedure {
 			}
 		}.getText())).equals("true")))) {
 			{
-				boolean _setval = (boolean) (true);
-				entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-					capability.admin_editor = _setval;
-					capability.syncPlayerVariables(entity);
-				});
-			}
-			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent((("Player ") + "" + ((new Object() {
-					public String getText() {
-						String param = (String) cmdparams.get("1");
-						if (param != null) {
-							return param;
+				List<? extends PlayerEntity> _players = new ArrayList<>(world.getPlayers());
+				for (Entity entityiterator : _players) {
+					if ((((new Object() {
+						public String getText() {
+							String param = (String) cmdparams.get("1");
+							if (param != null) {
+								return param;
+							}
+							return "";
 						}
-						return "";
+					}.getText())).equals((entityiterator.getDisplayName().getString())))) {
+						{
+							boolean _setval = (boolean) (true);
+							entityiterator.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+								capability.admin_editor = _setval;
+								capability.syncPlayerVariables(entityiterator);
+							});
+						}
+						if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
+							((PlayerEntity) entity).sendStatusMessage(new StringTextComponent((("Player ") + "" + ((new Object() {
+								public String getText() {
+									String param = (String) cmdparams.get("1");
+									if (param != null) {
+										return param;
+									}
+									return "";
+								}
+							}.getText())) + "" + ("now has Admin Editor Enabled!"))), (false));
+						}
 					}
-				}.getText())) + "" + ("now has Admin Editor Enabled!"))), (false));
+				}
 			}
 		}
-		if (((online_players.contains((new Object() {
+		if (((!(((new Object() {
 			public String getText() {
 				String param = (String) cmdparams.get("1");
 				if (param != null) {
@@ -101,7 +109,7 @@ public class AdmineditorCommandExecutedProcedure {
 				}
 				return "";
 			}
-		}.getText()))) && (((new Object() {
+		}.getText())).equals(""))) && (((new Object() {
 			public String getText() {
 				String param = (String) cmdparams.get("2");
 				if (param != null) {
@@ -111,22 +119,37 @@ public class AdmineditorCommandExecutedProcedure {
 			}
 		}.getText())).equals("false")))) {
 			{
-				boolean _setval = (boolean) (false);
-				entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-					capability.admin_editor = _setval;
-					capability.syncPlayerVariables(entity);
-				});
-			}
-			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent((("Player ") + "" + ((new Object() {
-					public String getText() {
-						String param = (String) cmdparams.get("1");
-						if (param != null) {
-							return param;
+				List<? extends PlayerEntity> _players = new ArrayList<>(world.getPlayers());
+				for (Entity entityiterator : _players) {
+					if ((((new Object() {
+						public String getText() {
+							String param = (String) cmdparams.get("1");
+							if (param != null) {
+								return param;
+							}
+							return "";
 						}
-						return "";
+					}.getText())).equals((entityiterator.getDisplayName().getString())))) {
+						{
+							boolean _setval = (boolean) (false);
+							entityiterator.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+								capability.admin_editor = _setval;
+								capability.syncPlayerVariables(entityiterator);
+							});
+						}
+						if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
+							((PlayerEntity) entity).sendStatusMessage(new StringTextComponent((("Player ") + "" + ((new Object() {
+								public String getText() {
+									String param = (String) cmdparams.get("1");
+									if (param != null) {
+										return param;
+									}
+									return "";
+								}
+							}.getText())) + "" + ("now has Admin Editor disabled!"))), (false));
+						}
 					}
-				}.getText())) + "" + ("now has Admin Editor Disabled!"))), (false));
+				}
 			}
 		}
 	}

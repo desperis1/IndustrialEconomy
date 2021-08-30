@@ -5,6 +5,7 @@ import net.minecraftforge.registries.ObjectHolder;
 
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.item.ShovelItem;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.Item;
 import net.minecraft.item.IItemTier;
 
@@ -44,7 +45,7 @@ public class DiamondstellshovelItem extends IndustrialEconomyModElements.ModElem
 			}
 
 			public Ingredient getRepairMaterial() {
-				return Ingredient.EMPTY;
+				return Ingredient.fromStacks(new ItemStack(DiamondsteelplateItem.block));
 			}
 		}, 1, -2f, new Item.Properties().group(ProjectMEGAItemGroup.tab)) {
 		}.setRegistryName("diamondstellshovel"));

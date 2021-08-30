@@ -73,7 +73,6 @@ public class DiamondSteelHOeItem extends IndustrialEconomyModElements.ModElement
 				ItemStack itemstack = context.getItem();
 				{
 					Map<String, Object> $_dependencies = new HashMap<>();
-					$_dependencies.put("blockstate", blockstate);
 					$_dependencies.put("entity", entity);
 					$_dependencies.put("x", x);
 					$_dependencies.put("y", y);

@@ -203,6 +203,75 @@ public class MoneyCommandExecutedProcedure {
 					}
 				}
 			}
+		} else if ((((new Object() {
+			public String getText() {
+				String param = (String) cmdparams.get("0");
+				if (param != null) {
+					return param;
+				}
+				return "";
+			}
+		}.getText())).equals("info"))) {
+			if ((((new Object() {
+				public String getText() {
+					String param = (String) cmdparams.get("1");
+					if (param != null) {
+						return param;
+					}
+					return "";
+				}
+			}.getText())).equals(""))) {
+				if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
+					((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("Example:  /money info playerName"), (false));
+				}
+			}
+			if (((!(((new Object() {
+				public String getText() {
+					String param = (String) cmdparams.get("1");
+					if (param != null) {
+						return param;
+					}
+					return "";
+				}
+			}.getText())).equals(""))) && (((new Object() {
+				public String getText() {
+					String param = (String) cmdparams.get("0");
+					if (param != null) {
+						return param;
+					}
+					return "";
+				}
+			}.getText())).equals("info")))) {
+				{
+					List<? extends PlayerEntity> _players = new ArrayList<>(world.getPlayers());
+					for (Entity entityiterator : _players) {
+						if ((((new Object() {
+							public String getText() {
+								String param = (String) cmdparams.get("1");
+								if (param != null) {
+									return param;
+								}
+								return "";
+							}
+						}.getText())).equals((entityiterator.getDisplayName().getString())))) {
+							if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
+								((PlayerEntity) entity).sendStatusMessage(new StringTextComponent((("Player ") + "" + ((new Object() {
+									public String getText() {
+										String param = (String) cmdparams.get("1");
+										if (param != null) {
+											return param;
+										}
+										return "";
+									}
+								}.getText())) + "" + ("have ") + ""
+										+ (((entityiterator.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+												.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money))
+										+ "" + (" \u20AC"))), (false));
+							}
+						}
+					}
+				}
+			}
 		}
 	}
 }

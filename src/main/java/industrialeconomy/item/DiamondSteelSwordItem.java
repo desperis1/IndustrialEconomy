@@ -54,7 +54,7 @@ public class DiamondSteelSwordItem extends IndustrialEconomyModElements.ModEleme
 			}
 
 			public Ingredient getRepairMaterial() {
-				return Ingredient.EMPTY;
+				return Ingredient.fromStacks(new ItemStack(DiamondsteelplateItem.block));
 			}
 		}, 3, 0f, new Item.Properties().group(ProjectMEGAItemGroup.tab)) {
 			@Override
@@ -67,11 +67,6 @@ public class DiamondSteelSwordItem extends IndustrialEconomyModElements.ModEleme
 				{
 					Map<String, Object> $_dependencies = new HashMap<>();
 					$_dependencies.put("entity", entity);
-					$_dependencies.put("itemstack", itemstack);
-					$_dependencies.put("x", x);
-					$_dependencies.put("y", y);
-					$_dependencies.put("z", z);
-					$_dependencies.put("world", world);
 					DiamondSteelSwordRightClickedOnBlockProcedure.executeProcedure($_dependencies);
 				}
 				return retval;

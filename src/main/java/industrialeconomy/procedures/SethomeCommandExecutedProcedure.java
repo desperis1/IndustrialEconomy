@@ -57,6 +57,13 @@ public class SethomeCommandExecutedProcedure {
 				capability.syncPlayerVariables(entity);
 			});
 		}
+		{
+			String _setval = (String) ("" + ((entity.world.getDimensionKey())));
+			entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+				capability.player_home_dimension = _setval;
+				capability.syncPlayerVariables(entity);
+			});
+		}
 		if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
 			((PlayerEntity) entity).sendStatusMessage(new StringTextComponent((("Your Home was saved at:") + "" + ("X: ") + "" + (Math.round(x)) + ""
 					+ ("Y: ") + "" + (Math.round(y)) + "" + ("Z: ") + "" + (Math.round(z)))), (true));
