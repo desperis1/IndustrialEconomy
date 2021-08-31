@@ -98,7 +98,8 @@ public class CityCommandExecutedProcedure {
 			Z_multipler = (double) Math.round((z / 20));
 			sync_Z_with_grid = (double) (Z_multipler * 20);
 			{
-				String _setval = (String) cityname;
+				String _setval = (String) ((((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+						.orElse(new IndustrialEconomyModVariables.PlayerVariables())).players_city_name)) + "" + (",") + "" + (cityname));
 				entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 					capability.players_city_name = _setval;
 					capability.syncPlayerVariables(entity);

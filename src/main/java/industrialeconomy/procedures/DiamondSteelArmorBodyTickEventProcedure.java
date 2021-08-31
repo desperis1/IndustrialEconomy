@@ -88,7 +88,7 @@ public class DiamondSteelArmorBodyTickEventProcedure {
 				}
 			} else {
 				if (entity instanceof PlayerEntity) {
-					((PlayerEntity) entity).abilities.allowFlying = ((false) == (true));
+					((PlayerEntity) entity).abilities.allowFlying = (false);
 					((PlayerEntity) entity).sendPlayerAbilities();
 				}
 			}

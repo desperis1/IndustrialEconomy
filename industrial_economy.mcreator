@@ -7820,6 +7820,16 @@
         ]
       },
       "path": "~/Shop"
+    },
+    {
+      "name": "PlasmaRANGEDITEM",
+      "type": "rangeditem",
+      "sortid": 471,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "plasma_rangeditem",
+      "path": "~/Items"
     }
   ],
   "variable_elements": [
@@ -8184,6 +8194,7 @@
       "block.mega_project.chargerblock": "Charger",
       "block.mega_project.energyplazma": "Energy Plazma",
       "block.mega_project.constructorblock": "Constructor",
+      "item.industrial_economy.plasma_rangeditem": "Plasma RANGEDITEM",
       "key.satis_mine.node_scanner_modes_keybind": "Node Scanner Modes",
       "block.industrial_economy.assemblerblock": "Assembler",
       "block.satis_mine.lime_concrete_stairs": "Lime Concrete Stairs",

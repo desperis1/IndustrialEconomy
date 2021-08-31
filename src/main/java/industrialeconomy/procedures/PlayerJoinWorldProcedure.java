@@ -67,8 +67,8 @@ public class PlayerJoinWorldProcedure {
 			((PlayerEntity) entity)
 					.sendStatusMessage(
 							new StringTextComponent((("You have: ") + ""
-									+ (((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-											.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money))
+									+ (Math.round(((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+											.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money)))
 									+ "" + (" \u20AC"))),
 							(false));
 		}

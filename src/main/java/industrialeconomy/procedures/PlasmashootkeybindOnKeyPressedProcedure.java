@@ -2,13 +2,14 @@ package industrialeconomy.procedures;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.entity.projectile.ArrowEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.enchantment.EnchantmentHelper;
 
+import java.util.Random;
 import java.util.Map;
 
+import industrialeconomy.item.PlasmaRANGEDITEMItem;
 import industrialeconomy.item.DiamondSteelArmorItem;
 
 import industrialeconomy.enchantment.CheapPlasmaEnchantment;
@@ -38,11 +39,7 @@ public class PlasmashootkeybindOnKeyPressedProcedure {
 			if (entity instanceof LivingEntity) {
 				Entity _ent = entity;
 				if (!_ent.world.isRemote()) {
-					ArrowEntity entityToSpawn = new ArrowEntity(_ent.world, (LivingEntity) entity);
-					entityToSpawn.shoot(entity.getLookVec().x, entity.getLookVec().y, entity.getLookVec().z, (float) 5, 0);
-					entityToSpawn.setDamage((float) 5);
-					entityToSpawn.setKnockbackStrength((int) 5);
-					_ent.world.addEntity(entityToSpawn);
+					PlasmaRANGEDITEMItem.shoot(_ent.world, (LivingEntity) entity, new Random(), (float) 5, (float) 5, (int) 6);
 				}
 			}
 			if (((EnchantmentHelper.getEnchantmentLevel(BetterCoolDownEnchantmentEnchantment.enchantment,

@@ -50,7 +50,7 @@ public class PlasmaShootrangeditemBulletHitsBlockProcedure {
 		world.addParticle(ParticleTypes.LARGE_SMOKE, x, y, z, 0, 1, 0);
 		world.addParticle(ParticleTypes.EXPLOSION, x, y, z, 0, 1, 0);
 		if (world instanceof World && !((World) world).isRemote) {
-			((World) world).createExplosion(null, (int) x, (int) y, (int) z, (float) 1, Explosion.Mode.BREAK);
+			((World) world).createExplosion(null, (int) x, (int) y, (int) z, (float) 5, Explosion.Mode.NONE);
 		}
 		if (world instanceof World && !world.isRemote()) {
 			((World) world).playSound(null, new BlockPos((int) x, (int) y, (int) z),

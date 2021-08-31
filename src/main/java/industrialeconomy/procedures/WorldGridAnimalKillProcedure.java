@@ -82,7 +82,8 @@ public class WorldGridAnimalKillProcedure {
 		String player_name = "";
 		if ((((sourceentity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 				.orElse(new IndustrialEconomyModVariables.PlayerVariables())).admin_editor) == (false))) {
-			if ((((sourceentity instanceof PlayerEntity) || (sourceentity instanceof ServerPlayerEntity)) && (entity instanceof AnimalEntity))) {
+			if ((((sourceentity instanceof PlayerEntity) || (sourceentity instanceof ServerPlayerEntity))
+					&& ((entity instanceof ServerPlayerEntity) || (entity instanceof AnimalEntity)))) {
 				player_name = (String) (sourceentity.getDisplayName().getString());
 				grid_X = (double) Math.floor((x / 20));
 				grid_Z = (double) Math.floor((z / 20));

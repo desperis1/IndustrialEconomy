@@ -263,9 +263,9 @@ public class MoneyCommandExecutedProcedure {
 										}
 										return "";
 									}
-								}.getText())) + "" + ("have ") + ""
-										+ (((entityiterator.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-												.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money))
+								}.getText())) + "" + (" have ") + ""
+										+ (Math.round(((entityiterator.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+												.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money)))
 										+ "" + (" \u20AC"))), (false));
 							}
 						}

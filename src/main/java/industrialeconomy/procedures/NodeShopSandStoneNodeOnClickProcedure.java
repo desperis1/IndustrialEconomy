@@ -9,7 +9,7 @@ import net.minecraft.entity.Entity;
 
 import java.util.Map;
 
-import industrialeconomy.block.LimestoneinactiveBlock;
+import industrialeconomy.block.LimestoneactiveBlock;
 
 import industrialeconomy.IndustrialEconomyModVariables;
 
@@ -26,7 +26,7 @@ public class NodeShopSandStoneNodeOnClickProcedure {
 		if ((((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 				.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money) >= 5000)) {
 			if (entity instanceof PlayerEntity) {
-				ItemStack _setstack = new ItemStack(LimestoneinactiveBlock.block);
+				ItemStack _setstack = new ItemStack(LimestoneactiveBlock.block);
 				_setstack.setCount((int) 1);
 				ItemHandlerHelper.giveItemToPlayer(((PlayerEntity) entity), _setstack);
 			}
