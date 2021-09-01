@@ -51,6 +51,7 @@ public class MinerblockUpdateTickProcedure {
 		double players_hub_x = 0;
 		double players_hub_y = 0;
 		double players_hub_z = 0;
+		double miners_level = 0;
 		owner = (String) (new Object() {
 			public String getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
@@ -95,6 +96,18 @@ public class MinerblockUpdateTickProcedure {
 						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_y,
 						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_z),
 				((owner) + "" + ("hub_Z"))));
+		miners_level = (double) (new Object() {
+			public double getValue(IWorld world, BlockPos pos, String tag) {
+				TileEntity tileEntity = world.getTileEntity(pos);
+				if (tileEntity != null)
+					return tileEntity.getTileData().getDouble(tag);
+				return -1;
+			}
+		}.getValue(world,
+				new BlockPos((int) IndustrialEconomyModVariables.WorldVariables.get(world).server_x,
+						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_y,
+						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_z),
+				((owner) + "" + ("_minerLevel"))));
 		if (((new Object() {
 			public double getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
@@ -102,7 +115,7 @@ public class MinerblockUpdateTickProcedure {
 					return tileEntity.getTileData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos((int) players_hub_x, (int) players_hub_y, (int) players_hub_z), "Energy")) >= 5)) {
+		}.getValue(world, new BlockPos((int) players_hub_x, (int) players_hub_y, (int) players_hub_z), "Energy")) >= 15)) {
 			if (((CoalNodeBlock.block == (world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z))).getBlock()) && ((new Object() {
 				public double getValue(IWorld world, BlockPos pos, String tag) {
 					TileEntity tileEntity = world.getTileEntity(pos);
@@ -133,7 +146,7 @@ public class MinerblockUpdateTickProcedure {
 										return tileEntity.getTileData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos((int) players_hub_x, (int) players_hub_y, (int) players_hub_z), "Coal")) + 1));
+							}.getValue(world, new BlockPos((int) players_hub_x, (int) players_hub_y, (int) players_hub_z), "Coal")) + miners_level));
 						if (world instanceof World)
 							((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 					}
@@ -149,7 +162,8 @@ public class MinerblockUpdateTickProcedure {
 										return tileEntity.getTileData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos((int) players_hub_x, (int) players_hub_y, (int) players_hub_z), "Energy")) - 5));
+							}.getValue(world, new BlockPos((int) players_hub_x, (int) players_hub_y, (int) players_hub_z), "Energy"))
+									- (15 * miners_level)));
 						if (world instanceof World)
 							((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 					}
@@ -201,7 +215,7 @@ public class MinerblockUpdateTickProcedure {
 										return tileEntity.getTileData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos((int) players_hub_x, (int) players_hub_y, (int) players_hub_z), "Iron")) + 1));
+							}.getValue(world, new BlockPos((int) players_hub_x, (int) players_hub_y, (int) players_hub_z), "Iron")) + miners_level));
 						if (world instanceof World)
 							((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 					}
@@ -217,7 +231,8 @@ public class MinerblockUpdateTickProcedure {
 										return tileEntity.getTileData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos((int) players_hub_x, (int) players_hub_y, (int) players_hub_z), "Energy")) - 5));
+							}.getValue(world, new BlockPos((int) players_hub_x, (int) players_hub_y, (int) players_hub_z), "Energy"))
+									- (15 * miners_level)));
 						if (world instanceof World)
 							((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 					}
@@ -269,7 +284,8 @@ public class MinerblockUpdateTickProcedure {
 										return tileEntity.getTileData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos((int) players_hub_x, (int) players_hub_y, (int) players_hub_z), "Caterium")) + 1));
+							}.getValue(world, new BlockPos((int) players_hub_x, (int) players_hub_y, (int) players_hub_z), "Caterium"))
+									+ miners_level));
 						if (world instanceof World)
 							((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 					}
@@ -285,7 +301,8 @@ public class MinerblockUpdateTickProcedure {
 										return tileEntity.getTileData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos((int) players_hub_x, (int) players_hub_y, (int) players_hub_z), "Energy")) - 5));
+							}.getValue(world, new BlockPos((int) players_hub_x, (int) players_hub_y, (int) players_hub_z), "Energy"))
+									- (15 * miners_level)));
 						if (world instanceof World)
 							((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 					}
@@ -336,7 +353,8 @@ public class MinerblockUpdateTickProcedure {
 										return tileEntity.getTileData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos((int) players_hub_x, (int) players_hub_y, (int) players_hub_z), "Copper")) + 1));
+							}.getValue(world, new BlockPos((int) players_hub_x, (int) players_hub_y, (int) players_hub_z), "Copper"))
+									+ miners_level));
 						if (world instanceof World)
 							((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 					}
@@ -352,7 +370,8 @@ public class MinerblockUpdateTickProcedure {
 										return tileEntity.getTileData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos((int) players_hub_x, (int) players_hub_y, (int) players_hub_z), "Energy")) - 5));
+							}.getValue(world, new BlockPos((int) players_hub_x, (int) players_hub_y, (int) players_hub_z), "Energy"))
+									- (15 * miners_level)));
 						if (world instanceof World)
 							((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 					}
@@ -404,7 +423,8 @@ public class MinerblockUpdateTickProcedure {
 										return tileEntity.getTileData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos((int) players_hub_x, (int) players_hub_y, (int) players_hub_z), "SandStone")) + 1));
+							}.getValue(world, new BlockPos((int) players_hub_x, (int) players_hub_y, (int) players_hub_z), "SandStone"))
+									+ miners_level));
 						if (world instanceof World)
 							((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 					}
@@ -420,7 +440,8 @@ public class MinerblockUpdateTickProcedure {
 										return tileEntity.getTileData().getDouble(tag);
 									return -1;
 								}
-							}.getValue(world, new BlockPos((int) players_hub_x, (int) players_hub_y, (int) players_hub_z), "Energy")) - 5));
+							}.getValue(world, new BlockPos((int) players_hub_x, (int) players_hub_y, (int) players_hub_z), "Energy"))
+									- (15 * miners_level)));
 						if (world instanceof World)
 							((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 					}

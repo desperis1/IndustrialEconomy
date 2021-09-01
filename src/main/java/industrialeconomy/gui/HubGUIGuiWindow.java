@@ -124,8 +124,8 @@ public class HubGUIGuiWindow extends ContainerScreen<HubGUIGui.GuiContainerMod> 
 			}
 		}.getValue(new BlockPos((int) x, (int) y, (int) z), "Copper")) + "", 121, 76, -12829636);
 		this.font.drawString(ms, "" + ((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-				.orElse(new IndustrialEconomyModVariables.PlayerVariables())).miners_level) + "", 344, 210, -12829636);
-		this.font.drawString(ms, "Miner Levels", 330, 198, -12829636);
+				.orElse(new IndustrialEconomyModVariables.PlayerVariables())).miners_level) + "", 330, 213, -12829636);
+		this.font.drawString(ms, "Miner Levels", 330, 203, -12829636);
 		this.font.drawString(ms, "SandStone Mined", 6, 94, -12829636);
 		this.font.drawString(ms, "" + (new Object() {
 			public double getValue(BlockPos pos, String tag) {
@@ -135,6 +135,15 @@ public class HubGUIGuiWindow extends ContainerScreen<HubGUIGui.GuiContainerMod> 
 				return 0;
 			}
 		}.getValue(new BlockPos((int) x, (int) y, (int) z), "SandStone")) + "", 121, 94, -12829636);
+		this.font.drawString(ms, "" + (new Object() {
+			public double getValue(BlockPos pos, String tag) {
+				TileEntity tileEntity = world.getTileEntity(pos);
+				if (tileEntity != null)
+					return tileEntity.getTileData().getDouble(tag);
+				return 0;
+			}
+		}.getValue(new BlockPos((int) x, (int) y, (int) z), "EnergyForUpgrade")) + "", 3, 212, -12829636);
+		this.font.drawString(ms, "Energy Needed for next Upgrade", 3, 200, -12829636);
 	}
 
 	@Override

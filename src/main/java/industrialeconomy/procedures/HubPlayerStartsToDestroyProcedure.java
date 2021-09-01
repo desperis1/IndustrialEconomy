@@ -109,6 +109,20 @@ public class HubPlayerStartsToDestroyProcedure {
 						return tileEntity.getTileData().getDouble(tag);
 					return -1;
 				}
+			}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "EnergyForUpgrade"));
+			entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+				capability.hub_energy_for_upgrade_save = _setval;
+				capability.syncPlayerVariables(entity);
+			});
+		}
+		{
+			double _setval = (double) (new Object() {
+				public double getValue(IWorld world, BlockPos pos, String tag) {
+					TileEntity tileEntity = world.getTileEntity(pos);
+					if (tileEntity != null)
+						return tileEntity.getTileData().getDouble(tag);
+					return -1;
+				}
 			}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Copper"));
 			entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 				capability.hub_copper_save = _setval;

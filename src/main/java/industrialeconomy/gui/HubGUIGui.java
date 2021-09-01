@@ -32,6 +32,8 @@ import java.util.function.Supplier;
 import java.util.Map;
 import java.util.HashMap;
 
+import industrialeconomy.procedures.HubUpgradeMinersOnClickProcedure;
+
 import industrialeconomy.IndustrialEconomyModElements;
 
 import industrialeconomy.IndustrialEconomyMod;
@@ -138,7 +140,7 @@ public class HubGUIGui extends IndustrialEconomyModElements.ModElement {
 					return false;
 				}
 			}));
-			this.customSlots.put(4, this.addSlot(new SlotItemHandler(internal, 4, 7, 202) {
+			this.customSlots.put(4, this.addSlot(new SlotItemHandler(internal, 4, 373, 4) {
 			}));
 			this.customSlots.put(5, this.addSlot(new SlotItemHandler(internal, 5, 90, 91) {
 				@Override
@@ -393,6 +395,17 @@ public class HubGUIGui extends IndustrialEconomyModElements.ModElement {
 		// security measure to prevent arbitrary chunk generation
 		if (!world.isBlockLoaded(new BlockPos(x, y, z)))
 			return;
+		if (buttonID == 0) {
+			{
+				Map<String, Object> $_dependencies = new HashMap<>();
+				$_dependencies.put("entity", entity);
+				$_dependencies.put("x", x);
+				$_dependencies.put("y", y);
+				$_dependencies.put("z", z);
+				$_dependencies.put("world", world);
+				HubUpgradeMinersOnClickProcedure.executeProcedure($_dependencies);
+			}
+		}
 	}
 
 	private static void handleSlotAction(PlayerEntity entity, int slotID, int changeType, int meta, int x, int y, int z) {

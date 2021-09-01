@@ -260,6 +260,7 @@ public class IndustrialEconomyModVariables {
 			nbt.putBoolean("admin_editor", instance.admin_editor);
 			nbt.putString("player_back_dimension", instance.player_back_dimension);
 			nbt.putDouble("energy_required_for_next_level", instance.energy_required_for_next_level);
+			nbt.putDouble("hub_energy_for_upgrade_save", instance.hub_energy_for_upgrade_save);
 			return nbt;
 		}
 
@@ -310,6 +311,7 @@ public class IndustrialEconomyModVariables {
 			instance.admin_editor = nbt.getBoolean("admin_editor");
 			instance.player_back_dimension = nbt.getString("player_back_dimension");
 			instance.energy_required_for_next_level = nbt.getDouble("energy_required_for_next_level");
+			instance.hub_energy_for_upgrade_save = nbt.getDouble("hub_energy_for_upgrade_save");
 		}
 	}
 
@@ -358,6 +360,7 @@ public class IndustrialEconomyModVariables {
 		public boolean admin_editor = false;
 		public String player_back_dimension = "\"\"";
 		public double energy_required_for_next_level = 0;
+		public double hub_energy_for_upgrade_save = 0;
 		public void syncPlayerVariables(Entity entity) {
 			if (entity instanceof ServerPlayerEntity)
 				IndustrialEconomyMod.PACKET_HANDLER.send(PacketDistributor.PLAYER.with(() -> (ServerPlayerEntity) entity),
@@ -427,6 +430,7 @@ public class IndustrialEconomyModVariables {
 		clone.admin_editor = original.admin_editor;
 		clone.player_back_dimension = original.player_back_dimension;
 		clone.energy_required_for_next_level = original.energy_required_for_next_level;
+		clone.hub_energy_for_upgrade_save = original.hub_energy_for_upgrade_save;
 		if (!event.isWasDeath()) {
 			clone.DSA_NightVision = original.DSA_NightVision;
 			clone.DSA_Jetpack = original.DSA_Jetpack;
@@ -502,6 +506,7 @@ public class IndustrialEconomyModVariables {
 					variables.admin_editor = message.data.admin_editor;
 					variables.player_back_dimension = message.data.player_back_dimension;
 					variables.energy_required_for_next_level = message.data.energy_required_for_next_level;
+					variables.hub_energy_for_upgrade_save = message.data.hub_energy_for_upgrade_save;
 				}
 			});
 			context.setPacketHandled(true);

@@ -7566,6 +7566,10 @@
       "metadata": {
         "dependencies": [
           {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
             "name": "x",
             "type": "number"
           },
@@ -7829,6 +7833,81 @@
       "locked_code": false,
       "ids": {},
       "registry_name": "plasma_rangeditem",
+      "path": "~/Items"
+    },
+    {
+      "name": "UpgrademinersCommandExecuted",
+      "type": "procedure",
+      "sortid": 472,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "upgrademiners_command_executed",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Commands"
+    },
+    {
+      "name": "Upgrademiners",
+      "type": "command",
+      "sortid": 472,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "upgrademiners",
+      "path": "~/Commands"
+    },
+    {
+      "name": "EnergyforupgradeitemRightClickedOnBlock",
+      "type": "procedure",
+      "sortid": 473,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "energyforupgradeitem_right_clicked_on_block",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Energyforupgradeitem",
+      "type": "item",
+      "sortid": 473,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "energyforupgradeitem",
       "path": "~/Items"
     }
   ],
@@ -8126,6 +8205,12 @@
       "type": "number",
       "scope": "player_persistent",
       "value": "0"
+    },
+    {
+      "name": "hub_energy_for_upgrade_save",
+      "type": "number",
+      "scope": "player_persistent",
+      "value": "0"
     }
   ],
   "sound_elements": [
@@ -8405,6 +8490,7 @@
       "item.satis_mine.diamondsteelitem": "Diamond Steel Ingot",
       "block.satis_mine.armorcharger": "Armor Charger",
       "block.satis_mine.caterium_block": "Block of Caterium",
+      "item.industrial_economy.energyforupgradeitem": "Energyforupgradeitem",
       "item.satis_mine.diamond_steel_armor_leggings": "Diamond Steel Leggings",
       "block.industrial_economy.constructorblock": "Constructor",
       "item.mega_project.plasmabulletitem": "Plasma Bullet",

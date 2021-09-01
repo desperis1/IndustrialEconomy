@@ -222,8 +222,8 @@
             "falpha": 0.0
           },
           "name": "<VAR:miners_level>",
-          "x": 360,
-          "y": 216
+          "x": 346,
+          "y": 219
         }
       },
       {
@@ -236,7 +236,7 @@
           },
           "name": "Miner Levels",
           "x": 346,
-          "y": 204
+          "y": 209
         }
       },
       {
@@ -253,8 +253,8 @@
           "disableStackInteraction": false,
           "dropItemsWhenNotBound": true,
           "name": "Slot #4",
-          "x": 22,
-          "y": 207
+          "x": 388,
+          "y": 9
         }
       },
       {
@@ -302,11 +302,40 @@
         "type": "button",
         "data": {
           "text": "Upgrade Miners",
+          "onClick": {
+            "name": "HubUpgradeMinersOnClick"
+          },
           "width": 95,
           "height": 20,
           "name": "Upgrade Miners",
           "x": 248,
           "y": 209
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "<BNBT:number:EnergyForUpgrade>",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "<BNBT:number:EnergyForUpgrade>",
+          "x": 19,
+          "y": 218
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Energy Needed for next Upgrade",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "Energy Needed for next Upgrade",
+          "x": 19,
+          "y": 206
         }
       }
     ],

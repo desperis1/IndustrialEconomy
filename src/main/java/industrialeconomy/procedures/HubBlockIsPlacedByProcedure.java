@@ -101,6 +101,15 @@ public class HubBlockIsPlacedByProcedure {
 				TileEntity _tileEntity = world.getTileEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_tileEntity != null)
+					_tileEntity.getTileData().putDouble("EnergyForUpgrade", 1000000000);
+				if (world instanceof World)
+					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
+			}
+			if (!world.isRemote()) {
+				BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
+				TileEntity _tileEntity = world.getTileEntity(_bp);
+				BlockState _bs = world.getBlockState(_bp);
+				if (_tileEntity != null)
 					_tileEntity.getTileData().putDouble("Copper", 0);
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
@@ -201,6 +210,17 @@ public class HubBlockIsPlacedByProcedure {
 					_tileEntity.getTileData().putDouble("Energy",
 							((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 									.orElse(new IndustrialEconomyModVariables.PlayerVariables())).hub_energy_save));
+				if (world instanceof World)
+					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
+			}
+			if (!world.isRemote()) {
+				BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
+				TileEntity _tileEntity = world.getTileEntity(_bp);
+				BlockState _bs = world.getBlockState(_bp);
+				if (_tileEntity != null)
+					_tileEntity.getTileData().putDouble("EnergyForUpgrade",
+							((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+									.orElse(new IndustrialEconomyModVariables.PlayerVariables())).hub_energy_for_upgrade_save));
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}

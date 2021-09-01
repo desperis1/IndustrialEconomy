@@ -42,6 +42,13 @@ public class AllowedBlocksInWorldProcedure {
 				|| (Blocks.SOUL_WALL_TORCH == (world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock()))) {
 			return (true);
 		}
+		if (((Blocks.END_PORTAL_FRAME == (world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock())
+				|| (Blocks.END_PORTAL == (world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock()))) {
+			return (true);
+		}
+		if ((Blocks.END_GATEWAY == (world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock())) {
+			return (true);
+		}
 		if (((Blocks.DIRT == (world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock()) || ((Blocks.OAK_SAPLING == (world
 				.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock())
 				|| ((Blocks.SPRUCE_SAPLING == (world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock())
