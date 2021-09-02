@@ -15,20 +15,20 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.Arrays;
 
-import industrialeconomy.procedures.SetpriceCommandExecutedProcedure;
+import industrialeconomy.procedures.TxtpriceCommandExecutedProcedure;
 
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import com.mojang.brigadier.arguments.StringArgumentType;
 
 @Mod.EventBusSubscriber
-public class SetpriceCommand {
+public class TxtpriceCommand {
 	@SubscribeEvent
 	public static void registerCommands(RegisterCommandsEvent event) {
 		event.getDispatcher()
-				.register(LiteralArgumentBuilder.<CommandSource>literal("setprice").requires(s -> s.hasPermissionLevel(4))
-						.then(Commands.argument("arguments", StringArgumentType.greedyString()).executes(SetpriceCommand::execute))
-						.executes(SetpriceCommand::execute));
+				.register(LiteralArgumentBuilder.<CommandSource>literal("txtprice")
+						.then(Commands.argument("arguments", StringArgumentType.greedyString()).executes(TxtpriceCommand::execute))
+						.executes(TxtpriceCommand::execute));
 	}
 
 	private static int execute(CommandContext<CommandSource> ctx) {
@@ -48,9 +48,7 @@ public class SetpriceCommand {
 		});
 		{
 			Map<String, Object> $_dependencies = new HashMap<>();
-			$_dependencies.put("entity", entity);
-			$_dependencies.put("cmdparams", cmdparams);
-			SetpriceCommandExecutedProcedure.executeProcedure($_dependencies);
+			TxtpriceCommandExecutedProcedure.executeProcedure($_dependencies);
 		}
 		return 0;
 	}

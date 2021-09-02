@@ -1,25 +1,31 @@
 package industrialeconomy.procedures;
 
-import net.minecraftforge.items.IItemHandlerModifiable;
 import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.fml.server.ServerLifecycleHooks;
+import net.minecraftforge.fml.loading.FMLPaths;
 
 import net.minecraft.world.IWorld;
 import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.ChatType;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.Util;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.Entity;
 
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
 
-import industrialeconomy.IndustrialEconomyModVariables;
+import java.io.IOException;
+import java.io.FileReader;
+import java.io.File;
+import java.io.BufferedReader;
 
 import industrialeconomy.IndustrialEconomyMod;
+
+import com.google.gson.JsonObject;
+import com.google.gson.Gson;
 
 public class AutoSellUpdateTickProcedure {
 	public static void executeProcedure(Map<String, Object> dependencies) {
@@ -51,6 +57,8 @@ public class AutoSellUpdateTickProcedure {
 		double number_of_items = 0;
 		double price_from_server = 0;
 		ItemStack items_for_sell = ItemStack.EMPTY;
+		File jsonfile = new File("");
+		File itemforsell = new File("");
 		owner = (String) (new Object() {
 			public String getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
@@ -83,117 +91,34 @@ public class AutoSellUpdateTickProcedure {
 				return _retval.get();
 			}
 		}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (0)));
-		if ((((true) == (new Object() {
-			public boolean getValue(IWorld world, BlockPos pos, String tag) {
-				TileEntity tileEntity = world.getTileEntity(pos);
-				if (tileEntity != null)
-					return tileEntity.getTileData().getBoolean(tag);
-				return false;
+		jsonfile = new File(((FMLPaths.GAMEDIR.get().toString()) + "" + ("\\prices")),
+				File.separator + (((((items_for_sell).getDisplayName().getString()).replace(" ", ""))) + "" + (".json")));
+		if (!jsonfile.exists()) {
+			try {
+				jsonfile.createNewFile();
+			} catch (IOException exception) {
+				exception.printStackTrace();
 			}
-		}.getValue(world,
-				new BlockPos((int) IndustrialEconomyModVariables.WorldVariables.get(world).server_x,
-						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_y,
-						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_z),
-				((owner) + "" + ("_isOnline"))))) && ((new Object() {
-					public double getValue(IWorld world, BlockPos pos, String tag) {
-						TileEntity tileEntity = world.getTileEntity(pos);
-						if (tileEntity != null)
-							return tileEntity.getTileData().getDouble(tag);
-						return -1;
-					}
-				}.getValue(world,
-						new BlockPos((int) IndustrialEconomyModVariables.WorldVariables.get(world).server_x,
-								(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_y,
-								(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_z),
-						((((items_for_sell).getDisplayName().getString())) + "" + ("_price")))) > 0))) {
-			price_from_server = (double) (new Object() {
-				public double getValue(IWorld world, BlockPos pos, String tag) {
-					TileEntity tileEntity = world.getTileEntity(pos);
-					if (tileEntity != null)
-						return tileEntity.getTileData().getDouble(tag);
-					return -1;
+		}
+		{
+			try {
+				BufferedReader jsonfileReader = new BufferedReader(new FileReader(jsonfile));
+				StringBuilder jsonstringbuilder = new StringBuilder();
+				String line;
+				while ((line = jsonfileReader.readLine()) != null) {
+					jsonstringbuilder.append(line);
 				}
-			}.getValue(world,
-					new BlockPos((int) IndustrialEconomyModVariables.WorldVariables.get(world).server_x,
-							(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_y,
-							(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_z),
-					((((items_for_sell).getDisplayName().getString())) + "" + ("_price"))));
-			{
-				List<? extends PlayerEntity> _players = new ArrayList<>(world.getPlayers());
-				for (Entity entityiterator : _players) {
-					if ((((entityiterator.getDisplayName().getString())).equals(owner))) {
-						{
-							double _setval = (double) (((entityiterator.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-									.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money)
-									+ (number_of_items * price_from_server));
-							entityiterator.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-								capability.player_money = _setval;
-								capability.syncPlayerVariables(entityiterator);
-							});
-						}
-						{
-							TileEntity _ent = world.getTileEntity(new BlockPos((int) x, (int) y, (int) z));
-							if (_ent != null) {
-								final int _sltid = (int) (0);
-								final int _amount = (int) number_of_items;
-								_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
-									if (capability instanceof IItemHandlerModifiable) {
-										ItemStack _stk = capability.getStackInSlot(_sltid).copy();
-										_stk.shrink(_amount);
-										((IItemHandlerModifiable) capability).setStackInSlot(_sltid, _stk);
-									}
-								});
-							}
-						}
-						if (entityiterator instanceof PlayerEntity && !entityiterator.world.isRemote()) {
-							((PlayerEntity) entityiterator).sendStatusMessage(
-									new StringTextComponent((("AutoSell: ") + "" + ((new java.text.DecimalFormat("#").format(number_of_items))) + ""
-											+ (" ") + "" + (((items_for_sell).getDisplayName().getString())) + "" + (" for ") + ""
-											+ ((number_of_items * price_from_server)) + "" + (" \u20AC"))),
-									(false));
-						}
-					}
-				}
+				jsonfileReader.close();
+				JsonObject gson = new Gson().fromJson(jsonstringbuilder.toString(), JsonObject.class);
+				price_from_server = (double) gson.get("price").getAsDouble();
+			} catch (IOException e) {
+				e.printStackTrace();
 			}
-		} else if (((new Object() {
-			public int getAmount(IWorld world, BlockPos pos, int sltid) {
-				AtomicInteger _retval = new AtomicInteger(0);
-				TileEntity _ent = world.getTileEntity(pos);
-				if (_ent != null) {
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
-						_retval.set(capability.getStackInSlot(sltid).getCount());
-					});
-				}
-				return _retval.get();
-			}
-		}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1))) == 0)) {
-			{
-				TileEntity _ent = world.getTileEntity(new BlockPos((int) x, (int) y, (int) z));
-				if (_ent != null) {
-					final int _sltid = (int) (1);
-					final ItemStack _setstack = (items_for_sell);
-					_setstack.setCount((int) number_of_items);
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
-						if (capability instanceof IItemHandlerModifiable) {
-							((IItemHandlerModifiable) capability).setStackInSlot(_sltid, _setstack);
-						}
-					});
-				}
-			}
-			{
-				TileEntity _ent = world.getTileEntity(new BlockPos((int) x, (int) y, (int) z));
-				if (_ent != null) {
-					final int _sltid = (int) (0);
-					final int _amount = (int) number_of_items;
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
-						if (capability instanceof IItemHandlerModifiable) {
-							ItemStack _stk = capability.getStackInSlot(_sltid).copy();
-							_stk.shrink(_amount);
-							((IItemHandlerModifiable) capability).setStackInSlot(_sltid, _stk);
-						}
-					});
-				}
-			}
+		}
+		if (!world.isRemote()) {
+			MinecraftServer mcserv = ServerLifecycleHooks.getCurrentServer();
+			if (mcserv != null)
+				mcserv.getPlayerList().func_232641_a_(new StringTextComponent(("" + (price_from_server))), ChatType.SYSTEM, Util.DUMMY_UUID);
 		}
 	}
 }

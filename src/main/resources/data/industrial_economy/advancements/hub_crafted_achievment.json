@@ -124,10 +124,10 @@
       "industrial_economy:blackconcreteslabrecipe",
       "industrial_economy:blackconcretestairsrecipe",
       "industrial_economy:empty_modulerecipe",
-      "industrial_economy:sunnymodulerecipe",
-      "industrial_economy:permanightmodulerecipe",
-      "industrial_economy:rainmodulerecipe",
-      "industrial_economy:daymodulerecipe"
+      "industrial_economy:deleted_mod_element",
+      "industrial_economy:deleted_mod_element",
+      "industrial_economy:deleted_mod_element",
+      "industrial_economy:deleted_mod_element"
     ]
   }
 }

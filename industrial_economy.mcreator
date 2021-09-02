@@ -6032,10 +6032,6 @@
           {
             "name": "entity",
             "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
           }
         ]
       },
@@ -7162,10 +7158,6 @@
           {
             "name": "cmdparams",
             "type": "map"
-          },
-          {
-            "name": "world",
-            "type": "world"
           }
         ]
       },
@@ -7898,7 +7890,8 @@
             "type": "world"
           }
         ]
-      }
+      },
+      "path": "~/Items"
     },
     {
       "name": "Energyforupgradeitem",
@@ -7909,6 +7902,38 @@
       "ids": {},
       "registry_name": "energyforupgradeitem",
       "path": "~/Items"
+    },
+    {
+      "name": "Txtsetpricetest",
+      "type": "procedure",
+      "sortid": 474,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "txtsetpricetest",
+      "path": "~/Test"
+    },
+    {
+      "name": "TxtpriceCommandExecuted",
+      "type": "procedure",
+      "sortid": 475,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "txtprice_command_executed",
+      "metadata": {
+        "dependencies": []
+      }
+    },
+    {
+      "name": "Txtprice",
+      "type": "command",
+      "sortid": 475,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "txtprice",
+      "path": "~/Test"
     }
   ],
   "variable_elements": [
@@ -8211,6 +8236,12 @@
       "type": "number",
       "scope": "player_persistent",
       "value": "0"
+    },
+    {
+      "name": "prices",
+      "type": "file",
+      "scope": "global",
+      "value": "new File(\"\")"
     }
   ],
   "sound_elements": [

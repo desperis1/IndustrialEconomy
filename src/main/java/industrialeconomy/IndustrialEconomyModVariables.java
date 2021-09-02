@@ -32,6 +32,8 @@ import net.minecraft.client.Minecraft;
 
 import java.util.function.Supplier;
 
+import java.io.File;
+
 public class IndustrialEconomyModVariables {
 	public IndustrialEconomyModVariables(IndustrialEconomyModElements elements) {
 		elements.addNetworkMessage(WorldSavedDataSyncMessage.class, WorldSavedDataSyncMessage::buffer, WorldSavedDataSyncMessage::new,
@@ -44,7 +46,7 @@ public class IndustrialEconomyModVariables {
 	private void init(FMLCommonSetupEvent event) {
 		CapabilityManager.INSTANCE.register(PlayerVariables.class, new PlayerVariablesStorage(), PlayerVariables::new);
 	}
-
+	public static File prices = new File("");
 	@SubscribeEvent
 	public void onPlayerLoggedIn(PlayerEvent.PlayerLoggedInEvent event) {
 		if (!event.getPlayer().world.isRemote()) {
