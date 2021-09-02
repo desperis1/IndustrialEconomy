@@ -176,7 +176,7 @@ public class BuildertoolRightClickedInAirProcedure {
 										+ ((new java.text.DecimalFormat("##")
 												.format(((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 														.orElse(new IndustrialEconomyModVariables.PlayerVariables())).builder_pos2_z))))
-										+ "" + (" ") + "" + ("satis_mine:builder_previewblock") + "" + (" replace air")));
+										+ "" + (" ") + "" + ("industrial_economy:builder_previewblock") + "" + (" replace air")));
 			}
 			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
 				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent(("" + ("Preview Activated! You can Clear it in build gun menu."))),
@@ -214,7 +214,7 @@ public class BuildertoolRightClickedInAirProcedure {
 										+ ((new java.text.DecimalFormat("##")
 												.format(((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 														.orElse(new IndustrialEconomyModVariables.PlayerVariables())).builder_pos2_z))))
-										+ "" + (" ") + "" + ("satis_mine:builder_previewblock") + "" + (" replace air")));
+										+ "" + (" ") + "" + ("industrial_economy:builder_previewblock") + "" + (" replace air")));
 			}
 			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
 				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent(("" + ("Preview Activated! You can Clear it in build gun menu."))),
