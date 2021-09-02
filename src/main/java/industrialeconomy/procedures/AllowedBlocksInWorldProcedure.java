@@ -49,6 +49,57 @@ public class AllowedBlocksInWorldProcedure {
 		if ((Blocks.END_GATEWAY == (world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock())) {
 			return (true);
 		}
+		if ((Blocks.SHULKER_BOX == (world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock())) {
+			return (true);
+		}
+		if ((Blocks.WHITE_SHULKER_BOX == (world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock())) {
+			return (true);
+		}
+		if ((Blocks.ORANGE_SHULKER_BOX == (world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock())) {
+			return (true);
+		}
+		if ((Blocks.MAGENTA_SHULKER_BOX == (world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock())) {
+			return (true);
+		}
+		if ((Blocks.LIGHT_BLUE_SHULKER_BOX == (world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock())) {
+			return (true);
+		}
+		if ((Blocks.YELLOW_SHULKER_BOX == (world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock())) {
+			return (true);
+		}
+		if ((Blocks.LIME_SHULKER_BOX == (world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock())) {
+			return (true);
+		}
+		if ((Blocks.PINK_SHULKER_BOX == (world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock())) {
+			return (true);
+		}
+		if ((Blocks.GRAY_SHULKER_BOX == (world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock())) {
+			return (true);
+		}
+		if ((Blocks.LIGHT_GRAY_SHULKER_BOX == (world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock())) {
+			return (true);
+		}
+		if ((Blocks.CYAN_SHULKER_BOX == (world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock())) {
+			return (true);
+		}
+		if ((Blocks.PURPLE_SHULKER_BOX == (world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock())) {
+			return (true);
+		}
+		if ((Blocks.BLUE_SHULKER_BOX == (world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock())) {
+			return (true);
+		}
+		if ((Blocks.BROWN_SHULKER_BOX == (world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock())) {
+			return (true);
+		}
+		if ((Blocks.GREEN_SHULKER_BOX == (world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock())) {
+			return (true);
+		}
+		if ((Blocks.RED_SHULKER_BOX == (world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock())) {
+			return (true);
+		}
+		if ((Blocks.BLACK_SHULKER_BOX == (world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock())) {
+			return (true);
+		}
 		if (((Blocks.DIRT == (world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock()) || ((Blocks.OAK_SAPLING == (world
 				.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock())
 				|| ((Blocks.SPRUCE_SAPLING == (world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock())

@@ -40,7 +40,7 @@ public class DiamondSteelpickaxeItem extends IndustrialEconomyModElements.ModEle
 			}
 
 			public float getEfficiency() {
-				return 7f;
+				return 6f;
 			}
 
 			public float getAttackDamage() {
