@@ -127,7 +127,7 @@ public class SetpriceCommandExecutedProcedure {
 								}
 								return "";
 							}
-						}.getText()))) + "" + (" \uFFFD"))), (false));
+						}.getText()))) + "" + (" \u010F\u017C\u02DD"))), (false));
 			}
 		}
 	}

@@ -138,7 +138,7 @@ public class LandCommandExecutedProcedure {
 								.replace(((player_name) + "" + (":") + "" + (grid_X) + "" + (":") + "" + (grid_Z) + "" + (",")), " "));
 				IndustrialEconomyModVariables.WorldVariables.get(world).syncData(world);
 				if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-					((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("You Sell this Land ! For 7500 \u20AC"), (true));
+					((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("You Sell this Land ! For 7500 \u00E2\u201A\u00AC"), (true));
 				}
 				{
 					double _setval = (double) (((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)

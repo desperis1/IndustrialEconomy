@@ -38,7 +38,7 @@ public class FoodShopChickenOnClickProcedure {
 				});
 			}
 			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("You bought 16 Cooked Chickens for 32\uFFFD"), (false));
+				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("You bought 16 Cooked Chickens for 32\u010F\u017C\u02DD"), (false));
 			}
 		} else {
 			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {

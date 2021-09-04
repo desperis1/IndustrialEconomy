@@ -149,7 +149,7 @@ public class AutoSellUpdateTickProcedure {
 							((PlayerEntity) entityiterator).sendStatusMessage(
 									new StringTextComponent((("AutoSell: ") + "" + ((new java.text.DecimalFormat("#").format(number_of_items))) + ""
 											+ (" ") + "" + (((items_for_sell).getDisplayName().getString())) + "" + (" for ") + ""
-											+ ((number_of_items * price_from_server)) + "" + (" \uFFFD"))),
+											+ ((number_of_items * price_from_server)) + "" + (" \u010F\u017C\u02DD"))),
 									(false));
 						}
 					}

@@ -39,7 +39,7 @@ public class MachinesShopFoundryOnClickProcedure {
 				});
 			}
 			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("You bought Foundry 600\uFFFD"), (false));
+				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("You bought Foundry 600\u010F\u017C\u02DD"), (false));
 			}
 		} else {
 			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {

@@ -39,7 +39,7 @@ public class MachinesShopAssemblerOnClickProcedure {
 				});
 			}
 			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("You bought Assembler for 1250\uFFFD"), (false));
+				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("You bought Assembler for 1250\u010F\u017C\u02DD"), (false));
 			}
 		} else {
 			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {

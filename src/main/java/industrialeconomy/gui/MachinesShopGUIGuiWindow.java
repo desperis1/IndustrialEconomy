@@ -74,12 +74,12 @@ public class MachinesShopGUIGuiWindow extends ContainerScreen<MachinesShopGUIGui
 	@Override
 	protected void drawGuiContainerForegroundLayer(MatrixStack ms, int mouseX, int mouseY) {
 		this.font.drawString(ms, "Machines Shop", 150, 4, -12829636);
-		this.font.drawString(ms, "500 \uFFFD", 120, 20, -12829636);
-		this.font.drawString(ms, "500 \uFFFD", 60, 43, -12829636);
-		this.font.drawString(ms, "250 \uFFFD", 89, 86, -12829636);
-		this.font.drawString(ms, "1250 \uFFFD", 77, 109, -12829636);
-		this.font.drawString(ms, "750 \uFFFD", 78, 131, -12829636);
-		this.font.drawString(ms, "600 \uFFFD", 68, 64, -12829636);
+		this.font.drawString(ms, "500 \u010F\u017C\u02DD", 120, 20, -12829636);
+		this.font.drawString(ms, "500 \u010F\u017C\u02DD", 60, 43, -12829636);
+		this.font.drawString(ms, "250 \u010F\u017C\u02DD", 89, 86, -12829636);
+		this.font.drawString(ms, "1250 \u010F\u017C\u02DD", 77, 109, -12829636);
+		this.font.drawString(ms, "750 \u010F\u017C\u02DD", 78, 131, -12829636);
+		this.font.drawString(ms, "600 \u010F\u017C\u02DD", 68, 64, -12829636);
 	}
 
 	@Override

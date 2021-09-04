@@ -39,7 +39,7 @@ public class MachinesShopMinerOnClickProcedure {
 				});
 			}
 			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("You bought Miner for 500\uFFFD"), (false));
+				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("You bought Miner for 500\u010F\u017C\u02DD"), (false));
 			}
 		} else {
 			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {

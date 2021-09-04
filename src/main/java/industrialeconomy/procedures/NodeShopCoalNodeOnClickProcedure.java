@@ -39,7 +39,7 @@ public class NodeShopCoalNodeOnClickProcedure {
 				});
 			}
 			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("You bought 1 Coal Node for 3500\uFFFD"), (false));
+				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("You bought 1 Coal Node for 3500\u010F\u017C\u02DD"), (false));
 			}
 		} else {
 			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
