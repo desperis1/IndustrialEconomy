@@ -77,12 +77,12 @@ public class NodesShopGUIGuiWindow extends ContainerScreen<NodesShopGUIGui.GuiCo
 	protected void drawGuiContainerForegroundLayer(MatrixStack ms, int mouseX, int mouseY) {
 		this.font.drawString(ms, "Nodes Shop", 5, 4, -12829636);
 		this.font.drawString(ms, "Your money" + ((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-				.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money) + " \u20AC", 78, 4, -13382656);
-		this.font.drawString(ms, "5000 \u20AC", 78, 21, -12829636);
-		this.font.drawString(ms, "3500 \u20AC", 222, 48, -12829636);
-		this.font.drawString(ms, "5000 \u20AC", 103, 76, -12829636);
-		this.font.drawString(ms, "6000 \u20AC", 232, 21, -12829636);
-		this.font.drawString(ms, "6000 \u20AC", 98, 49, -12829636);
+				.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money) + " \uFFFD", 78, 4, -13382656);
+		this.font.drawString(ms, "5000 \uFFFD", 78, 21, -12829636);
+		this.font.drawString(ms, "3500 \uFFFD", 222, 48, -12829636);
+		this.font.drawString(ms, "5000 \uFFFD", 103, 76, -12829636);
+		this.font.drawString(ms, "6000 \uFFFD", 232, 21, -12829636);
+		this.font.drawString(ms, "6000 \uFFFD", 98, 49, -12829636);
 	}
 
 	@Override

@@ -96,12 +96,12 @@
       {
         "type": "label",
         "data": {
-          "text": "Your money<VAR:player_money> €",
+          "text": "Your money<VAR:player_money> ï¿½",
           "color": {
             "value": -13382656,
             "falpha": 0.0
           },
-          "name": "Your money<VAR:player_money> €",
+          "name": "Your money<VAR:player_money> ï¿½",
           "x": 151,
           "y": 32
         }
@@ -109,12 +109,12 @@
       {
         "type": "label",
         "data": {
-          "text": "5000 €",
+          "text": "5000 ï¿½",
           "color": {
             "value": -12829636,
             "falpha": 0.0
           },
-          "name": "5000 €",
+          "name": "5000 ï¿½",
           "x": 151,
           "y": 49
         }
@@ -122,12 +122,12 @@
       {
         "type": "label",
         "data": {
-          "text": "3500 €",
+          "text": "3500 ï¿½",
           "color": {
             "value": -12829636,
             "falpha": 0.0
           },
-          "name": "3500 €",
+          "name": "3500 ï¿½",
           "x": 295,
           "y": 76
         }
@@ -135,12 +135,12 @@
       {
         "type": "label",
         "data": {
-          "text": "5000 €",
+          "text": "5000 ï¿½",
           "color": {
             "value": -12829636,
             "falpha": 0.0
           },
-          "name": "5000 €",
+          "name": "5000 ï¿½",
           "x": 176,
           "y": 104
         }
@@ -148,12 +148,12 @@
       {
         "type": "label",
         "data": {
-          "text": "6000 €",
+          "text": "6000 ï¿½",
           "color": {
             "value": -12829636,
             "falpha": 0.0
           },
-          "name": "6000 €",
+          "name": "6000 ï¿½",
           "x": 305,
           "y": 49
         }
@@ -161,12 +161,12 @@
       {
         "type": "label",
         "data": {
-          "text": "6000 €",
+          "text": "6000 ï¿½",
           "color": {
             "value": -12829636,
             "falpha": 0.0
           },
-          "name": "6000 €",
+          "name": "6000 ï¿½",
           "x": 171,
           "y": 77
         }

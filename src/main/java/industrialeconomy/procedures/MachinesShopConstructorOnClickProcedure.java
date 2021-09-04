@@ -39,7 +39,7 @@ public class MachinesShopConstructorOnClickProcedure {
 				});
 			}
 			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("You bought Constructor for 250\u20AC"), (false));
+				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("You bought Constructor for 250\uFFFD"), (false));
 			}
 		} else {
 			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {

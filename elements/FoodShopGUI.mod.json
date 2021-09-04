@@ -26,12 +26,12 @@
       {
         "type": "label",
         "data": {
-          "text": "Your Money: <VAR:player_money> €",
+          "text": "Your Money: <VAR:player_money> ï¿½",
           "color": {
             "value": -16751104,
             "falpha": 0.0
           },
-          "name": "Your Money: <VAR:player_money> €",
+          "name": "Your Money: <VAR:player_money> ï¿½",
           "x": 179,
           "y": 17
         }
@@ -53,12 +53,12 @@
       {
         "type": "label",
         "data": {
-          "text": "32 €",
+          "text": "32 ï¿½",
           "color": {
             "value": -12829636,
             "falpha": 0.0
           },
-          "name": "32 €",
+          "name": "32 ï¿½",
           "x": 113,
           "y": 35
         }
@@ -80,12 +80,12 @@
       {
         "type": "label",
         "data": {
-          "text": "32 €",
+          "text": "32 ï¿½",
           "color": {
             "value": -12829636,
             "falpha": 0.0
           },
-          "name": "32 €",
+          "name": "32 ï¿½",
           "x": 113,
           "y": 60
         }
@@ -107,12 +107,12 @@
       {
         "type": "label",
         "data": {
-          "text": "32 €",
+          "text": "32 ï¿½",
           "color": {
             "value": -12829636,
             "falpha": 0.0
           },
-          "name": "32 €",
+          "name": "32 ï¿½",
           "x": 124,
           "y": 87
         }

@@ -39,7 +39,7 @@ public class MachniesShopAutoSellOnClickProcedure {
 				});
 			}
 			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("You bought AutoSell for 750\u20AC"), (false));
+				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("You bought AutoSell for 750\uFFFD"), (false));
 			}
 		} else {
 			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {

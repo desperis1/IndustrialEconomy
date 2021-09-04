@@ -7910,6 +7910,143 @@
       "ids": {},
       "registry_name": "energyforupgradeitem",
       "path": "~/Items"
+    },
+    {
+      "name": "SpaceSuit",
+      "type": "armor",
+      "sortid": 474,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "space_suit",
+      "metadata": {
+        "eh": true,
+        "el": true,
+        "eb": true,
+        "ec": true
+      },
+      "path": "~/SpaceSuit"
+    },
+    {
+      "name": "OxygencanisterItemIsCraftedsmelted",
+      "type": "procedure",
+      "sortid": 475,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "oxygencanister_item_is_craftedsmelted",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "itemstack",
+            "type": "itemstack"
+          }
+        ]
+      },
+      "path": "~/SpaceSuit"
+    },
+    {
+      "name": "Oxygencanister",
+      "type": "tool",
+      "sortid": 475,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "oxygencanister",
+      "path": "~/SpaceSuit"
+    },
+    {
+      "name": "Oxygencanisterecipe",
+      "type": "recipe",
+      "sortid": 476,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "oxygencanisterecipe",
+      "path": "~/SpaceSuit"
+    },
+    {
+      "name": "CompressorUpdateTick",
+      "type": "procedure",
+      "sortid": 477,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "compressor_update_tick",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Machines/Compressor"
+    },
+    {
+      "name": "Compressor",
+      "type": "block",
+      "sortid": 477,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "compressor",
+      "path": "~/Machines/Compressor"
+    },
+    {
+      "name": "CompressorBlockIsPlacedBy",
+      "type": "procedure",
+      "sortid": 478,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "compressor_block_is_placed_by",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      }
+    },
+    {
+      "name": "CompressorGUI",
+      "type": "gui",
+      "sortid": 479,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "compressor_gui",
+      "path": "~/Machines/Compressor"
     }
   ],
   "variable_elements": [
@@ -8283,11 +8420,11 @@
       "item.industrial_economy.plasma_rangeditem": "Plasma RANGEDITEM",
       "key.satis_mine.node_scanner_modes_keybind": "Node Scanner Modes",
       "block.industrial_economy.assemblerblock": "Assembler",
-      "block.satis_mine.lime_concrete_stairs": "Lime Concrete Stairs",
       "advancements.rudit_ingotadvancement.descr": "Advanced Redstone",
-      "item.industrial_economy.diamond_steel_armor_boots": "DiamondS teel Boots",
-      "item.mega_project.diamondscrewitem": "Diamond screw",
+      "block.satis_mine.lime_concrete_stairs": "Lime Concrete Stairs",
       "item.mega_project.diamond_steel_armor_chestplate": "Diamond Steel Chestplate",
+      "item.mega_project.diamondscrewitem": "Diamond screw",
+      "item.industrial_economy.diamond_steel_armor_boots": "DiamondS teel Boots",
       "block.mega_project.haarp": "Haarp!",
       "block.industrial_economy.armorchargermk_2": "Armor Charger MK2",
       "key.satis_mine.plasmashootkeybind": "Plasma Shoot",
@@ -8346,8 +8483,8 @@
       "item.mega_project.cpu": "CPU",
       "item.industrial_economy.emptymodule": "Empty Module",
       "block.satis_mine.pink_concrete_stairs": "Pink Concrete Stairs",
-      "block.industrial_economy.cyan_concrete_slab": "Cyan Concrete Slab",
       "block.satis_mine.coal_node": "Coal Node(active)",
+      "block.industrial_economy.cyan_concrete_slab": "Cyan Concrete Slab",
       "block.mega_project.purple_concrete_stairs": "Purple Concrete Stairs",
       "advancements.allrecipescheat.descr": "Unlock Recipe Cheat",
       "item.mega_project.diamond_steelpickaxe": "Diamond Steel Pickaxe",
@@ -8358,8 +8495,8 @@
       "block.mega_project.orange_concrete_stairs": "Orange Concrete Stairs",
       "item.satis_mine.highspeedconectoritem": "High Speed Connector",
       "item.mega_project.control_unit": "Control Unit",
-      "block.industrial_economy.position_1block": "Position 1",
       "item.industrial_economy.diamond_steel_armor_leggings": "Diamond Steel Leggings",
+      "block.industrial_economy.position_1block": "Position 1",
       "block.industrial_economy.red_concrete_stairs": "Red Concrete Stairs",
       "block.mega_project.magenta_concrete_slab": "Magenta Concrete Slab",
       "item.industrial_economy.cateriumroditem": "Caterium rod",
@@ -8393,8 +8530,8 @@
       "block.satis_mine.ironextractor": "Iron Extractor",
       "item.mega_project.ironplate": "Iron Plate",
       "item.industrial_economy.diamondstellshovel": "Diamond Steel Shovel",
-      "enchantment.industrial_economy.cheap_plasma": "Cheap Plasma",
       "block.industrial_economy.generator_mk_1inactive": "Generator MK 1",
+      "enchantment.industrial_economy.cheap_plasma": "Cheap Plasma",
       "block.industrial_economy.minerinactive": "Miner MK1",
       "item.mega_project.copper_ingot": "Copper",
       "item.mega_project.buildertool": "Builder Gun",
@@ -8409,8 +8546,8 @@
       "block.mega_project.armorcharger": "Armor Charger",
       "block.industrial_economy.green_concrete_slab": "Green Concrete Slab",
       "item.satis_mine.diamond_steelpickaxe": "Diamond Steel Pickaxe",
-      "block.satis_mine.armorchargermk_2": "Armor Charger MK2",
       "block.mega_project.steel_block": "Steel Block",
+      "block.satis_mine.armorchargermk_2": "Armor Charger MK2",
       "block.satis_mine.coal_extractor": "Coal Extractor",
       "block.mega_project.copper_extractor": "Copper Extractor",
       "item.mega_project.turbofuelitem": "Turbofuel Mk.1",
@@ -8459,6 +8596,7 @@
       "block.satis_mine.copper_extractor": "Copper Extractor",
       "block.industrial_economy.light_blue_concrete_slab": "Light Blue Concrete Slab",
       "block.industrial_economy.caterium_ore": "Caterium Ore",
+      "item.industrial_economy.oxygencanister": "Oxygen Canister",
       "block.satis_mine.iron_ore_node_block": "Iron Ore Node Block(active)",
       "block.mega_project.position_1block": "Position 1",
       "block.industrial_economy.brown_concrete_slab": "Brown Concrete Slab",
@@ -8470,12 +8608,14 @@
       "block.industrial_economy.electric_funanceinactive": "Electric Furnace MK1",
       "block.satis_mine.caterium_ore": "Caterium Ore",
       "enchantment.satis_mine.buildrange": "Build Range",
+      "item.industrial_economy.space_suit_helmet": "Space Suit Helmet",
       "item.industrial_economy.pocketchestitem": "Pocket Chest",
       "entity.mega_project.natuswolf": "Natus Wolf",
       "block.industrial_economy.blue_concrete_stairs": "Blue Concrete Stairs",
       "block.mega_project.minerinactive": "Miner MK1",
       "block.satis_mine.minerinactive": "Miner MK1",
       "block.mega_project.caterium_block": "Block of Caterium",
+      "item.industrial_economy.space_suit_leggings": "Space Suit Leggings",
       "block.mega_project.solarpanelblockinactive": "Solar panel ",
       "block.satis_mine.constructorblock": "Constructor",
       "block.satis_mine.generator_mk_2inactive": "Generator MK 2",
@@ -8494,6 +8634,7 @@
       "item.industrial_economy.energyforupgradeitem": "Energyforupgradeitem",
       "item.satis_mine.diamond_steel_armor_leggings": "Diamond Steel Leggings",
       "block.industrial_economy.constructorblock": "Constructor",
+      "block.industrial_economy.compressor": "Compressor",
       "item.mega_project.plasmabulletitem": "Plasma Bullet",
       "item.satis_mine.ironplate": "Iron Plate",
       "block.mega_project.haarpinactive": "Haarp!",
@@ -8536,9 +8677,11 @@
       "block.mega_project.constructorinactive": "Constructor",
       "block.satis_mine.brown_concrete_slab": "Brown Concrete Slab",
       "block.industrial_economy.hardenedcobble": "Hardened Cobble",
+      "item.industrial_economy.space_suit_boots": "Space Suit Boots",
       "block.industrial_economy.brown_concrete_stairs": "Brown Concrete Stairs",
       "item.satis_mine.redstoneingotitem": "Redstone Ingot",
       "advancements.electronics.descr": "Electronics!",
+      "item.industrial_economy.space_suit_chestplate": "Space Suit Body",
       "block.industrial_economy.caterium_block": "Block of Caterium",
       "advancements.rudit_ingotadvancement.title": "Rudit Ingot",
       "item.mega_project.diamondsteelaxe": "Diamond Steel Axe",
@@ -8784,6 +8927,10 @@
           {
             "name": "ConcreteMixer",
             "children": []
+          },
+          {
+            "name": "Compressor",
+            "children": []
           }
         ]
       },
@@ -8889,6 +9036,10 @@
       },
       {
         "name": "Tags",
+        "children": []
+      },
+      {
+        "name": "SpaceSuit",
         "children": []
       }
     ]

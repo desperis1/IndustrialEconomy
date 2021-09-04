@@ -1,0 +1,46 @@
+{
+  "_fv": 24,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "recipeRetstackSize": 1,
+    "group": "oxygencanister",
+    "recipeShapeless": false,
+    "recipeSlots": [
+      {
+        "value": "CUSTOM:Heavyframe"
+      },
+      {
+        "value": "CUSTOM:ControlUnit"
+      },
+      {
+        "value": "CUSTOM:Heavyframe"
+      },
+      {
+        "value": "CUSTOM:Heavyframe"
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": "CUSTOM:Heavyframe"
+      },
+      {
+        "value": "CUSTOM:Heavyframe"
+      },
+      {
+        "value": "CUSTOM:Heavyframe"
+      },
+      {
+        "value": "CUSTOM:Heavyframe"
+      }
+    ],
+    "recipeReturnStack": {
+      "value": "CUSTOM:Oxygencanister"
+    },
+    "name": "oxygencanisterecipe",
+    "namespace": "mod"
+  }
+}

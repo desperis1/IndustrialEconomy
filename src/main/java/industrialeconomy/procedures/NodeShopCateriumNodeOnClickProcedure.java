@@ -39,7 +39,7 @@ public class NodeShopCateriumNodeOnClickProcedure {
 				});
 			}
 			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("You bought 1 Caterium Node for 6000\u20AC"), (false));
+				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("You bought 1 Caterium Node for 6000\uFFFD"), (false));
 			}
 		} else {
 			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {

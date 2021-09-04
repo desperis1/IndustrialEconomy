@@ -38,7 +38,7 @@ public class FoodShopBreadOnClickProcedure {
 				});
 			}
 			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("You bought 16 Breads for 32\u20AC"), (false));
+				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("You bought 16 Breads for 32\uFFFD"), (false));
 			}
 		} else {
 			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {

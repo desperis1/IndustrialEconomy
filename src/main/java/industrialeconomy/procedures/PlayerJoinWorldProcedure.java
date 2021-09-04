@@ -69,7 +69,7 @@ public class PlayerJoinWorldProcedure {
 							new StringTextComponent((("You have: ") + ""
 									+ (Math.round(((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 											.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money)))
-									+ "" + (" \u20AC"))),
+									+ "" + (" \uFFFD"))),
 							(false));
 		}
 		if (!world.isRemote()) {

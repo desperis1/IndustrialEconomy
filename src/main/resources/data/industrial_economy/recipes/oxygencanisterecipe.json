@@ -1,0 +1,39 @@
+{
+  "group": "oxygencanister",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "3 5",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "industrial_economy:heavyframe"
+    },
+    "1": {
+      "item": "industrial_economy:control_unit"
+    },
+    "2": {
+      "item": "industrial_economy:heavyframe"
+    },
+    "3": {
+      "item": "industrial_economy:heavyframe"
+    },
+    "5": {
+      "item": "industrial_economy:heavyframe"
+    },
+    "6": {
+      "item": "industrial_economy:heavyframe"
+    },
+    "7": {
+      "item": "industrial_economy:heavyframe"
+    },
+    "8": {
+      "item": "industrial_economy:heavyframe"
+    }
+  },
+  "result": {
+    "item": "industrial_economy:oxygencanister",
+    "count": 1
+  }
+}

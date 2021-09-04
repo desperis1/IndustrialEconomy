@@ -138,13 +138,21 @@ public class LandCommandExecutedProcedure {
 								.replace(((player_name) + "" + (":") + "" + (grid_X) + "" + (":") + "" + (grid_Z) + "" + (",")), " "));
 				IndustrialEconomyModVariables.WorldVariables.get(world).syncData(world);
 				if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-					((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("You Sell this Land !"), (true));
+					((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("You Sell this Land ! For 7500 \u20AC"), (true));
 				}
 				{
 					double _setval = (double) (((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 							.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_number_of_land) - 1);
 					entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 						capability.player_number_of_land = _setval;
+						capability.syncPlayerVariables(entity);
+					});
+				}
+				{
+					double _setval = (double) (((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+							.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money) + 7500);
+					entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+						capability.player_money = _setval;
 						capability.syncPlayerVariables(entity);
 					});
 				}
@@ -157,13 +165,6 @@ public class LandCommandExecutedProcedure {
 															.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 															.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_number_of_land))))
 													+ "" + (" lands."))),
-									(false));
-				}
-				if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-					((PlayerEntity) entity)
-							.sendStatusMessage(
-									new StringTextComponent((IndustrialEconomyModVariables.WorldVariables.get(world).lands
-											.replace(((player_name) + "" + (":") + "" + (grid_X) + "" + (":") + "" + (grid_Z) + "" + (",")), ""))),
 									(false));
 				}
 			}
@@ -180,6 +181,24 @@ public class LandCommandExecutedProcedure {
 			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
 				((PlayerEntity) entity).sendStatusMessage(
 						new StringTextComponent((("lands") + "" + (IndustrialEconomyModVariables.WorldVariables.get(world).lands))), (false));
+			}
+		}
+		if (((((new Object() {
+			public String getText() {
+				String param = (String) cmdparams.get("0");
+				if (param != null) {
+					return param;
+				}
+				return "";
+			}
+		}.getText())).equals("remove")) && (entity.hasPermissionLevel((int) 4)))) {
+			grid_X = (double) Math.floor(((entity.getPosX()) / 20));
+			grid_Z = (double) Math.floor(((entity.getPosZ()) / 20));
+			IndustrialEconomyModVariables.WorldVariables.get(world).lands = (String) (IndustrialEconomyModVariables.WorldVariables.get(world).lands
+					.replace(((":") + "" + (grid_X) + "" + (":") + "" + (grid_Z) + "" + (",")), " "));
+			IndustrialEconomyModVariables.WorldVariables.get(world).syncData(world);
+			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
+				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent(("" + ("You remove this land. Land is now free again"))), (false));
 			}
 		}
 	}

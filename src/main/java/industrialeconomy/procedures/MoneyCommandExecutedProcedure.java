@@ -50,7 +50,7 @@ public class MoneyCommandExecutedProcedure {
 								+ ((new java.text.DecimalFormat("#")
 										.format(((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 												.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money))))
-								+ "" + (" \u20AC"))),
+								+ "" + (" \uFFFD"))),
 						(false));
 			}
 		} else if (((((new Object() {
@@ -95,7 +95,7 @@ public class MoneyCommandExecutedProcedure {
 						}
 						return "";
 					}
-				}.getText())) + "" + (" \u20AC ") + "" + ("sucessfully added."))), (false));
+				}.getText())) + "" + (" \uFFFD ") + "" + ("sucessfully added."))), (false));
 			}
 		} else if ((((new Object() {
 			public String getText() {
@@ -188,11 +188,11 @@ public class MoneyCommandExecutedProcedure {
 								}
 								if (entityiterator instanceof PlayerEntity && !entityiterator.world.isRemote()) {
 									((PlayerEntity) entityiterator).sendStatusMessage(new StringTextComponent((("You receive ") + "" + (amount) + ""
-											+ ("\u20AC from ") + "" + ((entity.getDisplayName().getString())))), (false));
+											+ ("\uFFFD from ") + "" + ((entity.getDisplayName().getString())))), (false));
 								}
 								if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
 									((PlayerEntity) entity).sendStatusMessage(new StringTextComponent((("You send ") + "" + (amount) + ""
-											+ ("\u20AC to ") + "" + ((entityiterator.getDisplayName().getString())))), (false));
+											+ ("\uFFFD to ") + "" + ((entityiterator.getDisplayName().getString())))), (false));
 								}
 							}
 						}
@@ -266,7 +266,7 @@ public class MoneyCommandExecutedProcedure {
 								}.getText())) + "" + (" have ") + ""
 										+ (Math.round(((entityiterator.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 												.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money)))
-										+ "" + (" \u20AC"))), (false));
+										+ "" + (" \uFFFD"))), (false));
 							}
 						}
 					}
