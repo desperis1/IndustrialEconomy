@@ -46,6 +46,9 @@ public class AllowedBlocksInWorldProcedure {
 				|| (Blocks.END_PORTAL == (world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock()))) {
 			return (true);
 		}
+		if ((Blocks.CRAFTING_TABLE == (world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock())) {
+			return (true);
+		}
 		if ((Blocks.END_GATEWAY == (world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock())) {
 			return (true);
 		}

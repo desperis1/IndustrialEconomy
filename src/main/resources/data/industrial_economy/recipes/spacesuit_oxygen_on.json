@@ -1,0 +1,16 @@
+{
+  "group": "spacesuit_oxygen_on",
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "industrial_economy:space_suit_chestplate"
+    },
+    {
+      "item": "industrial_economy:oxygencanister"
+    }
+  ],
+  "result": {
+    "item": "industrial_economy:space_suit_with_canister_chestplate",
+    "count": 1
+  }
+}

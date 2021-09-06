@@ -9,17 +9,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Item;
 import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.ai.attributes.Attribute;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.block.BlockState;
-
-import java.util.Map;
-import java.util.HashMap;
-
-import industrialeconomy.procedures.OxygencanisterItemIsCraftedsmeltedProcedure;
 
 import industrialeconomy.IndustrialEconomyModElements;
 
@@ -37,18 +31,6 @@ public class OxygencanisterItem extends IndustrialEconomyModElements.ModElement 
 	@Override
 	public void initElements() {
 		elements.items.add(() -> new ItemToolCustom() {
-			@Override
-			public void onCreated(ItemStack itemstack, World world, PlayerEntity entity) {
-				super.onCreated(itemstack, world, entity);
-				double x = entity.getPosX();
-				double y = entity.getPosY();
-				double z = entity.getPosZ();
-				{
-					Map<String, Object> $_dependencies = new HashMap<>();
-					$_dependencies.put("itemstack", itemstack);
-					OxygencanisterItemIsCraftedsmeltedProcedure.executeProcedure($_dependencies);
-				}
-			}
 		}.setRegistryName("oxygencanister"));
 	}
 	private static class ItemToolCustom extends Item {

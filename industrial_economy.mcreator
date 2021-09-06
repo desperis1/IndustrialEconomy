@@ -7928,24 +7928,6 @@
       "path": "~/SpaceSuit"
     },
     {
-      "name": "OxygencanisterItemIsCraftedsmelted",
-      "type": "procedure",
-      "sortid": 475,
-      "compiles": true,
-      "locked_code": false,
-      "ids": {},
-      "registry_name": "oxygencanister_item_is_craftedsmelted",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "itemstack",
-            "type": "itemstack"
-          }
-        ]
-      },
-      "path": "~/SpaceSuit"
-    },
-    {
       "name": "Oxygencanister",
       "type": "tool",
       "sortid": 475,
@@ -8036,7 +8018,8 @@
             "type": "world"
           }
         ]
-      }
+      },
+      "path": "~/Machines/Compressor"
     },
     {
       "name": "CompressorGUI",
@@ -8047,6 +8030,179 @@
       "ids": {},
       "registry_name": "compressor_gui",
       "path": "~/Machines/Compressor"
+    },
+    {
+      "name": "CaseKey",
+      "type": "item",
+      "sortid": 480,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "case_key",
+      "path": "~/Items/CaseOpening"
+    },
+    {
+      "name": "CaseBox1",
+      "type": "item",
+      "sortid": 481,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "case_box_1",
+      "path": "~/Items/CaseOpening"
+    },
+    {
+      "name": "CaseBoxGUI",
+      "type": "gui",
+      "sortid": 482,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "case_box_gui",
+      "path": "~/Items/CaseOpening"
+    },
+    {
+      "name": "ItemInCaseBox",
+      "type": "procedure",
+      "sortid": 483,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "item_in_case_box",
+      "metadata": {
+        "return_type": "itemstack",
+        "dependencies": []
+      },
+      "path": "~/Items/CaseOpening"
+    },
+    {
+      "name": "CaseBoxOpenBox",
+      "type": "procedure",
+      "sortid": 484,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "case_box_open_box",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Items/CaseOpening"
+    },
+    {
+      "name": "CaseBoxGUIWhileThisGUIIsOpenTick",
+      "type": "procedure",
+      "sortid": 486,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "case_box_gui_while_this_gui_is_open_tick",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Items/CaseOpening"
+    },
+    {
+      "name": "CaseBoxOpenCaseButton",
+      "type": "procedure",
+      "sortid": 487,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "case_box_open_case_button",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Items/CaseOpening"
+    },
+    {
+      "name": "OxygenEffect",
+      "type": "potioneffect",
+      "sortid": 488,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "oxygen_effect",
+      "path": "~/Potions"
+    },
+    {
+      "name": "SpaceSuitWithCanister",
+      "type": "armor",
+      "sortid": 490,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "space_suit_with_canister",
+      "metadata": {
+        "eh": false,
+        "el": false,
+        "eb": false,
+        "ec": true
+      },
+      "path": "~/SpaceSuit"
+    },
+    {
+      "name": "SpacesuitOxygenON",
+      "type": "recipe",
+      "sortid": 491,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "spacesuit_oxygen_on",
+      "path": "~/SpaceSuit"
+    },
+    {
+      "name": "SpaceSuitWithCanisterBodyTickEvent",
+      "type": "procedure",
+      "sortid": 492,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "space_suit_with_canister_body_tick_event",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/SpaceSuit"
+    },
+    {
+      "name": "Owerworldtype",
+      "type": "dimension",
+      "sortid": 495,
+      "compiles": true,
+      "locked_code": false,
+      "ids": {},
+      "registry_name": "owerworldtype",
+      "metadata": {
+        "ep": true
+      },
+      "path": "~/Dimensions"
     }
   ],
   "variable_elements": [
@@ -8349,6 +8505,120 @@
       "type": "number",
       "scope": "player_persistent",
       "value": "0"
+    },
+    {
+      "name": "player_rolling_case",
+      "type": "logic",
+      "scope": "player_persistent",
+      "value": "false"
+    },
+    {
+      "name": "case_item_0",
+      "type": "itemstack",
+      "scope": "player_persistent",
+      "value": "ItemStack.EMPTY"
+    },
+    {
+      "name": "case_item_1",
+      "type": "itemstack",
+      "scope": "player_persistent",
+      "value": "ItemStack.EMPTY"
+    },
+    {
+      "name": "case_item_2",
+      "type": "itemstack",
+      "scope": "player_persistent",
+      "value": "ItemStack.EMPTY"
+    },
+    {
+      "name": "case_item_3",
+      "type": "itemstack",
+      "scope": "player_persistent",
+      "value": "ItemStack.EMPTY"
+    },
+    {
+      "name": "case_item_4",
+      "type": "itemstack",
+      "scope": "player_persistent",
+      "value": "ItemStack.EMPTY"
+    },
+    {
+      "name": "case_item_5",
+      "type": "itemstack",
+      "scope": "player_persistent",
+      "value": "ItemStack.EMPTY"
+    },
+    {
+      "name": "case_item_6",
+      "type": "itemstack",
+      "scope": "player_persistent",
+      "value": "ItemStack.EMPTY"
+    },
+    {
+      "name": "case_item_7",
+      "type": "itemstack",
+      "scope": "player_persistent",
+      "value": "ItemStack.EMPTY"
+    },
+    {
+      "name": "case_item_8",
+      "type": "itemstack",
+      "scope": "player_persistent",
+      "value": "ItemStack.EMPTY"
+    },
+    {
+      "name": "case_item_counter_0",
+      "type": "number",
+      "scope": "player_persistent",
+      "value": "0"
+    },
+    {
+      "name": "case_item_counter_1",
+      "type": "number",
+      "scope": "player_persistent",
+      "value": "0"
+    },
+    {
+      "name": "case_item_counter_2",
+      "type": "number",
+      "scope": "player_persistent",
+      "value": "0"
+    },
+    {
+      "name": "case_item_counter_3",
+      "type": "number",
+      "scope": "player_persistent",
+      "value": "0"
+    },
+    {
+      "name": "case_item_counter_4",
+      "type": "number",
+      "scope": "player_persistent",
+      "value": "0"
+    },
+    {
+      "name": "case_item_counter_5",
+      "type": "number",
+      "scope": "player_persistent",
+      "value": "0"
+    },
+    {
+      "name": "case_item_counter_6",
+      "type": "number",
+      "scope": "player_persistent",
+      "value": "0"
+    },
+    {
+      "name": "case_item_counter_7",
+      "type": "number",
+      "scope": "player_persistent",
+      "value": "0"
+    },
+    {
+      "name": "case_item_counter_8",
+      "type": "number",
+      "scope": "player_persistent",
+      "value": "0"
     }
   ],
   "sound_elements": [
@@ -8380,6 +8650,7 @@
   "language_map": {
     "en_us": {
       "block.industrial_economy.orange_concrete_slab": "Orange Concrete Slab",
+      "item.industrial_economy.space_suit_with_canister_helmet": "Space Suit With Canister Helmet",
       "item.mega_project.redstoneingotitem": "Redstone Ingot",
       "block.mega_project.generatormk_2": "Generator MK2",
       "item.satis_mine.control_unit": "Control Unit",
@@ -8465,6 +8736,7 @@
       "block.satis_mine.limestoneactive": "Limestoneactive",
       "block.industrial_economy.hub": "Hub",
       "block.mega_project.energyplazmamk_2": "Energy Plazma",
+      "item.industrial_economy.case_box_1": "Case Box 1",
       "item.satis_mine.plasmabulletitem": "Plasma Bullet",
       "item.satis_mine.diamond_steel_armor_boots": "DiamondS teel Boots",
       "block.satis_mine.markblock": "Markblock",
@@ -8481,6 +8753,7 @@
       "block.mega_project.pink_concrete_stairs": "Pink Concrete Stairs",
       "item.satis_mine.perma_night_module": "Perma Night Module",
       "item.mega_project.cpu": "CPU",
+      "effect.oxygen_effect": "Pure Oxygen",
       "item.industrial_economy.emptymodule": "Empty Module",
       "block.satis_mine.pink_concrete_stairs": "Pink Concrete Stairs",
       "block.industrial_economy.cyan_concrete_slab": "Cyan Concrete Slab",
@@ -8540,16 +8813,18 @@
       "block.mega_project.crusher": "Crusher",
       "block.satis_mine.generator_mk_1inactive": "Generator MK 1",
       "item.industrial_economy.diamond_steel_h_oe": "Diamond Steel Hoe",
+      "item.industrial_economy.space_suit_with_canister_leggings": "Space Suit With Canister Leggings",
       "block.satis_mine.cyan_concrete_slab": "Cyan Concrete Slab",
       "item.industrial_economy.ai_limiteritem": "Ai Limiter",
       "block.satis_mine.foundyblock": "Foundry",
       "block.mega_project.armorcharger": "Armor Charger",
       "block.industrial_economy.green_concrete_slab": "Green Concrete Slab",
       "item.satis_mine.diamond_steelpickaxe": "Diamond Steel Pickaxe",
-      "block.satis_mine.armorchargermk_2": "Armor Charger MK2",
       "block.mega_project.steel_block": "Steel Block",
+      "block.satis_mine.armorchargermk_2": "Armor Charger MK2",
       "block.satis_mine.coal_extractor": "Coal Extractor",
       "block.mega_project.copper_extractor": "Copper Extractor",
+      "item.industrial_economy.space_suit_with_canister_boots": "Space Suit With Canister Boots",
       "item.mega_project.turbofuelitem": "Turbofuel Mk.1",
       "block.mega_project.coal_extractor": "Coal Extractor",
       "item.industrial_economy.diamond_steelpickaxe": "Diamond Steel Pickaxe",
@@ -8643,6 +8918,7 @@
       "block.industrial_economy.sandstoneextractor": "SandStone Extractor",
       "item.satis_mine.diamondsteelplate": "Diamond Steel Plate",
       "block.industrial_economy.solarpanelblockinactive": "Solar panel ",
+      "item.industrial_economy.case_key": "Case Key",
       "block.satis_mine.position_2block": "Position 2.",
       "key.mcreator.ds_armorkeybind": "Diamond Steel Armor GUI",
       "block.satis_mine.generator_mk_1": "Generator MK 1",
@@ -8689,6 +8965,7 @@
       "item.satis_mine.cateriumwireitem": "Caterium wire",
       "key.satis_mine.diamond_pickaxe_menu": "Diamond Tools/Builder Menu",
       "block.industrial_economy.copper_node_inactve": "Copper Node(inactive)",
+      "item.industrial_economy.owerworldtype": "Owerworldtype Portal Igniter",
       "block.mega_project.light_blue_concrete_slab": "Light Blue Concrete Slab",
       "block.mega_project.caterium_nod_eblock": "Caterium  Node Block (active)",
       "item.industrial_economy.diamondsteelitem": "Diamond Steel Ingot",
@@ -8816,7 +9093,8 @@
       "item.satis_mine.concrete": "Concrete",
       "block.mega_project.magenta_concrete_stairs": "Magenta Concrete Stairs",
       "item.mega_project.diamondsteelitem": "Diamond Steel Ingot",
-      "item.satis_mine.turbofuelitem": "Turbofuel Mk.1"
+      "item.satis_mine.turbofuelitem": "Turbofuel Mk.1",
+      "item.industrial_economy.space_suit_with_canister_chestplate": "SpaceSuit With Oxygen Canister"
     }
   },
   "foldersRoot": {
@@ -8944,6 +9222,10 @@
           {
             "name": "TurboFuels",
             "children": []
+          },
+          {
+            "name": "CaseOpening",
+            "children": []
           }
         ]
       },
@@ -9040,6 +9322,22 @@
       },
       {
         "name": "SpaceSuit",
+        "children": []
+      },
+      {
+        "name": "Potions",
+        "children": []
+      },
+      {
+        "name": "Dimensions",
+        "children": []
+      },
+      {
+        "name": "Overlay",
+        "children": []
+      },
+      {
+        "name": "Biomes",
         "children": []
       }
     ]

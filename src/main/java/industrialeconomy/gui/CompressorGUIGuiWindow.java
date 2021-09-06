@@ -70,6 +70,7 @@ public class CompressorGUIGuiWindow extends ContainerScreen<CompressorGUIGui.Gui
 	@Override
 	protected void drawGuiContainerForegroundLayer(MatrixStack ms, int mouseX, int mouseY) {
 		this.font.drawString(ms, "Compressor", 62, 4, -12829636);
+		this.font.drawString(ms, "10 000 MW", 124, 4, -12829636);
 	}
 
 	@Override

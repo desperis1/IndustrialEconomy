@@ -1,0 +1,55 @@
+{
+  "_fv": 24,
+  "_type": "dimension",
+  "definition": {
+    "biomesInDimension": [
+      {
+        "value": "bamboo_jungle_hills"
+      },
+      {
+        "value": "deep_cold_ocean"
+      },
+      {
+        "value": "mutated_ice_flats"
+      },
+      {
+        "value": "mountains"
+      }
+    ],
+    "worldGenType": "Normal world gen",
+    "mainFillerBlock": {
+      "value": "CUSTOM:Hardenedcobble"
+    },
+    "fluidBlock": {
+      "value": "Blocks.FLOWING_LAVA"
+    },
+    "airColor": {
+      "value": -3355393,
+      "falpha": 0.0
+    },
+    "canRespawnHere": false,
+    "hasFog": true,
+    "isDark": false,
+    "doesWaterVaporize": false,
+    "sleepResult": "ALLOW",
+    "hasSkyLight": false,
+    "imitateOverworldBehaviour": false,
+    "portalFrame": {
+      "value": "Blocks.DIAMOND_BLOCK"
+    },
+    "portalParticles": {
+      "value": "SPIT"
+    },
+    "portalLuminance": 0,
+    "portalSound": {
+      "value": ""
+    },
+    "igniterName": "Owerworldtype Portal Igniter",
+    "igniterTab": {
+      "value": "TOOLS"
+    },
+    "texture": "scanner",
+    "portalTexture": "armorcharger_top",
+    "enablePortal": true
+  }
+}
