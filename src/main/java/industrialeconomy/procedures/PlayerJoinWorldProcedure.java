@@ -84,5 +84,13 @@ public class PlayerJoinWorldProcedure {
 			if (world instanceof World)
 				((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 		}
+		{
+			double _setval = (double) Math.round(((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+					.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money));
+			entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
+				capability.player_money = _setval;
+				capability.syncPlayerVariables(entity);
+			});
+		}
 	}
 }

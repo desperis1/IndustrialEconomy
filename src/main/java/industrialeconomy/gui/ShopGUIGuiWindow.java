@@ -104,5 +104,11 @@ public class ShopGUIGuiWindow extends ContainerScreen<ShopGUIGui.GuiContainerMod
 				ShopGUIGui.handleButtonAction(entity, 2, x, y, z);
 			}
 		}));
+		this.addButton(new Button(this.guiLeft + 12, this.guiTop + 83, 55, 20, new StringTextComponent("Hazard"), e -> {
+			if (true) {
+				IndustrialEconomyMod.PACKET_HANDLER.sendToServer(new ShopGUIGui.ButtonPressedMessage(3, x, y, z));
+				ShopGUIGui.handleButtonAction(entity, 3, x, y, z);
+			}
+		}));
 	}
 }

@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "industrial_economy:liquid_hydrogen",
+    "industrial_economy:liquid_hydrogen_flowing"
+  ]
+}

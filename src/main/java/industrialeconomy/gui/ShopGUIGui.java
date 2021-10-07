@@ -33,6 +33,7 @@ import java.util.HashMap;
 
 import industrialeconomy.procedures.ShopNODESButtorOnClickProcedure;
 import industrialeconomy.procedures.ShopMACHINESBUTTONonclickProcedure;
+import industrialeconomy.procedures.ShopHAZARDButtonOnClickProcedure;
 import industrialeconomy.procedures.ShopFOODButtonOnClickProcedure;
 
 import industrialeconomy.IndustrialEconomyModElements;
@@ -395,6 +396,17 @@ public class ShopGUIGui extends IndustrialEconomyModElements.ModElement {
 				$_dependencies.put("z", z);
 				$_dependencies.put("world", world);
 				ShopMACHINESBUTTONonclickProcedure.executeProcedure($_dependencies);
+			}
+		}
+		if (buttonID == 3) {
+			{
+				Map<String, Object> $_dependencies = new HashMap<>();
+				$_dependencies.put("entity", entity);
+				$_dependencies.put("x", x);
+				$_dependencies.put("y", y);
+				$_dependencies.put("z", z);
+				$_dependencies.put("world", world);
+				ShopHAZARDButtonOnClickProcedure.executeProcedure($_dependencies);
 			}
 		}
 	}

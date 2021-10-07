@@ -1,0 +1,102 @@
+{
+  "_fv": 24,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 275,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "text": "Hazard Shop",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "Hazard Shop",
+          "x": 186,
+          "y": 40
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Case",
+          "onClick": {
+            "name": "HazardShopCaseOnClick"
+          },
+          "width": 45,
+          "height": 20,
+          "name": "Case",
+          "x": 88,
+          "y": 55
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Case Key",
+          "onClick": {
+            "name": "HazardShopCaseKeyOnClick"
+          },
+          "width": 65,
+          "height": 20,
+          "name": "Case Key",
+          "x": 88,
+          "y": 79
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "10€",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "10€",
+          "x": 136,
+          "y": 59
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "200€",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "200€",
+          "x": 157,
+          "y": 85
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Money: <VAR:player_money> €",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "Money: <VAR:player_money> €",
+          "x": 81,
+          "y": 187
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

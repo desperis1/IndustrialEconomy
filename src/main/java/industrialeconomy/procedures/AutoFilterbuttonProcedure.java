@@ -28,7 +28,7 @@ public class AutoFilterbuttonProcedure {
 				});
 			}
 			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("Auto Filter ON!"), (true));
+				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("Auto Sell ON!"), (true));
 			}
 		} else {
 			{
@@ -39,7 +39,7 @@ public class AutoFilterbuttonProcedure {
 				});
 			}
 			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("Auto Filter OFF!"), (true));
+				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("Auto Sell OFF!"), (true));
 			}
 		}
 	}

@@ -10,9 +10,7 @@ import net.minecraftforge.fml.network.IContainerFactory;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.DeferredWorkQueue;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.api.distmarker.Dist;
 
@@ -34,8 +32,8 @@ import java.util.function.Supplier;
 import java.util.Map;
 import java.util.HashMap;
 
+import industrialeconomy.procedures.CaseBoxTakenFromSlotProcedure;
 import industrialeconomy.procedures.CaseBoxOpenCaseButtonProcedure;
-import industrialeconomy.procedures.CaseBoxGUIWhileThisGUIIsOpenTickProcedure;
 
 import industrialeconomy.IndustrialEconomyModElements;
 
@@ -53,7 +51,6 @@ public class CaseBoxGUIGui extends IndustrialEconomyModElements.ModElement {
 				GUISlotChangedMessage::handler);
 		containerType = new ContainerType<>(new GuiContainerModFactory());
 		FMLJavaModLoadingContext.get().getModEventBus().register(new ContainerRegisterHandler());
-		MinecraftForge.EVENT_BUS.register(this);
 	}
 	private static class ContainerRegisterHandler {
 		@SubscribeEvent
@@ -64,26 +61,6 @@ public class CaseBoxGUIGui extends IndustrialEconomyModElements.ModElement {
 	@OnlyIn(Dist.CLIENT)
 	public void initElements() {
 		DeferredWorkQueue.runLater(() -> ScreenManager.registerFactory(containerType, CaseBoxGUIGuiWindow::new));
-	}
-
-	@SubscribeEvent
-	public void onPlayerTick(TickEvent.PlayerTickEvent event) {
-		PlayerEntity entity = event.player;
-		if (event.phase == TickEvent.Phase.END && entity.openContainer instanceof GuiContainerMod) {
-			World world = entity.world;
-			double x = entity.getPosX();
-			double y = entity.getPosY();
-			double z = entity.getPosZ();
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				$_dependencies.put("x", x);
-				$_dependencies.put("y", y);
-				$_dependencies.put("z", z);
-				$_dependencies.put("world", world);
-				CaseBoxGUIWhileThisGUIIsOpenTickProcedure.executeProcedure($_dependencies);
-			}
-		}
 	}
 	public static class GuiContainerModFactory implements IContainerFactory {
 		public GuiContainerMod create(int id, PlayerInventory inv, PacketBuffer extraData) {
@@ -102,7 +79,7 @@ public class CaseBoxGUIGui extends IndustrialEconomyModElements.ModElement {
 			super(containerType, id);
 			this.entity = inv.player;
 			this.world = inv.player.world;
-			this.internal = new ItemStackHandler(10);
+			this.internal = new ItemStackHandler(1);
 			BlockPos pos = null;
 			if (extraData != null) {
 				pos = extraData.readBlockPos();
@@ -140,114 +117,26 @@ public class CaseBoxGUIGui extends IndustrialEconomyModElements.ModElement {
 					}
 				}
 			}
-			this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 7, 35) {
+			this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 103, 28) {
 				@Override
-				public boolean canTakeStack(PlayerEntity player) {
-					return false;
+				public ItemStack onTake(PlayerEntity entity, ItemStack stack) {
+					ItemStack retval = super.onTake(entity, stack);
+					GuiContainerMod.this.slotChanged(0, 1, 0);
+					return retval;
 				}
 
 				@Override
 				public boolean isItemValid(ItemStack stack) {
 					return false;
 				}
-			}));
-			this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, 25, 35) {
-				@Override
-				public boolean canTakeStack(PlayerEntity player) {
-					return false;
-				}
-
-				@Override
-				public boolean isItemValid(ItemStack stack) {
-					return false;
-				}
-			}));
-			this.customSlots.put(2, this.addSlot(new SlotItemHandler(internal, 2, 43, 35) {
-				@Override
-				public boolean canTakeStack(PlayerEntity player) {
-					return false;
-				}
-
-				@Override
-				public boolean isItemValid(ItemStack stack) {
-					return false;
-				}
-			}));
-			this.customSlots.put(3, this.addSlot(new SlotItemHandler(internal, 3, 61, 35) {
-				@Override
-				public boolean canTakeStack(PlayerEntity player) {
-					return false;
-				}
-
-				@Override
-				public boolean isItemValid(ItemStack stack) {
-					return false;
-				}
-			}));
-			this.customSlots.put(4, this.addSlot(new SlotItemHandler(internal, 4, 79, 35) {
-				@Override
-				public boolean canTakeStack(PlayerEntity player) {
-					return false;
-				}
-
-				@Override
-				public boolean isItemValid(ItemStack stack) {
-					return false;
-				}
-			}));
-			this.customSlots.put(5, this.addSlot(new SlotItemHandler(internal, 5, 97, 35) {
-				@Override
-				public boolean canTakeStack(PlayerEntity player) {
-					return false;
-				}
-
-				@Override
-				public boolean isItemValid(ItemStack stack) {
-					return false;
-				}
-			}));
-			this.customSlots.put(6, this.addSlot(new SlotItemHandler(internal, 6, 115, 35) {
-				@Override
-				public boolean canTakeStack(PlayerEntity player) {
-					return false;
-				}
-
-				@Override
-				public boolean isItemValid(ItemStack stack) {
-					return false;
-				}
-			}));
-			this.customSlots.put(7, this.addSlot(new SlotItemHandler(internal, 7, 133, 35) {
-				@Override
-				public boolean canTakeStack(PlayerEntity player) {
-					return false;
-				}
-
-				@Override
-				public boolean isItemValid(ItemStack stack) {
-					return false;
-				}
-			}));
-			this.customSlots.put(8, this.addSlot(new SlotItemHandler(internal, 8, 151, 35) {
-				@Override
-				public boolean canTakeStack(PlayerEntity player) {
-					return false;
-				}
-
-				@Override
-				public boolean isItemValid(ItemStack stack) {
-					return false;
-				}
-			}));
-			this.customSlots.put(9, this.addSlot(new SlotItemHandler(internal, 9, 89, 54) {
 			}));
 			int si;
 			int sj;
 			for (si = 0; si < 3; ++si)
 				for (sj = 0; sj < 9; ++sj)
-					this.addSlot(new Slot(inv, sj + (si + 1) * 9, 0 + 8 + sj * 18, 20 + 84 + si * 18));
+					this.addSlot(new Slot(inv, sj + (si + 1) * 9, 0 + 8 + sj * 18, -6 + 84 + si * 18));
 			for (si = 0; si < 9; ++si)
-				this.addSlot(new Slot(inv, si, 0 + 8 + si * 18, 20 + 142));
+				this.addSlot(new Slot(inv, si, 0 + 8 + si * 18, -6 + 142));
 		}
 
 		public Map<Integer, Slot> get() {
@@ -266,18 +155,18 @@ public class CaseBoxGUIGui extends IndustrialEconomyModElements.ModElement {
 			if (slot != null && slot.getHasStack()) {
 				ItemStack itemstack1 = slot.getStack();
 				itemstack = itemstack1.copy();
-				if (index < 10) {
-					if (!this.mergeItemStack(itemstack1, 10, this.inventorySlots.size(), true)) {
+				if (index < 1) {
+					if (!this.mergeItemStack(itemstack1, 1, this.inventorySlots.size(), true)) {
 						return ItemStack.EMPTY;
 					}
 					slot.onSlotChange(itemstack1, itemstack);
-				} else if (!this.mergeItemStack(itemstack1, 0, 10, false)) {
-					if (index < 10 + 27) {
-						if (!this.mergeItemStack(itemstack1, 10 + 27, this.inventorySlots.size(), true)) {
+				} else if (!this.mergeItemStack(itemstack1, 0, 1, false)) {
+					if (index < 1 + 27) {
+						if (!this.mergeItemStack(itemstack1, 1 + 27, this.inventorySlots.size(), true)) {
 							return ItemStack.EMPTY;
 						}
 					} else {
-						if (!this.mergeItemStack(itemstack1, 10, 10 + 27, false)) {
+						if (!this.mergeItemStack(itemstack1, 1, 1 + 27, false)) {
 							return ItemStack.EMPTY;
 						}
 					}
@@ -383,46 +272,10 @@ public class CaseBoxGUIGui extends IndustrialEconomyModElements.ModElement {
 			if (!bound && (playerIn instanceof ServerPlayerEntity)) {
 				if (!playerIn.isAlive() || playerIn instanceof ServerPlayerEntity && ((ServerPlayerEntity) playerIn).hasDisconnected()) {
 					for (int j = 0; j < internal.getSlots(); ++j) {
-						if (j == 0)
-							continue;
-						if (j == 1)
-							continue;
-						if (j == 2)
-							continue;
-						if (j == 3)
-							continue;
-						if (j == 4)
-							continue;
-						if (j == 5)
-							continue;
-						if (j == 6)
-							continue;
-						if (j == 7)
-							continue;
-						if (j == 8)
-							continue;
 						playerIn.dropItem(internal.extractItem(j, internal.getStackInSlot(j).getCount(), false), false);
 					}
 				} else {
 					for (int i = 0; i < internal.getSlots(); ++i) {
-						if (i == 0)
-							continue;
-						if (i == 1)
-							continue;
-						if (i == 2)
-							continue;
-						if (i == 3)
-							continue;
-						if (i == 4)
-							continue;
-						if (i == 5)
-							continue;
-						if (i == 6)
-							continue;
-						if (i == 7)
-							continue;
-						if (i == 8)
-							continue;
 						playerIn.inventory.placeItemBackInInventory(playerIn.world,
 								internal.extractItem(i, internal.getStackInSlot(i).getCount(), false));
 					}
@@ -528,6 +381,7 @@ public class CaseBoxGUIGui extends IndustrialEconomyModElements.ModElement {
 			{
 				Map<String, Object> $_dependencies = new HashMap<>();
 				$_dependencies.put("entity", entity);
+				$_dependencies.put("world", world);
 				CaseBoxOpenCaseButtonProcedure.executeProcedure($_dependencies);
 			}
 		}
@@ -538,5 +392,12 @@ public class CaseBoxGUIGui extends IndustrialEconomyModElements.ModElement {
 		// security measure to prevent arbitrary chunk generation
 		if (!world.isBlockLoaded(new BlockPos(x, y, z)))
 			return;
+		if (slotID == 0 && changeType == 1) {
+			{
+				Map<String, Object> $_dependencies = new HashMap<>();
+				$_dependencies.put("entity", entity);
+				CaseBoxTakenFromSlotProcedure.executeProcedure($_dependencies);
+			}
+		}
 	}
 }

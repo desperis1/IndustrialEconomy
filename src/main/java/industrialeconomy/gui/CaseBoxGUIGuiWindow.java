@@ -16,10 +16,14 @@ import net.minecraft.client.Minecraft;
 
 import java.util.HashMap;
 
+import industrialeconomy.procedures.CaseboxbuttonShowConditionProcedure;
+
 import industrialeconomy.IndustrialEconomyMod;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.matrix.MatrixStack;
+
+import com.google.common.collect.ImmutableMap;
 
 @OnlyIn(Dist.CLIENT)
 public class CaseBoxGUIGuiWindow extends ContainerScreen<CaseBoxGUIGui.GuiContainerMod> {
@@ -35,7 +39,7 @@ public class CaseBoxGUIGuiWindow extends ContainerScreen<CaseBoxGUIGui.GuiContai
 		this.z = container.z;
 		this.entity = container.entity;
 		this.xSize = 176;
-		this.ySize = 185;
+		this.ySize = 166;
 	}
 	private static final ResourceLocation texture = new ResourceLocation("industrial_economy:textures/case_box_gui.png");
 	@Override
@@ -73,8 +77,8 @@ public class CaseBoxGUIGuiWindow extends ContainerScreen<CaseBoxGUIGui.GuiContai
 
 	@Override
 	protected void drawGuiContainerForegroundLayer(MatrixStack ms, int mouseX, int mouseY) {
-		this.font.drawString(ms, "Case Box!", 61, 6, -12829636);
-		this.font.drawString(ms, "Winning!!", 40, 57, -13382656);
+		this.font.drawString(ms, "Case Box!", 66, 15, -12829636);
+		this.font.drawString(ms, "Winning!!", 51, 32, -13382656);
 	}
 
 	@Override
@@ -87,11 +91,17 @@ public class CaseBoxGUIGuiWindow extends ContainerScreen<CaseBoxGUIGui.GuiContai
 	public void init(Minecraft minecraft, int width, int height) {
 		super.init(minecraft, width, height);
 		minecraft.keyboardListener.enableRepeatEvents(true);
-		this.addButton(new Button(this.guiLeft + 46, this.guiTop + 79, 75, 20, new StringTextComponent("Open Case!"), e -> {
-			if (true) {
+		this.addButton(new Button(this.guiLeft + 51, this.guiTop + 51, 75, 20, new StringTextComponent("Open Case!"), e -> {
+			if (CaseboxbuttonShowConditionProcedure.executeProcedure(ImmutableMap.of("entity", entity))) {
 				IndustrialEconomyMod.PACKET_HANDLER.sendToServer(new CaseBoxGUIGui.ButtonPressedMessage(0, x, y, z));
 				CaseBoxGUIGui.handleButtonAction(entity, 0, x, y, z);
 			}
-		}));
+		}) {
+			@Override
+			public void render(MatrixStack ms, int gx, int gy, float ticks) {
+				if (CaseboxbuttonShowConditionProcedure.executeProcedure(ImmutableMap.of("entity", entity)))
+					super.render(ms, gx, gy, ticks);
+			}
+		});
 	}
 }

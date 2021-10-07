@@ -280,6 +280,7 @@ public class IndustrialEconomyModVariables {
 			nbt.putDouble("case_item_counter_6", instance.case_item_counter_6);
 			nbt.putDouble("case_item_counter_7", instance.case_item_counter_7);
 			nbt.putDouble("case_item_counter_8", instance.case_item_counter_8);
+			nbt.putBoolean("is_player_in_dimension1", instance.is_player_in_dimension1);
 			return nbt;
 		}
 
@@ -350,6 +351,7 @@ public class IndustrialEconomyModVariables {
 			instance.case_item_counter_6 = nbt.getDouble("case_item_counter_6");
 			instance.case_item_counter_7 = nbt.getDouble("case_item_counter_7");
 			instance.case_item_counter_8 = nbt.getDouble("case_item_counter_8");
+			instance.is_player_in_dimension1 = nbt.getBoolean("is_player_in_dimension1");
 		}
 	}
 
@@ -418,6 +420,7 @@ public class IndustrialEconomyModVariables {
 		public double case_item_counter_6 = 0;
 		public double case_item_counter_7 = 0;
 		public double case_item_counter_8 = 0;
+		public boolean is_player_in_dimension1 = false;
 		public void syncPlayerVariables(Entity entity) {
 			if (entity instanceof ServerPlayerEntity)
 				IndustrialEconomyMod.PACKET_HANDLER.send(PacketDistributor.PLAYER.with(() -> (ServerPlayerEntity) entity),
@@ -515,6 +518,7 @@ public class IndustrialEconomyModVariables {
 			clone.DSA_DolphinGrace = original.DSA_DolphinGrace;
 			clone.DSA_PlasmaShoot = original.DSA_PlasmaShoot;
 			clone.DSA_WaterBreathe = original.DSA_WaterBreathe;
+			clone.is_player_in_dimension1 = original.is_player_in_dimension1;
 		}
 	}
 	public static class PlayerVariablesSyncMessage {
@@ -602,6 +606,7 @@ public class IndustrialEconomyModVariables {
 					variables.case_item_counter_6 = message.data.case_item_counter_6;
 					variables.case_item_counter_7 = message.data.case_item_counter_7;
 					variables.case_item_counter_8 = message.data.case_item_counter_8;
+					variables.is_player_in_dimension1 = message.data.is_player_in_dimension1;
 				}
 			});
 			context.setPacketHandled(true);

@@ -95,7 +95,7 @@ public class SolarpanelblockinactiveBlock extends IndustrialEconomyModElements.M
 		@OnlyIn(Dist.CLIENT)
 		public void addInformation(ItemStack itemstack, IBlockReader world, List<ITextComponent> list, ITooltipFlag flag) {
 			super.addInformation(itemstack, world, list, flag);
-			list.add(new StringTextComponent("Generates 200MW per second"));
+			list.add(new StringTextComponent("Generates 100 MW per second"));
 		}
 
 		@Override

@@ -26,9 +26,12 @@
     "damageVsEntity": 0.0,
     "specialInfo": [],
     "hasGlow": false,
-    "guiBoundTo": "CaseBoxGUI",
-    "inventorySize": 10,
+    "guiBoundTo": "<NONE>",
+    "inventorySize": 0,
     "inventoryStackSize": 64,
+    "onRightClickedOnBlock": {
+      "name": "CaseBox1RightClickedOnBlock"
+    },
     "hasDispenseBehavior": false
   }
 }

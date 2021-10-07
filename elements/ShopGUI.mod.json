@@ -64,6 +64,20 @@
           "x": 55,
           "y": 76
         }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Hazard",
+          "onClick": {
+            "name": "ShopHAZARDButtonOnClick"
+          },
+          "width": 55,
+          "height": 20,
+          "name": "Hazard",
+          "x": 55,
+          "y": 97
+        }
       }
     ],
     "gridSettings": {

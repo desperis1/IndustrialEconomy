@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "axis=z": {
+      "model": "industrial_economy:block/testdd_portal_ew"
+    },
+    "axis=x": {
+      "model": "industrial_economy:block/testdd_portal_ns"
+    }
+  }
+}

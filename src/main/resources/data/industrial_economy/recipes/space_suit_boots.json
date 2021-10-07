@@ -1,0 +1,29 @@
+{
+  "group": "spacesuitboots",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "0 2",
+    "345"
+  ],
+  "key": {
+    "0": {
+      "item": "industrial_economy:diamondsteelplate"
+    },
+    "2": {
+      "item": "industrial_economy:diamondsteelplate"
+    },
+    "3": {
+      "item": "industrial_economy:diamondsteelplate"
+    },
+    "4": {
+      "item": "industrial_economy:emptymodule"
+    },
+    "5": {
+      "item": "industrial_economy:diamondsteelplate"
+    }
+  },
+  "result": {
+    "item": "industrial_economy:space_suit_boots",
+    "count": 1
+  }
+}
