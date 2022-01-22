@@ -5745,6 +5745,44 @@
       "path": "~/Extra"
     },
     {
+      "name": "ServerBlock",
+      "type": "block",
+      "sortid": 398,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "server_block",
+      "path": "~/Blocks/ServerBlock"
+    },
+    {
+      "name": "ServerBlockBlockIsPlacedBy",
+      "type": "procedure",
+      "sortid": 399,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "server_block_block_is_placed_by",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Blocks/ServerBlock"
+    },
+    {
       "name": "IronextractorBlockIsPlacedBy",
       "type": "procedure",
       "sortid": 400,
@@ -6005,6 +6043,24 @@
       "path": "~/Machines/Extractors/CoalExtractor"
     },
     {
+      "name": "ShopGUI",
+      "type": "gui",
+      "sortid": 408,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "shop_gui",
+      "path": "~/Shop"
+    },
+    {
+      "name": "NodesShopGUI",
+      "type": "gui",
+      "sortid": 409,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "nodes_shop_gui",
+      "path": "~/Shop"
+    },
+    {
       "name": "AdminmenuadmineditorOnClicked",
       "type": "procedure",
       "sortid": 411,
@@ -6182,6 +6238,166 @@
       "path": "~/Items"
     },
     {
+      "name": "NodesShopIronNodeOnClick",
+      "type": "procedure",
+      "sortid": 426,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "nodes_shop_iron_node_on_click",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Shop"
+    },
+    {
+      "name": "NodeShopCoalNodeOnClick",
+      "type": "procedure",
+      "sortid": 427,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "node_shop_coal_node_on_click",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Shop"
+    },
+    {
+      "name": "NodeShopCopperNodeOnClick",
+      "type": "procedure",
+      "sortid": 428,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "node_shop_copper_node_on_click",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Shop"
+    },
+    {
+      "name": "NodeShopCateriumNodeOnClick",
+      "type": "procedure",
+      "sortid": 429,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "node_shop_caterium_node_on_click",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Shop"
+    },
+    {
+      "name": "NodeShopSandStoneNodeOnClick",
+      "type": "procedure",
+      "sortid": 430,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "node_shop_sand_stone_node_on_click",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Shop"
+    },
+    {
+      "name": "ShopNODESButtorOnClick",
+      "type": "procedure",
+      "sortid": 431,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "shop_nodes_buttor_on_click",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Shop"
+    },
+    {
+      "name": "ShopCommandExecuted",
+      "type": "procedure",
+      "sortid": 432,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "shop_command_executed",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Shop"
+    },
+    {
+      "name": "Shop",
+      "type": "command",
+      "sortid": 432,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "shop",
+      "path": "~/Shop"
+    },
+    {
       "name": "ConcretemixerBlockIsPlacedBy",
       "type": "procedure",
       "sortid": 433,
@@ -6213,6 +6429,99 @@
         ]
       },
       "path": "~/Machines/ConcreteMixer"
+    },
+    {
+      "name": "FoodShopGUI",
+      "type": "gui",
+      "sortid": 434,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "food_shop_gui",
+      "path": "~/Shop"
+    },
+    {
+      "name": "ShopFOODButtonOnClick",
+      "type": "procedure",
+      "sortid": 435,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "shop_food_button_on_click",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Shop"
+    },
+    {
+      "name": "FoodShopBreadOnClick",
+      "type": "procedure",
+      "sortid": 436,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "food_shop_bread_on_click",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Shop"
+    },
+    {
+      "name": "FoodShopSteakOnClick",
+      "type": "procedure",
+      "sortid": 437,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "food_shop_steak_on_click",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Shop"
+    },
+    {
+      "name": "FoodShopChickenOnClick",
+      "type": "procedure",
+      "sortid": 438,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "food_shop_chicken_on_click",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Shop"
     },
     {
       "name": "DisallowedToOpen",
@@ -6319,6 +6628,10 @@
           {
             "name": "entity",
             "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
         ]
       },
@@ -6336,6 +6649,10 @@
           {
             "name": "entity",
             "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
         ]
       },
@@ -6903,6 +7220,150 @@
       "path": "~/Blocks/Autosell"
     },
     {
+      "name": "MachinesShopGUI",
+      "type": "gui",
+      "sortid": 463,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "machines_shop_gui",
+      "path": "~/Shop"
+    },
+    {
+      "name": "MachinesShopElectriFurnanceOnClick",
+      "type": "procedure",
+      "sortid": 464,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "machines_shop_electri_furnance_on_click",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Shop"
+    },
+    {
+      "name": "MachinesShopMinerOnClick",
+      "type": "procedure",
+      "sortid": 465,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "machines_shop_miner_on_click",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Shop"
+    },
+    {
+      "name": "MachinesShopFoundryOnClick",
+      "type": "procedure",
+      "sortid": 466,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "machines_shop_foundry_on_click",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Shop"
+    },
+    {
+      "name": "MachinesShopConstructorOnClick",
+      "type": "procedure",
+      "sortid": 467,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "machines_shop_constructor_on_click",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Shop"
+    },
+    {
+      "name": "MachinesShopAssemblerOnClick",
+      "type": "procedure",
+      "sortid": 468,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "machines_shop_assembler_on_click",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Shop"
+    },
+    {
+      "name": "MachniesShopAutoSellOnClick",
+      "type": "procedure",
+      "sortid": 469,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "machnies_shop_auto_sell_on_click",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Shop"
+    },
+    {
+      "name": "ShopMACHINESBUTTONonclick",
+      "type": "procedure",
+      "sortid": 470,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "shop_machinesbutto_nonclick",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Shop"
+    },
+    {
       "name": "PlasmaRANGEDITEM",
       "type": "rangeditem",
       "sortid": 471,
@@ -7053,6 +7514,15 @@
       "path": "~/SpaceSuit"
     },
     {
+      "name": "HazardShopGUI",
+      "type": "gui",
+      "sortid": 532,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "hazard_shop_gui",
+      "path": "~/Shop"
+    },
+    {
       "name": "Smelter",
       "type": "enchantment",
       "sortid": 545,
@@ -7095,6 +7565,18 @@
         ]
       },
       "path": "~/Items/CaseOpening"
+    },
+    {
+      "name": "Test2",
+      "type": "dimension",
+      "sortid": 544,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "test_2",
+      "metadata": {
+        "ep": true
+      },
+      "path": "~/Dimensions"
     },
     {
       "name": "Test",
@@ -7140,6 +7622,23 @@
       "locked_code": false,
       "registry_name": "case_key",
       "path": "~/Items/CaseOpening"
+    },
+    {
+      "name": "HazardShopCaseKeyOnClick",
+      "type": "procedure",
+      "sortid": 534,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "hazard_shop_case_key_on_click",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Shop"
     },
     {
       "name": "CompressorRecipe",
@@ -7203,6 +7702,23 @@
       "path": "~/SpaceSuit"
     },
     {
+      "name": "HazardShopCaseOnClick",
+      "type": "procedure",
+      "sortid": 533,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "hazard_shop_case_on_click",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Shop"
+    },
+    {
       "name": "LiquidHydrogenMobplayerCollidesBlock",
       "type": "procedure",
       "sortid": 499,
@@ -7218,6 +7734,18 @@
         ]
       },
       "path": "~/Fluids"
+    },
+    {
+      "name": "Testdd",
+      "type": "dimension",
+      "sortid": 542,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "testdd",
+      "metadata": {
+        "ep": true
+      },
+      "path": "~/Dimensions"
     },
     {
       "name": "CompressorBlockIsPlacedBy",
@@ -7635,6 +8163,39 @@
       "path": "~/Blocks"
     },
     {
+      "name": "ShopHAZARDButtonOnClick",
+      "type": "procedure",
+      "sortid": 535,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "shop_hazard_button_on_click",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Shop"
+    },
+    {
       "name": "LiquidHydrogenClientDisplayRandomTick",
       "type": "procedure",
       "sortid": 506,
@@ -7785,37 +8346,102 @@
       "path": "~/SpaceSuit"
     },
     {
-      "name": "Testset",
-      "type": "command",
+      "name": "SteelToolSPickaxe",
+      "type": "tool",
       "sortid": 546,
       "compiles": true,
       "locked_code": false,
-      "registry_name": "testset",
-      "path": "~/Test"
+      "registry_name": "steel_tool_s_pickaxe",
+      "path": "~/Tools/SteelTools"
     },
     {
-      "name": "TestsetCommandExecuted",
-      "type": "procedure",
+      "name": "SteelToolSAxe",
+      "type": "tool",
       "sortid": 547,
       "compiles": true,
       "locked_code": false,
-      "registry_name": "testset_command_executed",
-      "metadata": {
-        "dependencies": []
-      },
-      "path": "~/Test"
+      "registry_name": "steel_tool_s_axe",
+      "path": "~/Tools/SteelTools"
     },
     {
-      "name": "ModLoaded",
-      "type": "procedure",
+      "name": "SteelToolSSword",
+      "type": "tool",
       "sortid": 548,
       "compiles": true,
       "locked_code": false,
-      "registry_name": "mod_loaded",
-      "metadata": {
-        "dependencies": []
-      },
-      "path": "~/Extra"
+      "registry_name": "steel_tool_s_sword",
+      "path": "~/Tools/SteelTools"
+    },
+    {
+      "name": "SteelToolSShovel",
+      "type": "tool",
+      "sortid": 549,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "steel_tool_s_shovel",
+      "path": "~/Tools/SteelTools"
+    },
+    {
+      "name": "SteelToolSHoe",
+      "type": "tool",
+      "sortid": 550,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "steel_tool_s_hoe",
+      "path": "~/Tools/SteelTools"
+    },
+    {
+      "name": "SteelToolSPickaxeRecipe",
+      "type": "recipe",
+      "sortid": 551,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "steel_tool_s_pickaxe_recipe",
+      "path": "~/Tools/SteelTools"
+    },
+    {
+      "name": "SteelToolSAxeRecipe",
+      "type": "recipe",
+      "sortid": 552,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "steel_tool_s_axe_recipe",
+      "path": "~/Tools/SteelTools"
+    },
+    {
+      "name": "SteelToolSSwordRecipe",
+      "type": "recipe",
+      "sortid": 553,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "steel_tool_s_sword_recipe",
+      "path": "~/Tools/SteelTools"
+    },
+    {
+      "name": "SteelToolSShovelRecipe",
+      "type": "recipe",
+      "sortid": 554,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "steel_tool_s_shovel_recipe",
+      "path": "~/Tools/SteelTools"
+    },
+    {
+      "name": "SteelToolSHoeRecipe",
+      "type": "recipe",
+      "sortid": 555,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "steel_tool_s_hoe_recipe",
+      "path": "~/Tools/SteelTools"
+    },
+    {
+      "name": "MAM",
+      "type": "block",
+      "sortid": 556,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "mam"
     }
   ],
   "variable_elements": [
@@ -8240,13 +8866,7 @@
       "value": "ItemStack.EMPTY"
     },
     {
-      "name": "prices_config",
-      "type": "file",
-      "scope": "global",
-      "value": "new File(\"\")"
-    },
-    {
-      "name": "playerconfig",
+      "name": "prices",
       "type": "file",
       "scope": "global",
       "value": "new File(\"\")"
@@ -8282,6 +8902,7 @@
     "en_us": {
       "block.industrial_economy.orange_concrete_slab": "Orange Concrete Slab",
       "item.industrial_economy.space_suit_with_canister_helmet": "Space Suit With Canister Helmet",
+      "item.industrial_economy.steel_tool_s_pickaxe": "SteelToolS Pickaxe",
       "item.mega_project.redstoneingotitem": "Redstone Ingot",
       "block.mega_project.generatormk_2": "Generator MK2",
       "item.satis_mine.control_unit": "Control Unit",
@@ -8380,6 +9001,7 @@
       "enchantment.satis_mine.better_cool_down_enchantment": "Better CoolDown",
       "block.industrial_economy.lime_concrete_slab": "Lime Concrete Slab",
       "block.mega_project.heavyframe": "Heavy Frame",
+      "block.industrial_economy.mam": "M.A.M.",
       "block.satis_mine.heavyframe": "Heavy Frame",
       "item.industrial_economy.redstoneingotitem": "Redstone Ingot",
       "block.mega_project.pink_concrete_stairs": "Pink Concrete Stairs",
@@ -8399,6 +9021,7 @@
       "block.industrial_economy.purple_concrete_stairs": "Purple Concrete Stairs",
       "block.satis_mine.light_gray_concrete_stairs": "Light Gray Concrete Stairs",
       "block.mega_project.orange_concrete_stairs": "Orange Concrete Stairs",
+      "item.industrial_economy.test_2": "Test 2 Portal Igniter",
       "item.satis_mine.highspeedconectoritem": "High Speed Connector",
       "item.mega_project.control_unit": "Control Unit",
       "block.industrial_economy.position_1block": "Position 1",
@@ -8432,6 +9055,7 @@
       "block.satis_mine.purple_concrete_slab": "Purple Concrete Slab",
       "block.satis_mine.white_concrete_stairs": "White Concrete Stairs",
       "item.mega_project.diamond_steel_armor_helmet": "Diamond Steel Helmet",
+      "block.industrial_economy.server_block": "ServerBlock",
       "advancements.turbo_fueladvancement.title": "Turbo Fuel",
       "block.satis_mine.ironextractor": "Iron Extractor",
       "item.mega_project.ironplate": "Iron Plate",
@@ -8454,6 +9078,7 @@
       "block.industrial_economy.green_concrete_slab": "Green Concrete Slab",
       "block.industrial_economy.steel_stone": "Steel Stone",
       "item.satis_mine.diamond_steelpickaxe": "Diamond Steel Pickaxe",
+      "item.industrial_economy.steel_tool_s_shovel": "SteelToolS Shovel",
       "block.mega_project.steel_block": "Steel Block",
       "block.satis_mine.armorchargermk_2": "Armor Charger MK2",
       "block.satis_mine.coal_extractor": "Coal Extractor",
@@ -8481,6 +9106,7 @@
       "block.industrial_economy.steel_block": "Steel Block",
       "block.satis_mine.brown_concrete_stairs": "Brown Concrete Stairs",
       "block.mega_project.orangeleaves": "Orig Leaves",
+      "item.industrial_economy.testdd": "Testdd Portal Igniter",
       "block.satis_mine.orange_concrete_slab": "Orange Concrete Slab",
       "item.industrial_economy.steel_dust": "Steel Dust",
       "block.satis_mine.black_concrete_slab": "Black Concrete Slab",
@@ -8546,6 +9172,7 @@
       "block.satis_mine.armorcharger": "Armor Charger",
       "block.satis_mine.caterium_block": "Block of Caterium",
       "item.industrial_economy.energyforupgradeitem": "Energyforupgradeitem",
+      "item.industrial_economy.steel_tool_s_axe": "SteelToolS Axe",
       "item.satis_mine.diamond_steel_armor_leggings": "Diamond Steel Leggings",
       "block.industrial_economy.constructorblock": "Constructor",
       "block.industrial_economy.compressor": "Compressor",
@@ -8579,6 +9206,7 @@
       "block.mega_project.generator_mk_2inactive": "Generator MK 2",
       "block.mega_project.copper_block": "Block of Copper",
       "subtitles.jetpack_sound": "",
+      "item.industrial_economy.steel_tool_s_sword": "SteelToolS Sword",
       "block.mega_project.caterium_extractor": "Caterium Extractor",
       "item.satis_mine.steelingot": "Steel Ingot",
       "item.mega_project.screw": "Screw",
@@ -8649,6 +9277,7 @@
       "block.mega_project.yellow_concrete_slab": "Yellow Concrete Slab",
       "block.industrial_economy.magenta_concrete_stairs": "Magenta Concrete Stairs",
       "key.industrial_economy.node_scanner_modes_keybind": "Node Scanner Modes",
+      "item.industrial_economy.steel_tool_s_hoe": "SteelToolS Hoe",
       "block.mega_project.light_gray_concrete_slab": "Light Gray Concrete Slab",
       "block.mega_project.hub": "Hub",
       "block.mega_project.blue_concrete_stairs": "Blue Concrete Stairs",
@@ -8872,6 +9501,10 @@
           },
           {
             "name": "PocketChest",
+            "children": []
+          },
+          {
+            "name": "SteelTools",
             "children": []
           }
         ]
