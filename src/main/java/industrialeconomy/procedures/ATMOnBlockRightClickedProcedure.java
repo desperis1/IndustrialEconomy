@@ -1,6 +1,26 @@
 package industrialeconomy.procedures;
 
-import net.minecraftforge.eventbus.api.Event;
+import net.minecraft.item.ItemStack;
+import net.minecraft.inventory.container.Slot;
+import net.minecraft.inventory.container.Container;
+import net.minecraft.entity.player.ServerPlayerEntity;
+import net.minecraft.entity.Entity;
+
+import java.util.function.Supplier;
+import java.util.Map;
+
+import industrialeconomy.item.Money500Item;
+import industrialeconomy.item.Money5000Item;
+import industrialeconomy.item.Money50000Item;
+import industrialeconomy.item.Money2000Item;
+import industrialeconomy.item.Money100Item;
+import industrialeconomy.item.Money1000Item;
+import industrialeconomy.item.Money10000Item;
+import industrialeconomy.item.Money100000Item;
+
+import industrialeconomy.IndustrialEconomyModVariables;
+
+import industrialeconomy.IndustrialEconomyMod;
 
 public class ATMOnBlockRightClickedProcedure {
 
@@ -10,9 +30,7 @@ public class ATMOnBlockRightClickedProcedure {
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency entity for procedure ATMOnBlockRightClicked!");
 			return;
 		}
-
 		Entity entity = (Entity) dependencies.get("entity");
-
 		double amount = 0;
 		ItemStack bills = ItemStack.EMPTY;
 		bills = (new Object() {
@@ -319,5 +337,4 @@ public class ATMOnBlockRightClickedProcedure {
 			}
 		}
 	}
-
 }

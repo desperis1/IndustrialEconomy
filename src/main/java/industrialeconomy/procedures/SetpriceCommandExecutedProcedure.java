@@ -1,6 +1,22 @@
 package industrialeconomy.procedures;
 
-import net.minecraftforge.eventbus.api.Event;
+import net.minecraft.world.World;
+import net.minecraft.world.IWorld;
+import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.Entity;
+import net.minecraft.block.BlockState;
+
+import java.util.Map;
+import java.util.HashMap;
+
+import industrialeconomy.IndustrialEconomyModVariables;
+
+import industrialeconomy.IndustrialEconomyMod;
 
 public class SetpriceCommandExecutedProcedure {
 
@@ -20,11 +36,9 @@ public class SetpriceCommandExecutedProcedure {
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency cmdparams for procedure SetpriceCommandExecuted!");
 			return;
 		}
-
 		IWorld world = (IWorld) dependencies.get("world");
 		Entity entity = (Entity) dependencies.get("entity");
 		HashMap cmdparams = (HashMap) dependencies.get("cmdparams");
-
 		double price = 0;
 		ItemStack item_in_hand = ItemStack.EMPTY;
 		if ((new Object() {
@@ -93,7 +107,6 @@ public class SetpriceCommandExecutedProcedure {
 							return "";
 						}
 					}.getText()));
-
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
@@ -115,9 +128,8 @@ public class SetpriceCommandExecutedProcedure {
 								}
 								return "";
 							}
-						}.getText()) + " \u010F\u017C\u02DD")), (false));
+						}.getText()) + " \uFFFD")), (false));
 			}
 		}
 	}
-
 }

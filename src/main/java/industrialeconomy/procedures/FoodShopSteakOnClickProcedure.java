@@ -39,7 +39,7 @@ public class FoodShopSteakOnClickProcedure {
 				});
 			}
 			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("You bought 16 Steaks for 32\u010F\u017C\u02DD"), (false));
+				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("You bought 16 Steaks for 32\uFFFD"), (false));
 			}
 		} else {
 			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {

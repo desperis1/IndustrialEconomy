@@ -79,14 +79,11 @@ public class FoodShopGUIGuiWindow extends ContainerScreen<FoodShopGUIGui.GuiCont
 	@Override
 	protected void drawGuiContainerForegroundLayer(MatrixStack ms, int mouseX, int mouseY) {
 		this.font.drawString(ms, "Food Shop", 97, 4, -12829636);
-		this.font
-				.drawString(ms,
-						"Your Money: " + ((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-								.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money) + " \u010F\u017C\u02DD",
-						146, 4, -16751104);
-		this.font.drawString(ms, "32 \u010F\u017C\u02DD", 80, 22, -12829636);
-		this.font.drawString(ms, "32 \u010F\u017C\u02DD", 80, 47, -12829636);
-		this.font.drawString(ms, "32 \u010F\u017C\u02DD", 91, 74, -12829636);
+		this.font.drawString(ms, "Your Money: " + ((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+				.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money) + " \uFFFD", 146, 4, -16751104);
+		this.font.drawString(ms, "32 \uFFFD", 80, 22, -12829636);
+		this.font.drawString(ms, "32 \uFFFD", 80, 47, -12829636);
+		this.font.drawString(ms, "32 \uFFFD", 91, 74, -12829636);
 	}
 
 	@Override

@@ -1,6 +1,26 @@
 package industrialeconomy.procedures;
 
-import net.minecraftforge.eventbus.api.Event;
+import net.minecraft.world.IWorld;
+import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.item.Items;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.BlockItem;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.Entity;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.BlockState;
+
+import java.util.Map;
+
+import industrialeconomy.IndustrialEconomyModVariables;
+
+import industrialeconomy.IndustrialEconomyMod;
 
 public class SellhandCommandExecutedProcedure {
 
@@ -15,10 +35,8 @@ public class SellhandCommandExecutedProcedure {
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency entity for procedure SellhandCommandExecuted!");
 			return;
 		}
-
 		IWorld world = (IWorld) dependencies.get("world");
 		Entity entity = (Entity) dependencies.get("entity");
-
 		ItemStack itemforsell = ItemStack.EMPTY;
 		double items_amount = 0;
 		double price_from_server = 0;
@@ -49,11 +67,9 @@ public class SellhandCommandExecutedProcedure {
 							(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_z),
 					((itemforsell).getDisplayName().getString() + "_price")));
 			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-				((PlayerEntity) entity).sendStatusMessage(
-						new StringTextComponent(("You sell some "
-								+ (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
-										.getDisplayName().getString())
-								+ " for " + items_amount * price_from_server + "\u010F\u017C\u02DD")),
+				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent(
+						("You sell some " + (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
+								.getDisplayName().getString()) + " for " + items_amount * price_from_server + "\uFFFD")),
 						(false));
 			}
 			if (entity instanceof PlayerEntity) {
@@ -81,7 +97,7 @@ public class SellhandCommandExecutedProcedure {
 				if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
 					((PlayerEntity) entity).sendStatusMessage(new StringTextComponent(
 							("You sell some " + (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
-									.getDisplayName().getString()) + " for " + items_amount * 1 + "\u010F\u017C\u02DD")),
+									.getDisplayName().getString()) + " for " + items_amount * 1 + "\uFFFD")),
 							(false));
 				}
 				if (entity instanceof PlayerEntity) {
@@ -109,7 +125,7 @@ public class SellhandCommandExecutedProcedure {
 				if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
 					((PlayerEntity) entity).sendStatusMessage(new StringTextComponent(
 							("You sell some " + (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
-									.getDisplayName().getString()) + " for " + items_amount * 4 + "\u010F\u017C\u02DD")),
+									.getDisplayName().getString()) + " for " + items_amount * 4 + "\uFFFD")),
 							(false));
 				}
 				if (entity instanceof PlayerEntity) {
@@ -137,7 +153,7 @@ public class SellhandCommandExecutedProcedure {
 				if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
 					((PlayerEntity) entity).sendStatusMessage(new StringTextComponent(
 							("You sell some " + (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
-									.getDisplayName().getString()) + " for " + items_amount * 1 + "\u010F\u017C\u02DD")),
+									.getDisplayName().getString()) + " for " + items_amount * 1 + "\uFFFD")),
 							(false));
 				}
 				if (entity instanceof PlayerEntity) {
@@ -158,7 +174,7 @@ public class SellhandCommandExecutedProcedure {
 				if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
 					((PlayerEntity) entity).sendStatusMessage(new StringTextComponent(
 							("You sell some " + (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
-									.getDisplayName().getString()) + " for " + items_amount * 0.5 + "\u010F\u017C\u02DD")),
+									.getDisplayName().getString()) + " for " + items_amount * 0.5 + "\uFFFD")),
 							(false));
 				}
 				if (entity instanceof PlayerEntity) {
@@ -179,7 +195,7 @@ public class SellhandCommandExecutedProcedure {
 				if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
 					((PlayerEntity) entity).sendStatusMessage(new StringTextComponent(
 							("You sell some " + (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
-									.getDisplayName().getString()) + " for " + items_amount * 2 + "\u010F\u017C\u02DD")),
+									.getDisplayName().getString()) + " for " + items_amount * 2 + "\uFFFD")),
 							(false));
 				}
 				if (entity instanceof PlayerEntity) {
@@ -207,8 +223,7 @@ public class SellhandCommandExecutedProcedure {
 				}
 				if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
 					((PlayerEntity) entity).sendStatusMessage(new StringTextComponent(
-							("You sell " + (itemforsell).getDisplayName().getString() + " for " + items_amount * 500 + " \u010F\u017C\u02DD")),
-							(false));
+							("You sell " + (itemforsell).getDisplayName().getString() + " for " + items_amount * 500 + " \uFFFD")), (false));
 				}
 				if (entity instanceof PlayerEntity) {
 					ItemStack _stktoremove = (itemforsell);
@@ -227,8 +242,7 @@ public class SellhandCommandExecutedProcedure {
 				}
 				if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
 					((PlayerEntity) entity).sendStatusMessage(new StringTextComponent(
-							("You sell " + (itemforsell).getDisplayName().getString() + " for " + items_amount * 850 + " \u010F\u017C\u02DD")),
-							(false));
+							("You sell " + (itemforsell).getDisplayName().getString() + " for " + items_amount * 850 + " \uFFFD")), (false));
 				}
 				if (entity instanceof PlayerEntity) {
 					ItemStack _stktoremove = (itemforsell);
@@ -246,10 +260,8 @@ public class SellhandCommandExecutedProcedure {
 					});
 				}
 				if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-					((PlayerEntity) entity).sendStatusMessage(
-							new StringTextComponent(
-									("You sell " + (itemforsell).getDisplayName().getString() + " for " + items_amount * 50 + " \u010F\u017C\u02DD")),
-							(false));
+					((PlayerEntity) entity).sendStatusMessage(new StringTextComponent(
+							("You sell " + (itemforsell).getDisplayName().getString() + " for " + items_amount * 50 + " \uFFFD")), (false));
 				}
 				if (entity instanceof PlayerEntity) {
 					ItemStack _stktoremove = (itemforsell);
@@ -268,8 +280,7 @@ public class SellhandCommandExecutedProcedure {
 				}
 				if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
 					((PlayerEntity) entity).sendStatusMessage(new StringTextComponent(
-							("You sell " + (itemforsell).getDisplayName().getString() + " for " + items_amount * 2.5 + " \u010F\u017C\u02DD")),
-							(false));
+							("You sell " + (itemforsell).getDisplayName().getString() + " for " + items_amount * 2.5 + " \uFFFD")), (false));
 				}
 				if (entity instanceof PlayerEntity) {
 					ItemStack _stktoremove = (itemforsell);
@@ -288,8 +299,7 @@ public class SellhandCommandExecutedProcedure {
 				}
 				if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
 					((PlayerEntity) entity).sendStatusMessage(new StringTextComponent(
-							("You sell " + (itemforsell).getDisplayName().getString() + " for " + items_amount * 1.5 + " \u010F\u017C\u02DD")),
-							(false));
+							("You sell " + (itemforsell).getDisplayName().getString() + " for " + items_amount * 1.5 + " \uFFFD")), (false));
 				}
 				if (entity instanceof PlayerEntity) {
 					ItemStack _stktoremove = (itemforsell);
@@ -299,5 +309,4 @@ public class SellhandCommandExecutedProcedure {
 			}
 		}
 	}
-
 }

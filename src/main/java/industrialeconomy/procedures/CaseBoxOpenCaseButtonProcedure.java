@@ -1,6 +1,30 @@
 package industrialeconomy.procedures;
 
-import net.minecraftforge.eventbus.api.Event;
+import net.minecraftforge.fml.server.ServerLifecycleHooks;
+
+import net.minecraft.world.World;
+import net.minecraft.world.IWorld;
+import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.ChatType;
+import net.minecraft.util.Util;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.inventory.container.Slot;
+import net.minecraft.inventory.container.Container;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.item.ItemEntity;
+import net.minecraft.entity.Entity;
+
+import java.util.function.Supplier;
+import java.util.Map;
+import java.util.Collections;
+
+import industrialeconomy.item.CaseKeyItem;
+import industrialeconomy.item.CaseBox1Item;
+
+import industrialeconomy.IndustrialEconomyModVariables;
+
+import industrialeconomy.IndustrialEconomyMod;
 
 public class CaseBoxOpenCaseButtonProcedure {
 
@@ -15,10 +39,8 @@ public class CaseBoxOpenCaseButtonProcedure {
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency entity for procedure CaseBoxOpenCaseButton!");
 			return;
 		}
-
 		IWorld world = (IWorld) dependencies.get("world");
 		Entity entity = (Entity) dependencies.get("entity");
-
 		ItemStack winning = ItemStack.EMPTY;
 		if (((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).inventory.hasItemStack(new ItemStack(CaseBox1Item.block)) : false)
 				&& ((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).inventory.hasItemStack(new ItemStack(CaseKeyItem.block)) : false)) {
@@ -39,9 +61,7 @@ public class CaseBoxOpenCaseButtonProcedure {
 				((PlayerEntity) entity).inventory.func_234564_a_(p -> _stktoremove.getItem() == p.getItem(), (int) 1,
 						((PlayerEntity) entity).container.func_234641_j_());
 			}
-			winning =
-
-					ItemInCaseBoxProcedure.executeProcedure(Collections.EMPTY_MAP);
+			winning = ItemInCaseBoxProcedure.executeProcedure(Collections.EMPTY_MAP);
 			if (entity instanceof PlayerEntity) {
 				Container _current = ((PlayerEntity) entity).openContainer;
 				if (_current instanceof Supplier) {
@@ -76,5 +96,4 @@ public class CaseBoxOpenCaseButtonProcedure {
 			}
 		}
 	}
-
 }

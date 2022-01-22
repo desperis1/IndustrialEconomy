@@ -1,6 +1,26 @@
 package industrialeconomy.procedures;
 
-import net.minecraftforge.eventbus.api.Event;
+import net.minecraftforge.fml.network.NetworkHooks;
+
+import net.minecraft.world.IWorld;
+import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.network.PacketBuffer;
+import net.minecraft.inventory.container.INamedContainerProvider;
+import net.minecraft.inventory.container.Container;
+import net.minecraft.entity.player.ServerPlayerEntity;
+import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.Entity;
+
+import java.util.Map;
+
+import io.netty.buffer.Unpooled;
+
+import industrialeconomy.gui.HazardShopGUIGui;
+
+import industrialeconomy.IndustrialEconomyMod;
 
 public class ShopHAZARDButtonOnClickProcedure {
 
@@ -30,13 +50,11 @@ public class ShopHAZARDButtonOnClickProcedure {
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency entity for procedure ShopHAZARDButtonOnClick!");
 			return;
 		}
-
 		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		Entity entity = (Entity) dependencies.get("entity");
-
 		if (entity instanceof PlayerEntity)
 			((PlayerEntity) entity).closeScreen();
 		{
@@ -56,7 +74,5 @@ public class ShopHAZARDButtonOnClickProcedure {
 				}, _bpos);
 			}
 		}
-
 	}
-
 }

@@ -54,12 +54,12 @@
       {
         "type": "label",
         "data": {
-          "text": "10€",
+          "text": "10ï¿½",
           "color": {
             "value": -12829636,
             "falpha": 0.0
           },
-          "name": "10€",
+          "name": "10ï¿½",
           "x": 136,
           "y": 59
         }
@@ -67,12 +67,12 @@
       {
         "type": "label",
         "data": {
-          "text": "200€",
+          "text": "200ï¿½",
           "color": {
             "value": -12829636,
             "falpha": 0.0
           },
-          "name": "200€",
+          "name": "200ï¿½",
           "x": 157,
           "y": 85
         }
@@ -80,12 +80,12 @@
       {
         "type": "label",
         "data": {
-          "text": "Money: <VAR:player_money> €",
+          "text": "Money: <VAR:player_money> ï¿½",
           "color": {
             "value": -12829636,
             "falpha": 0.0
           },
-          "name": "Money: <VAR:player_money> €",
+          "name": "Money: <VAR:player_money> ï¿½",
           "x": 81,
           "y": 187
         }

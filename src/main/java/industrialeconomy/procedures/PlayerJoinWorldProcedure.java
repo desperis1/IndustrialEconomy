@@ -65,14 +65,10 @@ public class PlayerJoinWorldProcedure {
 			((PlayerEntity) entity).sendStatusMessage(new StringTextComponent(("Hello " + entity.getDisplayName().getString())), (false));
 		}
 		if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-			((PlayerEntity) entity)
-					.sendStatusMessage(
-							new StringTextComponent(
-									("You have: "
-											+ Math.round((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-													.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money)
-											+ " \u010F\u017C\u02DD")),
-							(false));
+			((PlayerEntity) entity).sendStatusMessage(new StringTextComponent(
+					("You have: " + Math.round((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+							.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money) + " \uFFFD")),
+					(false));
 		}
 		if (!world.isRemote()) {
 			BlockPos _bp = new BlockPos((int) IndustrialEconomyModVariables.WorldVariables.get(world).server_x,

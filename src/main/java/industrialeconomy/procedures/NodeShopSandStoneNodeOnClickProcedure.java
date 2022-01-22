@@ -40,7 +40,7 @@ public class NodeShopSandStoneNodeOnClickProcedure {
 				});
 			}
 			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("You bought 1 SandStone Node for 5000\u010F\u017C\u02DD"), (false));
+				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("You bought 1 SandStone Node for 5000\uFFFD"), (false));
 			}
 		} else {
 			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {

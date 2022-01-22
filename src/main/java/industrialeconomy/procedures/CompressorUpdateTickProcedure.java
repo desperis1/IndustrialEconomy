@@ -1,6 +1,24 @@
 package industrialeconomy.procedures;
 
-import net.minecraftforge.eventbus.api.Event;
+import net.minecraftforge.items.IItemHandlerModifiable;
+import net.minecraftforge.items.CapabilityItemHandler;
+
+import net.minecraft.world.World;
+import net.minecraft.world.IWorld;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.block.BlockState;
+
+import java.util.concurrent.atomic.AtomicReference;
+import java.util.Random;
+import java.util.Map;
+
+import industrialeconomy.item.SpaceSuitWithCanisterItem;
+
+import industrialeconomy.IndustrialEconomyModVariables;
+
+import industrialeconomy.IndustrialEconomyMod;
 
 public class CompressorUpdateTickProcedure {
 
@@ -25,12 +43,10 @@ public class CompressorUpdateTickProcedure {
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency z for procedure CompressorUpdateTick!");
 			return;
 		}
-
 		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-
 		String owner = "";
 		double players_hub_x = 0;
 		double players_hub_y = 0;
@@ -122,7 +138,6 @@ public class CompressorUpdateTickProcedure {
 							return -1;
 						}
 					}.getValue(world, new BlockPos((int) players_hub_x, (int) players_hub_y, (int) players_hub_z), "Energy")) - 10000));
-
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
@@ -145,5 +160,4 @@ public class CompressorUpdateTickProcedure {
 			}
 		}
 	}
-
 }

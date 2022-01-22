@@ -79,10 +79,10 @@ public class HazardShopGUIGuiWindow extends ContainerScreen<HazardShopGUIGui.Gui
 	@Override
 	protected void drawGuiContainerForegroundLayer(MatrixStack ms, int mouseX, int mouseY) {
 		this.font.drawString(ms, "Hazard Shop", 110, 3, -12829636);
-		this.font.drawString(ms, "10\u20AC", 60, 22, -12829636);
-		this.font.drawString(ms, "200\u20AC", 81, 48, -12829636);
+		this.font.drawString(ms, "10\uFFFD", 60, 22, -12829636);
+		this.font.drawString(ms, "200\uFFFD", 81, 48, -12829636);
 		this.font.drawString(ms, "Money: " + ((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-				.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money) + " \u20AC", 5, 150, -12829636);
+				.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money) + " \uFFFD", 5, 150, -12829636);
 	}
 
 	@Override

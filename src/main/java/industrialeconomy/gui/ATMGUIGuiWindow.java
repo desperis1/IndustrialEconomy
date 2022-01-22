@@ -80,7 +80,7 @@ public class ATMGUIGuiWindow extends ContainerScreen<ATMGUIGui.GuiContainerMod> 
 	protected void drawGuiContainerForegroundLayer(MatrixStack ms, int mouseX, int mouseY) {
 		this.font.drawString(ms, "ATM", 127, 4, -12829636);
 		this.font.drawString(ms, "Money: " + ((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-				.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money) + " \u20AC", 5, 216, -12829636);
+				.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money) + " \uFFFD", 5, 216, -12829636);
 		this.font.drawString(ms, "Deposit", 204, 116, -12829636);
 	}
 
@@ -94,49 +94,49 @@ public class ATMGUIGuiWindow extends ContainerScreen<ATMGUIGui.GuiContainerMod> 
 	public void init(Minecraft minecraft, int width, int height) {
 		super.init(minecraft, width, height);
 		minecraft.keyboardListener.enableRepeatEvents(true);
-		this.addButton(new Button(this.guiLeft + 10, this.guiTop + 13, 45, 20, new StringTextComponent("100€"), e -> {
+		this.addButton(new Button(this.guiLeft + 10, this.guiTop + 13, 45, 20, new StringTextComponent("100ï¿½"), e -> {
 			if (true) {
 				IndustrialEconomyMod.PACKET_HANDLER.sendToServer(new ATMGUIGui.ButtonPressedMessage(0, x, y, z));
 				ATMGUIGui.handleButtonAction(entity, 0, x, y, z);
 			}
 		}));
-		this.addButton(new Button(this.guiLeft + 10, this.guiTop + 31, 45, 20, new StringTextComponent("500€"), e -> {
+		this.addButton(new Button(this.guiLeft + 10, this.guiTop + 31, 45, 20, new StringTextComponent("500ï¿½"), e -> {
 			if (true) {
 				IndustrialEconomyMod.PACKET_HANDLER.sendToServer(new ATMGUIGui.ButtonPressedMessage(1, x, y, z));
 				ATMGUIGui.handleButtonAction(entity, 1, x, y, z);
 			}
 		}));
-		this.addButton(new Button(this.guiLeft + 10, this.guiTop + 49, 50, 20, new StringTextComponent("1000€"), e -> {
+		this.addButton(new Button(this.guiLeft + 10, this.guiTop + 49, 50, 20, new StringTextComponent("1000ï¿½"), e -> {
 			if (true) {
 				IndustrialEconomyMod.PACKET_HANDLER.sendToServer(new ATMGUIGui.ButtonPressedMessage(2, x, y, z));
 				ATMGUIGui.handleButtonAction(entity, 2, x, y, z);
 			}
 		}));
-		this.addButton(new Button(this.guiLeft + 10, this.guiTop + 67, 50, 20, new StringTextComponent("2000€"), e -> {
+		this.addButton(new Button(this.guiLeft + 10, this.guiTop + 67, 50, 20, new StringTextComponent("2000ï¿½"), e -> {
 			if (true) {
 				IndustrialEconomyMod.PACKET_HANDLER.sendToServer(new ATMGUIGui.ButtonPressedMessage(3, x, y, z));
 				ATMGUIGui.handleButtonAction(entity, 3, x, y, z);
 			}
 		}));
-		this.addButton(new Button(this.guiLeft + 10, this.guiTop + 85, 50, 20, new StringTextComponent("5000€"), e -> {
+		this.addButton(new Button(this.guiLeft + 10, this.guiTop + 85, 50, 20, new StringTextComponent("5000ï¿½"), e -> {
 			if (true) {
 				IndustrialEconomyMod.PACKET_HANDLER.sendToServer(new ATMGUIGui.ButtonPressedMessage(4, x, y, z));
 				ATMGUIGui.handleButtonAction(entity, 4, x, y, z);
 			}
 		}));
-		this.addButton(new Button(this.guiLeft + 10, this.guiTop + 103, 60, 20, new StringTextComponent("10 000€"), e -> {
+		this.addButton(new Button(this.guiLeft + 10, this.guiTop + 103, 60, 20, new StringTextComponent("10 000ï¿½"), e -> {
 			if (true) {
 				IndustrialEconomyMod.PACKET_HANDLER.sendToServer(new ATMGUIGui.ButtonPressedMessage(5, x, y, z));
 				ATMGUIGui.handleButtonAction(entity, 5, x, y, z);
 			}
 		}));
-		this.addButton(new Button(this.guiLeft + 10, this.guiTop + 121, 60, 20, new StringTextComponent("50 000€"), e -> {
+		this.addButton(new Button(this.guiLeft + 10, this.guiTop + 121, 60, 20, new StringTextComponent("50 000ï¿½"), e -> {
 			if (true) {
 				IndustrialEconomyMod.PACKET_HANDLER.sendToServer(new ATMGUIGui.ButtonPressedMessage(6, x, y, z));
 				ATMGUIGui.handleButtonAction(entity, 6, x, y, z);
 			}
 		}));
-		this.addButton(new Button(this.guiLeft + 10, this.guiTop + 139, 65, 20, new StringTextComponent("100 000€"), e -> {
+		this.addButton(new Button(this.guiLeft + 10, this.guiTop + 139, 65, 20, new StringTextComponent("100 000ï¿½"), e -> {
 			if (true) {
 				IndustrialEconomyMod.PACKET_HANDLER.sendToServer(new ATMGUIGui.ButtonPressedMessage(7, x, y, z));
 				ATMGUIGui.handleButtonAction(entity, 7, x, y, z);

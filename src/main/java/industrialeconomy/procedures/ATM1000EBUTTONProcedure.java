@@ -1,6 +1,18 @@
 package industrialeconomy.procedures;
 
-import net.minecraftforge.eventbus.api.Event;
+import net.minecraftforge.items.ItemHandlerHelper;
+
+import net.minecraft.item.ItemStack;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.Entity;
+
+import java.util.Map;
+
+import industrialeconomy.item.Money1000Item;
+
+import industrialeconomy.IndustrialEconomyModVariables;
+
+import industrialeconomy.IndustrialEconomyMod;
 
 public class ATM1000EBUTTONProcedure {
 
@@ -10,9 +22,7 @@ public class ATM1000EBUTTONProcedure {
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency entity for procedure ATM1000EBUTTON!");
 			return;
 		}
-
 		Entity entity = (Entity) dependencies.get("entity");
-
 		if ((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 				.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money >= 1000) {
 			{
@@ -30,5 +40,4 @@ public class ATM1000EBUTTONProcedure {
 			}
 		}
 	}
-
 }

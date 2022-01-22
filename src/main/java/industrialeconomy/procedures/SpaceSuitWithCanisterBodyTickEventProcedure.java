@@ -1,6 +1,20 @@
 package industrialeconomy.procedures;
 
-import net.minecraftforge.eventbus.api.Event;
+import net.minecraft.potion.EffectInstance;
+import net.minecraft.item.ItemStack;
+import net.minecraft.inventory.EquipmentSlotType;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.Entity;
+
+import java.util.Random;
+import java.util.Map;
+
+import industrialeconomy.potion.OxygenEffectPotionEffect;
+
+import industrialeconomy.item.SpaceSuitWithCanisterItem;
+import industrialeconomy.item.SpaceSuitItem;
+
+import industrialeconomy.IndustrialEconomyMod;
 
 public class SpaceSuitWithCanisterBodyTickEventProcedure {
 
@@ -10,9 +24,7 @@ public class SpaceSuitWithCanisterBodyTickEventProcedure {
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency entity for procedure SpaceSuitWithCanisterBodyTickEvent!");
 			return;
 		}
-
 		Entity entity = (Entity) dependencies.get("entity");
-
 		if (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.HEAD) : ItemStack.EMPTY)
 				.getItem() == SpaceSuitItem.helmet
 				&& ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.CHEST) : ItemStack.EMPTY)
@@ -39,5 +51,4 @@ public class SpaceSuitWithCanisterBodyTickEventProcedure {
 			}
 		}
 	}
-
 }

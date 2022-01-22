@@ -1,17 +1,31 @@
 
 package industrialeconomy.item;
 
-import net.minecraft.entity.ai.attributes.Attributes;
+import net.minecraftforge.registries.ObjectHolder;
+import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.api.distmarker.Dist;
+
+import net.minecraft.world.World;
+import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.item.Rarity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.Item;
+import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.block.BlockState;
+
+import java.util.List;
+
+import industrialeconomy.IndustrialEconomyModElements;
 
 @IndustrialEconomyModElements.ModElement.Tag
 public class CaseKeyItem extends IndustrialEconomyModElements.ModElement {
-
 	@ObjectHolder("industrial_economy:case_key")
 	public static final Item block = null;
 
 	public CaseKeyItem(IndustrialEconomyModElements instance) {
 		super(instance, 480);
-
 	}
 
 	@Override
@@ -20,7 +34,6 @@ public class CaseKeyItem extends IndustrialEconomyModElements.ModElement {
 	}
 
 	public static class ItemCustom extends Item {
-
 		public ItemCustom() {
 			super(new Item.Properties().group(ItemGroup.MISC).maxStackSize(64).rarity(Rarity.COMMON));
 			setRegistryName("case_key");
@@ -52,7 +65,5 @@ public class CaseKeyItem extends IndustrialEconomyModElements.ModElement {
 			super.addInformation(itemstack, world, list, flag);
 			list.add(new StringTextComponent("Unlock Case!"));
 		}
-
 	}
-
 }

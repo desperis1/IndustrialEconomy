@@ -26,12 +26,12 @@
       {
         "type": "label",
         "data": {
-          "text": "Money: <VAR:player_money> €",
+          "text": "Money: <VAR:player_money> ï¿½",
           "color": {
             "value": -12829636,
             "falpha": 0.0
           },
-          "name": "Money: <VAR:player_money> €",
+          "name": "Money: <VAR:player_money> ï¿½",
           "x": 82,
           "y": 220
         }
@@ -39,13 +39,13 @@
       {
         "type": "button",
         "data": {
-          "text": "100€",
+          "text": "100ï¿½",
           "onClick": {
             "name": "ATM100EBUTTON"
           },
           "width": 45,
           "height": 20,
-          "name": "100€",
+          "name": "100ï¿½",
           "x": 87,
           "y": 17
         }
@@ -53,13 +53,13 @@
       {
         "type": "button",
         "data": {
-          "text": "500€",
+          "text": "500ï¿½",
           "onClick": {
             "name": "ATM500EBUTTON"
           },
           "width": 45,
           "height": 20,
-          "name": "500€",
+          "name": "500ï¿½",
           "x": 87,
           "y": 35
         }
@@ -67,13 +67,13 @@
       {
         "type": "button",
         "data": {
-          "text": "1000€",
+          "text": "1000ï¿½",
           "onClick": {
             "name": "ATM1000EBUTTON"
           },
           "width": 50,
           "height": 20,
-          "name": "1000€",
+          "name": "1000ï¿½",
           "x": 87,
           "y": 53
         }
@@ -81,13 +81,13 @@
       {
         "type": "button",
         "data": {
-          "text": "2000€",
+          "text": "2000ï¿½",
           "onClick": {
             "name": "ATM2000EBUTTON"
           },
           "width": 50,
           "height": 20,
-          "name": "2000€",
+          "name": "2000ï¿½",
           "x": 87,
           "y": 71
         }
@@ -95,13 +95,13 @@
       {
         "type": "button",
         "data": {
-          "text": "5000€",
+          "text": "5000ï¿½",
           "onClick": {
             "name": "ATM5000EBUTTON"
           },
           "width": 50,
           "height": 20,
-          "name": "5000€",
+          "name": "5000ï¿½",
           "x": 87,
           "y": 89
         }
@@ -109,13 +109,13 @@
       {
         "type": "button",
         "data": {
-          "text": "10 000€",
+          "text": "10 000ï¿½",
           "onClick": {
             "name": "ATM10000EBUTTON"
           },
           "width": 60,
           "height": 20,
-          "name": "10 000€",
+          "name": "10 000ï¿½",
           "x": 87,
           "y": 107
         }
@@ -123,13 +123,13 @@
       {
         "type": "button",
         "data": {
-          "text": "50 000€",
+          "text": "50 000ï¿½",
           "onClick": {
             "name": "ATM50000EBUTTON"
           },
           "width": 60,
           "height": 20,
-          "name": "50 000€",
+          "name": "50 000ï¿½",
           "x": 87,
           "y": 125
         }
@@ -137,13 +137,13 @@
       {
         "type": "button",
         "data": {
-          "text": "100 000€",
+          "text": "100 000ï¿½",
           "onClick": {
             "name": "ATM100000EBUTTON"
           },
           "width": 65,
           "height": 20,
-          "name": "100 000€",
+          "name": "100 000ï¿½",
           "x": 87,
           "y": 143
         }

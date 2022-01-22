@@ -1,6 +1,12 @@
 package industrialeconomy.procedures;
 
-import net.minecraftforge.eventbus.api.Event;
+import net.minecraft.world.IWorld;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.block.Blocks;
+
+import java.util.Map;
+
+import industrialeconomy.IndustrialEconomyMod;
 
 public class CrystalAdditionalGenerationConditionProcedure {
 
@@ -25,17 +31,14 @@ public class CrystalAdditionalGenerationConditionProcedure {
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency z for procedure CrystalAdditionalGenerationCondition!");
 			return false;
 		}
-
 		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-
 		if ((world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock() == Blocks.CAVE_AIR
 				&& (world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z))).getMaterial() == net.minecraft.block.material.Material.ROCK) {
 			return true;
 		}
 		return false;
 	}
-
 }
