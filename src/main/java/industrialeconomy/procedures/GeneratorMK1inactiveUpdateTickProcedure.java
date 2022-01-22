@@ -2,12 +2,18 @@ package industrialeconomy.procedures;
 
 import net.minecraftforge.items.IItemHandlerModifiable;
 import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.fml.server.ServerLifecycleHooks;
+import net.minecraftforge.fml.loading.FMLPaths;
 
 import net.minecraft.world.World;
 import net.minecraft.world.IWorld;
+import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.ChatType;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.Util;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.state.Property;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.item.ItemStack;
 import net.minecraft.block.BlockState;
@@ -16,13 +22,13 @@ import java.util.concurrent.atomic.AtomicReference;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.Map;
 
+import java.io.File;
+
 import industrialeconomy.item.TurbofuelitemItem;
 import industrialeconomy.item.Turbofuelitem3Item;
 import industrialeconomy.item.Turbofuelitem2Item;
 
 import industrialeconomy.block.GeneratorMK1Block;
-
-import industrialeconomy.IndustrialEconomyModVariables;
 
 import industrialeconomy.IndustrialEconomyMod;
 
@@ -54,6 +60,8 @@ public class GeneratorMK1inactiveUpdateTickProcedure {
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		String owner = "";
+		File playerConfig = new File("");
+		com.google.gson.JsonObject mainObject = new com.google.gson.JsonObject();
 		owner = (new Object() {
 			public String getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
@@ -62,6 +70,7 @@ public class GeneratorMK1inactiveUpdateTickProcedure {
 				return "";
 			}
 		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "owner"));
+		playerConfig = (File) new File((FMLPaths.GAMEDIR.get().toString() + "/config/"), File.separator + (owner + ".json"));
 		if ((new Object() {
 			public ItemStack getItemStack(BlockPos pos, int sltid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
@@ -261,18 +270,7 @@ public class GeneratorMK1inactiveUpdateTickProcedure {
 					return tileEntity.getTileData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "GeneratorEnergy") > 1 && true == (new Object() {
-			public boolean getValue(IWorld world, BlockPos pos, String tag) {
-				TileEntity tileEntity = world.getTileEntity(pos);
-				if (tileEntity != null)
-					return tileEntity.getTileData().getBoolean(tag);
-				return false;
-			}
-		}.getValue(world,
-				new BlockPos((int) IndustrialEconomyModVariables.WorldVariables.get(world).server_x,
-						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_y,
-						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_z),
-				(owner + "_isOnline")))) {
+		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "GeneratorEnergy") > 1 && mainObject.get("isOnline").getAsBoolean() == true) {
 			{
 				BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 				BlockState _bs = GeneratorMK1Block.block.getDefaultState();
@@ -311,6 +309,11 @@ public class GeneratorMK1inactiveUpdateTickProcedure {
 					_tileEntity.getTileData().putBoolean("Working", (false));
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
+			}
+			if (!world.isRemote()) {
+				MinecraftServer mcserv = ServerLifecycleHooks.getCurrentServer();
+				if (mcserv != null)
+					mcserv.getPlayerList().func_232641_a_(new StringTextComponent("offline"), ChatType.SYSTEM, Util.DUMMY_UUID);
 			}
 		}
 	}

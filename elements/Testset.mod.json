@@ -2,10 +2,10 @@
   "_fv": 24,
   "_type": "command",
   "definition": {
-    "commandName": "shop",
+    "commandName": "testset",
     "permissionLevel": "No requirement",
     "onCommandExecuted": {
-      "name": "ShopCommandExecuted"
+      "name": "TestsetCommandExecuted"
     }
   }
 }

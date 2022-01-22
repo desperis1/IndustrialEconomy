@@ -2,6 +2,7 @@ package industrialeconomy.procedures;
 
 import net.minecraftforge.items.IItemHandlerModifiable;
 import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.fml.loading.FMLPaths;
 
 import net.minecraft.world.World;
 import net.minecraft.world.IWorld;
@@ -15,10 +16,19 @@ import net.minecraft.block.BlockState;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.Map;
 
+import java.io.IOException;
+import java.io.FileWriter;
+import java.io.FileReader;
+import java.io.File;
+import java.io.BufferedReader;
+
 import industrialeconomy.block.CopperOreBlock;
 import industrialeconomy.block.CateriumOreBlock;
 
 import industrialeconomy.IndustrialEconomyMod;
+
+import com.google.gson.GsonBuilder;
+import com.google.gson.Gson;
 
 public class HubUpdateTickProcedure {
 
@@ -47,6 +57,18 @@ public class HubUpdateTickProcedure {
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
+		File playerConfig = new File("");
+		com.google.gson.JsonObject mainObject = new com.google.gson.JsonObject();
+		String owner = "";
+		owner = (new Object() {
+			public String getValue(IWorld world, BlockPos pos, String tag) {
+				TileEntity tileEntity = world.getTileEntity(pos);
+				if (tileEntity != null)
+					return tileEntity.getTileData().getString(tag);
+				return "";
+			}
+		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "owner"));
+		playerConfig = (File) new File((FMLPaths.GAMEDIR.get().toString() + "/config/"), File.separator + (owner + ".json"));
 		if (new Object() {
 			public int getAmount(IWorld world, BlockPos pos, int sltid) {
 				AtomicInteger _retval = new AtomicInteger(0);
@@ -290,6 +312,40 @@ public class HubUpdateTickProcedure {
 					}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "SandStone")) - 64));
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
+			}
+		}
+		{
+			try {
+				BufferedReader bufferedReader = new BufferedReader(new FileReader(playerConfig));
+				StringBuilder jsonstringbuilder = new StringBuilder();
+				String line;
+				while ((line = bufferedReader.readLine()) != null) {
+					jsonstringbuilder.append(line);
+				}
+				bufferedReader.close();
+				mainObject = new Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
+				if (!world.isRemote()) {
+					BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
+					TileEntity _tileEntity = world.getTileEntity(_bp);
+					BlockState _bs = world.getBlockState(_bp);
+					if (_tileEntity != null)
+						_tileEntity.getTileData().putDouble("Energy", mainObject.get("Energy").getAsDouble());
+					if (world instanceof World)
+						((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
+				}
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		{
+			Gson mainGSONBuilderVariable = new GsonBuilder().setPrettyPrinting().create();
+			try {
+				FileWriter fileWriter = new FileWriter(playerConfig);
+				fileWriter.write(mainGSONBuilderVariable.toJson(mainObject));
+				fileWriter.close();
+			} catch (IOException exception) {
+				exception.printStackTrace();
 			}
 		}
 	}

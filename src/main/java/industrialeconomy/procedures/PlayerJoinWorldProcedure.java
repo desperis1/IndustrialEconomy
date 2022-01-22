@@ -1,24 +1,25 @@
 package industrialeconomy.procedures;
 
+import net.minecraftforge.fml.loading.FMLPaths;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 
-import net.minecraft.world.World;
-import net.minecraft.world.IWorld;
-import net.minecraft.util.text.StringTextComponent;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.Entity;
-import net.minecraft.block.BlockState;
 
 import java.util.Map;
 import java.util.HashMap;
 
-import industrialeconomy.IndustrialEconomyModVariables;
+import java.io.IOException;
+import java.io.FileWriter;
+import java.io.FileReader;
+import java.io.File;
+import java.io.BufferedReader;
 
 import industrialeconomy.IndustrialEconomyMod;
+
+import com.google.gson.GsonBuilder;
+import com.google.gson.Gson;
 
 public class PlayerJoinWorldProcedure {
 	@Mod.EventBusSubscriber
@@ -38,58 +39,61 @@ public class PlayerJoinWorldProcedure {
 	}
 
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency world for procedure PlayerJoinWorld!");
-			return;
-		}
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency entity for procedure PlayerJoinWorld!");
 			return;
 		}
-		IWorld world = (IWorld) dependencies.get("world");
 		Entity entity = (Entity) dependencies.get("entity");
-		if (!world.isRemote()) {
-			BlockPos _bp = new BlockPos((int) IndustrialEconomyModVariables.WorldVariables.get(world).server_x,
-					(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_y,
-					(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_z);
-			TileEntity _tileEntity = world.getTileEntity(_bp);
-			BlockState _bs = world.getBlockState(_bp);
-			if (_tileEntity != null)
-				_tileEntity.getTileData().putBoolean((entity.getDisplayName().getString() + "_" + "isOnline"), (true));
-			if (world instanceof World)
-				((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
-		}
-		if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-			((PlayerEntity) entity).sendStatusMessage(new StringTextComponent(("Hello " + entity.getDisplayName().getString())), (false));
-		}
-		if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-			((PlayerEntity) entity).sendStatusMessage(new StringTextComponent(
-					("You have: " + Math.round((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money) + " \uFFFD")),
-					(false));
-		}
-		if (!world.isRemote()) {
-			BlockPos _bp = new BlockPos((int) IndustrialEconomyModVariables.WorldVariables.get(world).server_x,
-					(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_y,
-					(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_z);
-			TileEntity _tileEntity = world.getTileEntity(_bp);
-			BlockState _bs = world.getBlockState(_bp);
-			if (_tileEntity != null)
-				_tileEntity.getTileData().putDouble((entity.getDisplayName().getString() + "_minerLevel"),
-						((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-								.orElse(new IndustrialEconomyModVariables.PlayerVariables())).miners_level));
-			if (world instanceof World)
-				((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
+		File playerConfig = new File("");
+		com.google.gson.JsonObject mainObject = new com.google.gson.JsonObject();
+		playerConfig = (File) new File((FMLPaths.GAMEDIR.get().toString() + "/config/"),
+				File.separator + (entity.getDisplayName().getString() + ".json"));
+		if (!playerConfig.exists()) {
+			try {
+				playerConfig.getParentFile().mkdirs();
+				playerConfig.createNewFile();
+			} catch (IOException exception) {
+				exception.printStackTrace();
+			}
+			mainObject.addProperty("MinerLevel", 1);
+			mainObject.addProperty("Money", 0);
+			{
+				Gson mainGSONBuilderVariable = new GsonBuilder().setPrettyPrinting().create();
+				try {
+					FileWriter fileWriter = new FileWriter(playerConfig);
+					fileWriter.write(mainGSONBuilderVariable.toJson(mainObject));
+					fileWriter.close();
+				} catch (IOException exception) {
+					exception.printStackTrace();
+				}
+			}
 		}
 		{
-			double _setval = Math.round((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-					.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money);
-			entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-				capability.player_money = _setval;
-				capability.syncPlayerVariables(entity);
-			});
+			try {
+				BufferedReader bufferedReader = new BufferedReader(new FileReader(playerConfig));
+				StringBuilder jsonstringbuilder = new StringBuilder();
+				String line;
+				while ((line = bufferedReader.readLine()) != null) {
+					jsonstringbuilder.append(line);
+				}
+				bufferedReader.close();
+				mainObject = new Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
+				mainObject.addProperty("isOnline", (true));
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		{
+			Gson mainGSONBuilderVariable = new GsonBuilder().setPrettyPrinting().create();
+			try {
+				FileWriter fileWriter = new FileWriter(playerConfig);
+				fileWriter.write(mainGSONBuilderVariable.toJson(mainObject));
+				fileWriter.close();
+			} catch (IOException exception) {
+				exception.printStackTrace();
+			}
 		}
 	}
 }

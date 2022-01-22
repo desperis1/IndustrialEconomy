@@ -11,26 +11,24 @@ import net.minecraft.entity.Entity;
 import net.minecraft.command.Commands;
 import net.minecraft.command.CommandSource;
 
-import java.util.stream.Stream;
-import java.util.Map;
 import java.util.HashMap;
+import java.util.Collections;
 import java.util.Arrays;
-import java.util.AbstractMap;
 
-import industrialeconomy.procedures.ShopCommandExecutedProcedure;
+import industrialeconomy.procedures.TestsetCommandExecutedProcedure;
 
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import com.mojang.brigadier.arguments.StringArgumentType;
 
 @Mod.EventBusSubscriber
-public class ShopCommand {
+public class TestsetCommand {
 	@SubscribeEvent
 	public static void registerCommands(RegisterCommandsEvent event) {
-		event.getDispatcher().register(LiteralArgumentBuilder.<CommandSource>literal("shop")
+		event.getDispatcher().register(LiteralArgumentBuilder.<CommandSource>literal("testset")
 
-				.then(Commands.argument("arguments", StringArgumentType.greedyString()).executes(ShopCommand::execute))
-				.executes(ShopCommand::execute));
+				.then(Commands.argument("arguments", StringArgumentType.greedyString()).executes(TestsetCommand::execute))
+				.executes(TestsetCommand::execute));
 	}
 
 	private static int execute(CommandContext<CommandSource> ctx) {
@@ -49,10 +47,7 @@ public class ShopCommand {
 			index[0]++;
 		});
 
-		ShopCommandExecutedProcedure.executeProcedure(Stream
-				.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
-						new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
-				.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+		TestsetCommandExecutedProcedure.executeProcedure(Collections.EMPTY_MAP);
 		return 0;
 	}
 }
