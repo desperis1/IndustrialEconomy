@@ -1,33 +1,11 @@
 package industrialeconomy.procedures;
 
-import net.minecraft.item.Items;
-import net.minecraft.item.ItemStack;
-import net.minecraft.block.Blocks;
-
-import java.util.Map;
-
-import industrialeconomy.item.ScrewItem;
-import industrialeconomy.item.Money50000Item;
-import industrialeconomy.item.Money100Item;
-import industrialeconomy.item.Money10000Item;
-import industrialeconomy.item.Money100000Item;
-import industrialeconomy.item.IndustrialDiamondItem;
-import industrialeconomy.item.EmptymoduleItem;
-import industrialeconomy.item.DiamondsteelplateItem;
-import industrialeconomy.item.DiamondscrewitemItem;
-import industrialeconomy.item.CrystalchunkItem;
-import industrialeconomy.item.CpuItem;
-import industrialeconomy.item.ControlUnitItem;
-
-import industrialeconomy.block.SolarpanelblockinactiveBlock;
-import industrialeconomy.block.MinerinactiveBlock;
-import industrialeconomy.block.HardenedcobbleBlock;
-import industrialeconomy.block.GeneratorMK2inactiveBlock;
-import industrialeconomy.block.GeneratorMK1inactiveBlock;
+import net.minecraftforge.eventbus.api.Event;
 
 public class ItemInCaseBoxProcedure {
 
 	public static ItemStack executeProcedure(Map<String, Object> dependencies) {
+
 		if (Math.random() < 0.0005) {
 			return new ItemStack(Money100000Item.block);
 		}
@@ -99,4 +77,5 @@ public class ItemInCaseBoxProcedure {
 		}
 		return new ItemStack(Blocks.DIRT);
 	}
+
 }

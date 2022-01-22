@@ -32,6 +32,8 @@ import net.minecraft.client.Minecraft;
 
 import java.util.function.Supplier;
 
+import java.io.File;
+
 public class IndustrialEconomyModVariables {
 	public IndustrialEconomyModVariables(IndustrialEconomyModElements elements) {
 		elements.addNetworkMessage(WorldSavedDataSyncMessage.class, WorldSavedDataSyncMessage::buffer, WorldSavedDataSyncMessage::new,
@@ -44,6 +46,8 @@ public class IndustrialEconomyModVariables {
 	private void init(FMLCommonSetupEvent event) {
 		CapabilityManager.INSTANCE.register(PlayerVariables.class, new PlayerVariablesStorage(), PlayerVariables::new);
 	}
+
+	public static File prices = new File("");
 
 	@SubscribeEvent
 	public void onPlayerLoggedIn(PlayerEvent.PlayerLoggedInEvent event) {
@@ -273,26 +277,26 @@ public class IndustrialEconomyModVariables {
 			nbt.putString("player_back_dimension", instance.player_back_dimension);
 			nbt.putDouble("energy_required_for_next_level", instance.energy_required_for_next_level);
 			nbt.putDouble("hub_energy_for_upgrade_save", instance.hub_energy_for_upgrade_save);
+			nbt.putDouble("case_item_counter_8", instance.case_item_counter_8);
 			nbt.putBoolean("player_rolling_case", instance.player_rolling_case);
-			nbt.put("case_item_0", instance.case_item_0.write(new CompoundNBT()));
-			nbt.put("case_item_1", instance.case_item_1.write(new CompoundNBT()));
-			nbt.put("case_item_2", instance.case_item_2.write(new CompoundNBT()));
-			nbt.put("case_item_3", instance.case_item_3.write(new CompoundNBT()));
-			nbt.put("case_item_4", instance.case_item_4.write(new CompoundNBT()));
+			nbt.putDouble("case_item_counter_1", instance.case_item_counter_1);
+			nbt.putDouble("case_item_counter_0", instance.case_item_counter_0);
+			nbt.putDouble("case_item_counter_3", instance.case_item_counter_3);
+			nbt.putDouble("case_item_counter_2", instance.case_item_counter_2);
+			nbt.putDouble("case_item_counter_5", instance.case_item_counter_5);
+			nbt.putDouble("case_item_counter_4", instance.case_item_counter_4);
+			nbt.putDouble("case_item_counter_7", instance.case_item_counter_7);
+			nbt.putDouble("case_item_counter_6", instance.case_item_counter_6);
 			nbt.put("case_item_5", instance.case_item_5.write(new CompoundNBT()));
 			nbt.put("case_item_6", instance.case_item_6.write(new CompoundNBT()));
 			nbt.put("case_item_7", instance.case_item_7.write(new CompoundNBT()));
 			nbt.put("case_item_8", instance.case_item_8.write(new CompoundNBT()));
-			nbt.putDouble("case_item_counter_0", instance.case_item_counter_0);
-			nbt.putDouble("case_item_counter_1", instance.case_item_counter_1);
-			nbt.putDouble("case_item_counter_2", instance.case_item_counter_2);
-			nbt.putDouble("case_item_counter_3", instance.case_item_counter_3);
-			nbt.putDouble("case_item_counter_4", instance.case_item_counter_4);
-			nbt.putDouble("case_item_counter_5", instance.case_item_counter_5);
-			nbt.putDouble("case_item_counter_6", instance.case_item_counter_6);
-			nbt.putDouble("case_item_counter_7", instance.case_item_counter_7);
-			nbt.putDouble("case_item_counter_8", instance.case_item_counter_8);
+			nbt.put("case_item_0", instance.case_item_0.write(new CompoundNBT()));
+			nbt.put("case_item_1", instance.case_item_1.write(new CompoundNBT()));
 			nbt.putBoolean("is_player_in_dimension1", instance.is_player_in_dimension1);
+			nbt.put("case_item_2", instance.case_item_2.write(new CompoundNBT()));
+			nbt.put("case_item_3", instance.case_item_3.write(new CompoundNBT()));
+			nbt.put("case_item_4", instance.case_item_4.write(new CompoundNBT()));
 			return nbt;
 		}
 
@@ -344,26 +348,26 @@ public class IndustrialEconomyModVariables {
 			instance.player_back_dimension = nbt.getString("player_back_dimension");
 			instance.energy_required_for_next_level = nbt.getDouble("energy_required_for_next_level");
 			instance.hub_energy_for_upgrade_save = nbt.getDouble("hub_energy_for_upgrade_save");
+			instance.case_item_counter_8 = nbt.getDouble("case_item_counter_8");
 			instance.player_rolling_case = nbt.getBoolean("player_rolling_case");
-			instance.case_item_0 = ItemStack.read(nbt.getCompound("case_item_0"));
-			instance.case_item_1 = ItemStack.read(nbt.getCompound("case_item_1"));
-			instance.case_item_2 = ItemStack.read(nbt.getCompound("case_item_2"));
-			instance.case_item_3 = ItemStack.read(nbt.getCompound("case_item_3"));
-			instance.case_item_4 = ItemStack.read(nbt.getCompound("case_item_4"));
+			instance.case_item_counter_1 = nbt.getDouble("case_item_counter_1");
+			instance.case_item_counter_0 = nbt.getDouble("case_item_counter_0");
+			instance.case_item_counter_3 = nbt.getDouble("case_item_counter_3");
+			instance.case_item_counter_2 = nbt.getDouble("case_item_counter_2");
+			instance.case_item_counter_5 = nbt.getDouble("case_item_counter_5");
+			instance.case_item_counter_4 = nbt.getDouble("case_item_counter_4");
+			instance.case_item_counter_7 = nbt.getDouble("case_item_counter_7");
+			instance.case_item_counter_6 = nbt.getDouble("case_item_counter_6");
 			instance.case_item_5 = ItemStack.read(nbt.getCompound("case_item_5"));
 			instance.case_item_6 = ItemStack.read(nbt.getCompound("case_item_6"));
 			instance.case_item_7 = ItemStack.read(nbt.getCompound("case_item_7"));
 			instance.case_item_8 = ItemStack.read(nbt.getCompound("case_item_8"));
-			instance.case_item_counter_0 = nbt.getDouble("case_item_counter_0");
-			instance.case_item_counter_1 = nbt.getDouble("case_item_counter_1");
-			instance.case_item_counter_2 = nbt.getDouble("case_item_counter_2");
-			instance.case_item_counter_3 = nbt.getDouble("case_item_counter_3");
-			instance.case_item_counter_4 = nbt.getDouble("case_item_counter_4");
-			instance.case_item_counter_5 = nbt.getDouble("case_item_counter_5");
-			instance.case_item_counter_6 = nbt.getDouble("case_item_counter_6");
-			instance.case_item_counter_7 = nbt.getDouble("case_item_counter_7");
-			instance.case_item_counter_8 = nbt.getDouble("case_item_counter_8");
+			instance.case_item_0 = ItemStack.read(nbt.getCompound("case_item_0"));
+			instance.case_item_1 = ItemStack.read(nbt.getCompound("case_item_1"));
 			instance.is_player_in_dimension1 = nbt.getBoolean("is_player_in_dimension1");
+			instance.case_item_2 = ItemStack.read(nbt.getCompound("case_item_2"));
+			instance.case_item_3 = ItemStack.read(nbt.getCompound("case_item_3"));
+			instance.case_item_4 = ItemStack.read(nbt.getCompound("case_item_4"));
 		}
 	}
 
@@ -413,26 +417,26 @@ public class IndustrialEconomyModVariables {
 		public String player_back_dimension = "\"\"";
 		public double energy_required_for_next_level = 0;
 		public double hub_energy_for_upgrade_save = 0;
+		public double case_item_counter_8 = 0;
 		public boolean player_rolling_case = false;
-		public ItemStack case_item_0 = ItemStack.EMPTY;
-		public ItemStack case_item_1 = ItemStack.EMPTY;
-		public ItemStack case_item_2 = ItemStack.EMPTY;
-		public ItemStack case_item_3 = ItemStack.EMPTY;
-		public ItemStack case_item_4 = ItemStack.EMPTY;
+		public double case_item_counter_1 = 0;
+		public double case_item_counter_0 = 0;
+		public double case_item_counter_3 = 0;
+		public double case_item_counter_2 = 0;
+		public double case_item_counter_5 = 0;
+		public double case_item_counter_4 = 0;
+		public double case_item_counter_7 = 0;
+		public double case_item_counter_6 = 0;
 		public ItemStack case_item_5 = ItemStack.EMPTY;
 		public ItemStack case_item_6 = ItemStack.EMPTY;
 		public ItemStack case_item_7 = ItemStack.EMPTY;
 		public ItemStack case_item_8 = ItemStack.EMPTY;
-		public double case_item_counter_0 = 0;
-		public double case_item_counter_1 = 0;
-		public double case_item_counter_2 = 0;
-		public double case_item_counter_3 = 0;
-		public double case_item_counter_4 = 0;
-		public double case_item_counter_5 = 0;
-		public double case_item_counter_6 = 0;
-		public double case_item_counter_7 = 0;
-		public double case_item_counter_8 = 0;
+		public ItemStack case_item_0 = ItemStack.EMPTY;
+		public ItemStack case_item_1 = ItemStack.EMPTY;
 		public boolean is_player_in_dimension1 = false;
+		public ItemStack case_item_2 = ItemStack.EMPTY;
+		public ItemStack case_item_3 = ItemStack.EMPTY;
+		public ItemStack case_item_4 = ItemStack.EMPTY;
 
 		public void syncPlayerVariables(Entity entity) {
 			if (entity instanceof ServerPlayerEntity)
@@ -505,25 +509,25 @@ public class IndustrialEconomyModVariables {
 		clone.player_back_dimension = original.player_back_dimension;
 		clone.energy_required_for_next_level = original.energy_required_for_next_level;
 		clone.hub_energy_for_upgrade_save = original.hub_energy_for_upgrade_save;
+		clone.case_item_counter_8 = original.case_item_counter_8;
 		clone.player_rolling_case = original.player_rolling_case;
+		clone.case_item_counter_1 = original.case_item_counter_1;
+		clone.case_item_counter_0 = original.case_item_counter_0;
+		clone.case_item_counter_3 = original.case_item_counter_3;
+		clone.case_item_counter_2 = original.case_item_counter_2;
+		clone.case_item_counter_5 = original.case_item_counter_5;
+		clone.case_item_counter_4 = original.case_item_counter_4;
+		clone.case_item_counter_7 = original.case_item_counter_7;
+		clone.case_item_counter_6 = original.case_item_counter_6;
+		clone.case_item_5 = original.case_item_5;
+		clone.case_item_6 = original.case_item_6;
+		clone.case_item_7 = original.case_item_7;
+		clone.case_item_8 = original.case_item_8;
 		clone.case_item_0 = original.case_item_0;
 		clone.case_item_1 = original.case_item_1;
 		clone.case_item_2 = original.case_item_2;
 		clone.case_item_3 = original.case_item_3;
 		clone.case_item_4 = original.case_item_4;
-		clone.case_item_5 = original.case_item_5;
-		clone.case_item_6 = original.case_item_6;
-		clone.case_item_7 = original.case_item_7;
-		clone.case_item_8 = original.case_item_8;
-		clone.case_item_counter_0 = original.case_item_counter_0;
-		clone.case_item_counter_1 = original.case_item_counter_1;
-		clone.case_item_counter_2 = original.case_item_counter_2;
-		clone.case_item_counter_3 = original.case_item_counter_3;
-		clone.case_item_counter_4 = original.case_item_counter_4;
-		clone.case_item_counter_5 = original.case_item_counter_5;
-		clone.case_item_counter_6 = original.case_item_counter_6;
-		clone.case_item_counter_7 = original.case_item_counter_7;
-		clone.case_item_counter_8 = original.case_item_counter_8;
 		if (!event.isWasDeath()) {
 			clone.DSA_NightVision = original.DSA_NightVision;
 			clone.DSA_Jetpack = original.DSA_Jetpack;
@@ -603,26 +607,26 @@ public class IndustrialEconomyModVariables {
 					variables.player_back_dimension = message.data.player_back_dimension;
 					variables.energy_required_for_next_level = message.data.energy_required_for_next_level;
 					variables.hub_energy_for_upgrade_save = message.data.hub_energy_for_upgrade_save;
+					variables.case_item_counter_8 = message.data.case_item_counter_8;
 					variables.player_rolling_case = message.data.player_rolling_case;
-					variables.case_item_0 = message.data.case_item_0;
-					variables.case_item_1 = message.data.case_item_1;
-					variables.case_item_2 = message.data.case_item_2;
-					variables.case_item_3 = message.data.case_item_3;
-					variables.case_item_4 = message.data.case_item_4;
+					variables.case_item_counter_1 = message.data.case_item_counter_1;
+					variables.case_item_counter_0 = message.data.case_item_counter_0;
+					variables.case_item_counter_3 = message.data.case_item_counter_3;
+					variables.case_item_counter_2 = message.data.case_item_counter_2;
+					variables.case_item_counter_5 = message.data.case_item_counter_5;
+					variables.case_item_counter_4 = message.data.case_item_counter_4;
+					variables.case_item_counter_7 = message.data.case_item_counter_7;
+					variables.case_item_counter_6 = message.data.case_item_counter_6;
 					variables.case_item_5 = message.data.case_item_5;
 					variables.case_item_6 = message.data.case_item_6;
 					variables.case_item_7 = message.data.case_item_7;
 					variables.case_item_8 = message.data.case_item_8;
-					variables.case_item_counter_0 = message.data.case_item_counter_0;
-					variables.case_item_counter_1 = message.data.case_item_counter_1;
-					variables.case_item_counter_2 = message.data.case_item_counter_2;
-					variables.case_item_counter_3 = message.data.case_item_counter_3;
-					variables.case_item_counter_4 = message.data.case_item_counter_4;
-					variables.case_item_counter_5 = message.data.case_item_counter_5;
-					variables.case_item_counter_6 = message.data.case_item_counter_6;
-					variables.case_item_counter_7 = message.data.case_item_counter_7;
-					variables.case_item_counter_8 = message.data.case_item_counter_8;
+					variables.case_item_0 = message.data.case_item_0;
+					variables.case_item_1 = message.data.case_item_1;
 					variables.is_player_in_dimension1 = message.data.is_player_in_dimension1;
+					variables.case_item_2 = message.data.case_item_2;
+					variables.case_item_3 = message.data.case_item_3;
+					variables.case_item_4 = message.data.case_item_4;
 				}
 			});
 			context.setPacketHandled(true);

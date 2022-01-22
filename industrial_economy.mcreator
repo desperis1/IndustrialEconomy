@@ -7432,8 +7432,7 @@
             "type": "world"
           }
         ]
-      },
-      "path": "~/Items"
+      }
     },
     {
       "name": "Energyforupgradeitem",
@@ -7445,219 +7444,12 @@
       "path": "~/Items"
     },
     {
-      "name": "SpaceSuit",
-      "type": "armor",
-      "sortid": 474,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "space_suit",
-      "metadata": {
-        "eh": true,
-        "el": true,
-        "eb": true,
-        "ec": true
-      },
-      "path": "~/SpaceSuit"
-    },
-    {
-      "name": "Oxygencanister",
-      "type": "tool",
-      "sortid": 475,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "oxygencanister",
-      "path": "~/SpaceSuit"
-    },
-    {
-      "name": "Oxygencanisterecipe",
-      "type": "recipe",
-      "sortid": 476,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "oxygencanisterecipe",
-      "path": "~/SpaceSuit"
-    },
-    {
-      "name": "CompressorUpdateTick",
+      "name": "ATM500EBUTTON",
       "type": "procedure",
-      "sortid": 477,
+      "sortid": 524,
       "compiles": true,
       "locked_code": false,
-      "registry_name": "compressor_update_tick",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      },
-      "path": "~/Machines/Compressor"
-    },
-    {
-      "name": "Compressor",
-      "type": "block",
-      "sortid": 477,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "compressor",
-      "path": "~/Machines/Compressor"
-    },
-    {
-      "name": "CompressorBlockIsPlacedBy",
-      "type": "procedure",
-      "sortid": 478,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "compressor_block_is_placed_by",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      },
-      "path": "~/Machines/Compressor"
-    },
-    {
-      "name": "CompressorGUI",
-      "type": "gui",
-      "sortid": 479,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "compressor_gui",
-      "path": "~/Machines/Compressor"
-    },
-    {
-      "name": "CaseKey",
-      "type": "item",
-      "sortid": 480,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "case_key",
-      "path": "~/Items/CaseOpening"
-    },
-    {
-      "name": "CaseBox1",
-      "type": "item",
-      "sortid": 481,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "case_box_1",
-      "path": "~/Items/CaseOpening"
-    },
-    {
-      "name": "CaseBoxGUI",
-      "type": "gui",
-      "sortid": 482,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "case_box_gui",
-      "path": "~/Items/CaseOpening"
-    },
-    {
-      "name": "ItemInCaseBox",
-      "type": "procedure",
-      "sortid": 483,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "item_in_case_box",
-      "metadata": {
-        "return_type": "itemstack",
-        "dependencies": []
-      },
-      "path": "~/Items/CaseOpening"
-    },
-    {
-      "name": "CaseBoxOpenCaseButton",
-      "type": "procedure",
-      "sortid": 487,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "case_box_open_case_button",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ]
-      },
-      "path": "~/Items/CaseOpening"
-    },
-    {
-      "name": "OxygenEffect",
-      "type": "potioneffect",
-      "sortid": 488,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "oxygen_effect",
-      "path": "~/Potions"
-    },
-    {
-      "name": "SpaceSuitWithCanister",
-      "type": "armor",
-      "sortid": 490,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "space_suit_with_canister",
-      "metadata": {
-        "eh": false,
-        "el": false,
-        "eb": false,
-        "ec": true
-      },
-      "path": "~/SpaceSuit"
-    },
-    {
-      "name": "SpacesuitOxygenON",
-      "type": "recipe",
-      "sortid": 491,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "spacesuit_oxygen_on",
-      "path": "~/SpaceSuit"
-    },
-    {
-      "name": "SpaceSuitWithCanisterBodyTickEvent",
-      "type": "procedure",
-      "sortid": 492,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "space_suit_with_canister_body_tick_event",
+      "registry_name": "atm_500_ebutton",
       "metadata": {
         "dependencies": [
           {
@@ -7666,7 +7458,7 @@
           }
         ]
       },
-      "path": "~/SpaceSuit"
+      "path": "~/Blocks/ATM"
     },
     {
       "name": "SteelDust",
@@ -7707,25 +7499,224 @@
       "path": "~/Blocks"
     },
     {
-      "name": "SteelStone",
-      "type": "block",
-      "sortid": 497,
+      "name": "SpaceSuit",
+      "type": "armor",
+      "sortid": 474,
       "compiles": true,
       "locked_code": false,
-      "registry_name": "steel_stone",
-      "path": "~/Blocks"
+      "registry_name": "space_suit",
+      "metadata": {
+        "eh": true,
+        "el": true,
+        "eb": true,
+        "ec": true
+      },
+      "path": "~/SpaceSuit"
     },
     {
-      "name": "LiquidHydrogen",
-      "type": "fluid",
-      "sortid": 498,
+      "name": "HazardShopGUI",
+      "type": "gui",
+      "sortid": 532,
       "compiles": true,
       "locked_code": false,
-      "registry_name": "liquid_hydrogen",
+      "registry_name": "hazard_shop_gui",
+      "path": "~/Shop"
+    },
+    {
+      "name": "Smelter",
+      "type": "enchantment",
+      "sortid": 545,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "smelter",
+      "path": "~/Enchantments"
+    },
+    {
+      "name": "CompressorGUI",
+      "type": "gui",
+      "sortid": 479,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "compressor_gui",
+      "path": "~/Machines/Compressor"
+    },
+    {
+      "name": "Money10000",
+      "type": "item",
+      "sortid": 518,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "money_10000",
+      "path": "~/Items/Money"
+    },
+    {
+      "name": "CaseBoxTakenFromSlot",
+      "type": "procedure",
+      "sortid": 511,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "case_box_taken_from_slot",
       "metadata": {
-        "gb": true
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
       },
-      "path": "~/Fluids"
+      "path": "~/Items/CaseOpening"
+    },
+    {
+      "name": "Test2",
+      "type": "dimension",
+      "sortid": 544,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "test_2",
+      "metadata": {
+        "ep": true
+      },
+      "path": "~/Dimensions"
+    },
+    {
+      "name": "Test",
+      "type": "biome",
+      "sortid": 541,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "test",
+      "path": "~/Biomes"
+    },
+    {
+      "name": "Oxygencanister",
+      "type": "tool",
+      "sortid": 475,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "oxygencanister",
+      "path": "~/SpaceSuit"
+    },
+    {
+      "name": "CaseBox1",
+      "type": "item",
+      "sortid": 481,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "case_box_1",
+      "path": "~/Items/CaseOpening"
+    },
+    {
+      "name": "SpacesuitOxygenON",
+      "type": "recipe",
+      "sortid": 491,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "spacesuit_oxygen_on",
+      "path": "~/SpaceSuit"
+    },
+    {
+      "name": "CaseKey",
+      "type": "item",
+      "sortid": 480,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "case_key",
+      "path": "~/Items/CaseOpening"
+    },
+    {
+      "name": "HazardShopCaseKeyOnClick",
+      "type": "procedure",
+      "sortid": 534,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "hazard_shop_case_key_on_click",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Shop"
+    },
+    {
+      "name": "CompressorRecipe",
+      "type": "recipe",
+      "sortid": 540,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "compressor_recipe",
+      "path": "~/Machines/Compressor"
+    },
+    {
+      "name": "ATM100000EBUTTON",
+      "type": "procedure",
+      "sortid": 530,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "atm_100000_ebutton",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Blocks/ATM"
+    },
+    {
+      "name": "Compressor",
+      "type": "block",
+      "sortid": 477,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "compressor",
+      "path": "~/Machines/Compressor"
+    },
+    {
+      "name": "ATM5000EBUTTON",
+      "type": "procedure",
+      "sortid": 526,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "atm_5000_ebutton",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Blocks/ATM"
+    },
+    {
+      "name": "SpaceSuitBoots",
+      "type": "recipe",
+      "sortid": 539,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "space_suit_boots",
+      "path": "~/SpaceSuit"
+    },
+    {
+      "name": "HazardShopCaseOnClick",
+      "type": "procedure",
+      "sortid": 533,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "hazard_shop_case_on_click",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Shop"
     },
     {
       "name": "LiquidHydrogenMobplayerCollidesBlock",
@@ -7745,31 +7736,75 @@
       "path": "~/Fluids"
     },
     {
-      "name": "SteelDustSmelting",
-      "type": "recipe",
-      "sortid": 500,
+      "name": "Testdd",
+      "type": "dimension",
+      "sortid": 542,
       "compiles": true,
       "locked_code": false,
-      "registry_name": "steel_dust_smelting",
-      "path": "~/Items"
+      "registry_name": "testdd",
+      "metadata": {
+        "ep": true
+      },
+      "path": "~/Dimensions"
     },
     {
-      "name": "Crystal",
-      "type": "block",
-      "sortid": 501,
+      "name": "CompressorBlockIsPlacedBy",
+      "type": "procedure",
+      "sortid": 478,
       "compiles": true,
       "locked_code": false,
-      "registry_name": "crystal",
-      "path": "~/Blocks/crystal"
+      "registry_name": "compressor_block_is_placed_by",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Machines/Compressor"
     },
     {
-      "name": "Crystalchunk",
+      "name": "ATMOnBlockRightClicked",
+      "type": "procedure",
+      "sortid": 531,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "atm_on_block_right_clicked",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Blocks/ATM"
+    },
+    {
+      "name": "Money100000",
       "type": "item",
-      "sortid": 502,
+      "sortid": 520,
       "compiles": true,
       "locked_code": false,
-      "registry_name": "crystalchunk",
-      "path": "~/Items"
+      "registry_name": "money_100000",
+      "path": "~/Items/Money"
     },
     {
       "name": "CrystalBlockDestroyedByPlayer",
@@ -7805,22 +7840,58 @@
       "path": "~/Blocks/crystal"
     },
     {
-      "name": "HydrogenParticle",
-      "type": "particle",
-      "sortid": 505,
+      "name": "Money5000",
+      "type": "item",
+      "sortid": 517,
       "compiles": true,
       "locked_code": false,
-      "registry_name": "hydrogen_particle",
-      "path": "~/Fluids"
+      "registry_name": "money_5000",
+      "path": "~/Items/Money"
     },
     {
-      "name": "LiquidHydrogenClientDisplayRandomTick",
-      "type": "procedure",
-      "sortid": 506,
+      "name": "Crystal",
+      "type": "block",
+      "sortid": 501,
       "compiles": true,
       "locked_code": false,
-      "registry_name": "liquid_hydrogen_client_display_random_tick",
+      "registry_name": "crystal",
+      "path": "~/Blocks/crystal"
+    },
+    {
+      "name": "ATM50000EBUTTON",
+      "type": "procedure",
+      "sortid": 529,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "atm_50000_ebutton",
       "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Blocks/ATM"
+    },
+    {
+      "name": "Money50000",
+      "type": "item",
+      "sortid": 519,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "money_50000",
+      "path": "~/Items/Money"
+    },
+    {
+      "name": "CrystalAdditionalGenerationCondition",
+      "type": "procedure",
+      "sortid": 543,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "crystal_additional_generation_condition",
+      "metadata": {
+        "return_type": "logic",
         "dependencies": [
           {
             "name": "x",
@@ -7840,17 +7911,25 @@
           }
         ]
       },
-      "path": "~/Fluids"
+      "path": "~/Blocks/crystal"
     },
     {
-      "name": "CaseboxbuttonShowCondition",
-      "type": "procedure",
-      "sortid": 510,
+      "name": "Money1000",
+      "type": "item",
+      "sortid": 515,
       "compiles": true,
       "locked_code": false,
-      "registry_name": "caseboxbutton_show_condition",
+      "registry_name": "money_1000",
+      "path": "~/Items/Money"
+    },
+    {
+      "name": "ATM2000EBUTTON",
+      "type": "procedure",
+      "sortid": 527,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "atm_2000_ebutton",
       "metadata": {
-        "return_type": "logic",
         "dependencies": [
           {
             "name": "entity",
@@ -7858,22 +7937,48 @@
           }
         ]
       },
-      "path": "~/Items/CaseOpening"
+      "path": "~/Blocks/ATM"
     },
     {
-      "name": "CaseBoxTakenFromSlot",
-      "type": "procedure",
-      "sortid": 511,
+      "name": "SpaceSuitHelmet",
+      "type": "recipe",
+      "sortid": 536,
       "compiles": true,
       "locked_code": false,
-      "registry_name": "case_box_taken_from_slot",
+      "registry_name": "space_suit_helmet",
+      "path": "~/SpaceSuit"
+    },
+    {
+      "name": "CaseBoxOpenCaseButton",
+      "type": "procedure",
+      "sortid": 487,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "case_box_open_case_button",
       "metadata": {
         "dependencies": [
           {
             "name": "entity",
             "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
         ]
+      },
+      "path": "~/Items/CaseOpening"
+    },
+    {
+      "name": "ItemInCaseBox",
+      "type": "procedure",
+      "sortid": 483,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_case_box",
+      "metadata": {
+        "return_type": "itemstack",
+        "dependencies": []
       },
       "path": "~/Items/CaseOpening"
     },
@@ -7911,85 +8016,13 @@
       "path": "~/Items/CaseOpening"
     },
     {
-      "name": "Money100",
-      "type": "item",
-      "sortid": 513,
+      "name": "SteelDustSmelting",
+      "type": "recipe",
+      "sortid": 500,
       "compiles": true,
       "locked_code": false,
-      "registry_name": "money_100",
-      "path": "~/Items/Money"
-    },
-    {
-      "name": "Money500",
-      "type": "item",
-      "sortid": 514,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "money_500",
-      "path": "~/Items/Money"
-    },
-    {
-      "name": "Money1000",
-      "type": "item",
-      "sortid": 515,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "money_1000",
-      "path": "~/Items/Money"
-    },
-    {
-      "name": "Money2000",
-      "type": "item",
-      "sortid": 516,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "money_2000",
-      "path": "~/Items/Money"
-    },
-    {
-      "name": "Money5000",
-      "type": "item",
-      "sortid": 517,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "money_5000",
-      "path": "~/Items/Money"
-    },
-    {
-      "name": "Money10000",
-      "type": "item",
-      "sortid": 518,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "money_10000",
-      "path": "~/Items/Money"
-    },
-    {
-      "name": "Money50000",
-      "type": "item",
-      "sortid": 519,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "money_50000",
-      "path": "~/Items/Money"
-    },
-    {
-      "name": "Money100000",
-      "type": "item",
-      "sortid": 520,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "money_100000",
-      "path": "~/Items/Money"
-    },
-    {
-      "name": "ATM",
-      "type": "block",
-      "sortid": 521,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "atm",
-      "path": "~/Blocks/ATM"
+      "registry_name": "steel_dust_smelting",
+      "path": "~/Items"
     },
     {
       "name": "ATMGUI",
@@ -7999,6 +8032,32 @@
       "locked_code": false,
       "registry_name": "atmgui",
       "path": "~/Blocks/ATM"
+    },
+    {
+      "name": "SpaceSuitWithCanisterBodyTickEvent",
+      "type": "procedure",
+      "sortid": 492,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "space_suit_with_canister_body_tick_event",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/SpaceSuit"
+    },
+    {
+      "name": "SpaceSuitLeggins",
+      "type": "recipe",
+      "sortid": 538,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "space_suit_leggins",
+      "path": "~/SpaceSuit"
     },
     {
       "name": "ATM100EBUTTON",
@@ -8018,21 +8077,40 @@
       "path": "~/Blocks/ATM"
     },
     {
-      "name": "ATM500EBUTTON",
-      "type": "procedure",
-      "sortid": 524,
+      "name": "Money100",
+      "type": "item",
+      "sortid": 513,
       "compiles": true,
       "locked_code": false,
-      "registry_name": "atm_500_ebutton",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          }
-        ]
-      },
-      "path": "~/Blocks/ATM"
+      "registry_name": "money_100",
+      "path": "~/Items/Money"
+    },
+    {
+      "name": "Money500",
+      "type": "item",
+      "sortid": 514,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "money_500",
+      "path": "~/Items/Money"
+    },
+    {
+      "name": "Money2000",
+      "type": "item",
+      "sortid": 516,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "money_2000",
+      "path": "~/Items/Money"
+    },
+    {
+      "name": "OxygenEffect",
+      "type": "potioneffect",
+      "sortid": 488,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "oxygen_effect",
+      "path": "~/Potions"
     },
     {
       "name": "ATM1000EBUTTON",
@@ -8052,149 +8130,37 @@
       "path": "~/Blocks/ATM"
     },
     {
-      "name": "ATM5000EBUTTON",
-      "type": "procedure",
-      "sortid": 526,
+      "name": "Crystalchunk",
+      "type": "item",
+      "sortid": 502,
       "compiles": true,
       "locked_code": false,
-      "registry_name": "atm_5000_ebutton",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          }
-        ]
-      },
-      "path": "~/Blocks/ATM"
+      "registry_name": "crystalchunk",
+      "path": "~/Items"
     },
     {
-      "name": "ATM2000EBUTTON",
-      "type": "procedure",
-      "sortid": 527,
+      "name": "SpaceSuitWithCanister",
+      "type": "armor",
+      "sortid": 490,
       "compiles": true,
       "locked_code": false,
-      "registry_name": "atm_2000_ebutton",
+      "registry_name": "space_suit_with_canister",
       "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          }
-        ]
+        "eh": false,
+        "el": false,
+        "eb": false,
+        "ec": true
       },
-      "path": "~/Blocks/ATM"
+      "path": "~/SpaceSuit"
     },
     {
-      "name": "ATM10000EBUTTON",
-      "type": "procedure",
-      "sortid": 528,
+      "name": "SteelStone",
+      "type": "block",
+      "sortid": 497,
       "compiles": true,
       "locked_code": false,
-      "registry_name": "atm_10000_ebutton",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          }
-        ]
-      },
-      "path": "~/Blocks/ATM"
-    },
-    {
-      "name": "ATM50000EBUTTON",
-      "type": "procedure",
-      "sortid": 529,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "atm_50000_ebutton",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          }
-        ]
-      },
-      "path": "~/Blocks/ATM"
-    },
-    {
-      "name": "ATM100000EBUTTON",
-      "type": "procedure",
-      "sortid": 530,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "atm_100000_ebutton",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          }
-        ]
-      },
-      "path": "~/Blocks/ATM"
-    },
-    {
-      "name": "ATMOnBlockRightClicked",
-      "type": "procedure",
-      "sortid": 531,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "atm_on_block_right_clicked",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          }
-        ]
-      },
-      "path": "~/Blocks/ATM"
-    },
-    {
-      "name": "HazardShopGUI",
-      "type": "gui",
-      "sortid": 532,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "hazard_shop_gui",
-      "path": "~/Shop"
-    },
-    {
-      "name": "HazardShopCaseOnClick",
-      "type": "procedure",
-      "sortid": 533,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "hazard_shop_case_on_click",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          }
-        ]
-      },
-      "path": "~/Shop"
-    },
-    {
-      "name": "HazardShopCaseKeyOnClick",
-      "type": "procedure",
-      "sortid": 534,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "hazard_shop_case_key_on_click",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          }
-        ]
-      },
-      "path": "~/Shop"
+      "registry_name": "steel_stone",
+      "path": "~/Blocks"
     },
     {
       "name": "ShopHAZARDButtonOnClick",
@@ -8230,80 +8196,13 @@
       "path": "~/Shop"
     },
     {
-      "name": "SpaceSuitHelmet",
-      "type": "recipe",
-      "sortid": 536,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "space_suit_helmet",
-      "path": "~/SpaceSuit"
-    },
-    {
-      "name": "SpaceSuitBody",
-      "type": "recipe",
-      "sortid": 537,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "space_suit_body",
-      "path": "~/SpaceSuit"
-    },
-    {
-      "name": "SpaceSuitLeggins",
-      "type": "recipe",
-      "sortid": 538,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "space_suit_leggins",
-      "path": "~/SpaceSuit"
-    },
-    {
-      "name": "SpaceSuitBoots",
-      "type": "recipe",
-      "sortid": 539,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "space_suit_boots",
-      "path": "~/SpaceSuit"
-    },
-    {
-      "name": "CompressorRecipe",
-      "type": "recipe",
-      "sortid": 540,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "compressor_recipe",
-      "path": "~/Machines/Compressor"
-    },
-    {
-      "name": "Test",
-      "type": "biome",
-      "sortid": 541,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "test",
-      "path": "~/Biomes"
-    },
-    {
-      "name": "Testdd",
-      "type": "dimension",
-      "sortid": 542,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "testdd",
-      "metadata": {
-        "ep": true
-      },
-      "path": "~/Dimensions"
-    },
-    {
-      "name": "CrystalAdditionalGenerationCondition",
+      "name": "LiquidHydrogenClientDisplayRandomTick",
       "type": "procedure",
-      "sortid": 543,
+      "sortid": 506,
       "compiles": true,
       "locked_code": false,
-      "registry_name": "crystal_additional_generation_condition",
+      "registry_name": "liquid_hydrogen_client_display_random_tick",
       "metadata": {
-        "return_type": "logic",
         "dependencies": [
           {
             "name": "x",
@@ -8323,28 +8222,157 @@
           }
         ]
       },
-      "path": "~/Blocks/crystal"
+      "path": "~/Fluids"
     },
     {
-      "name": "Test2",
-      "type": "dimension",
-      "sortid": 544,
+      "name": "CompressorUpdateTick",
+      "type": "procedure",
+      "sortid": 477,
       "compiles": true,
       "locked_code": false,
-      "registry_name": "test_2",
+      "registry_name": "compressor_update_tick",
       "metadata": {
-        "ep": true
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
       },
-      "path": "~/Dimensions"
+      "path": "~/Machines/Compressor"
     },
     {
-      "name": "Smelter",
-      "type": "enchantment",
-      "sortid": 545,
+      "name": "Oxygencanisterecipe",
+      "type": "recipe",
+      "sortid": 476,
       "compiles": true,
       "locked_code": false,
-      "registry_name": "smelter",
-      "path": "~/Enchantments"
+      "registry_name": "oxygencanisterecipe",
+      "path": "~/SpaceSuit"
+    },
+    {
+      "name": "CaseBoxGUI",
+      "type": "gui",
+      "sortid": 482,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "case_box_gui",
+      "path": "~/Items/CaseOpening"
+    },
+    {
+      "name": "LiquidHydrogen",
+      "type": "fluid",
+      "sortid": 498,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "liquid_hydrogen",
+      "metadata": {
+        "gb": true
+      },
+      "path": "~/Fluids"
+    },
+    {
+      "name": "CaseboxbuttonShowCondition",
+      "type": "procedure",
+      "sortid": 510,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "caseboxbutton_show_condition",
+      "metadata": {
+        "return_type": "logic",
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Items/CaseOpening"
+    },
+    {
+      "name": "ATM",
+      "type": "block",
+      "sortid": 521,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "atm",
+      "path": "~/Blocks/ATM"
+    },
+    {
+      "name": "HydrogenParticle",
+      "type": "particle",
+      "sortid": 505,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "hydrogen_particle",
+      "path": "~/Fluids"
+    },
+    {
+      "name": "ATM10000EBUTTON",
+      "type": "procedure",
+      "sortid": 528,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "atm_10000_ebutton",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Blocks/ATM"
+    },
+    {
+      "name": "SpaceSuitBody",
+      "type": "recipe",
+      "sortid": 537,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "space_suit_body",
+      "path": "~/SpaceSuit"
+    },
+    {
+      "name": "Txtsetpricetest",
+      "type": "procedure",
+      "sortid": 474,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "txtsetpricetest",
+      "path": "~/Test"
+    },
+    {
+      "name": "Txtprice",
+      "type": "command",
+      "sortid": 475,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "txtprice",
+      "path": "~/Test"
+    },
+    {
+      "name": "TxtpriceCommandExecuted",
+      "type": "procedure",
+      "sortid": 475,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "txtprice_command_executed",
+      "metadata": {
+        "dependencies": []
+      }
     }
   ],
   "variable_elements": [
@@ -8649,40 +8677,64 @@
       "value": "0"
     },
     {
+      "name": "case_item_counter_8",
+      "type": "number",
+      "scope": "player_persistent",
+      "value": "0"
+    },
+    {
       "name": "player_rolling_case",
       "type": "logic",
       "scope": "player_persistent",
       "value": "false"
     },
     {
-      "name": "case_item_0",
-      "type": "itemstack",
+      "name": "case_item_counter_1",
+      "type": "number",
       "scope": "player_persistent",
-      "value": "ItemStack.EMPTY"
+      "value": "0"
     },
     {
-      "name": "case_item_1",
-      "type": "itemstack",
+      "name": "case_item_counter_0",
+      "type": "number",
       "scope": "player_persistent",
-      "value": "ItemStack.EMPTY"
+      "value": "0"
     },
     {
-      "name": "case_item_2",
-      "type": "itemstack",
+      "name": "case_item_counter_3",
+      "type": "number",
       "scope": "player_persistent",
-      "value": "ItemStack.EMPTY"
+      "value": "0"
     },
     {
-      "name": "case_item_3",
-      "type": "itemstack",
+      "name": "case_item_counter_2",
+      "type": "number",
       "scope": "player_persistent",
-      "value": "ItemStack.EMPTY"
+      "value": "0"
     },
     {
-      "name": "case_item_4",
-      "type": "itemstack",
+      "name": "case_item_counter_5",
+      "type": "number",
       "scope": "player_persistent",
-      "value": "ItemStack.EMPTY"
+      "value": "0"
+    },
+    {
+      "name": "case_item_counter_4",
+      "type": "number",
+      "scope": "player_persistent",
+      "value": "0"
+    },
+    {
+      "name": "case_item_counter_7",
+      "type": "number",
+      "scope": "player_persistent",
+      "value": "0"
+    },
+    {
+      "name": "case_item_counter_6",
+      "type": "number",
+      "scope": "player_persistent",
+      "value": "0"
     },
     {
       "name": "case_item_5",
@@ -8709,64 +8761,46 @@
       "value": "ItemStack.EMPTY"
     },
     {
-      "name": "case_item_counter_0",
-      "type": "number",
+      "name": "case_item_0",
+      "type": "itemstack",
       "scope": "player_persistent",
-      "value": "0"
+      "value": "ItemStack.EMPTY"
     },
     {
-      "name": "case_item_counter_1",
-      "type": "number",
+      "name": "case_item_1",
+      "type": "itemstack",
       "scope": "player_persistent",
-      "value": "0"
-    },
-    {
-      "name": "case_item_counter_2",
-      "type": "number",
-      "scope": "player_persistent",
-      "value": "0"
-    },
-    {
-      "name": "case_item_counter_3",
-      "type": "number",
-      "scope": "player_persistent",
-      "value": "0"
-    },
-    {
-      "name": "case_item_counter_4",
-      "type": "number",
-      "scope": "player_persistent",
-      "value": "0"
-    },
-    {
-      "name": "case_item_counter_5",
-      "type": "number",
-      "scope": "player_persistent",
-      "value": "0"
-    },
-    {
-      "name": "case_item_counter_6",
-      "type": "number",
-      "scope": "player_persistent",
-      "value": "0"
-    },
-    {
-      "name": "case_item_counter_7",
-      "type": "number",
-      "scope": "player_persistent",
-      "value": "0"
-    },
-    {
-      "name": "case_item_counter_8",
-      "type": "number",
-      "scope": "player_persistent",
-      "value": "0"
+      "value": "ItemStack.EMPTY"
     },
     {
       "name": "is_player_in_dimension1",
       "type": "logic",
       "scope": "player_lifetime",
       "value": "false"
+    },
+    {
+      "name": "case_item_2",
+      "type": "itemstack",
+      "scope": "player_persistent",
+      "value": "ItemStack.EMPTY"
+    },
+    {
+      "name": "case_item_3",
+      "type": "itemstack",
+      "scope": "player_persistent",
+      "value": "ItemStack.EMPTY"
+    },
+    {
+      "name": "case_item_4",
+      "type": "itemstack",
+      "scope": "player_persistent",
+      "value": "ItemStack.EMPTY"
+    },
+    {
+      "name": "prices",
+      "type": "file",
+      "scope": "global",
+      "value": "new File(\"\")"
     }
   ],
   "sound_elements": [
@@ -8798,7 +8832,6 @@
   "language_map": {
     "en_us": {
       "block.industrial_economy.orange_concrete_slab": "Orange Concrete Slab",
-      "item.industrial_economy.space_suit_with_canister_helmet": "Space Suit With Canister Helmet",
       "item.mega_project.redstoneingotitem": "Redstone Ingot",
       "block.mega_project.generatormk_2": "Generator MK2",
       "item.satis_mine.control_unit": "Control Unit",
@@ -8825,7 +8858,6 @@
       "block.industrial_economy.modularframe": "Modular Frame",
       "block.mega_project.iron_ore_node_block": "Iron Ore Node Block(active)",
       "advancements.cateriumadvancement.title": "Caterium",
-      "item.industrial_economy.money_10000": "Money 10 000€",
       "block.industrial_economy.auto_sell": "Auto Sell",
       "item.mega_project.cateriumwireitem": "Caterium wire",
       "item.satis_mine.cateriumroditem": "Caterium rod",
@@ -8902,7 +8934,6 @@
       "block.mega_project.pink_concrete_stairs": "Pink Concrete Stairs",
       "item.satis_mine.perma_night_module": "Perma Night Module",
       "item.mega_project.cpu": "CPU",
-      "effect.oxygen_effect": "Pure Oxygen",
       "item.industrial_economy.emptymodule": "Empty Module",
       "block.satis_mine.pink_concrete_stairs": "Pink Concrete Stairs",
       "block.satis_mine.coal_node": "Coal Node(active)",
@@ -8916,8 +8947,8 @@
       "block.industrial_economy.purple_concrete_stairs": "Purple Concrete Stairs",
       "block.satis_mine.light_gray_concrete_stairs": "Light Gray Concrete Stairs",
       "block.mega_project.orange_concrete_stairs": "Orange Concrete Stairs",
-      "item.industrial_economy.test_2": "Test 2 Portal Igniter",
       "item.satis_mine.highspeedconectoritem": "High Speed Connector",
+      "item.industrial_economy.test_2": "Test 2 Portal Igniter",
       "item.mega_project.control_unit": "Control Unit",
       "item.industrial_economy.diamond_steel_armor_leggings": "Diamond Steel Leggings",
       "block.industrial_economy.position_1block": "Position 1",
@@ -8935,7 +8966,6 @@
       "enchantment.satis_mine.cheap_plasma": "Cheap Plasma",
       "block.industrial_economy.markblock": "Markblock",
       "itemGroup.tabproject_mega": "Satis Mine",
-      "item.industrial_economy.money_500": "Money 500€",
       "item.satis_mine.permadayupgrade": "Perma Day Modul",
       "item.satis_mine.plasma_shootrangeditem": "PlasmaShoot",
       "block.mega_project.lime_concrete_slab": "Lime Concrete Slab",
@@ -8965,19 +8995,16 @@
       "block.mega_project.crusher": "Crusher",
       "block.satis_mine.generator_mk_1inactive": "Generator MK 1",
       "item.industrial_economy.diamond_steel_h_oe": "Diamond Steel Hoe",
-      "item.industrial_economy.space_suit_with_canister_leggings": "Space Suit With Canister Leggings",
       "block.satis_mine.cyan_concrete_slab": "Cyan Concrete Slab",
       "item.industrial_economy.ai_limiteritem": "Ai Limiter",
       "block.satis_mine.foundyblock": "Foundry",
       "block.mega_project.armorcharger": "Armor Charger",
       "block.industrial_economy.green_concrete_slab": "Green Concrete Slab",
-      "block.industrial_economy.steel_stone": "Steel Stone",
       "item.satis_mine.diamond_steelpickaxe": "Diamond Steel Pickaxe",
       "block.mega_project.steel_block": "Steel Block",
       "block.satis_mine.armorchargermk_2": "Armor Charger MK2",
       "block.satis_mine.coal_extractor": "Coal Extractor",
       "block.mega_project.copper_extractor": "Copper Extractor",
-      "item.industrial_economy.space_suit_with_canister_boots": "Space Suit With Canister Boots",
       "item.mega_project.turbofuelitem": "Turbofuel Mk.1",
       "block.mega_project.coal_extractor": "Coal Extractor",
       "item.industrial_economy.diamond_steelpickaxe": "Diamond Steel Pickaxe",
@@ -9002,7 +9029,6 @@
       "block.mega_project.orangeleaves": "Orig Leaves",
       "item.industrial_economy.testdd": "Testdd Portal Igniter",
       "block.satis_mine.orange_concrete_slab": "Orange Concrete Slab",
-      "item.industrial_economy.steel_dust": "Steel Dust",
       "block.satis_mine.black_concrete_slab": "Black Concrete Slab",
       "item.satis_mine.rainhubmodule": "Rain Upgrade Module",
       "block.satis_mine.sandstoneextractor": "SandStone Extractor",
@@ -9026,30 +9052,23 @@
       "block.satis_mine.copper_extractor": "Copper Extractor",
       "block.industrial_economy.light_blue_concrete_slab": "Light Blue Concrete Slab",
       "block.industrial_economy.caterium_ore": "Caterium Ore",
-      "item.industrial_economy.oxygencanister": "Oxygen Canister",
       "block.satis_mine.iron_ore_node_block": "Iron Ore Node Block(active)",
       "block.mega_project.position_1block": "Position 1",
       "block.industrial_economy.brown_concrete_slab": "Brown Concrete Slab",
-      "item.industrial_economy.money_50000": "Money 50 000€",
       "key.satis_mine.ds_armorkeybind": "Diamond Steel Armor GUI",
       "block.industrial_economy.light_gray_concrete_slab": "Light Gray Concrete Slab",
-      "item.industrial_economy.crystalchunk": "Crystal",
       "block.mega_project.ledlamp": "Led Lamp ON",
       "block.industrial_economy.green_concrete_stairs": "Green Concrete Stairs",
       "block.mega_project.copper_node_inactve": "Copper Node(inactive)",
       "block.industrial_economy.electric_funanceinactive": "Electric Furnace MK1",
       "block.satis_mine.caterium_ore": "Caterium Ore",
-      "biome.industrial_economy.test": "Test",
       "enchantment.satis_mine.buildrange": "Build Range",
-      "item.industrial_economy.space_suit_helmet": "Space Suit Helmet",
       "item.industrial_economy.pocketchestitem": "Pocket Chest",
-      "item.industrial_economy.money_100": "Money 100€",
       "entity.mega_project.natuswolf": "Natus Wolf",
       "block.industrial_economy.blue_concrete_stairs": "Blue Concrete Stairs",
       "block.mega_project.minerinactive": "Miner MK1",
       "block.satis_mine.minerinactive": "Miner MK1",
       "block.mega_project.caterium_block": "Block of Caterium",
-      "item.industrial_economy.space_suit_leggings": "Space Suit Leggings",
       "block.mega_project.solarpanelblockinactive": "Solar panel ",
       "block.satis_mine.constructorblock": "Constructor",
       "block.satis_mine.generator_mk_2inactive": "Generator MK 2",
@@ -9072,13 +9091,11 @@
       "item.mega_project.plasmabulletitem": "Plasma Bullet",
       "item.satis_mine.ironplate": "Iron Plate",
       "block.mega_project.haarpinactive": "Haarp!",
-      "block.industrial_economy.liquid_hydrogen": "Liquid Hydrogen",
       "enchantment.industrial_economy.better_cool_down_enchantment": "Better CoolDown",
       "block.satis_mine.green_concrete_stairs": "Green Concrete Stairs",
       "block.industrial_economy.sandstoneextractor": "SandStone Extractor",
       "item.satis_mine.diamondsteelplate": "Diamond Steel Plate",
       "block.industrial_economy.solarpanelblockinactive": "Solar panel ",
-      "item.industrial_economy.case_key": "Case Key",
       "block.satis_mine.position_2block": "Position 2.",
       "key.mcreator.ds_armorkeybind": "Diamond Steel Armor GUI",
       "block.satis_mine.generator_mk_1": "Generator MK 1",
@@ -9092,7 +9109,6 @@
       "item.satis_mine.circuit_boarditem": "Circuit Board",
       "item.satis_mine.diamondstellshovel": "Diamondstellshovel",
       "block.industrial_economy.copper_ore": "Copper Ore",
-      "enchantment.industrial_economy.smelter": "Smelter",
       "item.satis_mine.buildertool": "Builder Gun",
       "block.industrial_economy.generator_mk_2inactive": "Generator MK 2",
       "block.industrial_economy.black_concrete_stairs": "Black Concrete Stairs",
@@ -9114,11 +9130,9 @@
       "block.mega_project.constructorinactive": "Constructor",
       "block.satis_mine.brown_concrete_slab": "Brown Concrete Slab",
       "block.industrial_economy.hardenedcobble": "Hardened Cobble",
-      "item.industrial_economy.space_suit_boots": "Space Suit Boots",
       "block.industrial_economy.brown_concrete_stairs": "Brown Concrete Stairs",
       "item.satis_mine.redstoneingotitem": "Redstone Ingot",
       "advancements.electronics.descr": "Electronics!",
-      "item.industrial_economy.space_suit_chestplate": "Space Suit Body",
       "block.industrial_economy.caterium_block": "Block of Caterium",
       "advancements.rudit_ingotadvancement.title": "Rudit Ingot",
       "item.mega_project.diamondsteelaxe": "Diamond Steel Axe",
@@ -9129,8 +9143,6 @@
       "block.mega_project.light_blue_concrete_slab": "Light Blue Concrete Slab",
       "block.mega_project.caterium_nod_eblock": "Caterium  Node Block (active)",
       "item.industrial_economy.diamondsteelitem": "Diamond Steel Ingot",
-      "item.industrial_economy.money_5000": "Money 5000€",
-      "item.industrial_economy.money_100000": "Money 100 000€",
       "block.industrial_economy.light_blue_concrete_stairs": "Light Blue Concrete Stairs",
       "block.mega_project.generator_mk_1": "Generator MK 1",
       "block.mega_project.copper_ore": "Copper Ore",
@@ -9152,9 +9164,7 @@
       "block.mega_project.concretemixer": "Concrete Mixer",
       "block.industrial_economy.yellow_concrete_stairs": "Yellow Concrete Stairs",
       "entity.satis_mine.natuswolf": "Natus Wolf",
-      "block.industrial_economy.atm": "ATM",
       "block.satis_mine.magenta_concrete_stairs": "Magenta Concrete Stairs",
-      "item.industrial_economy.money_2000": "Money 2000€",
       "block.satis_mine.caterium_nod_eblock": "Caterium  Node Block (active)",
       "item.satis_mine.diamond_steel_armor_helmet": "Diamond Steel Helmet",
       "block.mega_project.electric_funanceinactive": "Electric Furnace MK1",
@@ -9191,13 +9201,10 @@
       "block.satis_mine.presserblock": "Presser",
       "item.industrial_economy.turbofuelitem_3": "Turbofuel Mk.3",
       "block.mega_project.markblock": "Markblock",
-      "fluid.industrial_economy.liquid_hydrogen": "Liquid Hydrogen",
       "block.satis_mine.ledlampoff": "Led Lamp",
       "block.industrial_economy.solarpanelblockactive": " Solar panel Active",
       "item.industrial_economy.turbofuelitem_2": "Turbofuel Mk.2",
-      "item.industrial_economy.money_1000": "Money 1000€",
       "item.industrial_economy.ironplate": "Iron Plate",
-      "item.industrial_economy.liquid_hydrogen_bucket": "Liquid Hydrogen Bucket",
       "item.mega_project.diamond_steel_sword": "Diamond Steel Sword",
       "item.mega_project.diamondstellshovel": "Diamondstellshovel",
       "block.mega_project.generator_mk_1inactive": "Generator MK 1",
@@ -9260,153 +9267,19 @@
       "item.satis_mine.concrete": "Concrete",
       "block.mega_project.magenta_concrete_stairs": "Magenta Concrete Stairs",
       "item.mega_project.diamondsteelitem": "Diamond Steel Ingot",
-      "item.satis_mine.turbofuelitem": "Turbofuel Mk.1",
-      "item.industrial_economy.space_suit_with_canister_chestplate": "SpaceSuit With Oxygen Canister"
+      "item.satis_mine.turbofuelitem": "Turbofuel Mk.1"
     }
   },
   "foldersRoot": {
     "name": "~",
     "children": [
       {
-        "name": "Blocks",
-        "children": [
-          {
-            "name": "SlabsStairs",
-            "children": [
-              {
-                "name": "Recipes",
-                "children": []
-              }
-            ]
-          },
-          {
-            "name": "Ores",
-            "children": []
-          },
-          {
-            "name": "BuildGunBlocks",
-            "children": []
-          },
-          {
-            "name": "ServerBlock",
-            "children": []
-          },
-          {
-            "name": "Autosell",
-            "children": []
-          },
-          {
-            "name": "crystal",
-            "children": []
-          },
-          {
-            "name": "ATM",
-            "children": []
-          }
-        ]
-      },
-      {
-        "name": "Machines",
-        "children": [
-          {
-            "name": "Miner",
-            "children": []
-          },
-          {
-            "name": "GeneratorMK1",
-            "children": []
-          },
-          {
-            "name": "Constructor",
-            "children": []
-          },
-          {
-            "name": "GeneratorMK2",
-            "children": []
-          },
-          {
-            "name": "ElectricFurnanceMK1",
-            "children": []
-          },
-          {
-            "name": "Foundry",
-            "children": []
-          },
-          {
-            "name": "Charger",
-            "children": []
-          },
-          {
-            "name": "Presser",
-            "children": []
-          },
-          {
-            "name": "Extractors",
-            "children": [
-              {
-                "name": "IronExtractor",
-                "children": []
-              },
-              {
-                "name": "CopperExtractor",
-                "children": []
-              },
-              {
-                "name": "CateriumExtractor",
-                "children": []
-              },
-              {
-                "name": "CoalExtractor",
-                "children": []
-              }
-            ]
-          },
-          {
-            "name": "SolarPanel",
-            "children": []
-          },
-          {
-            "name": "Assembler",
-            "children": []
-          },
-          {
-            "name": "ArmorChargers",
-            "children": []
-          },
-          {
-            "name": "Crusher",
-            "children": []
-          },
-          {
-            "name": "ConcreteMixer",
-            "children": []
-          },
-          {
-            "name": "Compressor",
-            "children": []
-          }
-        ]
-      },
-      {
-        "name": "Nodes",
+        "name": "DiamondSteelArmor",
         "children": []
       },
       {
-        "name": "Items",
-        "children": [
-          {
-            "name": "TurboFuels",
-            "children": []
-          },
-          {
-            "name": "CaseOpening",
-            "children": []
-          },
-          {
-            "name": "Money",
-            "children": []
-          }
-        ]
+        "name": "SpaceSuit",
+        "children": []
       },
       {
         "name": "HUB",
@@ -9418,6 +9291,97 @@
         ]
       },
       {
+        "name": "Test",
+        "children": []
+      },
+      {
+        "name": "Nodes",
+        "children": []
+      },
+      {
+        "name": "Shop",
+        "children": []
+      },
+      {
+        "name": "Blocks",
+        "children": [
+          {
+            "name": "ServerBlock",
+            "children": []
+          },
+          {
+            "name": "ATM",
+            "children": []
+          },
+          {
+            "name": "SlabsStairs",
+            "children": [
+              {
+                "name": "Recipes",
+                "children": []
+              }
+            ]
+          },
+          {
+            "name": "BuildGunBlocks",
+            "children": []
+          },
+          {
+            "name": "crystal",
+            "children": []
+          },
+          {
+            "name": "Ores",
+            "children": []
+          },
+          {
+            "name": "Autosell",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Tags",
+        "children": []
+      },
+      {
+        "name": "Achievments",
+        "children": []
+      },
+      {
+        "name": "Overlay",
+        "children": []
+      },
+      {
+        "name": "Dimensions",
+        "children": []
+      },
+      {
+        "name": "Fluids",
+        "children": []
+      },
+      {
+        "name": "Items",
+        "children": [
+          {
+            "name": "TurboFuels",
+            "children": []
+          },
+          {
+            "name": "Money",
+            "children": []
+          },
+          {
+            "name": "CaseOpening",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "Biomes",
+        "children": []
+      },
+      {
         "name": "Tools",
         "children": [
           {
@@ -9425,11 +9389,11 @@
             "children": []
           },
           {
-            "name": "DiamondSteelTools",
+            "name": "Builder",
             "children": []
           },
           {
-            "name": "Builder",
+            "name": "DiamondSteelTools",
             "children": []
           },
           {
@@ -9439,44 +9403,7 @@
         ]
       },
       {
-        "name": "Commands",
-        "children": [
-          {
-            "name": "Land",
-            "children": []
-          },
-          {
-            "name": "Money",
-            "children": []
-          },
-          {
-            "name": "Sell",
-            "children": []
-          },
-          {
-            "name": "City",
-            "children": []
-          },
-          {
-            "name": "Admineditor",
-            "children": []
-          }
-        ]
-      },
-      {
-        "name": "Achievments",
-        "children": []
-      },
-      {
         "name": "AdminMenu",
-        "children": []
-      },
-      {
-        "name": "DiamondSteelArmor",
-        "children": []
-      },
-      {
-        "name": "Enchantments",
         "children": []
       },
       {
@@ -9488,39 +9415,118 @@
         "children": []
       },
       {
-        "name": "Test",
-        "children": []
-      },
-      {
-        "name": "Shop",
-        "children": []
-      },
-      {
-        "name": "Tags",
-        "children": []
-      },
-      {
-        "name": "SpaceSuit",
-        "children": []
-      },
-      {
         "name": "Potions",
         "children": []
       },
       {
-        "name": "Dimensions",
-        "children": []
+        "name": "Machines",
+        "children": [
+          {
+            "name": "Foundry",
+            "children": []
+          },
+          {
+            "name": "SolarPanel",
+            "children": []
+          },
+          {
+            "name": "Assembler",
+            "children": []
+          },
+          {
+            "name": "Constructor",
+            "children": []
+          },
+          {
+            "name": "ArmorChargers",
+            "children": []
+          },
+          {
+            "name": "Presser",
+            "children": []
+          },
+          {
+            "name": "GeneratorMK1",
+            "children": []
+          },
+          {
+            "name": "ElectricFurnanceMK1",
+            "children": []
+          },
+          {
+            "name": "GeneratorMK2",
+            "children": []
+          },
+          {
+            "name": "Crusher",
+            "children": []
+          },
+          {
+            "name": "Charger",
+            "children": []
+          },
+          {
+            "name": "ConcreteMixer",
+            "children": []
+          },
+          {
+            "name": "Miner",
+            "children": []
+          },
+          {
+            "name": "Compressor",
+            "children": []
+          },
+          {
+            "name": "Extractors",
+            "children": [
+              {
+                "name": "CopperExtractor",
+                "children": []
+              },
+              {
+                "name": "CoalExtractor",
+                "children": []
+              },
+              {
+                "name": "CateriumExtractor",
+                "children": []
+              },
+              {
+                "name": "IronExtractor",
+                "children": []
+              }
+            ]
+          }
+        ]
       },
       {
-        "name": "Overlay",
-        "children": []
+        "name": "Commands",
+        "children": [
+          {
+            "name": "Land",
+            "children": []
+          },
+          {
+            "name": "Admineditor",
+            "children": []
+          },
+          {
+            "name": "Sell",
+            "children": []
+          },
+          {
+            "name": "City",
+            "children": []
+          },
+          {
+            "name": "Money",
+            "children": []
+          }
+        ]
       },
       {
-        "name": "Biomes",
-        "children": []
-      },
-      {
-        "name": "Fluids",
+        "name": "Enchantments",
         "children": []
       }
     ]
@@ -9544,5 +9550,5 @@
     "modElementsPackage": "industrialeconomy",
     "lockBaseModFiles": false
   },
-  "mcreatorVersion": 202100353117
+  "mcreatorVersion": 202100235315
 }
