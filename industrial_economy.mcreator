@@ -7582,7 +7582,7 @@
       "name": "Test",
       "type": "biome",
       "sortid": 541,
-      "compiles": true,
+      "compiles": false,
       "locked_code": false,
       "registry_name": "test",
       "path": "~/Biomes"
@@ -8373,6 +8373,35 @@
       "metadata": {
         "dependencies": []
       }
+    },
+    {
+      "name": "Habdotest",
+      "type": "procedure",
+      "sortid": 546,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "habdotest",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Test"
     }
   ],
   "variable_elements": [
@@ -8872,11 +8901,11 @@
       "item.industrial_economy.plasma_rangeditem": "Plasma RANGEDITEM",
       "key.satis_mine.node_scanner_modes_keybind": "Node Scanner Modes",
       "block.industrial_economy.assemblerblock": "Assembler",
-      "advancements.rudit_ingotadvancement.descr": "Advanced Redstone",
       "block.satis_mine.lime_concrete_stairs": "Lime Concrete Stairs",
-      "item.mega_project.diamond_steel_armor_chestplate": "Diamond Steel Chestplate",
-      "item.mega_project.diamondscrewitem": "Diamond screw",
+      "advancements.rudit_ingotadvancement.descr": "Advanced Redstone",
       "item.industrial_economy.diamond_steel_armor_boots": "DiamondS teel Boots",
+      "item.mega_project.diamondscrewitem": "Diamond screw",
+      "item.mega_project.diamond_steel_armor_chestplate": "Diamond Steel Chestplate",
       "block.mega_project.haarp": "Haarp!",
       "block.industrial_economy.armorchargermk_2": "Armor Charger MK2",
       "key.satis_mine.plasmashootkeybind": "Plasma Shoot",
@@ -8936,8 +8965,8 @@
       "item.mega_project.cpu": "CPU",
       "item.industrial_economy.emptymodule": "Empty Module",
       "block.satis_mine.pink_concrete_stairs": "Pink Concrete Stairs",
-      "block.satis_mine.coal_node": "Coal Node(active)",
       "block.industrial_economy.cyan_concrete_slab": "Cyan Concrete Slab",
+      "block.satis_mine.coal_node": "Coal Node(active)",
       "block.mega_project.purple_concrete_stairs": "Purple Concrete Stairs",
       "block.industrial_economy.crystal": "Crystal",
       "advancements.allrecipescheat.descr": "Unlock Recipe Cheat",
@@ -8947,11 +8976,11 @@
       "block.industrial_economy.purple_concrete_stairs": "Purple Concrete Stairs",
       "block.satis_mine.light_gray_concrete_stairs": "Light Gray Concrete Stairs",
       "block.mega_project.orange_concrete_stairs": "Orange Concrete Stairs",
-      "item.satis_mine.highspeedconectoritem": "High Speed Connector",
       "item.industrial_economy.test_2": "Test 2 Portal Igniter",
+      "item.satis_mine.highspeedconectoritem": "High Speed Connector",
       "item.mega_project.control_unit": "Control Unit",
-      "item.industrial_economy.diamond_steel_armor_leggings": "Diamond Steel Leggings",
       "block.industrial_economy.position_1block": "Position 1",
+      "item.industrial_economy.diamond_steel_armor_leggings": "Diamond Steel Leggings",
       "block.industrial_economy.red_concrete_stairs": "Red Concrete Stairs",
       "block.mega_project.magenta_concrete_slab": "Magenta Concrete Slab",
       "item.industrial_economy.cateriumroditem": "Caterium rod",
@@ -8985,8 +9014,8 @@
       "block.satis_mine.ironextractor": "Iron Extractor",
       "item.mega_project.ironplate": "Iron Plate",
       "item.industrial_economy.diamondstellshovel": "Diamond Steel Shovel",
-      "block.industrial_economy.generator_mk_1inactive": "Generator MK 1",
       "enchantment.industrial_economy.cheap_plasma": "Cheap Plasma",
+      "block.industrial_economy.generator_mk_1inactive": "Generator MK 1",
       "block.industrial_economy.minerinactive": "Miner MK1",
       "item.mega_project.copper_ingot": "Copper",
       "item.mega_project.buildertool": "Builder Gun",
@@ -9001,8 +9030,8 @@
       "block.mega_project.armorcharger": "Armor Charger",
       "block.industrial_economy.green_concrete_slab": "Green Concrete Slab",
       "item.satis_mine.diamond_steelpickaxe": "Diamond Steel Pickaxe",
-      "block.mega_project.steel_block": "Steel Block",
       "block.satis_mine.armorchargermk_2": "Armor Charger MK2",
+      "block.mega_project.steel_block": "Steel Block",
       "block.satis_mine.coal_extractor": "Coal Extractor",
       "block.mega_project.copper_extractor": "Copper Extractor",
       "item.mega_project.turbofuelitem": "Turbofuel Mk.1",
