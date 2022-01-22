@@ -23,6 +23,7 @@ public class PocketchestGuiWindow extends ContainerScreen<PocketchestGui.GuiCont
 	private int x, y, z;
 	private PlayerEntity entity;
 	private final static HashMap guistate = PocketchestGui.guistate;
+
 	public PocketchestGuiWindow(PocketchestGui.GuiContainerMod container, PlayerInventory inventory, ITextComponent text) {
 		super(container, inventory, text);
 		this.world = container.world;
@@ -33,7 +34,9 @@ public class PocketchestGuiWindow extends ContainerScreen<PocketchestGui.GuiCont
 		this.xSize = 393;
 		this.ySize = 237;
 	}
+
 	private static final ResourceLocation texture = new ResourceLocation("industrial_economy:textures/pocketchest.png");
+
 	@Override
 	public void render(MatrixStack ms, int mouseX, int mouseY, float partialTicks) {
 		this.renderBackground(ms);

@@ -32,5 +32,6 @@ public class ProjectMEGAItemGroup extends IndustrialEconomyModElements.ModElemen
 			}
 		}.setBackgroundImageName("item_search.png");
 	}
+
 	public static ItemGroup tab;
 }

@@ -14,7 +14,10 @@ import net.minecraft.client.gui.widget.button.Button;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
 import net.minecraft.client.Minecraft;
 
+import java.util.stream.Stream;
+import java.util.Map;
 import java.util.HashMap;
+import java.util.AbstractMap;
 
 import industrialeconomy.procedures.GeneratorWorkingLabelProcedure;
 
@@ -23,14 +26,13 @@ import industrialeconomy.IndustrialEconomyMod;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.matrix.MatrixStack;
 
-import com.google.common.collect.ImmutableMap;
-
 @OnlyIn(Dist.CLIENT)
 public class SandstoneextractorGUIGuiWindow extends ContainerScreen<SandstoneextractorGUIGui.GuiContainerMod> {
 	private World world;
 	private int x, y, z;
 	private PlayerEntity entity;
 	private final static HashMap guistate = SandstoneextractorGUIGui.guistate;
+
 	public SandstoneextractorGUIGuiWindow(SandstoneextractorGUIGui.GuiContainerMod container, PlayerInventory inventory, ITextComponent text) {
 		super(container, inventory, text);
 		this.world = container.world;
@@ -41,7 +43,9 @@ public class SandstoneextractorGUIGuiWindow extends ContainerScreen<Sandstoneext
 		this.xSize = 176;
 		this.ySize = 166;
 	}
+
 	private static final ResourceLocation texture = new ResourceLocation("industrial_economy:textures/sandstoneextractor_gui.png");
+
 	@Override
 	public void render(MatrixStack ms, int mouseX, int mouseY, float partialTicks) {
 		this.renderBackground(ms);
@@ -78,7 +82,11 @@ public class SandstoneextractorGUIGuiWindow extends ContainerScreen<Sandstoneext
 	@Override
 	protected void drawGuiContainerForegroundLayer(MatrixStack ms, int mouseX, int mouseY) {
 		this.font.drawString(ms, "SandStone Extractor", 40, 4, -12829636);
-		if (GeneratorWorkingLabelProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world)))
+		if (GeneratorWorkingLabelProcedure
+				.executeProcedure(Stream
+						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
+								new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z))
+						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll)))
 			this.font.drawString(ms, "Working", 68, 21, -16711936);
 	}
 

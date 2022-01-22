@@ -17,6 +17,7 @@ import industrialeconomy.world.dimension.TestddDimension;
 public class TestddItem extends Item {
 	@ObjectHolder("industrial_economy:testdd")
 	public static final Item block = null;
+
 	public TestddItem() {
 		super(new Item.Properties().group(ItemGroup.TOOLS).maxDamage(64));
 	}

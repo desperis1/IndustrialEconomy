@@ -29,6 +29,7 @@ public class HazardShopGUIGuiWindow extends ContainerScreen<HazardShopGUIGui.Gui
 	private int x, y, z;
 	private PlayerEntity entity;
 	private final static HashMap guistate = HazardShopGUIGui.guistate;
+
 	public HazardShopGUIGuiWindow(HazardShopGUIGui.GuiContainerMod container, PlayerInventory inventory, ITextComponent text) {
 		super(container, inventory, text);
 		this.world = container.world;
@@ -39,7 +40,9 @@ public class HazardShopGUIGuiWindow extends ContainerScreen<HazardShopGUIGui.Gui
 		this.xSize = 275;
 		this.ySize = 166;
 	}
+
 	private static final ResourceLocation texture = new ResourceLocation("industrial_economy:textures/hazard_shop_gui.png");
+
 	@Override
 	public void render(MatrixStack ms, int mouseX, int mouseY, float partialTicks) {
 		this.renderBackground(ms);

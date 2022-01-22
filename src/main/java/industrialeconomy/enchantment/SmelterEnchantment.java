@@ -17,6 +17,7 @@ import industrialeconomy.IndustrialEconomyModElements;
 public class SmelterEnchantment extends IndustrialEconomyModElements.ModElement {
 	@ObjectHolder("industrial_economy:smelter")
 	public static final Enchantment enchantment = null;
+
 	public SmelterEnchantment(IndustrialEconomyModElements instance) {
 		super(instance, 545);
 	}
@@ -25,6 +26,7 @@ public class SmelterEnchantment extends IndustrialEconomyModElements.ModElement 
 	public void initElements() {
 		elements.enchantments.add(() -> new CustomEnchantment(EquipmentSlotType.MAINHAND).setRegistryName("smelter"));
 	}
+
 	public static class CustomEnchantment extends Enchantment {
 		public CustomEnchantment(EquipmentSlotType... slots) {
 			super(Enchantment.Rarity.VERY_RARE, EnchantmentType.DIGGER, slots);

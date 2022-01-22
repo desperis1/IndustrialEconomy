@@ -25,6 +25,7 @@ public class ConcreteMixerGUIGuiWindow extends ContainerScreen<ConcreteMixerGUIG
 	private int x, y, z;
 	private PlayerEntity entity;
 	private final static HashMap guistate = ConcreteMixerGUIGui.guistate;
+
 	public ConcreteMixerGUIGuiWindow(ConcreteMixerGUIGui.GuiContainerMod container, PlayerInventory inventory, ITextComponent text) {
 		super(container, inventory, text);
 		this.world = container.world;
@@ -35,7 +36,9 @@ public class ConcreteMixerGUIGuiWindow extends ContainerScreen<ConcreteMixerGUIG
 		this.xSize = 225;
 		this.ySize = 196;
 	}
+
 	private static final ResourceLocation texture = new ResourceLocation("industrial_economy:textures/concrete_mixer_gui.png");
+
 	@Override
 	public void render(MatrixStack ms, int mouseX, int mouseY, float partialTicks) {
 		this.renderBackground(ms);

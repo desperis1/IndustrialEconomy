@@ -16,6 +16,7 @@ import industrialeconomy.IndustrialEconomyModElements;
 public class CircuitBoarditemItem extends IndustrialEconomyModElements.ModElement {
 	@ObjectHolder("industrial_economy:circuit_boarditem")
 	public static final Item block = null;
+
 	public CircuitBoarditemItem(IndustrialEconomyModElements instance) {
 		super(instance, 52);
 	}
@@ -24,6 +25,7 @@ public class CircuitBoarditemItem extends IndustrialEconomyModElements.ModElemen
 	public void initElements() {
 		elements.items.add(() -> new ItemCustom());
 	}
+
 	public static class ItemCustom extends Item {
 		public ItemCustom() {
 			super(new Item.Properties().group(ProjectMEGAItemGroup.tab).maxStackSize(64).rarity(Rarity.COMMON));

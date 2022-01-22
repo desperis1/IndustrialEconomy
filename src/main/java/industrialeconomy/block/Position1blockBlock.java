@@ -21,10 +21,12 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Block;
 
+import java.util.stream.Stream;
 import java.util.Map;
 import java.util.List;
 import java.util.HashMap;
 import java.util.Collections;
+import java.util.AbstractMap;
 
 import industrialeconomy.procedures.Position1blockBlockIsPlacedByProcedure;
 
@@ -36,6 +38,7 @@ import industrialeconomy.IndustrialEconomyModElements;
 public class Position1blockBlock extends IndustrialEconomyModElements.ModElement {
 	@ObjectHolder("industrial_economy:position_1block")
 	public static final Block block = null;
+
 	public Position1blockBlock(IndustrialEconomyModElements instance) {
 		super(instance, 261);
 	}
@@ -46,6 +49,7 @@ public class Position1blockBlock extends IndustrialEconomyModElements.ModElement
 		elements.items
 				.add(() -> new BlockItem(block, new Item.Properties().group(ProjectMEGAItemGroup.tab)).setRegistryName(block.getRegistryName()));
 	}
+
 	public static class CustomBlock extends Block {
 		public CustomBlock() {
 			super(Block.Properties.create(Material.IRON).sound(SoundType.METAL).hardnessAndResistance(0.1f, 0.1f).setLightLevel(s -> 0));
@@ -78,15 +82,11 @@ public class Position1blockBlock extends IndustrialEconomyModElements.ModElement
 			int x = pos.getX();
 			int y = pos.getY();
 			int z = pos.getZ();
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				$_dependencies.put("x", x);
-				$_dependencies.put("y", y);
-				$_dependencies.put("z", z);
-				$_dependencies.put("world", world);
-				Position1blockBlockIsPlacedByProcedure.executeProcedure($_dependencies);
-			}
+
+			Position1blockBlockIsPlacedByProcedure.executeProcedure(Stream
+					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
+							new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
+					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 		}
 	}
 }

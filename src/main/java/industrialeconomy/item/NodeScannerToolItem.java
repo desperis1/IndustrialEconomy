@@ -20,9 +20,11 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.block.BlockState;
 
+import java.util.stream.Stream;
 import java.util.Map;
 import java.util.List;
 import java.util.HashMap;
+import java.util.AbstractMap;
 
 import industrialeconomy.procedures.NodeScannerRightClickedOnBlockProcedure;
 
@@ -37,6 +39,7 @@ import com.google.common.collect.ImmutableMultimap;
 public class NodeScannerToolItem extends IndustrialEconomyModElements.ModElement {
 	@ObjectHolder("industrial_economy:node_scanner_tool")
 	public static final Item block = null;
+
 	public NodeScannerToolItem(IndustrialEconomyModElements instance) {
 		super(instance, 62);
 	}
@@ -57,20 +60,17 @@ public class NodeScannerToolItem extends IndustrialEconomyModElements.ModElement
 				double x = entity.getPosX();
 				double y = entity.getPosY();
 				double z = entity.getPosZ();
-				{
-					Map<String, Object> $_dependencies = new HashMap<>();
-					$_dependencies.put("entity", entity);
-					$_dependencies.put("itemstack", itemstack);
-					$_dependencies.put("x", x);
-					$_dependencies.put("y", y);
-					$_dependencies.put("z", z);
-					$_dependencies.put("world", world);
-					NodeScannerRightClickedOnBlockProcedure.executeProcedure($_dependencies);
-				}
+
+				NodeScannerRightClickedOnBlockProcedure.executeProcedure(Stream
+						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
+								new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z),
+								new AbstractMap.SimpleEntry<>("entity", entity), new AbstractMap.SimpleEntry<>("itemstack", itemstack))
+						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				return retval;
 			}
 		}.setRegistryName("node_scanner_tool"));
 	}
+
 	private static class ItemToolCustom extends Item {
 		protected ItemToolCustom() {
 			super(new Item.Properties().group(ProjectMEGAItemGroup.tab).maxDamage(100));

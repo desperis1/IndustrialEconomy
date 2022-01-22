@@ -16,6 +16,7 @@ import industrialeconomy.IndustrialEconomyModElements;
 public class ControlUnitItem extends IndustrialEconomyModElements.ModElement {
 	@ObjectHolder("industrial_economy:control_unit")
 	public static final Item block = null;
+
 	public ControlUnitItem(IndustrialEconomyModElements instance) {
 		super(instance, 249);
 	}
@@ -24,6 +25,7 @@ public class ControlUnitItem extends IndustrialEconomyModElements.ModElement {
 	public void initElements() {
 		elements.items.add(() -> new ItemCustom());
 	}
+
 	public static class ItemCustom extends Item {
 		public ItemCustom() {
 			super(new Item.Properties().group(ProjectMEGAItemGroup.tab).maxStackSize(64).rarity(Rarity.UNCOMMON));

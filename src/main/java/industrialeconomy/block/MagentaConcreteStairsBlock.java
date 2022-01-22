@@ -23,6 +23,7 @@ import industrialeconomy.IndustrialEconomyModElements;
 public class MagentaConcreteStairsBlock extends IndustrialEconomyModElements.ModElement {
 	@ObjectHolder("industrial_economy:magenta_concrete_stairs")
 	public static final Block block = null;
+
 	public MagentaConcreteStairsBlock(IndustrialEconomyModElements instance) {
 		super(instance, 313);
 	}
@@ -33,6 +34,7 @@ public class MagentaConcreteStairsBlock extends IndustrialEconomyModElements.Mod
 		elements.items
 				.add(() -> new BlockItem(block, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)).setRegistryName(block.getRegistryName()));
 	}
+
 	public static class CustomBlock extends StairsBlock {
 		public CustomBlock() {
 			super(() -> new Block(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1f, 10f).setLightLevel(s -> 0))

@@ -23,6 +23,7 @@ import industrialeconomy.IndustrialEconomyModElements;
 public class CaseKeyItem extends IndustrialEconomyModElements.ModElement {
 	@ObjectHolder("industrial_economy:case_key")
 	public static final Item block = null;
+
 	public CaseKeyItem(IndustrialEconomyModElements instance) {
 		super(instance, 480);
 	}
@@ -31,6 +32,7 @@ public class CaseKeyItem extends IndustrialEconomyModElements.ModElement {
 	public void initElements() {
 		elements.items.add(() -> new ItemCustom());
 	}
+
 	public static class ItemCustom extends Item {
 		public ItemCustom() {
 			super(new Item.Properties().group(ItemGroup.MISC).maxStackSize(64).rarity(Rarity.COMMON));

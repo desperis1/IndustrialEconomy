@@ -21,7 +21,13 @@ import industrialeconomy.block.CateriumOreBlock;
 import industrialeconomy.IndustrialEconomyMod;
 
 public class HubUpdateTickProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency world for procedure HubUpdateTick!");
+			return;
+		}
 		if (dependencies.get("x") == null) {
 			if (!dependencies.containsKey("x"))
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency x for procedure HubUpdateTick!");
@@ -37,16 +43,11 @@ public class HubUpdateTickProcedure {
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency z for procedure HubUpdateTick!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency world for procedure HubUpdateTick!");
-			return;
-		}
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
-		if ((((new Object() {
+		if (new Object() {
 			public int getAmount(IWorld world, BlockPos pos, int sltid) {
 				AtomicInteger _retval = new AtomicInteger(0);
 				TileEntity _ent = world.getTileEntity(pos);
@@ -57,14 +58,14 @@ public class HubUpdateTickProcedure {
 				}
 				return _retval.get();
 			}
-		}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (0))) == 0) && (64 < (new Object() {
+		}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (0)) == 0 && 64 < new Object() {
 			public double getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
 					return tileEntity.getTileData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Iron"))))) {
+		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Iron")) {
 			{
 				TileEntity _ent = world.getTileEntity(new BlockPos((int) x, (int) y, (int) z));
 				if (_ent != null) {
@@ -95,7 +96,7 @@ public class HubUpdateTickProcedure {
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
 		}
-		if ((((new Object() {
+		if (new Object() {
 			public int getAmount(IWorld world, BlockPos pos, int sltid) {
 				AtomicInteger _retval = new AtomicInteger(0);
 				TileEntity _ent = world.getTileEntity(pos);
@@ -106,14 +107,14 @@ public class HubUpdateTickProcedure {
 				}
 				return _retval.get();
 			}
-		}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1))) == 0) && (64 < (new Object() {
+		}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1)) == 0 && 64 < new Object() {
 			public double getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
 					return tileEntity.getTileData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Coal"))))) {
+		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Coal")) {
 			{
 				TileEntity _ent = world.getTileEntity(new BlockPos((int) x, (int) y, (int) z));
 				if (_ent != null) {
@@ -144,7 +145,7 @@ public class HubUpdateTickProcedure {
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
 		}
-		if ((((new Object() {
+		if (new Object() {
 			public int getAmount(IWorld world, BlockPos pos, int sltid) {
 				AtomicInteger _retval = new AtomicInteger(0);
 				TileEntity _ent = world.getTileEntity(pos);
@@ -155,14 +156,14 @@ public class HubUpdateTickProcedure {
 				}
 				return _retval.get();
 			}
-		}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (2))) == 0) && (64 < (new Object() {
+		}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (2)) == 0 && 64 < new Object() {
 			public double getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
 					return tileEntity.getTileData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Caterium"))))) {
+		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Caterium")) {
 			{
 				TileEntity _ent = world.getTileEntity(new BlockPos((int) x, (int) y, (int) z));
 				if (_ent != null) {
@@ -193,7 +194,7 @@ public class HubUpdateTickProcedure {
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
 		}
-		if ((((new Object() {
+		if (new Object() {
 			public int getAmount(IWorld world, BlockPos pos, int sltid) {
 				AtomicInteger _retval = new AtomicInteger(0);
 				TileEntity _ent = world.getTileEntity(pos);
@@ -204,14 +205,14 @@ public class HubUpdateTickProcedure {
 				}
 				return _retval.get();
 			}
-		}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (3))) == 0) && (64 < (new Object() {
+		}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (3)) == 0 && 64 < new Object() {
 			public double getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
 					return tileEntity.getTileData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Copper"))))) {
+		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Copper")) {
 			{
 				TileEntity _ent = world.getTileEntity(new BlockPos((int) x, (int) y, (int) z));
 				if (_ent != null) {
@@ -242,7 +243,7 @@ public class HubUpdateTickProcedure {
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
 		}
-		if ((((new Object() {
+		if (new Object() {
 			public int getAmount(IWorld world, BlockPos pos, int sltid) {
 				AtomicInteger _retval = new AtomicInteger(0);
 				TileEntity _ent = world.getTileEntity(pos);
@@ -253,14 +254,14 @@ public class HubUpdateTickProcedure {
 				}
 				return _retval.get();
 			}
-		}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (5))) == 0) && (64 < (new Object() {
+		}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (5)) == 0 && 64 < new Object() {
 			public double getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
 					return tileEntity.getTileData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "SandStone"))))) {
+		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "SandStone")) {
 			{
 				TileEntity _ent = world.getTileEntity(new BlockPos((int) x, (int) y, (int) z));
 				if (_ent != null) {

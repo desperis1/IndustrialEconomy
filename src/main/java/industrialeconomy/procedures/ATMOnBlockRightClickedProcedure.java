@@ -23,6 +23,7 @@ import industrialeconomy.IndustrialEconomyModVariables;
 import industrialeconomy.IndustrialEconomyMod;
 
 public class ATMOnBlockRightClickedProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
@@ -47,8 +48,8 @@ public class ATMOnBlockRightClickedProcedure {
 				return ItemStack.EMPTY;
 			}
 		}.getItemStack((int) (0)));
-		if (((bills).getItem() == Money100Item.block)) {
-			amount = (double) (new Object() {
+		if ((bills).getItem() == Money100Item.block) {
+			amount = (new Object() {
 				public int getAmount(int sltid) {
 					if (entity instanceof ServerPlayerEntity) {
 						Container _current = ((ServerPlayerEntity) entity).openContainer;
@@ -75,16 +76,16 @@ public class ATMOnBlockRightClickedProcedure {
 				}
 			}
 			{
-				double _setval = (double) (((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-						.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money) + (amount * 100));
+				double _setval = ((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+						.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money + amount * 100);
 				entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 					capability.player_money = _setval;
 					capability.syncPlayerVariables(entity);
 				});
 			}
 		}
-		if (((bills).getItem() == Money500Item.block)) {
-			amount = (double) (new Object() {
+		if ((bills).getItem() == Money500Item.block) {
+			amount = (new Object() {
 				public int getAmount(int sltid) {
 					if (entity instanceof ServerPlayerEntity) {
 						Container _current = ((ServerPlayerEntity) entity).openContainer;
@@ -111,16 +112,16 @@ public class ATMOnBlockRightClickedProcedure {
 				}
 			}
 			{
-				double _setval = (double) (((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-						.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money) + (amount * 500));
+				double _setval = ((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+						.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money + amount * 500);
 				entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 					capability.player_money = _setval;
 					capability.syncPlayerVariables(entity);
 				});
 			}
 		}
-		if (((bills).getItem() == Money1000Item.block)) {
-			amount = (double) (new Object() {
+		if ((bills).getItem() == Money1000Item.block) {
+			amount = (new Object() {
 				public int getAmount(int sltid) {
 					if (entity instanceof ServerPlayerEntity) {
 						Container _current = ((ServerPlayerEntity) entity).openContainer;
@@ -147,16 +148,16 @@ public class ATMOnBlockRightClickedProcedure {
 				}
 			}
 			{
-				double _setval = (double) (((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-						.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money) + (amount * 1000));
+				double _setval = ((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+						.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money + amount * 1000);
 				entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 					capability.player_money = _setval;
 					capability.syncPlayerVariables(entity);
 				});
 			}
 		}
-		if (((bills).getItem() == Money2000Item.block)) {
-			amount = (double) (new Object() {
+		if ((bills).getItem() == Money2000Item.block) {
+			amount = (new Object() {
 				public int getAmount(int sltid) {
 					if (entity instanceof ServerPlayerEntity) {
 						Container _current = ((ServerPlayerEntity) entity).openContainer;
@@ -183,16 +184,16 @@ public class ATMOnBlockRightClickedProcedure {
 				}
 			}
 			{
-				double _setval = (double) (((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-						.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money) + (amount * 2000));
+				double _setval = ((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+						.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money + amount * 2000);
 				entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 					capability.player_money = _setval;
 					capability.syncPlayerVariables(entity);
 				});
 			}
 		}
-		if (((bills).getItem() == Money5000Item.block)) {
-			amount = (double) (new Object() {
+		if ((bills).getItem() == Money5000Item.block) {
+			amount = (new Object() {
 				public int getAmount(int sltid) {
 					if (entity instanceof ServerPlayerEntity) {
 						Container _current = ((ServerPlayerEntity) entity).openContainer;
@@ -219,16 +220,16 @@ public class ATMOnBlockRightClickedProcedure {
 				}
 			}
 			{
-				double _setval = (double) (((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-						.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money) + (amount * 5000));
+				double _setval = ((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+						.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money + amount * 5000);
 				entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 					capability.player_money = _setval;
 					capability.syncPlayerVariables(entity);
 				});
 			}
 		}
-		if (((bills).getItem() == Money10000Item.block)) {
-			amount = (double) (new Object() {
+		if ((bills).getItem() == Money10000Item.block) {
+			amount = (new Object() {
 				public int getAmount(int sltid) {
 					if (entity instanceof ServerPlayerEntity) {
 						Container _current = ((ServerPlayerEntity) entity).openContainer;
@@ -255,16 +256,16 @@ public class ATMOnBlockRightClickedProcedure {
 				}
 			}
 			{
-				double _setval = (double) (((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-						.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money) + (amount * 10000));
+				double _setval = ((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+						.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money + amount * 10000);
 				entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 					capability.player_money = _setval;
 					capability.syncPlayerVariables(entity);
 				});
 			}
 		}
-		if (((bills).getItem() == Money50000Item.block)) {
-			amount = (double) (new Object() {
+		if ((bills).getItem() == Money50000Item.block) {
+			amount = (new Object() {
 				public int getAmount(int sltid) {
 					if (entity instanceof ServerPlayerEntity) {
 						Container _current = ((ServerPlayerEntity) entity).openContainer;
@@ -291,16 +292,16 @@ public class ATMOnBlockRightClickedProcedure {
 				}
 			}
 			{
-				double _setval = (double) (((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-						.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money) + (amount * 50000));
+				double _setval = ((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+						.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money + amount * 50000);
 				entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 					capability.player_money = _setval;
 					capability.syncPlayerVariables(entity);
 				});
 			}
 		}
-		if (((bills).getItem() == Money100000Item.block)) {
-			amount = (double) (new Object() {
+		if ((bills).getItem() == Money100000Item.block) {
+			amount = (new Object() {
 				public int getAmount(int sltid) {
 					if (entity instanceof ServerPlayerEntity) {
 						Container _current = ((ServerPlayerEntity) entity).openContainer;
@@ -327,8 +328,8 @@ public class ATMOnBlockRightClickedProcedure {
 				}
 			}
 			{
-				double _setval = (double) (((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-						.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money) + (amount * 100000));
+				double _setval = ((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+						.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money + amount * 100000);
 				entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 					capability.player_money = _setval;
 					capability.syncPlayerVariables(entity);

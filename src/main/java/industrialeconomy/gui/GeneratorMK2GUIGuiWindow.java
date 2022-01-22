@@ -14,14 +14,15 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
 import net.minecraft.client.Minecraft;
 
+import java.util.stream.Stream;
+import java.util.Map;
 import java.util.HashMap;
+import java.util.AbstractMap;
 
 import industrialeconomy.procedures.GeneratorWorkingLabelProcedure;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.matrix.MatrixStack;
-
-import com.google.common.collect.ImmutableMap;
 
 @OnlyIn(Dist.CLIENT)
 public class GeneratorMK2GUIGuiWindow extends ContainerScreen<GeneratorMK2GUIGui.GuiContainerMod> {
@@ -29,6 +30,7 @@ public class GeneratorMK2GUIGuiWindow extends ContainerScreen<GeneratorMK2GUIGui
 	private int x, y, z;
 	private PlayerEntity entity;
 	private final static HashMap guistate = GeneratorMK2GUIGui.guistate;
+
 	public GeneratorMK2GUIGuiWindow(GeneratorMK2GUIGui.GuiContainerMod container, PlayerInventory inventory, ITextComponent text) {
 		super(container, inventory, text);
 		this.world = container.world;
@@ -39,7 +41,9 @@ public class GeneratorMK2GUIGuiWindow extends ContainerScreen<GeneratorMK2GUIGui
 		this.xSize = 176;
 		this.ySize = 166;
 	}
+
 	private static final ResourceLocation texture = new ResourceLocation("industrial_economy:textures/generator_mk_2_gui.png");
+
 	@Override
 	public void render(MatrixStack ms, int mouseX, int mouseY, float partialTicks) {
 		this.renderBackground(ms);
@@ -85,7 +89,11 @@ public class GeneratorMK2GUIGuiWindow extends ContainerScreen<GeneratorMK2GUIGui
 				return 0;
 			}
 		}.getValue(new BlockPos((int) x, (int) y, (int) z), "GeneratorEnergy")) + "", 75, 58, -12829636);
-		if (GeneratorWorkingLabelProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world)))
+		if (GeneratorWorkingLabelProcedure
+				.executeProcedure(Stream
+						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
+								new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z))
+						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll)))
 			this.font.drawString(ms, "Working", 67, 15, -16738048);
 		this.font.drawString(ms, "+500 MW", 134, 5, -16763956);
 	}

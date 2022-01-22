@@ -16,7 +16,10 @@ import net.minecraft.client.gui.widget.button.Button;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
 import net.minecraft.client.Minecraft;
 
+import java.util.stream.Stream;
+import java.util.Map;
 import java.util.HashMap;
+import java.util.AbstractMap;
 
 import industrialeconomy.procedures.GeneratorWorkingLabelProcedure;
 
@@ -25,14 +28,13 @@ import industrialeconomy.IndustrialEconomyMod;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.matrix.MatrixStack;
 
-import com.google.common.collect.ImmutableMap;
-
 @OnlyIn(Dist.CLIENT)
 public class ConstructorguiGuiWindow extends ContainerScreen<ConstructorguiGui.GuiContainerMod> {
 	private World world;
 	private int x, y, z;
 	private PlayerEntity entity;
 	private final static HashMap guistate = ConstructorguiGui.guistate;
+
 	public ConstructorguiGuiWindow(ConstructorguiGui.GuiContainerMod container, PlayerInventory inventory, ITextComponent text) {
 		super(container, inventory, text);
 		this.world = container.world;
@@ -43,7 +45,9 @@ public class ConstructorguiGuiWindow extends ContainerScreen<ConstructorguiGui.G
 		this.xSize = 176;
 		this.ySize = 187;
 	}
+
 	private static final ResourceLocation texture = new ResourceLocation("industrial_economy:textures/constructorgui.png");
+
 	@Override
 	public void render(MatrixStack ms, int mouseX, int mouseY, float partialTicks) {
 		this.renderBackground(ms);
@@ -80,7 +84,11 @@ public class ConstructorguiGuiWindow extends ContainerScreen<ConstructorguiGui.G
 	@Override
 	protected void drawGuiContainerForegroundLayer(MatrixStack ms, int mouseX, int mouseY) {
 		this.font.drawString(ms, "CONSTRUCTOR", 57, 5, -16777216);
-		if (GeneratorWorkingLabelProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world)))
+		if (GeneratorWorkingLabelProcedure
+				.executeProcedure(Stream
+						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
+								new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z))
+						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll)))
 			this.font.drawString(ms, "Working", 67, 36, -16711936);
 		this.font.drawString(ms, "Recipe: " + (new Object() {
 			public String getValue(BlockPos pos, String tag) {

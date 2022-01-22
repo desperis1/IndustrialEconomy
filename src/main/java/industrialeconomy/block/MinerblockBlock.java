@@ -53,12 +53,14 @@ import net.minecraft.block.Block;
 
 import javax.annotation.Nullable;
 
+import java.util.stream.Stream;
 import java.util.stream.IntStream;
 import java.util.Random;
 import java.util.Map;
 import java.util.List;
 import java.util.HashMap;
 import java.util.Collections;
+import java.util.AbstractMap;
 
 import industrialeconomy.procedures.MinerblockUpdateTickProcedure;
 import industrialeconomy.procedures.MinerblockBlockIsPlacedByProcedure;
@@ -71,6 +73,7 @@ public class MinerblockBlock extends IndustrialEconomyModElements.ModElement {
 	public static final Block block = null;
 	@ObjectHolder("industrial_economy:minerblock")
 	public static final TileEntityType<CustomTileEntity> tileEntityType = null;
+
 	public MinerblockBlock(IndustrialEconomyModElements instance) {
 		super(instance, 42);
 		FMLJavaModLoadingContext.get().getModEventBus().register(new TileEntityRegisterHandler());
@@ -81,17 +84,20 @@ public class MinerblockBlock extends IndustrialEconomyModElements.ModElement {
 		elements.blocks.add(() -> new CustomBlock());
 		elements.items.add(() -> new BlockItem(block, new Item.Properties().group(null)).setRegistryName(block.getRegistryName()));
 	}
+
 	private static class TileEntityRegisterHandler {
 		@SubscribeEvent
 		public void registerTileEntity(RegistryEvent.Register<TileEntityType<?>> event) {
 			event.getRegistry().register(TileEntityType.Builder.create(CustomTileEntity::new, block).build(null).setRegistryName("minerblock"));
 		}
 	}
+
 	@Override
 	@OnlyIn(Dist.CLIENT)
 	public void clientLoad(FMLClientSetupEvent event) {
 		RenderTypeLookup.setRenderLayer(block, RenderType.getTranslucent());
 	}
+
 	public static class CustomBlock extends Block {
 		public CustomBlock() {
 			super(Block.Properties.create(Material.IRON).sound(SoundType.METAL).hardnessAndResistance(10f, 10f).setLightLevel(s -> 0).notSolid()
@@ -111,7 +117,12 @@ public class MinerblockBlock extends IndustrialEconomyModElements.ModElement {
 
 		@Override
 		public VoxelShape getShape(BlockState state, IBlockReader world, BlockPos pos, ISelectionContext context) {
-			return VoxelShapes.or(makeCuboidShape(0, 8, 0, 16, 16, 16));
+
+			return VoxelShapes.or(makeCuboidShape(0, 8, 0, 16, 16, 16)
+
+			)
+
+			;
 		}
 
 		@Override
@@ -133,7 +144,7 @@ public class MinerblockBlock extends IndustrialEconomyModElements.ModElement {
 			int x = pos.getX();
 			int y = pos.getY();
 			int z = pos.getZ();
-			world.getPendingBlockTicks().scheduleTick(new BlockPos(x, y, z), this, 20);
+			world.getPendingBlockTicks().scheduleTick(pos, this, 20);
 		}
 
 		@Override
@@ -142,15 +153,12 @@ public class MinerblockBlock extends IndustrialEconomyModElements.ModElement {
 			int x = pos.getX();
 			int y = pos.getY();
 			int z = pos.getZ();
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("x", x);
-				$_dependencies.put("y", y);
-				$_dependencies.put("z", z);
-				$_dependencies.put("world", world);
-				MinerblockUpdateTickProcedure.executeProcedure($_dependencies);
-			}
-			world.getPendingBlockTicks().scheduleTick(new BlockPos(x, y, z), this, 20);
+
+			MinerblockUpdateTickProcedure.executeProcedure(Stream
+					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
+							new AbstractMap.SimpleEntry<>("z", z))
+					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+			world.getPendingBlockTicks().scheduleTick(pos, this, 20);
 		}
 
 		@Override
@@ -159,15 +167,11 @@ public class MinerblockBlock extends IndustrialEconomyModElements.ModElement {
 			int x = pos.getX();
 			int y = pos.getY();
 			int z = pos.getZ();
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				$_dependencies.put("x", x);
-				$_dependencies.put("y", y);
-				$_dependencies.put("z", z);
-				$_dependencies.put("world", world);
-				MinerblockBlockIsPlacedByProcedure.executeProcedure($_dependencies);
-			}
+
+			MinerblockBlockIsPlacedByProcedure.executeProcedure(Stream
+					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
+							new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
+					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 		}
 
 		@Override
@@ -201,6 +205,7 @@ public class MinerblockBlock extends IndustrialEconomyModElements.ModElement {
 					InventoryHelper.dropInventoryItems(world, pos, (CustomTileEntity) tileentity);
 					world.updateComparatorOutputLevel(pos, this);
 				}
+
 				super.onReplaced(state, world, pos, newState, isMoving);
 			}
 		}
@@ -222,6 +227,7 @@ public class MinerblockBlock extends IndustrialEconomyModElements.ModElement {
 
 	public static class CustomTileEntity extends LockableLootTileEntity implements ISidedInventory {
 		private NonNullList<ItemStack> stacks = NonNullList.<ItemStack>withSize(9, ItemStack.EMPTY);
+
 		protected CustomTileEntity() {
 			super(tileEntityType);
 		}
@@ -321,7 +327,9 @@ public class MinerblockBlock extends IndustrialEconomyModElements.ModElement {
 		public boolean canExtractItem(int index, ItemStack stack, Direction direction) {
 			return true;
 		}
+
 		private final LazyOptional<? extends IItemHandler>[] handlers = SidedInvWrapper.create(this, Direction.values());
+
 		@Override
 		public <T> LazyOptional<T> getCapability(Capability<T> capability, @Nullable Direction facing) {
 			if (!this.removed && facing != null && capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY)

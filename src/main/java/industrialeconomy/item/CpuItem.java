@@ -16,6 +16,7 @@ import industrialeconomy.IndustrialEconomyModElements;
 public class CpuItem extends IndustrialEconomyModElements.ModElement {
 	@ObjectHolder("industrial_economy:cpu")
 	public static final Item block = null;
+
 	public CpuItem(IndustrialEconomyModElements instance) {
 		super(instance, 251);
 	}
@@ -24,6 +25,7 @@ public class CpuItem extends IndustrialEconomyModElements.ModElement {
 	public void initElements() {
 		elements.items.add(() -> new ItemCustom());
 	}
+
 	public static class ItemCustom extends Item {
 		public ItemCustom() {
 			super(new Item.Properties().group(ProjectMEGAItemGroup.tab).maxStackSize(64).rarity(Rarity.RARE));

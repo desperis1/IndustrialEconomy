@@ -11,9 +11,11 @@ import net.minecraft.entity.Entity;
 import net.minecraft.command.Commands;
 import net.minecraft.command.CommandSource;
 
+import java.util.stream.Stream;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.Arrays;
+import java.util.AbstractMap;
 
 import industrialeconomy.procedures.LandCommandExecutedProcedure;
 
@@ -25,10 +27,10 @@ import com.mojang.brigadier.arguments.StringArgumentType;
 public class LandCommand {
 	@SubscribeEvent
 	public static void registerCommands(RegisterCommandsEvent event) {
-		event.getDispatcher()
-				.register(LiteralArgumentBuilder.<CommandSource>literal("land")
-						.then(Commands.argument("arguments", StringArgumentType.greedyString()).executes(LandCommand::execute))
-						.executes(LandCommand::execute));
+		event.getDispatcher().register(LiteralArgumentBuilder.<CommandSource>literal("land")
+
+				.then(Commands.argument("arguments", StringArgumentType.greedyString()).executes(LandCommand::execute))
+				.executes(LandCommand::execute));
 	}
 
 	private static int execute(CommandContext<CommandSource> ctx) {
@@ -46,13 +48,11 @@ public class LandCommand {
 				cmdparams.put(Integer.toString(index[0]), param);
 			index[0]++;
 		});
-		{
-			Map<String, Object> $_dependencies = new HashMap<>();
-			$_dependencies.put("entity", entity);
-			$_dependencies.put("cmdparams", cmdparams);
-			$_dependencies.put("world", world);
-			LandCommandExecutedProcedure.executeProcedure($_dependencies);
-		}
+
+		LandCommandExecutedProcedure.executeProcedure(Stream
+				.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity),
+						new AbstractMap.SimpleEntry<>("cmdparams", cmdparams))
+				.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 		return 0;
 	}
 }

@@ -34,7 +34,13 @@ import industrialeconomy.IndustrialEconomyModVariables;
 import industrialeconomy.IndustrialEconomyMod;
 
 public class AssemblerblockUpdateTickProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency world for procedure AssemblerblockUpdateTick!");
+			return;
+		}
 		if (dependencies.get("x") == null) {
 			if (!dependencies.containsKey("x"))
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency x for procedure AssemblerblockUpdateTick!");
@@ -50,20 +56,15 @@ public class AssemblerblockUpdateTickProcedure {
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency z for procedure AssemblerblockUpdateTick!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency world for procedure AssemblerblockUpdateTick!");
-			return;
-		}
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
 		double players_hub_x = 0;
 		double players_hub_y = 0;
 		double players_hub_z = 0;
 		String owner = "";
-		owner = (String) (new Object() {
+		owner = (new Object() {
 			public String getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
@@ -71,7 +72,7 @@ public class AssemblerblockUpdateTickProcedure {
 				return "";
 			}
 		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "owner"));
-		players_hub_x = (double) (new Object() {
+		players_hub_x = (new Object() {
 			public double getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
@@ -82,8 +83,8 @@ public class AssemblerblockUpdateTickProcedure {
 				new BlockPos((int) IndustrialEconomyModVariables.WorldVariables.get(world).server_x,
 						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_y,
 						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_z),
-				((owner) + "" + ("hub_X"))));
-		players_hub_y = (double) (new Object() {
+				(owner + "hub_X")));
+		players_hub_y = (new Object() {
 			public double getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
@@ -94,8 +95,8 @@ public class AssemblerblockUpdateTickProcedure {
 				new BlockPos((int) IndustrialEconomyModVariables.WorldVariables.get(world).server_x,
 						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_y,
 						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_z),
-				((owner) + "" + ("hub_Y"))));
-		players_hub_z = (double) (new Object() {
+				(owner + "hub_Y")));
+		players_hub_z = (new Object() {
 			public double getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
@@ -106,23 +107,23 @@ public class AssemblerblockUpdateTickProcedure {
 				new BlockPos((int) IndustrialEconomyModVariables.WorldVariables.get(world).server_x,
 						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_y,
 						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_z),
-				((owner) + "" + ("hub_Z"))));
-		if ((200 < (new Object() {
+				(owner + "hub_Z")));
+		if (200 < new Object() {
 			public double getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
 					return tileEntity.getTileData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos((int) players_hub_x, (int) players_hub_y, (int) players_hub_z), "Energy")))) {
-			if (((((new Object() {
+		}.getValue(world, new BlockPos((int) players_hub_x, (int) players_hub_y, (int) players_hub_z), "Energy")) {
+			if ((new Object() {
 				public String getValue(IWorld world, BlockPos pos, String tag) {
 					TileEntity tileEntity = world.getTileEntity(pos);
 					if (tileEntity != null)
 						return tileEntity.getTileData().getString(tag);
 					return "";
 				}
-			}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Recipe"))).equals("CircuitBoard")) && (((((new Object() {
+			}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Recipe")).equals("CircuitBoard") && new Object() {
 				public int getAmount(IWorld world, BlockPos pos, int sltid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -133,7 +134,7 @@ public class AssemblerblockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (0))) >= 7) && ((new Object() {
+			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (0)) >= 7 && (new Object() {
 				public ItemStack getItemStack(BlockPos pos, int sltid) {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -144,7 +145,7 @@ public class AssemblerblockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (0))).getItem() == CateriumIngotItem.block)) && (((new Object() {
+			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (0))).getItem() == CateriumIngotItem.block && new Object() {
 				public int getAmount(IWorld world, BlockPos pos, int sltid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -155,7 +156,7 @@ public class AssemblerblockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1))) >= 4) && ((new Object() {
+			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1)) >= 4 && (new Object() {
 				public ItemStack getItemStack(BlockPos pos, int sltid) {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -166,7 +167,7 @@ public class AssemblerblockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (1))).getItem() == CopperSheetItemItem.block))) && ((((new Object() {
+			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (1))).getItem() == CopperSheetItemItem.block && ((new Object() {
 				public ItemStack getItemStack(BlockPos pos, int sltid) {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -177,7 +178,7 @@ public class AssemblerblockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (2))).getItem() == CircuitBoarditemItem.block) && ((new Object() {
+			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (2))).getItem() == CircuitBoarditemItem.block && new Object() {
 				public int getAmount(IWorld world, BlockPos pos, int sltid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -188,7 +189,7 @@ public class AssemblerblockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (2))) < 64)) || ((new Object() {
+			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (2)) < 64 || new Object() {
 				public int getAmount(IWorld world, BlockPos pos, int sltid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -199,7 +200,7 @@ public class AssemblerblockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (2))) == 0))))) {
+			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (2)) == 0)) {
 				if (!world.isRemote()) {
 					BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 					TileEntity _tileEntity = world.getTileEntity(_bp);
@@ -214,7 +215,7 @@ public class AssemblerblockUpdateTickProcedure {
 					if (_ent != null) {
 						final int _sltid = (int) (0);
 						final ItemStack _setstack = new ItemStack(CateriumIngotItem.block);
-						_setstack.setCount((int) ((new Object() {
+						_setstack.setCount((int) (new Object() {
 							public int getAmount(IWorld world, BlockPos pos, int sltid) {
 								AtomicInteger _retval = new AtomicInteger(0);
 								TileEntity _ent = world.getTileEntity(pos);
@@ -225,7 +226,7 @@ public class AssemblerblockUpdateTickProcedure {
 								}
 								return _retval.get();
 							}
-						}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (0))) - 6));
+						}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (0)) - 6));
 						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								((IItemHandlerModifiable) capability).setStackInSlot(_sltid, _setstack);
@@ -238,7 +239,7 @@ public class AssemblerblockUpdateTickProcedure {
 					if (_ent != null) {
 						final int _sltid = (int) (1);
 						final ItemStack _setstack = new ItemStack(CopperSheetItemItem.block);
-						_setstack.setCount((int) ((new Object() {
+						_setstack.setCount((int) (new Object() {
 							public int getAmount(IWorld world, BlockPos pos, int sltid) {
 								AtomicInteger _retval = new AtomicInteger(0);
 								TileEntity _ent = world.getTileEntity(pos);
@@ -249,7 +250,7 @@ public class AssemblerblockUpdateTickProcedure {
 								}
 								return _retval.get();
 							}
-						}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1))) - 3));
+						}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1)) - 3));
 						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								((IItemHandlerModifiable) capability).setStackInSlot(_sltid, _setstack);
@@ -262,7 +263,7 @@ public class AssemblerblockUpdateTickProcedure {
 					if (_ent != null) {
 						final int _sltid = (int) (2);
 						final ItemStack _setstack = new ItemStack(CircuitBoarditemItem.block);
-						_setstack.setCount((int) ((new Object() {
+						_setstack.setCount((int) (new Object() {
 							public int getAmount(IWorld world, BlockPos pos, int sltid) {
 								AtomicInteger _retval = new AtomicInteger(0);
 								TileEntity _ent = world.getTileEntity(pos);
@@ -273,7 +274,7 @@ public class AssemblerblockUpdateTickProcedure {
 								}
 								return _retval.get();
 							}
-						}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (2))) + 1));
+						}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (2)) + 1));
 						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								((IItemHandlerModifiable) capability).setStackInSlot(_sltid, _setstack);
@@ -297,14 +298,14 @@ public class AssemblerblockUpdateTickProcedure {
 					if (world instanceof World)
 						((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 				}
-			} else if (((((new Object() {
+			} else if ((new Object() {
 				public String getValue(IWorld world, BlockPos pos, String tag) {
 					TileEntity tileEntity = world.getTileEntity(pos);
 					if (tileEntity != null)
 						return tileEntity.getTileData().getString(tag);
 					return "";
 				}
-			}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Recipe"))).equals("HeavyIron")) && (((((new Object() {
+			}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Recipe")).equals("HeavyIron") && new Object() {
 				public int getAmount(IWorld world, BlockPos pos, int sltid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -315,7 +316,7 @@ public class AssemblerblockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (0))) >= 5) && ((new Object() {
+			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (0)) >= 5 && (new Object() {
 				public ItemStack getItemStack(BlockPos pos, int sltid) {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -326,7 +327,7 @@ public class AssemblerblockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (0))).getItem() == IronplateItem.block)) && (((new Object() {
+			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (0))).getItem() == IronplateItem.block && new Object() {
 				public int getAmount(IWorld world, BlockPos pos, int sltid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -337,7 +338,7 @@ public class AssemblerblockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1))) >= 6) && ((new Object() {
+			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1)) >= 6 && (new Object() {
 				public ItemStack getItemStack(BlockPos pos, int sltid) {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -348,7 +349,7 @@ public class AssemblerblockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (1))).getItem() == Blocks.IRON_BLOCK.asItem()))) && ((((new Object() {
+			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (1))).getItem() == Blocks.IRON_BLOCK.asItem() && ((new Object() {
 				public ItemStack getItemStack(BlockPos pos, int sltid) {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -359,7 +360,7 @@ public class AssemblerblockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (2))).getItem() == HeavyironblockBlock.block.asItem()) && ((new Object() {
+			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (2))).getItem() == HeavyironblockBlock.block.asItem() && new Object() {
 				public int getAmount(IWorld world, BlockPos pos, int sltid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -370,7 +371,7 @@ public class AssemblerblockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (2))) < 64)) || ((new Object() {
+			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (2)) < 64 || new Object() {
 				public int getAmount(IWorld world, BlockPos pos, int sltid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -381,7 +382,7 @@ public class AssemblerblockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (2))) == 0))))) {
+			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (2)) == 0)) {
 				if (!world.isRemote()) {
 					BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 					TileEntity _tileEntity = world.getTileEntity(_bp);
@@ -396,7 +397,7 @@ public class AssemblerblockUpdateTickProcedure {
 					if (_ent != null) {
 						final int _sltid = (int) (0);
 						final ItemStack _setstack = new ItemStack(IronplateItem.block);
-						_setstack.setCount((int) ((new Object() {
+						_setstack.setCount((int) (new Object() {
 							public int getAmount(IWorld world, BlockPos pos, int sltid) {
 								AtomicInteger _retval = new AtomicInteger(0);
 								TileEntity _ent = world.getTileEntity(pos);
@@ -407,7 +408,7 @@ public class AssemblerblockUpdateTickProcedure {
 								}
 								return _retval.get();
 							}
-						}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (0))) - 4));
+						}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (0)) - 4));
 						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								((IItemHandlerModifiable) capability).setStackInSlot(_sltid, _setstack);
@@ -420,7 +421,7 @@ public class AssemblerblockUpdateTickProcedure {
 					if (_ent != null) {
 						final int _sltid = (int) (1);
 						final ItemStack _setstack = new ItemStack(Blocks.IRON_BLOCK);
-						_setstack.setCount((int) ((new Object() {
+						_setstack.setCount((int) (new Object() {
 							public int getAmount(IWorld world, BlockPos pos, int sltid) {
 								AtomicInteger _retval = new AtomicInteger(0);
 								TileEntity _ent = world.getTileEntity(pos);
@@ -431,7 +432,7 @@ public class AssemblerblockUpdateTickProcedure {
 								}
 								return _retval.get();
 							}
-						}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1))) - 5));
+						}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1)) - 5));
 						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								((IItemHandlerModifiable) capability).setStackInSlot(_sltid, _setstack);
@@ -444,7 +445,7 @@ public class AssemblerblockUpdateTickProcedure {
 					if (_ent != null) {
 						final int _sltid = (int) (2);
 						final ItemStack _setstack = new ItemStack(HeavyironblockBlock.block);
-						_setstack.setCount((int) ((new Object() {
+						_setstack.setCount((int) (new Object() {
 							public int getAmount(IWorld world, BlockPos pos, int sltid) {
 								AtomicInteger _retval = new AtomicInteger(0);
 								TileEntity _ent = world.getTileEntity(pos);
@@ -455,7 +456,7 @@ public class AssemblerblockUpdateTickProcedure {
 								}
 								return _retval.get();
 							}
-						}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (2))) + 1));
+						}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (2)) + 1));
 						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								((IItemHandlerModifiable) capability).setStackInSlot(_sltid, _setstack);
@@ -479,14 +480,14 @@ public class AssemblerblockUpdateTickProcedure {
 					if (world instanceof World)
 						((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 				}
-			} else if (((((new Object() {
+			} else if ((new Object() {
 				public String getValue(IWorld world, BlockPos pos, String tag) {
 					TileEntity tileEntity = world.getTileEntity(pos);
 					if (tileEntity != null)
 						return tileEntity.getTileData().getString(tag);
 					return "";
 				}
-			}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Recipe"))).equals("DiamondScrew")) && (((((new Object() {
+			}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Recipe")).equals("DiamondScrew") && new Object() {
 				public int getAmount(IWorld world, BlockPos pos, int sltid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -497,7 +498,7 @@ public class AssemblerblockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (0))) >= 2) && ((new Object() {
+			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (0)) >= 2 && (new Object() {
 				public ItemStack getItemStack(BlockPos pos, int sltid) {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -508,7 +509,7 @@ public class AssemblerblockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (0))).getItem() == ScrewItem.block)) && (((new Object() {
+			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (0))).getItem() == ScrewItem.block && new Object() {
 				public int getAmount(IWorld world, BlockPos pos, int sltid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -519,7 +520,7 @@ public class AssemblerblockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1))) >= 2) && ((new Object() {
+			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1)) >= 2 && (new Object() {
 				public ItemStack getItemStack(BlockPos pos, int sltid) {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -530,7 +531,7 @@ public class AssemblerblockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (1))).getItem() == IndustrialDiamondItem.block))) && ((((new Object() {
+			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (1))).getItem() == IndustrialDiamondItem.block && ((new Object() {
 				public ItemStack getItemStack(BlockPos pos, int sltid) {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -541,7 +542,7 @@ public class AssemblerblockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (2))).getItem() == DiamondscrewitemItem.block) && ((new Object() {
+			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (2))).getItem() == DiamondscrewitemItem.block && new Object() {
 				public int getAmount(IWorld world, BlockPos pos, int sltid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -552,7 +553,7 @@ public class AssemblerblockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (2))) < 64)) || ((new Object() {
+			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (2)) < 64 || new Object() {
 				public int getAmount(IWorld world, BlockPos pos, int sltid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -563,7 +564,7 @@ public class AssemblerblockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (2))) == 0))))) {
+			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (2)) == 0)) {
 				if (!world.isRemote()) {
 					BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 					TileEntity _tileEntity = world.getTileEntity(_bp);
@@ -578,7 +579,7 @@ public class AssemblerblockUpdateTickProcedure {
 					if (_ent != null) {
 						final int _sltid = (int) (0);
 						final ItemStack _setstack = new ItemStack(ScrewItem.block);
-						_setstack.setCount((int) ((new Object() {
+						_setstack.setCount((int) (new Object() {
 							public int getAmount(IWorld world, BlockPos pos, int sltid) {
 								AtomicInteger _retval = new AtomicInteger(0);
 								TileEntity _ent = world.getTileEntity(pos);
@@ -589,7 +590,7 @@ public class AssemblerblockUpdateTickProcedure {
 								}
 								return _retval.get();
 							}
-						}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (0))) - 1));
+						}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (0)) - 1));
 						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								((IItemHandlerModifiable) capability).setStackInSlot(_sltid, _setstack);
@@ -602,7 +603,7 @@ public class AssemblerblockUpdateTickProcedure {
 					if (_ent != null) {
 						final int _sltid = (int) (1);
 						final ItemStack _setstack = new ItemStack(IndustrialDiamondItem.block);
-						_setstack.setCount((int) ((new Object() {
+						_setstack.setCount((int) (new Object() {
 							public int getAmount(IWorld world, BlockPos pos, int sltid) {
 								AtomicInteger _retval = new AtomicInteger(0);
 								TileEntity _ent = world.getTileEntity(pos);
@@ -613,7 +614,7 @@ public class AssemblerblockUpdateTickProcedure {
 								}
 								return _retval.get();
 							}
-						}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1))) - 1));
+						}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1)) - 1));
 						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								((IItemHandlerModifiable) capability).setStackInSlot(_sltid, _setstack);
@@ -626,7 +627,7 @@ public class AssemblerblockUpdateTickProcedure {
 					if (_ent != null) {
 						final int _sltid = (int) (2);
 						final ItemStack _setstack = new ItemStack(DiamondscrewitemItem.block);
-						_setstack.setCount((int) ((new Object() {
+						_setstack.setCount((int) (new Object() {
 							public int getAmount(IWorld world, BlockPos pos, int sltid) {
 								AtomicInteger _retval = new AtomicInteger(0);
 								TileEntity _ent = world.getTileEntity(pos);
@@ -637,7 +638,7 @@ public class AssemblerblockUpdateTickProcedure {
 								}
 								return _retval.get();
 							}
-						}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (2))) + 1));
+						}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (2)) + 1));
 						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								((IItemHandlerModifiable) capability).setStackInSlot(_sltid, _setstack);
@@ -661,14 +662,14 @@ public class AssemblerblockUpdateTickProcedure {
 					if (world instanceof World)
 						((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 				}
-			} else if (((((new Object() {
+			} else if ((new Object() {
 				public String getValue(IWorld world, BlockPos pos, String tag) {
 					TileEntity tileEntity = world.getTileEntity(pos);
 					if (tileEntity != null)
 						return tileEntity.getTileData().getString(tag);
 					return "";
 				}
-			}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Recipe"))).equals("TurboFuel")) && (((((new Object() {
+			}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Recipe")).equals("TurboFuel") && new Object() {
 				public int getAmount(IWorld world, BlockPos pos, int sltid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -679,7 +680,7 @@ public class AssemblerblockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (0))) >= 9) && ((new Object() {
+			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (0)) >= 9 && (new Object() {
 				public ItemStack getItemStack(BlockPos pos, int sltid) {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -690,7 +691,7 @@ public class AssemblerblockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (0))).getItem() == Items.COAL)) && (((new Object() {
+			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (0))).getItem() == Items.COAL && new Object() {
 				public int getAmount(IWorld world, BlockPos pos, int sltid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -701,7 +702,7 @@ public class AssemblerblockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1))) >= 2) && ((new Object() {
+			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1)) >= 2 && (new Object() {
 				public ItemStack getItemStack(BlockPos pos, int sltid) {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -712,7 +713,7 @@ public class AssemblerblockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (1))).getItem() == Items.REDSTONE))) && ((((new Object() {
+			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (1))).getItem() == Items.REDSTONE && ((new Object() {
 				public ItemStack getItemStack(BlockPos pos, int sltid) {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -723,7 +724,7 @@ public class AssemblerblockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (2))).getItem() == TurbofuelitemItem.block) && ((new Object() {
+			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (2))).getItem() == TurbofuelitemItem.block && new Object() {
 				public int getAmount(IWorld world, BlockPos pos, int sltid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -734,7 +735,7 @@ public class AssemblerblockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (2))) < 64)) || ((new Object() {
+			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (2)) < 64 || new Object() {
 				public int getAmount(IWorld world, BlockPos pos, int sltid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -745,7 +746,7 @@ public class AssemblerblockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (2))) == 0))))) {
+			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (2)) == 0)) {
 				if (!world.isRemote()) {
 					BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 					TileEntity _tileEntity = world.getTileEntity(_bp);
@@ -760,7 +761,7 @@ public class AssemblerblockUpdateTickProcedure {
 					if (_ent != null) {
 						final int _sltid = (int) (0);
 						final ItemStack _setstack = new ItemStack(Items.COAL);
-						_setstack.setCount((int) ((new Object() {
+						_setstack.setCount((int) (new Object() {
 							public int getAmount(IWorld world, BlockPos pos, int sltid) {
 								AtomicInteger _retval = new AtomicInteger(0);
 								TileEntity _ent = world.getTileEntity(pos);
@@ -771,7 +772,7 @@ public class AssemblerblockUpdateTickProcedure {
 								}
 								return _retval.get();
 							}
-						}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (0))) - 8));
+						}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (0)) - 8));
 						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								((IItemHandlerModifiable) capability).setStackInSlot(_sltid, _setstack);
@@ -784,7 +785,7 @@ public class AssemblerblockUpdateTickProcedure {
 					if (_ent != null) {
 						final int _sltid = (int) (1);
 						final ItemStack _setstack = new ItemStack(Items.REDSTONE);
-						_setstack.setCount((int) ((new Object() {
+						_setstack.setCount((int) (new Object() {
 							public int getAmount(IWorld world, BlockPos pos, int sltid) {
 								AtomicInteger _retval = new AtomicInteger(0);
 								TileEntity _ent = world.getTileEntity(pos);
@@ -795,7 +796,7 @@ public class AssemblerblockUpdateTickProcedure {
 								}
 								return _retval.get();
 							}
-						}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1))) - 1));
+						}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1)) - 1));
 						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								((IItemHandlerModifiable) capability).setStackInSlot(_sltid, _setstack);
@@ -808,7 +809,7 @@ public class AssemblerblockUpdateTickProcedure {
 					if (_ent != null) {
 						final int _sltid = (int) (2);
 						final ItemStack _setstack = new ItemStack(TurbofuelitemItem.block);
-						_setstack.setCount((int) ((new Object() {
+						_setstack.setCount((int) (new Object() {
 							public int getAmount(IWorld world, BlockPos pos, int sltid) {
 								AtomicInteger _retval = new AtomicInteger(0);
 								TileEntity _ent = world.getTileEntity(pos);
@@ -819,7 +820,7 @@ public class AssemblerblockUpdateTickProcedure {
 								}
 								return _retval.get();
 							}
-						}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (2))) + 1));
+						}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (2)) + 1));
 						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								((IItemHandlerModifiable) capability).setStackInSlot(_sltid, _setstack);
@@ -843,14 +844,14 @@ public class AssemblerblockUpdateTickProcedure {
 					if (world instanceof World)
 						((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 				}
-			} else if (((((new Object() {
+			} else if ((new Object() {
 				public String getValue(IWorld world, BlockPos pos, String tag) {
 					TileEntity tileEntity = world.getTileEntity(pos);
 					if (tileEntity != null)
 						return tileEntity.getTileData().getString(tag);
 					return "";
 				}
-			}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Recipe"))).equals("IronPlate")) && (((((new Object() {
+			}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Recipe")).equals("IronPlate") && new Object() {
 				public int getAmount(IWorld world, BlockPos pos, int sltid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -861,7 +862,7 @@ public class AssemblerblockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (0))) >= 5) && ((new Object() {
+			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (0)) >= 5 && (new Object() {
 				public ItemStack getItemStack(BlockPos pos, int sltid) {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -872,7 +873,7 @@ public class AssemblerblockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (0))).getItem() == ScrewItem.block)) && (((new Object() {
+			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (0))).getItem() == ScrewItem.block && new Object() {
 				public int getAmount(IWorld world, BlockPos pos, int sltid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -883,7 +884,7 @@ public class AssemblerblockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1))) >= 6) && ((new Object() {
+			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1)) >= 6 && (new Object() {
 				public ItemStack getItemStack(BlockPos pos, int sltid) {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -894,7 +895,7 @@ public class AssemblerblockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (1))).getItem() == Items.IRON_INGOT))) && ((((new Object() {
+			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (1))).getItem() == Items.IRON_INGOT && ((new Object() {
 				public ItemStack getItemStack(BlockPos pos, int sltid) {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -905,7 +906,7 @@ public class AssemblerblockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (2))).getItem() == IronplateItem.block) && ((new Object() {
+			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (2))).getItem() == IronplateItem.block && new Object() {
 				public int getAmount(IWorld world, BlockPos pos, int sltid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -916,7 +917,7 @@ public class AssemblerblockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (2))) < 64)) || ((new Object() {
+			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (2)) < 64 || new Object() {
 				public int getAmount(IWorld world, BlockPos pos, int sltid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -927,7 +928,7 @@ public class AssemblerblockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (2))) == 0))))) {
+			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (2)) == 0)) {
 				if (!world.isRemote()) {
 					BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 					TileEntity _tileEntity = world.getTileEntity(_bp);
@@ -942,7 +943,7 @@ public class AssemblerblockUpdateTickProcedure {
 					if (_ent != null) {
 						final int _sltid = (int) (0);
 						final ItemStack _setstack = new ItemStack(ScrewItem.block);
-						_setstack.setCount((int) ((new Object() {
+						_setstack.setCount((int) (new Object() {
 							public int getAmount(IWorld world, BlockPos pos, int sltid) {
 								AtomicInteger _retval = new AtomicInteger(0);
 								TileEntity _ent = world.getTileEntity(pos);
@@ -953,7 +954,7 @@ public class AssemblerblockUpdateTickProcedure {
 								}
 								return _retval.get();
 							}
-						}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (0))) - 4));
+						}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (0)) - 4));
 						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								((IItemHandlerModifiable) capability).setStackInSlot(_sltid, _setstack);
@@ -966,7 +967,7 @@ public class AssemblerblockUpdateTickProcedure {
 					if (_ent != null) {
 						final int _sltid = (int) (1);
 						final ItemStack _setstack = new ItemStack(Items.IRON_INGOT);
-						_setstack.setCount((int) ((new Object() {
+						_setstack.setCount((int) (new Object() {
 							public int getAmount(IWorld world, BlockPos pos, int sltid) {
 								AtomicInteger _retval = new AtomicInteger(0);
 								TileEntity _ent = world.getTileEntity(pos);
@@ -977,7 +978,7 @@ public class AssemblerblockUpdateTickProcedure {
 								}
 								return _retval.get();
 							}
-						}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1))) - 5));
+						}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1)) - 5));
 						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								((IItemHandlerModifiable) capability).setStackInSlot(_sltid, _setstack);
@@ -990,7 +991,7 @@ public class AssemblerblockUpdateTickProcedure {
 					if (_ent != null) {
 						final int _sltid = (int) (2);
 						final ItemStack _setstack = new ItemStack(IronplateItem.block);
-						_setstack.setCount((int) ((new Object() {
+						_setstack.setCount((int) (new Object() {
 							public int getAmount(IWorld world, BlockPos pos, int sltid) {
 								AtomicInteger _retval = new AtomicInteger(0);
 								TileEntity _ent = world.getTileEntity(pos);
@@ -1001,7 +1002,7 @@ public class AssemblerblockUpdateTickProcedure {
 								}
 								return _retval.get();
 							}
-						}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (2))) + 1));
+						}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (2)) + 1));
 						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								((IItemHandlerModifiable) capability).setStackInSlot(_sltid, _setstack);
@@ -1025,14 +1026,14 @@ public class AssemblerblockUpdateTickProcedure {
 					if (world instanceof World)
 						((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 				}
-			} else if (((((new Object() {
+			} else if ((new Object() {
 				public String getValue(IWorld world, BlockPos pos, String tag) {
 					TileEntity tileEntity = world.getTileEntity(pos);
 					if (tileEntity != null)
 						return tileEntity.getTileData().getString(tag);
 					return "";
 				}
-			}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Recipe"))).equals("CateriumWire")) && (((((new Object() {
+			}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Recipe")).equals("CateriumWire") && new Object() {
 				public int getAmount(IWorld world, BlockPos pos, int sltid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -1043,7 +1044,7 @@ public class AssemblerblockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (0))) >= 9) && ((new Object() {
+			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (0)) >= 9 && (new Object() {
 				public ItemStack getItemStack(BlockPos pos, int sltid) {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -1054,7 +1055,7 @@ public class AssemblerblockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (0))).getItem() == CateriumroditemItem.block)) && (((new Object() {
+			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (0))).getItem() == CateriumroditemItem.block && new Object() {
 				public int getAmount(IWorld world, BlockPos pos, int sltid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -1065,7 +1066,7 @@ public class AssemblerblockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1))) >= 2) && ((new Object() {
+			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1)) >= 2 && (new Object() {
 				public ItemStack getItemStack(BlockPos pos, int sltid) {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -1076,7 +1077,7 @@ public class AssemblerblockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (1))).getItem() == Blocks.IRON_BLOCK.asItem()))) && ((((new Object() {
+			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (1))).getItem() == Blocks.IRON_BLOCK.asItem() && ((new Object() {
 				public ItemStack getItemStack(BlockPos pos, int sltid) {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -1087,7 +1088,7 @@ public class AssemblerblockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (2))).getItem() == CateriumwireitemItem.block) && ((new Object() {
+			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (2))).getItem() == CateriumwireitemItem.block && new Object() {
 				public int getAmount(IWorld world, BlockPos pos, int sltid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -1098,7 +1099,7 @@ public class AssemblerblockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (2))) < 64)) || ((new Object() {
+			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (2)) < 64 || new Object() {
 				public int getAmount(IWorld world, BlockPos pos, int sltid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -1109,7 +1110,7 @@ public class AssemblerblockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (2))) == 0))))) {
+			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (2)) == 0)) {
 				if (!world.isRemote()) {
 					BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 					TileEntity _tileEntity = world.getTileEntity(_bp);
@@ -1124,7 +1125,7 @@ public class AssemblerblockUpdateTickProcedure {
 					if (_ent != null) {
 						final int _sltid = (int) (0);
 						final ItemStack _setstack = new ItemStack(CateriumroditemItem.block);
-						_setstack.setCount((int) ((new Object() {
+						_setstack.setCount((int) (new Object() {
 							public int getAmount(IWorld world, BlockPos pos, int sltid) {
 								AtomicInteger _retval = new AtomicInteger(0);
 								TileEntity _ent = world.getTileEntity(pos);
@@ -1135,7 +1136,7 @@ public class AssemblerblockUpdateTickProcedure {
 								}
 								return _retval.get();
 							}
-						}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (0))) - 8));
+						}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (0)) - 8));
 						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								((IItemHandlerModifiable) capability).setStackInSlot(_sltid, _setstack);
@@ -1148,7 +1149,7 @@ public class AssemblerblockUpdateTickProcedure {
 					if (_ent != null) {
 						final int _sltid = (int) (1);
 						final ItemStack _setstack = new ItemStack(Blocks.IRON_BLOCK);
-						_setstack.setCount((int) ((new Object() {
+						_setstack.setCount((int) (new Object() {
 							public int getAmount(IWorld world, BlockPos pos, int sltid) {
 								AtomicInteger _retval = new AtomicInteger(0);
 								TileEntity _ent = world.getTileEntity(pos);
@@ -1159,7 +1160,7 @@ public class AssemblerblockUpdateTickProcedure {
 								}
 								return _retval.get();
 							}
-						}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1))) - 1));
+						}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1)) - 1));
 						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								((IItemHandlerModifiable) capability).setStackInSlot(_sltid, _setstack);
@@ -1172,7 +1173,7 @@ public class AssemblerblockUpdateTickProcedure {
 					if (_ent != null) {
 						final int _sltid = (int) (2);
 						final ItemStack _setstack = new ItemStack(CateriumwireitemItem.block);
-						_setstack.setCount((int) ((new Object() {
+						_setstack.setCount((int) (new Object() {
 							public int getAmount(IWorld world, BlockPos pos, int sltid) {
 								AtomicInteger _retval = new AtomicInteger(0);
 								TileEntity _ent = world.getTileEntity(pos);
@@ -1183,7 +1184,7 @@ public class AssemblerblockUpdateTickProcedure {
 								}
 								return _retval.get();
 							}
-						}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (2))) + 1));
+						}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (2)) + 1));
 						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								((IItemHandlerModifiable) capability).setStackInSlot(_sltid, _setstack);

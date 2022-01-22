@@ -45,23 +45,24 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Block;
 
+import java.util.stream.Stream;
 import java.util.Random;
 import java.util.Map;
 import java.util.List;
 import java.util.HashMap;
 import java.util.Collections;
+import java.util.AbstractMap;
 
 import industrialeconomy.procedures.CrystalBlockDestroyedByPlayerProcedure;
 import industrialeconomy.procedures.CrystalAdditionalGenerationConditionProcedure;
 
 import industrialeconomy.IndustrialEconomyModElements;
 
-import com.google.common.collect.ImmutableMap;
-
 @IndustrialEconomyModElements.ModElement.Tag
 public class CrystalBlock extends IndustrialEconomyModElements.ModElement {
 	@ObjectHolder("industrial_economy:crystal")
 	public static final Block block = null;
+
 	public CrystalBlock(IndustrialEconomyModElements instance) {
 		super(instance, 501);
 		MinecraftForge.EVENT_BUS.register(this);
@@ -80,6 +81,7 @@ public class CrystalBlock extends IndustrialEconomyModElements.ModElement {
 	public void clientLoad(FMLClientSetupEvent event) {
 		RenderTypeLookup.setRenderLayer(block, RenderType.getCutout());
 	}
+
 	public static class CustomBlock extends Block {
 		public CustomBlock() {
 			super(Block.Properties.create(Material.GLASS).sound(SoundType.GLASS).hardnessAndResistance(10f, 10f).setLightLevel(s -> 2).notSolid()
@@ -100,7 +102,11 @@ public class CrystalBlock extends IndustrialEconomyModElements.ModElement {
 		@Override
 		public VoxelShape getShape(BlockState state, IBlockReader world, BlockPos pos, ISelectionContext context) {
 			Vector3d offset = state.getOffset(world, pos);
-			return VoxelShapes.or(makeCuboidShape(4, 0, 4, 12, 12, 12)).withOffset(offset.x, offset.y, offset.z);
+			return VoxelShapes.or(makeCuboidShape(4, 0, 4, 12, 12, 12)
+
+			)
+
+					.withOffset(offset.x, offset.y, offset.z);
 		}
 
 		@Override
@@ -117,24 +123,23 @@ public class CrystalBlock extends IndustrialEconomyModElements.ModElement {
 			int x = pos.getX();
 			int y = pos.getY();
 			int z = pos.getZ();
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				$_dependencies.put("x", x);
-				$_dependencies.put("y", y);
-				$_dependencies.put("z", z);
-				$_dependencies.put("world", world);
-				CrystalBlockDestroyedByPlayerProcedure.executeProcedure($_dependencies);
-			}
+
+			CrystalBlockDestroyedByPlayerProcedure.executeProcedure(Stream
+					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
+							new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
+					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			return retval;
 		}
 	}
+
 	private static Feature<OreFeatureConfig> feature = null;
 	private static ConfiguredFeature<?, ?> configuredFeature = null;
 	private static IRuleTestType<CustomRuleTest> CUSTOM_MATCH = null;
+
 	private static class CustomRuleTest extends RuleTest {
 		static final CustomRuleTest INSTANCE = new CustomRuleTest();
 		static final com.mojang.serialization.Codec<CustomRuleTest> codec = com.mojang.serialization.Codec.unit(() -> INSTANCE);
+
 		public boolean test(BlockState blockAt, Random random) {
 			boolean blockCriteria = false;
 			return blockCriteria;
@@ -162,7 +167,10 @@ public class CrystalBlock extends IndustrialEconomyModElements.ModElement {
 					int x = pos.getX();
 					int y = pos.getY();
 					int z = pos.getZ();
-					if (!CrystalAdditionalGenerationConditionProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world)))
+					if (!CrystalAdditionalGenerationConditionProcedure.executeProcedure(Stream
+							.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
+									new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z))
+							.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll)))
 						return false;
 					return super.generate(world, generator, rand, pos, config);
 				}
@@ -173,6 +181,7 @@ public class CrystalBlock extends IndustrialEconomyModElements.ModElement {
 			Registry.register(WorldGenRegistries.CONFIGURED_FEATURE, new ResourceLocation("industrial_economy:crystal"), configuredFeature);
 		}
 	}
+
 	@SubscribeEvent
 	public void addFeatureToBiomes(BiomeLoadingEvent event) {
 		boolean biomeCriteria = false;

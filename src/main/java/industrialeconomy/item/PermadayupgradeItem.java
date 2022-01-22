@@ -24,6 +24,7 @@ import industrialeconomy.IndustrialEconomyModElements;
 public class PermadayupgradeItem extends IndustrialEconomyModElements.ModElement {
 	@ObjectHolder("industrial_economy:permadayupgrade")
 	public static final Item block = null;
+
 	public PermadayupgradeItem(IndustrialEconomyModElements instance) {
 		super(instance, 215);
 	}
@@ -32,6 +33,7 @@ public class PermadayupgradeItem extends IndustrialEconomyModElements.ModElement
 	public void initElements() {
 		elements.items.add(() -> new ItemCustom());
 	}
+
 	public static class ItemCustom extends Item {
 		public ItemCustom() {
 			super(new Item.Properties().group(ProjectMEGAItemGroup.tab).maxStackSize(1).rarity(Rarity.RARE));

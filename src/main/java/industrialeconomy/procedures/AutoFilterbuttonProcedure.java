@@ -11,6 +11,7 @@ import industrialeconomy.IndustrialEconomyModVariables;
 import industrialeconomy.IndustrialEconomyMod;
 
 public class AutoFilterbuttonProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
@@ -18,10 +19,10 @@ public class AutoFilterbuttonProcedure {
 			return;
 		}
 		Entity entity = (Entity) dependencies.get("entity");
-		if ((((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-				.orElse(new IndustrialEconomyModVariables.PlayerVariables())).diamondsteel_itembuffer) == (false))) {
+		if ((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+				.orElse(new IndustrialEconomyModVariables.PlayerVariables())).diamondsteel_itembuffer == false) {
 			{
-				boolean _setval = (boolean) (true);
+				boolean _setval = (true);
 				entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 					capability.diamondsteel_itembuffer = _setval;
 					capability.syncPlayerVariables(entity);
@@ -32,7 +33,7 @@ public class AutoFilterbuttonProcedure {
 			}
 		} else {
 			{
-				boolean _setval = (boolean) (false);
+				boolean _setval = (false);
 				entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 					capability.diamondsteel_itembuffer = _setval;
 					capability.syncPlayerVariables(entity);

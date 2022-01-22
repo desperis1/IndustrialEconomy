@@ -15,6 +15,7 @@ import industrialeconomy.IndustrialEconomyModVariables;
 import industrialeconomy.IndustrialEconomyMod;
 
 public class ATM2000EBUTTONProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
@@ -22,11 +23,11 @@ public class ATM2000EBUTTONProcedure {
 			return;
 		}
 		Entity entity = (Entity) dependencies.get("entity");
-		if ((((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-				.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money) >= 2000)) {
+		if ((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+				.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money >= 2000) {
 			{
-				double _setval = (double) (((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-						.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money) - 2000);
+				double _setval = ((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+						.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money - 2000);
 				entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 					capability.player_money = _setval;
 					capability.syncPlayerVariables(entity);

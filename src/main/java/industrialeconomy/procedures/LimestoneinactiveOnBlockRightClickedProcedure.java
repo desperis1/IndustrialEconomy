@@ -17,10 +17,11 @@ import industrialeconomy.block.LimestoneactiveBlock;
 import industrialeconomy.IndustrialEconomyMod;
 
 public class LimestoneinactiveOnBlockRightClickedProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency entity for procedure LimestoneinactiveOnBlockRightClicked!");
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency world for procedure LimestoneinactiveOnBlockRightClicked!");
 			return;
 		}
 		if (dependencies.get("x") == null) {
@@ -38,18 +39,18 @@ public class LimestoneinactiveOnBlockRightClickedProcedure {
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency z for procedure LimestoneinactiveOnBlockRightClicked!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency world for procedure LimestoneinactiveOnBlockRightClicked!");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency entity for procedure LimestoneinactiveOnBlockRightClicked!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
-		if ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
-				.getItem() == LimestoneactiveBlock.block.asItem())) {
+		Entity entity = (Entity) dependencies.get("entity");
+		if (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
+				.getItem() == LimestoneactiveBlock.block.asItem()) {
 			if (!world.isRemote()) {
 				BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 				TileEntity _tileEntity = world.getTileEntity(_bp);

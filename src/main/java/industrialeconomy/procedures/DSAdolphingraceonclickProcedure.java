@@ -11,6 +11,7 @@ import industrialeconomy.IndustrialEconomyModVariables;
 import industrialeconomy.IndustrialEconomyMod;
 
 public class DSAdolphingraceonclickProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
@@ -18,10 +19,10 @@ public class DSAdolphingraceonclickProcedure {
 			return;
 		}
 		Entity entity = (Entity) dependencies.get("entity");
-		if ((((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-				.orElse(new IndustrialEconomyModVariables.PlayerVariables())).DSA_DolphinGrace) == (true))) {
+		if ((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+				.orElse(new IndustrialEconomyModVariables.PlayerVariables())).DSA_DolphinGrace == true) {
 			{
-				boolean _setval = (boolean) (false);
+				boolean _setval = (false);
 				entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 					capability.DSA_DolphinGrace = _setval;
 					capability.syncPlayerVariables(entity);
@@ -32,7 +33,7 @@ public class DSAdolphingraceonclickProcedure {
 			}
 		} else {
 			{
-				boolean _setval = (boolean) (true);
+				boolean _setval = (true);
 				entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 					capability.DSA_DolphinGrace = _setval;
 					capability.syncPlayerVariables(entity);

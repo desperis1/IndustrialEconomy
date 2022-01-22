@@ -30,6 +30,7 @@ import industrialeconomy.IndustrialEconomyModElements;
 public class HeavyframeBlock extends IndustrialEconomyModElements.ModElement {
 	@ObjectHolder("industrial_economy:heavyframe")
 	public static final Block block = null;
+
 	public HeavyframeBlock(IndustrialEconomyModElements instance) {
 		super(instance, 208);
 	}
@@ -46,6 +47,7 @@ public class HeavyframeBlock extends IndustrialEconomyModElements.ModElement {
 	public void clientLoad(FMLClientSetupEvent event) {
 		RenderTypeLookup.setRenderLayer(block, RenderType.getTranslucent());
 	}
+
 	public static class CustomBlock extends Block {
 		public CustomBlock() {
 			super(Block.Properties.create(Material.ANVIL).sound(SoundType.ANVIL).hardnessAndResistance(20f, 10f).setLightLevel(s -> 0).notSolid()

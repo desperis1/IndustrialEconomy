@@ -11,7 +11,13 @@ import java.util.Map;
 import industrialeconomy.IndustrialEconomyMod;
 
 public class ConstructorChangeRecipeOnclickProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency world for procedure ConstructorChangeRecipeOnclick!");
+			return;
+		}
 		if (dependencies.get("x") == null) {
 			if (!dependencies.containsKey("x"))
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency x for procedure ConstructorChangeRecipeOnclick!");
@@ -27,23 +33,18 @@ public class ConstructorChangeRecipeOnclickProcedure {
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency z for procedure ConstructorChangeRecipeOnclick!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency world for procedure ConstructorChangeRecipeOnclick!");
-			return;
-		}
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
-		if ((((new Object() {
+		if ((new Object() {
 			public String getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
 					return tileEntity.getTileData().getString(tag);
 				return "";
 			}
-		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Recipe"))).equals("Screw"))) {
+		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Recipe")).equals("Screw")) {
 			if (!world.isRemote()) {
 				BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 				TileEntity _tileEntity = world.getTileEntity(_bp);
@@ -53,14 +54,14 @@ public class ConstructorChangeRecipeOnclickProcedure {
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
-		} else if ((((new Object() {
+		} else if ((new Object() {
 			public String getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
 					return tileEntity.getTileData().getString(tag);
 				return "";
 			}
-		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Recipe"))).equals("CoalBlock"))) {
+		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Recipe")).equals("CoalBlock")) {
 			if (!world.isRemote()) {
 				BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 				TileEntity _tileEntity = world.getTileEntity(_bp);
@@ -70,14 +71,14 @@ public class ConstructorChangeRecipeOnclickProcedure {
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
-		} else if ((((new Object() {
+		} else if ((new Object() {
 			public String getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
 					return tileEntity.getTileData().getString(tag);
 				return "";
 			}
-		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Recipe"))).equals("IronBlock"))) {
+		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Recipe")).equals("IronBlock")) {
 			if (!world.isRemote()) {
 				BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 				TileEntity _tileEntity = world.getTileEntity(_bp);
@@ -87,14 +88,14 @@ public class ConstructorChangeRecipeOnclickProcedure {
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
-		} else if ((((new Object() {
+		} else if ((new Object() {
 			public String getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
 					return tileEntity.getTileData().getString(tag);
 				return "";
 			}
-		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Recipe"))).equals("CateriumBlock"))) {
+		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Recipe")).equals("CateriumBlock")) {
 			if (!world.isRemote()) {
 				BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 				TileEntity _tileEntity = world.getTileEntity(_bp);
@@ -104,14 +105,14 @@ public class ConstructorChangeRecipeOnclickProcedure {
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
-		} else if ((((new Object() {
+		} else if ((new Object() {
 			public String getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
 					return tileEntity.getTileData().getString(tag);
 				return "";
 			}
-		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Recipe"))).equals("CopperBlock"))) {
+		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Recipe")).equals("CopperBlock")) {
 			if (!world.isRemote()) {
 				BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 				TileEntity _tileEntity = world.getTileEntity(_bp);
@@ -121,14 +122,14 @@ public class ConstructorChangeRecipeOnclickProcedure {
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
-		} else if ((((new Object() {
+		} else if ((new Object() {
 			public String getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
 					return tileEntity.getTileData().getString(tag);
 				return "";
 			}
-		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Recipe"))).equals("CopperSheet"))) {
+		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Recipe")).equals("CopperSheet")) {
 			if (!world.isRemote()) {
 				BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 				TileEntity _tileEntity = world.getTileEntity(_bp);
@@ -138,14 +139,14 @@ public class ConstructorChangeRecipeOnclickProcedure {
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
-		} else if ((((new Object() {
+		} else if ((new Object() {
 			public String getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
 					return tileEntity.getTileData().getString(tag);
 				return "";
 			}
-		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Recipe"))).equals("SteelBlock"))) {
+		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Recipe")).equals("SteelBlock")) {
 			if (!world.isRemote()) {
 				BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 				TileEntity _tileEntity = world.getTileEntity(_bp);
@@ -155,14 +156,14 @@ public class ConstructorChangeRecipeOnclickProcedure {
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
-		} else if ((((new Object() {
+		} else if ((new Object() {
 			public String getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
 					return tileEntity.getTileData().getString(tag);
 				return "";
 			}
-		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Recipe"))).equals("ModularFrame"))) {
+		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Recipe")).equals("ModularFrame")) {
 			if (!world.isRemote()) {
 				BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 				TileEntity _tileEntity = world.getTileEntity(_bp);
@@ -172,14 +173,14 @@ public class ConstructorChangeRecipeOnclickProcedure {
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
-		} else if ((((new Object() {
+		} else if ((new Object() {
 			public String getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
 					return tileEntity.getTileData().getString(tag);
 				return "";
 			}
-		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Recipe"))).equals("Concrete"))) {
+		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Recipe")).equals("Concrete")) {
 			if (!world.isRemote()) {
 				BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 				TileEntity _tileEntity = world.getTileEntity(_bp);
@@ -189,14 +190,14 @@ public class ConstructorChangeRecipeOnclickProcedure {
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
-		} else if ((((new Object() {
+		} else if ((new Object() {
 			public String getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
 					return tileEntity.getTileData().getString(tag);
 				return "";
 			}
-		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Recipe"))).equals("CateriumRod"))) {
+		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Recipe")).equals("CateriumRod")) {
 			if (!world.isRemote()) {
 				BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 				TileEntity _tileEntity = world.getTileEntity(_bp);
@@ -206,14 +207,14 @@ public class ConstructorChangeRecipeOnclickProcedure {
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
-		} else if ((((new Object() {
+		} else if ((new Object() {
 			public String getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
 					return tileEntity.getTileData().getString(tag);
 				return "";
 			}
-		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Recipe"))).equals("StoneBrick"))) {
+		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Recipe")).equals("StoneBrick")) {
 			if (!world.isRemote()) {
 				BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 				TileEntity _tileEntity = world.getTileEntity(_bp);

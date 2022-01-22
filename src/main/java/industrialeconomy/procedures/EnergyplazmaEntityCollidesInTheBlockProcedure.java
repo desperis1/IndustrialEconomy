@@ -19,10 +19,11 @@ import industrialeconomy.IndustrialEconomyModVariables;
 import industrialeconomy.IndustrialEconomyMod;
 
 public class EnergyplazmaEntityCollidesInTheBlockProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency entity for procedure EnergyplazmaEntityCollidesInTheBlock!");
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency world for procedure EnergyplazmaEntityCollidesInTheBlock!");
 			return;
 		}
 		if (dependencies.get("x") == null) {
@@ -40,21 +41,21 @@ public class EnergyplazmaEntityCollidesInTheBlockProcedure {
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency z for procedure EnergyplazmaEntityCollidesInTheBlock!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency world for procedure EnergyplazmaEntityCollidesInTheBlock!");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency entity for procedure EnergyplazmaEntityCollidesInTheBlock!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
+		Entity entity = (Entity) dependencies.get("entity");
 		String owner = "";
 		double players_hub_x = 0;
 		double players_hub_y = 0;
 		double players_hub_z = 0;
-		owner = (String) (new Object() {
+		owner = (new Object() {
 			public String getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
@@ -62,7 +63,7 @@ public class EnergyplazmaEntityCollidesInTheBlockProcedure {
 				return "";
 			}
 		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "owner"));
-		players_hub_x = (double) (new Object() {
+		players_hub_x = (new Object() {
 			public double getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
@@ -73,8 +74,8 @@ public class EnergyplazmaEntityCollidesInTheBlockProcedure {
 				new BlockPos((int) IndustrialEconomyModVariables.WorldVariables.get(world).server_x,
 						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_y,
 						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_z),
-				((owner) + "" + ("hub_X"))));
-		players_hub_y = (double) (new Object() {
+				(owner + "hub_X")));
+		players_hub_y = (new Object() {
 			public double getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
@@ -85,8 +86,8 @@ public class EnergyplazmaEntityCollidesInTheBlockProcedure {
 				new BlockPos((int) IndustrialEconomyModVariables.WorldVariables.get(world).server_x,
 						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_y,
 						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_z),
-				((owner) + "" + ("hub_Y"))));
-		players_hub_z = (double) (new Object() {
+				(owner + "hub_Y")));
+		players_hub_z = (new Object() {
 			public double getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
@@ -97,8 +98,8 @@ public class EnergyplazmaEntityCollidesInTheBlockProcedure {
 				new BlockPos((int) IndustrialEconomyModVariables.WorldVariables.get(world).server_x,
 						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_y,
 						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_z),
-				((owner) + "" + ("hub_Z"))));
-		if ((((new Object() {
+				(owner + "hub_Z")));
+		if ((new Object() {
 			public double getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
@@ -106,8 +107,8 @@ public class EnergyplazmaEntityCollidesInTheBlockProcedure {
 				return -1;
 			}
 		}.getValue(world, new BlockPos((int) players_hub_x, (int) players_hub_y, (int) players_hub_z),
-				"Energy")) > 100) == (((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-						.orElse(new IndustrialEconomyModVariables.PlayerVariables())).DSA_energy) < 15000))) {
+				"Energy") > 100) == (entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+						.orElse(new IndustrialEconomyModVariables.PlayerVariables())).DSA_energy < 15000) {
 			if (!world.isRemote()) {
 				BlockPos _bp = new BlockPos((int) players_hub_x, (int) players_hub_y, (int) players_hub_z);
 				TileEntity _tileEntity = world.getTileEntity(_bp);
@@ -125,8 +126,8 @@ public class EnergyplazmaEntityCollidesInTheBlockProcedure {
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
 			{
-				double _setval = (double) (((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-						.orElse(new IndustrialEconomyModVariables.PlayerVariables())).DSA_energy) + 1);
+				double _setval = ((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+						.orElse(new IndustrialEconomyModVariables.PlayerVariables())).DSA_energy + 1);
 				entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 					capability.DSA_energy = _setval;
 					capability.syncPlayerVariables(entity);

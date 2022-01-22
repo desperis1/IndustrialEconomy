@@ -13,8 +13,10 @@ import net.minecraft.item.AxeItem;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.block.BlockState;
 
+import java.util.stream.Stream;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.AbstractMap;
 
 import industrialeconomy.procedures.DiamondsteelaxeBlockDestroyedWithToolProcedure;
 
@@ -26,6 +28,7 @@ import industrialeconomy.IndustrialEconomyModElements;
 public class DiamondsteelaxeItem extends IndustrialEconomyModElements.ModElement {
 	@ObjectHolder("industrial_economy:diamondsteelaxe")
 	public static final Item block = null;
+
 	public DiamondsteelaxeItem(IndustrialEconomyModElements instance) {
 		super(instance, 112);
 	}
@@ -63,15 +66,12 @@ public class DiamondsteelaxeItem extends IndustrialEconomyModElements.ModElement
 				int x = pos.getX();
 				int y = pos.getY();
 				int z = pos.getZ();
-				{
-					Map<String, Object> $_dependencies = new HashMap<>();
-					$_dependencies.put("entity", entity);
-					$_dependencies.put("x", x);
-					$_dependencies.put("y", y);
-					$_dependencies.put("z", z);
-					$_dependencies.put("world", world);
-					DiamondsteelaxeBlockDestroyedWithToolProcedure.executeProcedure($_dependencies);
-				}
+
+				DiamondsteelaxeBlockDestroyedWithToolProcedure.executeProcedure(Stream
+						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
+								new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z),
+								new AbstractMap.SimpleEntry<>("entity", entity))
+						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				return retval;
 			}
 		}.setRegistryName("diamondsteelaxe"));

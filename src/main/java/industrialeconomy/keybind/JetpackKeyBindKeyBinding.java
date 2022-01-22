@@ -18,9 +18,11 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.client.Minecraft;
 
+import java.util.stream.Stream;
 import java.util.function.Supplier;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.AbstractMap;
 
 import industrialeconomy.procedures.JetpackKeyBindOnKeyReleasedProcedure;
 import industrialeconomy.procedures.JetpackKeyBindOnKeyPressedProcedure;
@@ -34,6 +36,7 @@ public class JetpackKeyBindKeyBinding extends IndustrialEconomyModElements.ModEl
 	@OnlyIn(Dist.CLIENT)
 	private KeyBinding keys;
 	private long lastpress = 0;
+
 	public JetpackKeyBindKeyBinding(IndustrialEconomyModElements instance) {
 		super(instance, 230);
 		elements.addNetworkMessage(KeyBindingPressedMessage.class, KeyBindingPressedMessage::buffer, KeyBindingPressedMessage::new,
@@ -65,8 +68,10 @@ public class JetpackKeyBindKeyBinding extends IndustrialEconomyModElements.ModEl
 			}
 		}
 	}
+
 	public static class KeyBindingPressedMessage {
 		int type, pressedms;
+
 		public KeyBindingPressedMessage(int type, int pressedms) {
 			this.type = type;
 			this.pressedms = pressedms;
@@ -90,6 +95,7 @@ public class JetpackKeyBindKeyBinding extends IndustrialEconomyModElements.ModEl
 			context.setPacketHandled(true);
 		}
 	}
+
 	private static void pressAction(PlayerEntity entity, int type, int pressedms) {
 		World world = entity.world;
 		double x = entity.getPosX();
@@ -99,18 +105,14 @@ public class JetpackKeyBindKeyBinding extends IndustrialEconomyModElements.ModEl
 		if (!world.isBlockLoaded(new BlockPos(x, y, z)))
 			return;
 		if (type == 0) {
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				JetpackKeyBindOnKeyPressedProcedure.executeProcedure($_dependencies);
-			}
+
+			JetpackKeyBindOnKeyPressedProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+					(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 		}
 		if (type == 1) {
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				JetpackKeyBindOnKeyReleasedProcedure.executeProcedure($_dependencies);
-			}
+
+			JetpackKeyBindOnKeyReleasedProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+					(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 		}
 	}
 }

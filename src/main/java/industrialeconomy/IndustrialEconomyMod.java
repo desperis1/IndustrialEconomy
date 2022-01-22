@@ -47,6 +47,7 @@ public class IndustrialEconomyMod {
 			new ResourceLocation("industrial_economy", "industrial_economy"), () -> PROTOCOL_VERSION, PROTOCOL_VERSION::equals,
 			PROTOCOL_VERSION::equals);
 	public IndustrialEconomyModElements elements;
+
 	public IndustrialEconomyMod() {
 		elements = new IndustrialEconomyModElements();
 		FMLJavaModLoadingContext.get().getModEventBus().register(this);
@@ -87,8 +88,10 @@ public class IndustrialEconomyMod {
 	public void registerSounds(RegistryEvent.Register<net.minecraft.util.SoundEvent> event) {
 		elements.registerSounds(event);
 	}
+
 	private static class IndustrialEconomyModFMLBusEvents {
 		private final IndustrialEconomyMod parent;
+
 		IndustrialEconomyModFMLBusEvents(IndustrialEconomyMod parent) {
 			this.parent = parent;
 		}

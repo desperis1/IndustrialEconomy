@@ -11,6 +11,7 @@ import java.util.Map;
 import industrialeconomy.IndustrialEconomyMod;
 
 public class TreechopperclickedProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
@@ -18,8 +19,8 @@ public class TreechopperclickedProcedure {
 			return;
 		}
 		Entity entity = (Entity) dependencies.get("entity");
-		if (((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY).getOrCreateTag()
-				.getBoolean("TreeChopper")) == (true))) {
+		if (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY).getOrCreateTag()
+				.getBoolean("TreeChopper") == true) {
 			((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY).getOrCreateTag()
 					.putBoolean("TreeChopper", (false));
 			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {

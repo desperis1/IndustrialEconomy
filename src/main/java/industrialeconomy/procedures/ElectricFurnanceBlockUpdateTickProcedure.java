@@ -30,7 +30,13 @@ import industrialeconomy.IndustrialEconomyModVariables;
 import industrialeconomy.IndustrialEconomyMod;
 
 public class ElectricFurnanceBlockUpdateTickProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency world for procedure ElectricFurnanceBlockUpdateTick!");
+			return;
+		}
 		if (dependencies.get("x") == null) {
 			if (!dependencies.containsKey("x"))
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency x for procedure ElectricFurnanceBlockUpdateTick!");
@@ -46,20 +52,15 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency z for procedure ElectricFurnanceBlockUpdateTick!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency world for procedure ElectricFurnanceBlockUpdateTick!");
-			return;
-		}
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
 		String owner = "";
 		double players_hub_x = 0;
 		double players_hub_y = 0;
 		double players_hub_z = 0;
-		owner = (String) (new Object() {
+		owner = (new Object() {
 			public String getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
@@ -67,7 +68,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 				return "";
 			}
 		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "owner"));
-		players_hub_x = (double) (new Object() {
+		players_hub_x = (new Object() {
 			public double getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
@@ -78,8 +79,8 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 				new BlockPos((int) IndustrialEconomyModVariables.WorldVariables.get(world).server_x,
 						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_y,
 						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_z),
-				((owner) + "" + ("hub_X"))));
-		players_hub_y = (double) (new Object() {
+				(owner + "hub_X")));
+		players_hub_y = (new Object() {
 			public double getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
@@ -90,8 +91,8 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 				new BlockPos((int) IndustrialEconomyModVariables.WorldVariables.get(world).server_x,
 						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_y,
 						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_z),
-				((owner) + "" + ("hub_Y"))));
-		players_hub_z = (double) (new Object() {
+				(owner + "hub_Y")));
+		players_hub_z = (new Object() {
 			public double getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
@@ -102,16 +103,16 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 				new BlockPos((int) IndustrialEconomyModVariables.WorldVariables.get(world).server_x,
 						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_y,
 						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_z),
-				((owner) + "" + ("hub_Z"))));
-		if (((new Object() {
+				(owner + "hub_Z")));
+		if (new Object() {
 			public double getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
 					return tileEntity.getTileData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos((int) players_hub_x, (int) players_hub_y, (int) players_hub_z), "Energy")) > 100)) {
-			if (((((new Object() {
+		}.getValue(world, new BlockPos((int) players_hub_x, (int) players_hub_y, (int) players_hub_z), "Energy") > 100) {
+			if (new Object() {
 				public int getAmount(IWorld world, BlockPos pos, int sltid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -122,7 +123,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (0))) >= 2) && ((new Object() {
+			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (0)) >= 2 && (new Object() {
 				public ItemStack getItemStack(BlockPos pos, int sltid) {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -133,7 +134,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (0))).getItem() == Blocks.IRON_ORE.asItem())) && (((new Object() {
+			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (0))).getItem() == Blocks.IRON_ORE.asItem() && new Object() {
 				public int getAmount(IWorld world, BlockPos pos, int sltid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -144,7 +145,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1))) < 64) && (((new Object() {
+			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1)) < 64 && (new Object() {
 				public int getAmount(IWorld world, BlockPos pos, int sltid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -155,7 +156,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1))) == 0) || ((new Object() {
+			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1)) == 0 || (new Object() {
 				public ItemStack getItemStack(BlockPos pos, int sltid) {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -166,7 +167,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (1))).getItem() == Items.IRON_INGOT))))) {
+			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (1))).getItem() == Items.IRON_INGOT)) {
 				if (!world.isRemote()) {
 					BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 					TileEntity _tileEntity = world.getTileEntity(_bp);
@@ -195,7 +196,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					if (_ent != null) {
 						final int _sltid = (int) (1);
 						final ItemStack _setstack = new ItemStack(Items.IRON_INGOT);
-						_setstack.setCount((int) ((new Object() {
+						_setstack.setCount((int) (new Object() {
 							public int getAmount(IWorld world, BlockPos pos, int sltid) {
 								AtomicInteger _retval = new AtomicInteger(0);
 								TileEntity _ent = world.getTileEntity(pos);
@@ -206,7 +207,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 								}
 								return _retval.get();
 							}
-						}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1))) + 2));
+						}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1)) + 2));
 						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								((IItemHandlerModifiable) capability).setStackInSlot(_sltid, _setstack);
@@ -230,7 +231,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					if (world instanceof World)
 						((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 				}
-			} else if (((((new Object() {
+			} else if (new Object() {
 				public int getAmount(IWorld world, BlockPos pos, int sltid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -241,7 +242,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (0))) >= 2) && ((new Object() {
+			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (0)) >= 2 && (new Object() {
 				public ItemStack getItemStack(BlockPos pos, int sltid) {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -252,7 +253,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (0))).getItem() == CateriumOreBlock.block.asItem())) && (((new Object() {
+			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (0))).getItem() == CateriumOreBlock.block.asItem() && new Object() {
 				public int getAmount(IWorld world, BlockPos pos, int sltid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -263,7 +264,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1))) < 64) && (((new Object() {
+			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1)) < 64 && (new Object() {
 				public int getAmount(IWorld world, BlockPos pos, int sltid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -274,7 +275,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1))) == 0) || ((new Object() {
+			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1)) == 0 || (new Object() {
 				public ItemStack getItemStack(BlockPos pos, int sltid) {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -285,7 +286,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (1))).getItem() == CateriumIngotItem.block))))) {
+			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (1))).getItem() == CateriumIngotItem.block)) {
 				if (!world.isRemote()) {
 					BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 					TileEntity _tileEntity = world.getTileEntity(_bp);
@@ -314,7 +315,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					if (_ent != null) {
 						final int _sltid = (int) (1);
 						final ItemStack _setstack = new ItemStack(CateriumIngotItem.block);
-						_setstack.setCount((int) ((new Object() {
+						_setstack.setCount((int) (new Object() {
 							public int getAmount(IWorld world, BlockPos pos, int sltid) {
 								AtomicInteger _retval = new AtomicInteger(0);
 								TileEntity _ent = world.getTileEntity(pos);
@@ -325,7 +326,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 								}
 								return _retval.get();
 							}
-						}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1))) + 2));
+						}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1)) + 2));
 						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								((IItemHandlerModifiable) capability).setStackInSlot(_sltid, _setstack);
@@ -349,7 +350,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					if (world instanceof World)
 						((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 				}
-			} else if (((((new Object() {
+			} else if (new Object() {
 				public int getAmount(IWorld world, BlockPos pos, int sltid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -360,7 +361,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (0))) >= 2) && ((new Object() {
+			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (0)) >= 2 && (new Object() {
 				public ItemStack getItemStack(BlockPos pos, int sltid) {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -371,7 +372,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (0))).getItem() == CopperOreBlock.block.asItem())) && (((new Object() {
+			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (0))).getItem() == CopperOreBlock.block.asItem() && new Object() {
 				public int getAmount(IWorld world, BlockPos pos, int sltid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -382,7 +383,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1))) < 64) && (((new Object() {
+			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1)) < 64 && (new Object() {
 				public int getAmount(IWorld world, BlockPos pos, int sltid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -393,7 +394,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1))) == 0) || ((new Object() {
+			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1)) == 0 || (new Object() {
 				public ItemStack getItemStack(BlockPos pos, int sltid) {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -404,7 +405,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (1))).getItem() == CopperIngotItem.block))))) {
+			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (1))).getItem() == CopperIngotItem.block)) {
 				if (!world.isRemote()) {
 					BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 					TileEntity _tileEntity = world.getTileEntity(_bp);
@@ -433,7 +434,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					if (_ent != null) {
 						final int _sltid = (int) (1);
 						final ItemStack _setstack = new ItemStack(CopperIngotItem.block);
-						_setstack.setCount((int) ((new Object() {
+						_setstack.setCount((int) (new Object() {
 							public int getAmount(IWorld world, BlockPos pos, int sltid) {
 								AtomicInteger _retval = new AtomicInteger(0);
 								TileEntity _ent = world.getTileEntity(pos);
@@ -444,7 +445,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 								}
 								return _retval.get();
 							}
-						}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1))) + 2));
+						}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1)) + 2));
 						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								((IItemHandlerModifiable) capability).setStackInSlot(_sltid, _setstack);
@@ -468,7 +469,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					if (world instanceof World)
 						((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 				}
-			} else if (((((new Object() {
+			} else if (new Object() {
 				public int getAmount(IWorld world, BlockPos pos, int sltid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -479,7 +480,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (0))) >= 2) && ((new Object() {
+			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (0)) >= 2 && (new Object() {
 				public ItemStack getItemStack(BlockPos pos, int sltid) {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -490,7 +491,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (0))).getItem() == Blocks.GOLD_ORE.asItem())) && (((new Object() {
+			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (0))).getItem() == Blocks.GOLD_ORE.asItem() && new Object() {
 				public int getAmount(IWorld world, BlockPos pos, int sltid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -501,7 +502,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1))) < 64) && (((new Object() {
+			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1)) < 64 && (new Object() {
 				public int getAmount(IWorld world, BlockPos pos, int sltid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -512,7 +513,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1))) == 0) || ((new Object() {
+			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1)) == 0 || (new Object() {
 				public ItemStack getItemStack(BlockPos pos, int sltid) {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -523,7 +524,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (1))).getItem() == Items.GOLD_INGOT))))) {
+			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (1))).getItem() == Items.GOLD_INGOT)) {
 				if (!world.isRemote()) {
 					BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 					TileEntity _tileEntity = world.getTileEntity(_bp);
@@ -552,7 +553,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					if (_ent != null) {
 						final int _sltid = (int) (1);
 						final ItemStack _setstack = new ItemStack(Items.GOLD_INGOT);
-						_setstack.setCount((int) ((new Object() {
+						_setstack.setCount((int) (new Object() {
 							public int getAmount(IWorld world, BlockPos pos, int sltid) {
 								AtomicInteger _retval = new AtomicInteger(0);
 								TileEntity _ent = world.getTileEntity(pos);
@@ -563,7 +564,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 								}
 								return _retval.get();
 							}
-						}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1))) + 2));
+						}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1)) + 2));
 						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								((IItemHandlerModifiable) capability).setStackInSlot(_sltid, _setstack);
@@ -587,7 +588,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					if (world instanceof World)
 						((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 				}
-			} else if (((((new Object() {
+			} else if (new Object() {
 				public int getAmount(IWorld world, BlockPos pos, int sltid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -598,7 +599,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (0))) >= 2) && ((new Object() {
+			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (0)) >= 2 && (new Object() {
 				public ItemStack getItemStack(BlockPos pos, int sltid) {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -609,7 +610,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (0))).getItem() == Blocks.DIAMOND_ORE.asItem())) && (((new Object() {
+			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (0))).getItem() == Blocks.DIAMOND_ORE.asItem() && new Object() {
 				public int getAmount(IWorld world, BlockPos pos, int sltid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -620,7 +621,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1))) < 64) && (((new Object() {
+			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1)) < 64 && (new Object() {
 				public int getAmount(IWorld world, BlockPos pos, int sltid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -631,7 +632,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1))) == 0) || ((new Object() {
+			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1)) == 0 || (new Object() {
 				public ItemStack getItemStack(BlockPos pos, int sltid) {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -642,7 +643,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (1))).getItem() == Items.DIAMOND))))) {
+			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (1))).getItem() == Items.DIAMOND)) {
 				if (!world.isRemote()) {
 					BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 					TileEntity _tileEntity = world.getTileEntity(_bp);
@@ -671,7 +672,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					if (_ent != null) {
 						final int _sltid = (int) (1);
 						final ItemStack _setstack = new ItemStack(Items.DIAMOND);
-						_setstack.setCount((int) ((new Object() {
+						_setstack.setCount((int) (new Object() {
 							public int getAmount(IWorld world, BlockPos pos, int sltid) {
 								AtomicInteger _retval = new AtomicInteger(0);
 								TileEntity _ent = world.getTileEntity(pos);
@@ -682,7 +683,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 								}
 								return _retval.get();
 							}
-						}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1))) + 2));
+						}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1)) + 2));
 						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								((IItemHandlerModifiable) capability).setStackInSlot(_sltid, _setstack);
@@ -706,7 +707,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					if (world instanceof World)
 						((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 				}
-			} else if (((((new Object() {
+			} else if (new Object() {
 				public int getAmount(IWorld world, BlockPos pos, int sltid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -717,7 +718,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (0))) >= 2) && ((new Object() {
+			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (0)) >= 2 && (new Object() {
 				public ItemStack getItemStack(BlockPos pos, int sltid) {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -728,7 +729,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (0))).getItem() == Blocks.EMERALD_ORE.asItem())) && (((new Object() {
+			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (0))).getItem() == Blocks.EMERALD_ORE.asItem() && new Object() {
 				public int getAmount(IWorld world, BlockPos pos, int sltid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -739,7 +740,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1))) < 64) && (((new Object() {
+			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1)) < 64 && (new Object() {
 				public int getAmount(IWorld world, BlockPos pos, int sltid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -750,7 +751,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1))) == 0) || ((new Object() {
+			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1)) == 0 || (new Object() {
 				public ItemStack getItemStack(BlockPos pos, int sltid) {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -761,7 +762,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (1))).getItem() == Items.EMERALD))))) {
+			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (1))).getItem() == Items.EMERALD)) {
 				if (!world.isRemote()) {
 					BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 					TileEntity _tileEntity = world.getTileEntity(_bp);
@@ -790,7 +791,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					if (_ent != null) {
 						final int _sltid = (int) (1);
 						final ItemStack _setstack = new ItemStack(Items.EMERALD);
-						_setstack.setCount((int) ((new Object() {
+						_setstack.setCount((int) (new Object() {
 							public int getAmount(IWorld world, BlockPos pos, int sltid) {
 								AtomicInteger _retval = new AtomicInteger(0);
 								TileEntity _ent = world.getTileEntity(pos);
@@ -801,7 +802,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 								}
 								return _retval.get();
 							}
-						}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1))) + 2));
+						}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1)) + 2));
 						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								((IItemHandlerModifiable) capability).setStackInSlot(_sltid, _setstack);
@@ -825,7 +826,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					if (world instanceof World)
 						((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 				}
-			} else if (((((new Object() {
+			} else if (new Object() {
 				public int getAmount(IWorld world, BlockPos pos, int sltid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -836,7 +837,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (0))) >= 2) && ((new Object() {
+			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (0)) >= 2 && (new Object() {
 				public ItemStack getItemStack(BlockPos pos, int sltid) {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -847,7 +848,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (0))).getItem() == Blocks.LAPIS_ORE.asItem())) && (((new Object() {
+			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (0))).getItem() == Blocks.LAPIS_ORE.asItem() && new Object() {
 				public int getAmount(IWorld world, BlockPos pos, int sltid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -858,7 +859,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1))) < 64) && (((new Object() {
+			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1)) < 64 && (new Object() {
 				public int getAmount(IWorld world, BlockPos pos, int sltid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -869,7 +870,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1))) == 0) || ((new Object() {
+			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1)) == 0 || (new Object() {
 				public ItemStack getItemStack(BlockPos pos, int sltid) {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -880,7 +881,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (1))).getItem() == Items.LAPIS_LAZULI))))) {
+			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (1))).getItem() == Items.LAPIS_LAZULI)) {
 				if (!world.isRemote()) {
 					BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 					TileEntity _tileEntity = world.getTileEntity(_bp);
@@ -909,7 +910,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					if (_ent != null) {
 						final int _sltid = (int) (1);
 						final ItemStack _setstack = new ItemStack(Items.LAPIS_LAZULI);
-						_setstack.setCount((int) ((new Object() {
+						_setstack.setCount((int) (new Object() {
 							public int getAmount(IWorld world, BlockPos pos, int sltid) {
 								AtomicInteger _retval = new AtomicInteger(0);
 								TileEntity _ent = world.getTileEntity(pos);
@@ -920,7 +921,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 								}
 								return _retval.get();
 							}
-						}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1))) + 2));
+						}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1)) + 2));
 						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								((IItemHandlerModifiable) capability).setStackInSlot(_sltid, _setstack);
@@ -944,7 +945,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					if (world instanceof World)
 						((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 				}
-			} else if (((((new Object() {
+			} else if (new Object() {
 				public int getAmount(IWorld world, BlockPos pos, int sltid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -955,7 +956,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (0))) >= 2) && ((new Object() {
+			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (0)) >= 2 && (new Object() {
 				public ItemStack getItemStack(BlockPos pos, int sltid) {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -966,7 +967,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (0))).getItem() == Blocks.REDSTONE_ORE.asItem())) && (((new Object() {
+			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (0))).getItem() == Blocks.REDSTONE_ORE.asItem() && new Object() {
 				public int getAmount(IWorld world, BlockPos pos, int sltid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -977,7 +978,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1))) < 64) && (((new Object() {
+			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1)) < 64 && (new Object() {
 				public int getAmount(IWorld world, BlockPos pos, int sltid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -988,7 +989,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1))) == 0) || ((new Object() {
+			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1)) == 0 || (new Object() {
 				public ItemStack getItemStack(BlockPos pos, int sltid) {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -999,7 +1000,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (1))).getItem() == Items.REDSTONE))))) {
+			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (1))).getItem() == Items.REDSTONE)) {
 				if (!world.isRemote()) {
 					BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 					TileEntity _tileEntity = world.getTileEntity(_bp);
@@ -1028,7 +1029,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					if (_ent != null) {
 						final int _sltid = (int) (1);
 						final ItemStack _setstack = new ItemStack(Items.REDSTONE);
-						_setstack.setCount((int) ((new Object() {
+						_setstack.setCount((int) (new Object() {
 							public int getAmount(IWorld world, BlockPos pos, int sltid) {
 								AtomicInteger _retval = new AtomicInteger(0);
 								TileEntity _ent = world.getTileEntity(pos);
@@ -1039,7 +1040,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 								}
 								return _retval.get();
 							}
-						}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1))) + 2));
+						}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1)) + 2));
 						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								((IItemHandlerModifiable) capability).setStackInSlot(_sltid, _setstack);
@@ -1063,7 +1064,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					if (world instanceof World)
 						((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 				}
-			} else if (((((new Object() {
+			} else if (new Object() {
 				public int getAmount(IWorld world, BlockPos pos, int sltid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -1074,7 +1075,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (0))) >= 2) && ((new Object() {
+			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (0)) >= 2 && (new Object() {
 				public ItemStack getItemStack(BlockPos pos, int sltid) {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -1085,7 +1086,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (0))).getItem() == Blocks.COAL_ORE.asItem())) && (((new Object() {
+			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (0))).getItem() == Blocks.COAL_ORE.asItem() && new Object() {
 				public int getAmount(IWorld world, BlockPos pos, int sltid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -1096,7 +1097,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1))) < 64) && (((new Object() {
+			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1)) < 64 && (new Object() {
 				public int getAmount(IWorld world, BlockPos pos, int sltid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -1107,7 +1108,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1))) == 0) || ((new Object() {
+			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1)) == 0 || (new Object() {
 				public ItemStack getItemStack(BlockPos pos, int sltid) {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -1118,7 +1119,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (1))).getItem() == Items.COAL))))) {
+			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (1))).getItem() == Items.COAL)) {
 				if (!world.isRemote()) {
 					BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 					TileEntity _tileEntity = world.getTileEntity(_bp);
@@ -1147,7 +1148,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					if (_ent != null) {
 						final int _sltid = (int) (1);
 						final ItemStack _setstack = new ItemStack(Items.COAL);
-						_setstack.setCount((int) ((new Object() {
+						_setstack.setCount((int) (new Object() {
 							public int getAmount(IWorld world, BlockPos pos, int sltid) {
 								AtomicInteger _retval = new AtomicInteger(0);
 								TileEntity _ent = world.getTileEntity(pos);
@@ -1158,7 +1159,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 								}
 								return _retval.get();
 							}
-						}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1))) + 2));
+						}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1)) + 2));
 						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								((IItemHandlerModifiable) capability).setStackInSlot(_sltid, _setstack);
@@ -1182,7 +1183,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					if (world instanceof World)
 						((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 				}
-			} else if (((((new Object() {
+			} else if (new Object() {
 				public int getAmount(IWorld world, BlockPos pos, int sltid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -1193,7 +1194,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (0))) >= 2) && ((new Object() {
+			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (0)) >= 2 && (new Object() {
 				public ItemStack getItemStack(BlockPos pos, int sltid) {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -1204,7 +1205,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (0))).getItem() == Blocks.SAND.asItem())) && (((new Object() {
+			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (0))).getItem() == Blocks.SAND.asItem() && new Object() {
 				public int getAmount(IWorld world, BlockPos pos, int sltid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -1215,7 +1216,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1))) < 64) && (((new Object() {
+			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1)) < 64 && (new Object() {
 				public int getAmount(IWorld world, BlockPos pos, int sltid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -1226,7 +1227,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1))) == 0) || ((new Object() {
+			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1)) == 0 || (new Object() {
 				public ItemStack getItemStack(BlockPos pos, int sltid) {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -1237,7 +1238,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (1))).getItem() == Blocks.GLASS.asItem()))))) {
+			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (1))).getItem() == Blocks.GLASS.asItem())) {
 				if (!world.isRemote()) {
 					BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 					TileEntity _tileEntity = world.getTileEntity(_bp);
@@ -1266,7 +1267,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					if (_ent != null) {
 						final int _sltid = (int) (1);
 						final ItemStack _setstack = new ItemStack(Blocks.GLASS);
-						_setstack.setCount((int) ((new Object() {
+						_setstack.setCount((int) (new Object() {
 							public int getAmount(IWorld world, BlockPos pos, int sltid) {
 								AtomicInteger _retval = new AtomicInteger(0);
 								TileEntity _ent = world.getTileEntity(pos);
@@ -1277,7 +1278,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 								}
 								return _retval.get();
 							}
-						}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1))) + 2));
+						}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1)) + 2));
 						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								((IItemHandlerModifiable) capability).setStackInSlot(_sltid, _setstack);
@@ -1301,7 +1302,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					if (world instanceof World)
 						((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 				}
-			} else if (((((new Object() {
+			} else if (new Object() {
 				public int getAmount(IWorld world, BlockPos pos, int sltid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -1312,7 +1313,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (0))) >= 4) && ((new Object() {
+			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (0)) >= 4 && (new Object() {
 				public ItemStack getItemStack(BlockPos pos, int sltid) {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -1323,7 +1324,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (0))).getItem() == Blocks.COBBLESTONE.asItem())) && (((new Object() {
+			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (0))).getItem() == Blocks.COBBLESTONE.asItem() && new Object() {
 				public int getAmount(IWorld world, BlockPos pos, int sltid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -1334,7 +1335,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1))) < 64) && (((new Object() {
+			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1)) < 64 && (new Object() {
 				public int getAmount(IWorld world, BlockPos pos, int sltid) {
 					AtomicInteger _retval = new AtomicInteger(0);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -1345,7 +1346,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1))) == 0) || ((new Object() {
+			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1)) == 0 || (new Object() {
 				public ItemStack getItemStack(BlockPos pos, int sltid) {
 					AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 					TileEntity _ent = world.getTileEntity(pos);
@@ -1356,7 +1357,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					}
 					return _retval.get();
 				}
-			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (1))).getItem() == Blocks.STONE.asItem()))))) {
+			}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (1))).getItem() == Blocks.STONE.asItem())) {
 				if (!world.isRemote()) {
 					BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 					TileEntity _tileEntity = world.getTileEntity(_bp);
@@ -1385,7 +1386,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 					if (_ent != null) {
 						final int _sltid = (int) (1);
 						final ItemStack _setstack = new ItemStack(Blocks.STONE);
-						_setstack.setCount((int) ((new Object() {
+						_setstack.setCount((int) (new Object() {
 							public int getAmount(IWorld world, BlockPos pos, int sltid) {
 								AtomicInteger _retval = new AtomicInteger(0);
 								TileEntity _ent = world.getTileEntity(pos);
@@ -1396,7 +1397,7 @@ public class ElectricFurnanceBlockUpdateTickProcedure {
 								}
 								return _retval.get();
 							}
-						}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1))) + 4));
+						}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1)) + 4));
 						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
 							if (capability instanceof IItemHandlerModifiable) {
 								((IItemHandlerModifiable) capability).setStackInSlot(_sltid, _setstack);

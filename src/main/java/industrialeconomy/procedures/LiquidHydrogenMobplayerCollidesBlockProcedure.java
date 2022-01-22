@@ -8,6 +8,7 @@ import java.util.Map;
 import industrialeconomy.IndustrialEconomyMod;
 
 public class LiquidHydrogenMobplayerCollidesBlockProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))

@@ -16,6 +16,7 @@ import industrialeconomy.IndustrialEconomyModElements;
 public class TurbofuelitemItem extends IndustrialEconomyModElements.ModElement {
 	@ObjectHolder("industrial_economy:turbofuelitem")
 	public static final Item block = null;
+
 	public TurbofuelitemItem(IndustrialEconomyModElements instance) {
 		super(instance, 31);
 	}
@@ -24,6 +25,7 @@ public class TurbofuelitemItem extends IndustrialEconomyModElements.ModElement {
 	public void initElements() {
 		elements.items.add(() -> new ItemCustom());
 	}
+
 	public static class ItemCustom extends Item {
 		public ItemCustom() {
 			super(new Item.Properties().group(ProjectMEGAItemGroup.tab).maxStackSize(64).rarity(Rarity.COMMON));

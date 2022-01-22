@@ -11,9 +11,11 @@ import net.minecraft.entity.Entity;
 import net.minecraft.command.Commands;
 import net.minecraft.command.CommandSource;
 
+import java.util.stream.Stream;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.Arrays;
+import java.util.AbstractMap;
 
 import industrialeconomy.procedures.CityCommandExecutedProcedure;
 
@@ -25,10 +27,10 @@ import com.mojang.brigadier.arguments.StringArgumentType;
 public class CityCommand {
 	@SubscribeEvent
 	public static void registerCommands(RegisterCommandsEvent event) {
-		event.getDispatcher()
-				.register(LiteralArgumentBuilder.<CommandSource>literal("city")
-						.then(Commands.argument("arguments", StringArgumentType.greedyString()).executes(CityCommand::execute))
-						.executes(CityCommand::execute));
+		event.getDispatcher().register(LiteralArgumentBuilder.<CommandSource>literal("city")
+
+				.then(Commands.argument("arguments", StringArgumentType.greedyString()).executes(CityCommand::execute))
+				.executes(CityCommand::execute));
 	}
 
 	private static int execute(CommandContext<CommandSource> ctx) {
@@ -46,16 +48,12 @@ public class CityCommand {
 				cmdparams.put(Integer.toString(index[0]), param);
 			index[0]++;
 		});
-		{
-			Map<String, Object> $_dependencies = new HashMap<>();
-			$_dependencies.put("entity", entity);
-			$_dependencies.put("cmdparams", cmdparams);
-			$_dependencies.put("x", x);
-			$_dependencies.put("y", y);
-			$_dependencies.put("z", z);
-			$_dependencies.put("world", world);
-			CityCommandExecutedProcedure.executeProcedure($_dependencies);
-		}
+
+		CityCommandExecutedProcedure.executeProcedure(Stream
+				.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
+						new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity),
+						new AbstractMap.SimpleEntry<>("cmdparams", cmdparams))
+				.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 		return 0;
 	}
 }

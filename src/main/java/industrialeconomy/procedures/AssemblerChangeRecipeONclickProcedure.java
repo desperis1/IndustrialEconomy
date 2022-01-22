@@ -11,7 +11,13 @@ import java.util.Map;
 import industrialeconomy.IndustrialEconomyMod;
 
 public class AssemblerChangeRecipeONclickProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency world for procedure AssemblerChangeRecipeONclick!");
+			return;
+		}
 		if (dependencies.get("x") == null) {
 			if (!dependencies.containsKey("x"))
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency x for procedure AssemblerChangeRecipeONclick!");
@@ -27,23 +33,18 @@ public class AssemblerChangeRecipeONclickProcedure {
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency z for procedure AssemblerChangeRecipeONclick!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency world for procedure AssemblerChangeRecipeONclick!");
-			return;
-		}
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
-		if ((((new Object() {
+		if ((new Object() {
 			public String getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
 					return tileEntity.getTileData().getString(tag);
 				return "";
 			}
-		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Recipe"))).equals("CircuitBoard"))) {
+		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Recipe")).equals("CircuitBoard")) {
 			if (!world.isRemote()) {
 				BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 				TileEntity _tileEntity = world.getTileEntity(_bp);
@@ -53,14 +54,14 @@ public class AssemblerChangeRecipeONclickProcedure {
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
-		} else if ((((new Object() {
+		} else if ((new Object() {
 			public String getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
 					return tileEntity.getTileData().getString(tag);
 				return "";
 			}
-		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Recipe"))).equals("DiamondScrew"))) {
+		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Recipe")).equals("DiamondScrew")) {
 			if (!world.isRemote()) {
 				BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 				TileEntity _tileEntity = world.getTileEntity(_bp);
@@ -70,14 +71,14 @@ public class AssemblerChangeRecipeONclickProcedure {
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
-		} else if ((((new Object() {
+		} else if ((new Object() {
 			public String getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
 					return tileEntity.getTileData().getString(tag);
 				return "";
 			}
-		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Recipe"))).equals("TurboFuel"))) {
+		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Recipe")).equals("TurboFuel")) {
 			if (!world.isRemote()) {
 				BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 				TileEntity _tileEntity = world.getTileEntity(_bp);
@@ -87,14 +88,14 @@ public class AssemblerChangeRecipeONclickProcedure {
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
-		} else if ((((new Object() {
+		} else if ((new Object() {
 			public String getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
 					return tileEntity.getTileData().getString(tag);
 				return "";
 			}
-		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Recipe"))).equals("IronPlate"))) {
+		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Recipe")).equals("IronPlate")) {
 			if (!world.isRemote()) {
 				BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 				TileEntity _tileEntity = world.getTileEntity(_bp);
@@ -104,14 +105,14 @@ public class AssemblerChangeRecipeONclickProcedure {
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
-		} else if ((((new Object() {
+		} else if ((new Object() {
 			public String getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
 					return tileEntity.getTileData().getString(tag);
 				return "";
 			}
-		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Recipe"))).equals("CateriumWire"))) {
+		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Recipe")).equals("CateriumWire")) {
 			if (!world.isRemote()) {
 				BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 				TileEntity _tileEntity = world.getTileEntity(_bp);

@@ -25,6 +25,7 @@ import industrialeconomy.IndustrialEconomyModElements;
 public class HardenedcobbleBlock extends IndustrialEconomyModElements.ModElement {
 	@ObjectHolder("industrial_economy:hardenedcobble")
 	public static final Block block = null;
+
 	public HardenedcobbleBlock(IndustrialEconomyModElements instance) {
 		super(instance, 148);
 	}
@@ -35,6 +36,7 @@ public class HardenedcobbleBlock extends IndustrialEconomyModElements.ModElement
 		elements.items
 				.add(() -> new BlockItem(block, new Item.Properties().group(ProjectMEGAItemGroup.tab)).setRegistryName(block.getRegistryName()));
 	}
+
 	public static class CustomBlock extends Block {
 		public CustomBlock() {
 			super(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(5f, 10f).setLightLevel(s -> 0));

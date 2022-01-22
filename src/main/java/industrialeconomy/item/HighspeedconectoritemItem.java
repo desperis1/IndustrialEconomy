@@ -16,6 +16,7 @@ import industrialeconomy.IndustrialEconomyModElements;
 public class HighspeedconectoritemItem extends IndustrialEconomyModElements.ModElement {
 	@ObjectHolder("industrial_economy:highspeedconectoritem")
 	public static final Item block = null;
+
 	public HighspeedconectoritemItem(IndustrialEconomyModElements instance) {
 		super(instance, 102);
 	}
@@ -24,6 +25,7 @@ public class HighspeedconectoritemItem extends IndustrialEconomyModElements.ModE
 	public void initElements() {
 		elements.items.add(() -> new ItemCustom());
 	}
+
 	public static class ItemCustom extends Item {
 		public ItemCustom() {
 			super(new Item.Properties().group(ProjectMEGAItemGroup.tab).maxStackSize(64).rarity(Rarity.UNCOMMON));

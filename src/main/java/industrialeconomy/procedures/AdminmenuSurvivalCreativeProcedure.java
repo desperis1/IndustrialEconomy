@@ -13,6 +13,7 @@ import java.util.Map;
 import industrialeconomy.IndustrialEconomyMod;
 
 public class AdminmenuSurvivalCreativeProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
@@ -20,7 +21,7 @@ public class AdminmenuSurvivalCreativeProcedure {
 			return;
 		}
 		Entity entity = (Entity) dependencies.get("entity");
-		if ((new Object() {
+		if (new Object() {
 			public boolean checkGamemode(Entity _ent) {
 				if (_ent instanceof ServerPlayerEntity) {
 					return ((ServerPlayerEntity) _ent).interactionManager.getGameType() == GameType.CREATIVE;
@@ -31,10 +32,10 @@ public class AdminmenuSurvivalCreativeProcedure {
 				}
 				return false;
 			}
-		}.checkGamemode(entity))) {
+		}.checkGamemode(entity)) {
 			if (entity instanceof PlayerEntity)
 				((PlayerEntity) entity).setGameType(GameType.SURVIVAL);
-		} else if ((new Object() {
+		} else if (new Object() {
 			public boolean checkGamemode(Entity _ent) {
 				if (_ent instanceof ServerPlayerEntity) {
 					return ((ServerPlayerEntity) _ent).interactionManager.getGameType() == GameType.SURVIVAL;
@@ -45,7 +46,7 @@ public class AdminmenuSurvivalCreativeProcedure {
 				}
 				return false;
 			}
-		}.checkGamemode(entity))) {
+		}.checkGamemode(entity)) {
 			if (entity instanceof PlayerEntity)
 				((PlayerEntity) entity).setGameType(GameType.CREATIVE);
 		}

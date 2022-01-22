@@ -16,6 +16,7 @@ import industrialeconomy.IndustrialEconomyModElements;
 public class AiLimiteritemItem extends IndustrialEconomyModElements.ModElement {
 	@ObjectHolder("industrial_economy:ai_limiteritem")
 	public static final Item block = null;
+
 	public AiLimiteritemItem(IndustrialEconomyModElements instance) {
 		super(instance, 118);
 	}
@@ -24,6 +25,7 @@ public class AiLimiteritemItem extends IndustrialEconomyModElements.ModElement {
 	public void initElements() {
 		elements.items.add(() -> new ItemCustom());
 	}
+
 	public static class ItemCustom extends Item {
 		public ItemCustom() {
 			super(new Item.Properties().group(ProjectMEGAItemGroup.tab).maxStackSize(32).rarity(Rarity.UNCOMMON));

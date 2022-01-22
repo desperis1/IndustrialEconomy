@@ -22,6 +22,7 @@ import industrialeconomy.IndustrialEconomyModVariables;
 import industrialeconomy.IndustrialEconomyMod;
 
 public class BackcommandCommandExecutedProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
@@ -29,11 +30,10 @@ public class BackcommandCommandExecutedProcedure {
 			return;
 		}
 		Entity entity = (Entity) dependencies.get("entity");
-		if (((!((("" + ((entity.world.getDimensionKey()))))
-				.equals(((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-						.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_back_dimension))))
-				&& (((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-						.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_back_dimension).contains("overworld")))) {
+		if (!("" + entity.world.getDimensionKey()).equals((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+				.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_back_dimension)
+				&& ((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+						.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_back_dimension).contains("overworld")) {
 			{
 				Entity _ent = entity;
 				if (!_ent.world.isRemote && _ent instanceof ServerPlayerEntity) {
@@ -75,11 +75,10 @@ public class BackcommandCommandExecutedProcedure {
 				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("You was returned to your previous location."), (false));
 			}
 		}
-		if (((!((("" + ((entity.world.getDimensionKey()))))
-				.equals(((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-						.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_back_dimension))))
-				&& (((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-						.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_back_dimension).contains("nether")))) {
+		if (!("" + entity.world.getDimensionKey()).equals((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+				.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_back_dimension)
+				&& ((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+						.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_back_dimension).contains("nether")) {
 			{
 				Entity _ent = entity;
 				if (!_ent.world.isRemote && _ent instanceof ServerPlayerEntity) {
@@ -121,11 +120,10 @@ public class BackcommandCommandExecutedProcedure {
 				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("You was returned to your previous location."), (false));
 			}
 		}
-		if (((!((("" + ((entity.world.getDimensionKey()))))
-				.equals(((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-						.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_back_dimension))))
-				&& (((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-						.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_back_dimension).contains("end")))) {
+		if (!("" + entity.world.getDimensionKey()).equals((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+				.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_back_dimension)
+				&& ((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+						.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_back_dimension).contains("end")) {
 			{
 				Entity _ent = entity;
 				if (!_ent.world.isRemote && _ent instanceof ServerPlayerEntity) {

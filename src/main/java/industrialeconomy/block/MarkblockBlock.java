@@ -23,11 +23,13 @@ import net.minecraft.block.Blocks;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Block;
 
+import java.util.stream.Stream;
 import java.util.Random;
 import java.util.Map;
 import java.util.List;
 import java.util.HashMap;
 import java.util.Collections;
+import java.util.AbstractMap;
 
 import industrialeconomy.procedures.MarkblockUpdateTickProcedure;
 
@@ -37,6 +39,7 @@ import industrialeconomy.IndustrialEconomyModElements;
 public class MarkblockBlock extends IndustrialEconomyModElements.ModElement {
 	@ObjectHolder("industrial_economy:markblock")
 	public static final Block block = null;
+
 	public MarkblockBlock(IndustrialEconomyModElements instance) {
 		super(instance, 234);
 	}
@@ -52,6 +55,7 @@ public class MarkblockBlock extends IndustrialEconomyModElements.ModElement {
 	public void clientLoad(FMLClientSetupEvent event) {
 		RenderTypeLookup.setRenderLayer(block, RenderType.getTranslucent());
 	}
+
 	public static class CustomBlock extends Block {
 		public CustomBlock() {
 			super(Block.Properties.create(Material.IRON).sound(SoundType.METAL).hardnessAndResistance(500f, 10f).setLightLevel(s -> 0));
@@ -82,7 +86,7 @@ public class MarkblockBlock extends IndustrialEconomyModElements.ModElement {
 			int x = pos.getX();
 			int y = pos.getY();
 			int z = pos.getZ();
-			world.getPendingBlockTicks().scheduleTick(new BlockPos(x, y, z), this, 200);
+			world.getPendingBlockTicks().scheduleTick(pos, this, 200);
 		}
 
 		@Override
@@ -91,15 +95,12 @@ public class MarkblockBlock extends IndustrialEconomyModElements.ModElement {
 			int x = pos.getX();
 			int y = pos.getY();
 			int z = pos.getZ();
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("x", x);
-				$_dependencies.put("y", y);
-				$_dependencies.put("z", z);
-				$_dependencies.put("world", world);
-				MarkblockUpdateTickProcedure.executeProcedure($_dependencies);
-			}
-			world.getPendingBlockTicks().scheduleTick(new BlockPos(x, y, z), this, 200);
+
+			MarkblockUpdateTickProcedure.executeProcedure(Stream
+					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
+							new AbstractMap.SimpleEntry<>("z", z))
+					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+			world.getPendingBlockTicks().scheduleTick(pos, this, 200);
 		}
 	}
 }

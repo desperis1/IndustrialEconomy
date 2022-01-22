@@ -16,6 +16,7 @@ import industrialeconomy.IndustrialEconomyModElements;
 public class CopperSheetItemItem extends IndustrialEconomyModElements.ModElement {
 	@ObjectHolder("industrial_economy:copper_sheet_item")
 	public static final Item block = null;
+
 	public CopperSheetItemItem(IndustrialEconomyModElements instance) {
 		super(instance, 29);
 	}
@@ -24,6 +25,7 @@ public class CopperSheetItemItem extends IndustrialEconomyModElements.ModElement
 	public void initElements() {
 		elements.items.add(() -> new ItemCustom());
 	}
+
 	public static class ItemCustom extends Item {
 		public ItemCustom() {
 			super(new Item.Properties().group(ProjectMEGAItemGroup.tab).maxStackSize(64).rarity(Rarity.COMMON));

@@ -17,14 +17,14 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.block.BlockState;
 
+import java.util.stream.Stream;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.AbstractMap;
 
 import industrialeconomy.IndustrialEconomyModVariables;
 
 import industrialeconomy.IndustrialEconomyMod;
-
-import com.google.common.collect.ImmutableMap;
 
 public class LandUseDoorProcedure {
 	@Mod.EventBusSubscriber
@@ -52,10 +52,11 @@ public class LandUseDoorProcedure {
 			executeProcedure(dependencies);
 		}
 	}
+
 	public static boolean executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency entity for procedure LandUseDoor!");
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency world for procedure LandUseDoor!");
 			return false;
 		}
 		if (dependencies.get("x") == null) {
@@ -73,31 +74,30 @@ public class LandUseDoorProcedure {
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency z for procedure LandUseDoor!");
 			return false;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency world for procedure LandUseDoor!");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency entity for procedure LandUseDoor!");
 			return false;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
+		Entity entity = (Entity) dependencies.get("entity");
 		double grid_X = 0;
 		double grid_Z = 0;
 		String player_name = "";
-		if ((((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-				.orElse(new IndustrialEconomyModVariables.PlayerVariables())).admin_editor) == (false))) {
-			if (((entity instanceof PlayerEntity) || (entity instanceof ServerPlayerEntity))) {
-				grid_X = (double) Math.floor((x / 20));
-				grid_Z = (double) Math.floor((z / 20));
-				player_name = (String) (entity.getDisplayName().getString());
-				if (((BlockTags.getCollection().getTagByID(new ResourceLocation(("minecraft:doors").toLowerCase(java.util.Locale.ENGLISH)))
-						.contains((world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock()))
-						|| (BlockTags.getCollection().getTagByID(new ResourceLocation(("minecraft:trapdoor").toLowerCase(java.util.Locale.ENGLISH)))
-								.contains((world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock())))) {
-					if ((!(IndustrialEconomyModVariables.WorldVariables.get(world).lands
-							.contains(((player_name) + "" + (":") + "" + (grid_X) + "" + (":") + "" + (grid_Z) + "" + (",")))))) {
+		if ((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+				.orElse(new IndustrialEconomyModVariables.PlayerVariables())).admin_editor == false) {
+			if (entity instanceof PlayerEntity || entity instanceof ServerPlayerEntity) {
+				grid_X = Math.floor(x / 20);
+				grid_Z = Math.floor(z / 20);
+				player_name = (entity.getDisplayName().getString());
+				if (BlockTags.getCollection().getTagByID(new ResourceLocation("minecraft:doors"))
+						.contains((world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock())
+						|| BlockTags.getCollection().getTagByID(new ResourceLocation("minecraft:trapdoor"))
+								.contains((world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock())) {
+					if (!IndustrialEconomyModVariables.WorldVariables.get(world).lands.contains(player_name + ":" + grid_X + ":" + grid_Z + ",")) {
 						if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
 							((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("You dont own this land."), (true));
 						}
@@ -110,16 +110,18 @@ public class LandUseDoorProcedure {
 							}
 						}
 					} else {
-						return (true);
+						return true;
 					}
 				}
-				if (((true) == DisallowedToOpenProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world)))) {
-					grid_X = (double) Math.floor((x / 20));
-					grid_Z = (double) Math.floor((z / 20));
-					if (((IndustrialEconomyModVariables.WorldVariables.get(world).is_city
-							.contains(((":") + "" + (grid_X) + "" + (":") + "" + (grid_Z) + "" + (","))))
-							&& (!(IndustrialEconomyModVariables.WorldVariables.get(world).lands
-									.contains(((player_name) + "" + (":") + "" + (grid_X) + "" + (":") + "" + (grid_Z) + "" + (","))))))) {
+				if (true == DisallowedToOpenProcedure.executeProcedure(Stream
+						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
+								new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z))
+						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll))) {
+					grid_X = Math.floor(x / 20);
+					grid_Z = Math.floor(z / 20);
+					if (IndustrialEconomyModVariables.WorldVariables.get(world).is_city.contains(":" + grid_X + ":" + grid_Z + ",")
+							&& !IndustrialEconomyModVariables.WorldVariables.get(world).lands
+									.contains(player_name + ":" + grid_X + ":" + grid_Z + ",")) {
 						if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
 							((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("You dont own this land"), (true));
 						}
@@ -128,6 +130,7 @@ public class LandUseDoorProcedure {
 								private int ticks = 0;
 								private float waitTicks;
 								private IWorld world;
+
 								public void start(IWorld world, int waitTicks) {
 									this.waitTicks = waitTicks;
 									MinecraftForge.EVENT_BUS.register(this);
@@ -151,12 +154,12 @@ public class LandUseDoorProcedure {
 							}.start(world, (int) 1);
 						}
 					} else {
-						return (true);
+						return true;
 					}
 				}
-				return (false);
+				return false;
 			}
 		}
-		return (false);
+		return false;
 	}
 }

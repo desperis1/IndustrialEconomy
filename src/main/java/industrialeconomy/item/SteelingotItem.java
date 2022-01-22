@@ -16,6 +16,7 @@ import industrialeconomy.IndustrialEconomyModElements;
 public class SteelingotItem extends IndustrialEconomyModElements.ModElement {
 	@ObjectHolder("industrial_economy:steelingot")
 	public static final Item block = null;
+
 	public SteelingotItem(IndustrialEconomyModElements instance) {
 		super(instance, 86);
 	}
@@ -24,6 +25,7 @@ public class SteelingotItem extends IndustrialEconomyModElements.ModElement {
 	public void initElements() {
 		elements.items.add(() -> new ItemCustom());
 	}
+
 	public static class ItemCustom extends Item {
 		public ItemCustom() {
 			super(new Item.Properties().group(ProjectMEGAItemGroup.tab).maxStackSize(64).rarity(Rarity.UNCOMMON));

@@ -14,6 +14,7 @@ import industrialeconomy.IndustrialEconomyModElements;
 public class PlasmabulletitemItem extends IndustrialEconomyModElements.ModElement {
 	@ObjectHolder("industrial_economy:plasmabulletitem")
 	public static final Item block = null;
+
 	public PlasmabulletitemItem(IndustrialEconomyModElements instance) {
 		super(instance, 294);
 	}
@@ -22,6 +23,7 @@ public class PlasmabulletitemItem extends IndustrialEconomyModElements.ModElemen
 	public void initElements() {
 		elements.items.add(() -> new ItemCustom());
 	}
+
 	public static class ItemCustom extends Item {
 		public ItemCustom() {
 			super(new Item.Properties().group(null).maxStackSize(64).rarity(Rarity.COMMON));

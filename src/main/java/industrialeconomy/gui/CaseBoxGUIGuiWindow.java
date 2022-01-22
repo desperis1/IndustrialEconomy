@@ -14,7 +14,10 @@ import net.minecraft.client.gui.widget.button.Button;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
 import net.minecraft.client.Minecraft;
 
+import java.util.stream.Stream;
+import java.util.Map;
 import java.util.HashMap;
+import java.util.AbstractMap;
 
 import industrialeconomy.procedures.CaseboxbuttonShowConditionProcedure;
 
@@ -23,14 +26,13 @@ import industrialeconomy.IndustrialEconomyMod;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.matrix.MatrixStack;
 
-import com.google.common.collect.ImmutableMap;
-
 @OnlyIn(Dist.CLIENT)
 public class CaseBoxGUIGuiWindow extends ContainerScreen<CaseBoxGUIGui.GuiContainerMod> {
 	private World world;
 	private int x, y, z;
 	private PlayerEntity entity;
 	private final static HashMap guistate = CaseBoxGUIGui.guistate;
+
 	public CaseBoxGUIGuiWindow(CaseBoxGUIGui.GuiContainerMod container, PlayerInventory inventory, ITextComponent text) {
 		super(container, inventory, text);
 		this.world = container.world;
@@ -41,7 +43,9 @@ public class CaseBoxGUIGuiWindow extends ContainerScreen<CaseBoxGUIGui.GuiContai
 		this.xSize = 176;
 		this.ySize = 166;
 	}
+
 	private static final ResourceLocation texture = new ResourceLocation("industrial_economy:textures/case_box_gui.png");
+
 	@Override
 	public void render(MatrixStack ms, int mouseX, int mouseY, float partialTicks) {
 		this.renderBackground(ms);
@@ -92,14 +96,16 @@ public class CaseBoxGUIGuiWindow extends ContainerScreen<CaseBoxGUIGui.GuiContai
 		super.init(minecraft, width, height);
 		minecraft.keyboardListener.enableRepeatEvents(true);
 		this.addButton(new Button(this.guiLeft + 51, this.guiTop + 51, 75, 20, new StringTextComponent("Open Case!"), e -> {
-			if (CaseboxbuttonShowConditionProcedure.executeProcedure(ImmutableMap.of("entity", entity))) {
+			if (CaseboxbuttonShowConditionProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+					(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll))) {
 				IndustrialEconomyMod.PACKET_HANDLER.sendToServer(new CaseBoxGUIGui.ButtonPressedMessage(0, x, y, z));
 				CaseBoxGUIGui.handleButtonAction(entity, 0, x, y, z);
 			}
 		}) {
 			@Override
 			public void render(MatrixStack ms, int gx, int gy, float ticks) {
-				if (CaseboxbuttonShowConditionProcedure.executeProcedure(ImmutableMap.of("entity", entity)))
+				if (CaseboxbuttonShowConditionProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity))
+						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll)))
 					super.render(ms, gx, gy, ticks);
 			}
 		});

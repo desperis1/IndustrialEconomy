@@ -14,6 +14,7 @@ import industrialeconomy.IndustrialEconomyModVariables;
 import industrialeconomy.IndustrialEconomyMod;
 
 public class BuilderGUIThisGUIIsOpenedProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
@@ -21,7 +22,7 @@ public class BuilderGUIThisGUIIsOpenedProcedure {
 			return;
 		}
 		Entity entity = (Entity) dependencies.get("entity");
-		if ((0 < (new Object() {
+		if (0 < new Object() {
 			public int getAmount(int sltid) {
 				if (entity instanceof ServerPlayerEntity) {
 					Container _current = ((ServerPlayerEntity) entity).openContainer;
@@ -36,7 +37,7 @@ public class BuilderGUIThisGUIIsOpenedProcedure {
 				}
 				return 0;
 			}
-		}.getAmount((int) (0))))) {
+		}.getAmount((int) (0))) {
 			{
 				ItemStack _setval = (new Object() {
 					public ItemStack getItemStack(int sltid) {

@@ -28,10 +28,11 @@ import industrialeconomy.gui.DiamondSteelArmorGUIGui;
 import industrialeconomy.IndustrialEconomyMod;
 
 public class DSArmorkeybindOnKeyPressedProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency entity for procedure DSArmorkeybindOnKeyPressed!");
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency world for procedure DSArmorkeybindOnKeyPressed!");
 			return;
 		}
 		if (dependencies.get("x") == null) {
@@ -49,29 +50,24 @@ public class DSArmorkeybindOnKeyPressedProcedure {
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency z for procedure DSArmorkeybindOnKeyPressed!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency world for procedure DSArmorkeybindOnKeyPressed!");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency entity for procedure DSArmorkeybindOnKeyPressed!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
-		if ((((((entity instanceof LivingEntity)
-				? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.fromSlotTypeAndIndex(EquipmentSlotType.Group.ARMOR, (int) 3))
-				: ItemStack.EMPTY).getItem() == DiamondSteelArmorItem.helmet)
-				|| (((entity instanceof LivingEntity)
-						? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.fromSlotTypeAndIndex(EquipmentSlotType.Group.ARMOR, (int) 2))
-						: ItemStack.EMPTY).getItem() == DiamondSteelArmorItem.body))
-				|| ((((entity instanceof LivingEntity)
-						? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.fromSlotTypeAndIndex(EquipmentSlotType.Group.ARMOR, (int) 1))
-						: ItemStack.EMPTY).getItem() == DiamondSteelArmorItem.legs)
-						|| (((entity instanceof LivingEntity)
-								? ((LivingEntity) entity)
-										.getItemStackFromSlot(EquipmentSlotType.fromSlotTypeAndIndex(EquipmentSlotType.Group.ARMOR, (int) 0))
-								: ItemStack.EMPTY).getItem() == DiamondSteelArmorItem.boots)))) {
+		Entity entity = (Entity) dependencies.get("entity");
+		if (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.HEAD) : ItemStack.EMPTY)
+				.getItem() == DiamondSteelArmorItem.helmet
+				|| ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.CHEST) : ItemStack.EMPTY)
+						.getItem() == DiamondSteelArmorItem.body
+				|| ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.LEGS) : ItemStack.EMPTY)
+						.getItem() == DiamondSteelArmorItem.legs
+				|| ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.FEET) : ItemStack.EMPTY)
+						.getItem() == DiamondSteelArmorItem.boots) {
 			{
 				Entity _ent = entity;
 				if (_ent instanceof ServerPlayerEntity) {

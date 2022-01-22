@@ -12,6 +12,7 @@ import industrialeconomy.item.DiamondSteelArmorItem;
 import industrialeconomy.IndustrialEconomyMod;
 
 public class JetpackKeyBindOnKeyPressedProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
@@ -19,9 +20,9 @@ public class JetpackKeyBindOnKeyPressedProcedure {
 			return;
 		}
 		Entity entity = (Entity) dependencies.get("entity");
-		if ((DiamondSteelArmorItem.body == ((entity instanceof LivingEntity)
-				? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.fromSlotTypeAndIndex(EquipmentSlotType.Group.ARMOR, (int) 2))
-				: ItemStack.EMPTY).getItem())) {
+		if (DiamondSteelArmorItem.body == ((entity instanceof LivingEntity)
+				? ((LivingEntity) entity).getItemStackFromSlot(EquipmentSlotType.CHEST)
+				: ItemStack.EMPTY).getItem()) {
 			entity.getPersistentData().putBoolean("Jetpack", (true));
 		}
 	}

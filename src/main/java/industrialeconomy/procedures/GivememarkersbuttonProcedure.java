@@ -15,6 +15,7 @@ import industrialeconomy.block.Position1blockBlock;
 import industrialeconomy.IndustrialEconomyMod;
 
 public class GivememarkersbuttonProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
@@ -22,9 +23,7 @@ public class GivememarkersbuttonProcedure {
 			return;
 		}
 		Entity entity = (Entity) dependencies.get("entity");
-		if ((!((entity instanceof PlayerEntity)
-				? ((PlayerEntity) entity).inventory.hasItemStack(new ItemStack(Position1blockBlock.block))
-				: false))) {
+		if (!((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).inventory.hasItemStack(new ItemStack(Position1blockBlock.block)) : false)) {
 			if (entity instanceof PlayerEntity) {
 				ItemStack _setstack = new ItemStack(Position1blockBlock.block);
 				_setstack.setCount((int) 1);
@@ -35,9 +34,7 @@ public class GivememarkersbuttonProcedure {
 				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("You already have Pos 1 Marker in inventory"), (false));
 			}
 		}
-		if ((!((entity instanceof PlayerEntity)
-				? ((PlayerEntity) entity).inventory.hasItemStack(new ItemStack(Position2blockBlock.block))
-				: false))) {
+		if (!((entity instanceof PlayerEntity) ? ((PlayerEntity) entity).inventory.hasItemStack(new ItemStack(Position2blockBlock.block)) : false)) {
 			if (entity instanceof PlayerEntity) {
 				ItemStack _setstack = new ItemStack(Position2blockBlock.block);
 				_setstack.setCount((int) 1);

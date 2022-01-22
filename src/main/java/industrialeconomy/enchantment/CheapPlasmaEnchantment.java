@@ -16,6 +16,7 @@ import industrialeconomy.IndustrialEconomyModElements;
 public class CheapPlasmaEnchantment extends IndustrialEconomyModElements.ModElement {
 	@ObjectHolder("industrial_economy:cheap_plasma")
 	public static final Enchantment enchantment = null;
+
 	public CheapPlasmaEnchantment(IndustrialEconomyModElements instance) {
 		super(instance, 299);
 	}
@@ -24,6 +25,7 @@ public class CheapPlasmaEnchantment extends IndustrialEconomyModElements.ModElem
 	public void initElements() {
 		elements.enchantments.add(() -> new CustomEnchantment(EquipmentSlotType.MAINHAND).setRegistryName("cheap_plasma"));
 	}
+
 	public static class CustomEnchantment extends Enchantment {
 		public CustomEnchantment(EquipmentSlotType... slots) {
 			super(Enchantment.Rarity.RARE, EnchantmentType.ARMOR_CHEST, slots);

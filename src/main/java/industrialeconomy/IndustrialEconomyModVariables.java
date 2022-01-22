@@ -68,6 +68,7 @@ public class IndustrialEconomyModVariables {
 						new WorldSavedDataSyncMessage(1, worlddata));
 		}
 	}
+
 	public static class WorldVariables extends WorldSavedData {
 		public static final String DATA_NAME = "industrial_economy_worldvars";
 		public String lands = "\"\"";
@@ -75,6 +76,7 @@ public class IndustrialEconomyModVariables {
 		public double server_x = 0;
 		public double server_y = 0;
 		public double server_z = 0;
+
 		public WorldVariables() {
 			super(DATA_NAME);
 		}
@@ -108,7 +110,9 @@ public class IndustrialEconomyModVariables {
 				IndustrialEconomyMod.PACKET_HANDLER.send(PacketDistributor.DIMENSION.with(((World) world)::getDimensionKey),
 						new WorldSavedDataSyncMessage(1, this));
 		}
+
 		static WorldVariables clientSide = new WorldVariables();
+
 		public static WorldVariables get(IWorld world) {
 			if (world instanceof ServerWorld) {
 				return ((ServerWorld) world).getSavedData().getOrCreate(WorldVariables::new, DATA_NAME);
@@ -120,6 +124,7 @@ public class IndustrialEconomyModVariables {
 
 	public static class MapVariables extends WorldSavedData {
 		public static final String DATA_NAME = "industrial_economy_mapvars";
+
 		public MapVariables() {
 			super(DATA_NAME);
 		}
@@ -142,7 +147,9 @@ public class IndustrialEconomyModVariables {
 			if (world instanceof World && !world.isRemote())
 				IndustrialEconomyMod.PACKET_HANDLER.send(PacketDistributor.ALL.noArg(), new WorldSavedDataSyncMessage(0, this));
 		}
+
 		static MapVariables clientSide = new MapVariables();
+
 		public static MapVariables get(IWorld world) {
 			if (world instanceof IServerWorld) {
 				return ((IServerWorld) world).getWorld().getServer().getWorld(World.OVERWORLD).getSavedData().getOrCreate(MapVariables::new,
@@ -156,6 +163,7 @@ public class IndustrialEconomyModVariables {
 	public static class WorldSavedDataSyncMessage {
 		public int type;
 		public WorldSavedData data;
+
 		public WorldSavedDataSyncMessage(PacketBuffer buffer) {
 			this.type = buffer.readInt();
 			this.data = this.type == 0 ? new MapVariables() : new WorldVariables();
@@ -185,15 +193,19 @@ public class IndustrialEconomyModVariables {
 			context.setPacketHandled(true);
 		}
 	}
+
 	@CapabilityInject(PlayerVariables.class)
 	public static Capability<PlayerVariables> PLAYER_VARIABLES_CAPABILITY = null;
+
 	@SubscribeEvent
 	public void onAttachCapabilities(AttachCapabilitiesEvent<Entity> event) {
 		if (event.getObject() instanceof PlayerEntity && !(event.getObject() instanceof FakePlayer))
 			event.addCapability(new ResourceLocation("industrial_economy", "player_variables"), new PlayerVariablesProvider());
 	}
+
 	private static class PlayerVariablesProvider implements ICapabilitySerializable<INBT> {
 		private final LazyOptional<PlayerVariables> instance = LazyOptional.of(PLAYER_VARIABLES_CAPABILITY::getDefaultInstance);
+
 		@Override
 		public <T> LazyOptional<T> getCapability(Capability<T> cap, Direction side) {
 			return cap == PLAYER_VARIABLES_CAPABILITY ? instance.cast() : LazyOptional.empty();
@@ -421,12 +433,14 @@ public class IndustrialEconomyModVariables {
 		public double case_item_counter_7 = 0;
 		public double case_item_counter_8 = 0;
 		public boolean is_player_in_dimension1 = false;
+
 		public void syncPlayerVariables(Entity entity) {
 			if (entity instanceof ServerPlayerEntity)
 				IndustrialEconomyMod.PACKET_HANDLER.send(PacketDistributor.PLAYER.with(() -> (ServerPlayerEntity) entity),
 						new PlayerVariablesSyncMessage(this));
 		}
 	}
+
 	@SubscribeEvent
 	public void onPlayerLoggedInSyncPlayerVariables(PlayerEvent.PlayerLoggedInEvent event) {
 		if (!event.getPlayer().world.isRemote())
@@ -521,8 +535,10 @@ public class IndustrialEconomyModVariables {
 			clone.is_player_in_dimension1 = original.is_player_in_dimension1;
 		}
 	}
+
 	public static class PlayerVariablesSyncMessage {
 		public PlayerVariables data;
+
 		public PlayerVariablesSyncMessage(PacketBuffer buffer) {
 			this.data = new PlayerVariables();
 			new PlayerVariablesStorage().readNBT(null, this.data, null, buffer.readCompoundTag());

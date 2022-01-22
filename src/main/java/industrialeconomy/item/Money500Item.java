@@ -15,6 +15,7 @@ import industrialeconomy.IndustrialEconomyModElements;
 public class Money500Item extends IndustrialEconomyModElements.ModElement {
 	@ObjectHolder("industrial_economy:money_500")
 	public static final Item block = null;
+
 	public Money500Item(IndustrialEconomyModElements instance) {
 		super(instance, 514);
 	}
@@ -23,6 +24,7 @@ public class Money500Item extends IndustrialEconomyModElements.ModElement {
 	public void initElements() {
 		elements.items.add(() -> new ItemCustom());
 	}
+
 	public static class ItemCustom extends Item {
 		public ItemCustom() {
 			super(new Item.Properties().group(ItemGroup.MISC).maxStackSize(64).rarity(Rarity.COMMON));

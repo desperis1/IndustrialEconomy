@@ -16,6 +16,7 @@ import industrialeconomy.IndustrialEconomyModElements;
 public class BuildrangeEnchantment extends IndustrialEconomyModElements.ModElement {
 	@ObjectHolder("industrial_economy:buildrange")
 	public static final Enchantment enchantment = null;
+
 	public BuildrangeEnchantment(IndustrialEconomyModElements instance) {
 		super(instance, 268);
 	}
@@ -24,6 +25,7 @@ public class BuildrangeEnchantment extends IndustrialEconomyModElements.ModEleme
 	public void initElements() {
 		elements.enchantments.add(() -> new CustomEnchantment(EquipmentSlotType.MAINHAND).setRegistryName("buildrange"));
 	}
+
 	public static class CustomEnchantment extends Enchantment {
 		public CustomEnchantment(EquipmentSlotType... slots) {
 			super(Enchantment.Rarity.VERY_RARE, EnchantmentType.DIGGER, slots);

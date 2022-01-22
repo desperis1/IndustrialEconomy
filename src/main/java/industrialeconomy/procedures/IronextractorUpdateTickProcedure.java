@@ -19,7 +19,13 @@ import industrialeconomy.IndustrialEconomyModVariables;
 import industrialeconomy.IndustrialEconomyMod;
 
 public class IronextractorUpdateTickProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency world for procedure IronextractorUpdateTick!");
+			return;
+		}
 		if (dependencies.get("x") == null) {
 			if (!dependencies.containsKey("x"))
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency x for procedure IronextractorUpdateTick!");
@@ -35,20 +41,15 @@ public class IronextractorUpdateTickProcedure {
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency z for procedure IronextractorUpdateTick!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency world for procedure IronextractorUpdateTick!");
-			return;
-		}
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
 		String owner = "";
 		double players_hub_x = 0;
 		double players_hub_y = 0;
 		double players_hub_z = 0;
-		owner = (String) (new Object() {
+		owner = (new Object() {
 			public String getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
@@ -56,7 +57,7 @@ public class IronextractorUpdateTickProcedure {
 				return "";
 			}
 		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "owner"));
-		players_hub_x = (double) (new Object() {
+		players_hub_x = (new Object() {
 			public double getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
@@ -67,8 +68,8 @@ public class IronextractorUpdateTickProcedure {
 				new BlockPos((int) IndustrialEconomyModVariables.WorldVariables.get(world).server_x,
 						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_y,
 						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_z),
-				((owner) + "" + ("hub_X"))));
-		players_hub_y = (double) (new Object() {
+				(owner + "hub_X")));
+		players_hub_y = (new Object() {
 			public double getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
@@ -79,8 +80,8 @@ public class IronextractorUpdateTickProcedure {
 				new BlockPos((int) IndustrialEconomyModVariables.WorldVariables.get(world).server_x,
 						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_y,
 						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_z),
-				((owner) + "" + ("hub_Y"))));
-		players_hub_z = (double) (new Object() {
+				(owner + "hub_Y")));
+		players_hub_z = (new Object() {
 			public double getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
@@ -91,15 +92,15 @@ public class IronextractorUpdateTickProcedure {
 				new BlockPos((int) IndustrialEconomyModVariables.WorldVariables.get(world).server_x,
 						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_y,
 						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_z),
-				((owner) + "" + ("hub_Z"))));
-		if (((((new Object() {
+				(owner + "hub_Z")));
+		if (new Object() {
 			public double getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
 					return tileEntity.getTileData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos((int) players_hub_x, (int) players_hub_y, (int) players_hub_z), "Iron")) > 10) && (64 > (new Object() {
+		}.getValue(world, new BlockPos((int) players_hub_x, (int) players_hub_y, (int) players_hub_z), "Iron") > 10 && 64 > new Object() {
 			public int getAmount(IWorld world, BlockPos pos, int sltid) {
 				AtomicInteger _retval = new AtomicInteger(0);
 				TileEntity _ent = world.getTileEntity(pos);
@@ -110,20 +111,20 @@ public class IronextractorUpdateTickProcedure {
 				}
 				return _retval.get();
 			}
-		}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (0))))) && ((true) == (new Object() {
+		}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (0)) && true == (new Object() {
 			public boolean getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
 					return tileEntity.getTileData().getBoolean(tag);
 				return false;
 			}
-		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Working"))))) {
+		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Working"))) {
 			{
 				TileEntity _ent = world.getTileEntity(new BlockPos((int) x, (int) y, (int) z));
 				if (_ent != null) {
 					final int _sltid = (int) (0);
 					final ItemStack _setstack = new ItemStack(Blocks.IRON_ORE);
-					_setstack.setCount((int) ((new Object() {
+					_setstack.setCount((int) (new Object() {
 						public int getAmount(IWorld world, BlockPos pos, int sltid) {
 							AtomicInteger _retval = new AtomicInteger(0);
 							TileEntity _ent = world.getTileEntity(pos);
@@ -134,7 +135,7 @@ public class IronextractorUpdateTickProcedure {
 							}
 							return _retval.get();
 						}
-					}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (0))) + 1));
+					}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (0)) + 1));
 					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
 						if (capability instanceof IItemHandlerModifiable) {
 							((IItemHandlerModifiable) capability).setStackInSlot(_sltid, _setstack);

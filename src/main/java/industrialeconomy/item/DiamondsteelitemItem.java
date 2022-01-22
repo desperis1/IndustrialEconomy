@@ -16,6 +16,7 @@ import industrialeconomy.IndustrialEconomyModElements;
 public class DiamondsteelitemItem extends IndustrialEconomyModElements.ModElement {
 	@ObjectHolder("industrial_economy:diamondsteelitem")
 	public static final Item block = null;
+
 	public DiamondsteelitemItem(IndustrialEconomyModElements instance) {
 		super(instance, 93);
 	}
@@ -24,6 +25,7 @@ public class DiamondsteelitemItem extends IndustrialEconomyModElements.ModElemen
 	public void initElements() {
 		elements.items.add(() -> new ItemCustom());
 	}
+
 	public static class ItemCustom extends Item {
 		public ItemCustom() {
 			super(new Item.Properties().group(ProjectMEGAItemGroup.tab).maxStackSize(64).rarity(Rarity.UNCOMMON));

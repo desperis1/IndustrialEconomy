@@ -16,24 +16,25 @@ import industrialeconomy.IndustrialEconomyModVariables;
 import industrialeconomy.IndustrialEconomyMod;
 
 public class UpgrademinersCommandExecutedProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency entity for procedure UpgrademinersCommandExecuted!");
-			return;
-		}
 		if (dependencies.get("world") == null) {
 			if (!dependencies.containsKey("world"))
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency world for procedure UpgrademinersCommandExecuted!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency entity for procedure UpgrademinersCommandExecuted!");
+			return;
+		}
 		IWorld world = (IWorld) dependencies.get("world");
+		Entity entity = (Entity) dependencies.get("entity");
 		double current_miners_level = 0;
-		current_miners_level = (double) ((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+		current_miners_level = ((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 				.orElse(new IndustrialEconomyModVariables.PlayerVariables())).miners_level);
 		{
-			double _setval = (double) (current_miners_level + 1);
+			double _setval = (current_miners_level + 1);
 			entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 				capability.miners_level = _setval;
 				capability.syncPlayerVariables(entity);
@@ -46,16 +47,16 @@ public class UpgrademinersCommandExecutedProcedure {
 			TileEntity _tileEntity = world.getTileEntity(_bp);
 			BlockState _bs = world.getBlockState(_bp);
 			if (_tileEntity != null)
-				_tileEntity.getTileData().putDouble((((entity.getDisplayName().getString())) + "" + ("_minerLevel")),
+				_tileEntity.getTileData().putDouble((entity.getDisplayName().getString() + "_minerLevel"),
 						((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 								.orElse(new IndustrialEconomyModVariables.PlayerVariables())).miners_level));
 			if (world instanceof World)
 				((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 		}
 		if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-			((PlayerEntity) entity).sendStatusMessage(new StringTextComponent((((entity.getDisplayName().getString())) + "" + ("_minerLevel: ") + ""
-					+ (((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new IndustrialEconomyModVariables.PlayerVariables())).miners_level)))),
+			((PlayerEntity) entity).sendStatusMessage(new StringTextComponent((entity.getDisplayName().getString() + "_minerLevel: "
+					+ (entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+							.orElse(new IndustrialEconomyModVariables.PlayerVariables())).miners_level)),
 					(false));
 		}
 	}

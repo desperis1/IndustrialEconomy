@@ -24,10 +24,11 @@ import industrialeconomy.IndustrialEconomyModVariables;
 import industrialeconomy.IndustrialEconomyMod;
 
 public class Position1blockBlockIsPlacedByProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency entity for procedure Position1blockBlockIsPlacedBy!");
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency world for procedure Position1blockBlockIsPlacedBy!");
 			return;
 		}
 		if (dependencies.get("x") == null) {
@@ -45,38 +46,38 @@ public class Position1blockBlockIsPlacedByProcedure {
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency z for procedure Position1blockBlockIsPlacedBy!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency world for procedure Position1blockBlockIsPlacedBy!");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency entity for procedure Position1blockBlockIsPlacedBy!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
+		Entity entity = (Entity) dependencies.get("entity");
 		{
-			double _setval = (double) Math.round(x);
+			double _setval = Math.round(x);
 			entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 				capability.builder_pos1_x = _setval;
 				capability.syncPlayerVariables(entity);
 			});
 		}
 		{
-			double _setval = (double) Math.round(y);
+			double _setval = Math.round(y);
 			entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 				capability.builder_pos1_y = _setval;
 				capability.syncPlayerVariables(entity);
 			});
 		}
 		{
-			double _setval = (double) Math.round(z);
+			double _setval = Math.round(z);
 			entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 				capability.builder_pos1_z = _setval;
 				capability.syncPlayerVariables(entity);
 			});
 		}
-		if ((new Object() {
+		if (new Object() {
 			public boolean checkGamemode(Entity _ent) {
 				if (_ent instanceof ServerPlayerEntity) {
 					return ((ServerPlayerEntity) _ent).interactionManager.getGameType() == GameType.SURVIVAL;
@@ -87,7 +88,7 @@ public class Position1blockBlockIsPlacedByProcedure {
 				}
 				return false;
 			}
-		}.checkGamemode(entity))) {
+		}.checkGamemode(entity)) {
 			world.setBlockState(new BlockPos((int) x, (int) y, (int) z), Blocks.AIR.getDefaultState(), 3);
 			if (entity instanceof PlayerEntity) {
 				ItemStack _stktoremove = new ItemStack(Position1blockBlock.block);
@@ -103,8 +104,8 @@ public class Position1blockBlockIsPlacedByProcedure {
 			world.setBlockState(new BlockPos((int) x, (int) y, (int) z), Blocks.AIR.getDefaultState(), 3);
 		}
 		if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-			((PlayerEntity) entity).sendStatusMessage(new StringTextComponent((("Position 1. is: ") + "" + ("X: ") + "" + (Math.round(x)) + ""
-					+ ("Y: ") + "" + (Math.round(y)) + "" + ("Z: ") + "" + (Math.round(z)))), (false));
+			((PlayerEntity) entity).sendStatusMessage(
+					new StringTextComponent(("Position 1. is: " + "X: " + Math.round(x) + "Y: " + Math.round(y) + "Z: " + Math.round(z))), (false));
 		}
 	}
 }

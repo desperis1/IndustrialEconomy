@@ -14,8 +14,10 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.block.BlockState;
 
+import java.util.stream.Stream;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.AbstractMap;
 
 import industrialeconomy.procedures.DiamondSteelpickaxeToolInHandTickProcedure;
 import industrialeconomy.procedures.DiamondSteelpickaxeBlockDestroyedWithToolProcedure;
@@ -28,6 +30,7 @@ import industrialeconomy.IndustrialEconomyModElements;
 public class DiamondSteelpickaxeItem extends IndustrialEconomyModElements.ModElement {
 	@ObjectHolder("industrial_economy:diamond_steelpickaxe")
 	public static final Item block = null;
+
 	public DiamondSteelpickaxeItem(IndustrialEconomyModElements instance) {
 		super(instance, 109);
 	}
@@ -65,15 +68,12 @@ public class DiamondSteelpickaxeItem extends IndustrialEconomyModElements.ModEle
 				int x = pos.getX();
 				int y = pos.getY();
 				int z = pos.getZ();
-				{
-					Map<String, Object> $_dependencies = new HashMap<>();
-					$_dependencies.put("entity", entity);
-					$_dependencies.put("x", x);
-					$_dependencies.put("y", y);
-					$_dependencies.put("z", z);
-					$_dependencies.put("world", world);
-					DiamondSteelpickaxeBlockDestroyedWithToolProcedure.executeProcedure($_dependencies);
-				}
+
+				DiamondSteelpickaxeBlockDestroyedWithToolProcedure.executeProcedure(Stream
+						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
+								new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z),
+								new AbstractMap.SimpleEntry<>("entity", entity))
+						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				return retval;
 			}
 
@@ -83,11 +83,10 @@ public class DiamondSteelpickaxeItem extends IndustrialEconomyModElements.ModEle
 				double x = entity.getPosX();
 				double y = entity.getPosY();
 				double z = entity.getPosZ();
-				if (selected) {
-					Map<String, Object> $_dependencies = new HashMap<>();
-					$_dependencies.put("entity", entity);
-					DiamondSteelpickaxeToolInHandTickProcedure.executeProcedure($_dependencies);
-				}
+				if (selected)
+
+					DiamondSteelpickaxeToolInHandTickProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity))
+							.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			}
 		}.setRegistryName("diamond_steelpickaxe"));
 	}

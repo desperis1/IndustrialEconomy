@@ -17,6 +17,7 @@ import industrialeconomy.world.dimension.Test2Dimension;
 public class Test2Item extends Item {
 	@ObjectHolder("industrial_economy:test_2")
 	public static final Item block = null;
+
 	public Test2Item() {
 		super(new Item.Properties().group(ItemGroup.TOOLS).maxDamage(64));
 	}

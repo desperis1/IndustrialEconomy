@@ -17,10 +17,11 @@ import java.util.Map;
 import industrialeconomy.IndustrialEconomyMod;
 
 public class DiamondSteelHOeRightClickedOnBlockProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency entity for procedure DiamondSteelHOeRightClickedOnBlock!");
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency world for procedure DiamondSteelHOeRightClickedOnBlock!");
 			return;
 		}
 		if (dependencies.get("x") == null) {
@@ -38,20 +39,20 @@ public class DiamondSteelHOeRightClickedOnBlockProcedure {
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency z for procedure DiamondSteelHOeRightClickedOnBlock!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency world for procedure DiamondSteelHOeRightClickedOnBlock!");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency entity for procedure DiamondSteelHOeRightClickedOnBlock!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
+		Entity entity = (Entity) dependencies.get("entity");
 		BlockState ageofwheat = Blocks.AIR.getDefaultState();
-		if (((world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock() == Blocks.WHEAT)) {
+		if ((world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock() == Blocks.WHEAT) {
 			ageofwheat = (world.getBlockState(new BlockPos((int) x, (int) y, (int) z)));
-			if ((("" + (/* @BlockState */(ageofwheat))).contains("7"))) {
+			if (("" + ageofwheat).contains("7")) {
 				{
 					BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 					BlockState _bs = Blocks.WHEAT.getDefaultState();
@@ -81,9 +82,9 @@ public class DiamondSteelHOeRightClickedOnBlockProcedure {
 				}
 			}
 		}
-		if (((world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock() == Blocks.BEETROOTS)) {
+		if ((world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock() == Blocks.BEETROOTS) {
 			ageofwheat = (world.getBlockState(new BlockPos((int) x, (int) y, (int) z)));
-			if ((("" + (/* @BlockState */(ageofwheat))).contains("3"))) {
+			if (("" + ageofwheat).contains("3")) {
 				{
 					BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 					BlockState _bs = Blocks.BEETROOTS.getDefaultState();
@@ -113,9 +114,9 @@ public class DiamondSteelHOeRightClickedOnBlockProcedure {
 				}
 			}
 		}
-		if (((world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock() == Blocks.CARROTS)) {
+		if ((world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock() == Blocks.CARROTS) {
 			ageofwheat = (world.getBlockState(new BlockPos((int) x, (int) y, (int) z)));
-			if ((("" + (/* @BlockState */(ageofwheat))).contains("7"))) {
+			if (("" + ageofwheat).contains("7")) {
 				{
 					BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 					BlockState _bs = Blocks.CARROTS.getDefaultState();
@@ -145,9 +146,9 @@ public class DiamondSteelHOeRightClickedOnBlockProcedure {
 				}
 			}
 		}
-		if (((world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock() == Blocks.POTATOES)) {
+		if ((world.getBlockState(new BlockPos((int) x, (int) y, (int) z))).getBlock() == Blocks.POTATOES) {
 			ageofwheat = (world.getBlockState(new BlockPos((int) x, (int) y, (int) z)));
-			if ((("" + (/* @BlockState */(ageofwheat))).contains("7"))) {
+			if (("" + ageofwheat).contains("7")) {
 				{
 					BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 					BlockState _bs = Blocks.POTATOES.getDefaultState();

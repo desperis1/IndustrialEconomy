@@ -11,9 +11,11 @@ import net.minecraft.entity.Entity;
 import net.minecraft.command.Commands;
 import net.minecraft.command.CommandSource;
 
+import java.util.stream.Stream;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.Arrays;
+import java.util.AbstractMap;
 
 import industrialeconomy.procedures.UpgrademinersCommandExecutedProcedure;
 
@@ -46,12 +48,10 @@ public class UpgrademinersCommand {
 				cmdparams.put(Integer.toString(index[0]), param);
 			index[0]++;
 		});
-		{
-			Map<String, Object> $_dependencies = new HashMap<>();
-			$_dependencies.put("entity", entity);
-			$_dependencies.put("world", world);
-			UpgrademinersCommandExecutedProcedure.executeProcedure($_dependencies);
-		}
+
+		UpgrademinersCommandExecutedProcedure
+				.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("entity", entity))
+						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 		return 0;
 	}
 }

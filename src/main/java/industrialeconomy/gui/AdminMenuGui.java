@@ -22,9 +22,11 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.client.gui.ScreenManager;
 
+import java.util.stream.Stream;
 import java.util.function.Supplier;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.AbstractMap;
 
 import industrialeconomy.procedures.ClearlagExecutedProcedure;
 import industrialeconomy.procedures.AdminmenuadmineditorOnClickedProcedure;
@@ -38,6 +40,7 @@ import industrialeconomy.IndustrialEconomyModElements;
 public class AdminMenuGui extends IndustrialEconomyModElements.ModElement {
 	public static HashMap guistate = new HashMap();
 	private static ContainerType<GuiContainerMod> containerType = null;
+
 	public AdminMenuGui(IndustrialEconomyModElements instance) {
 		super(instance, 17);
 		elements.addNetworkMessage(ButtonPressedMessage.class, ButtonPressedMessage::buffer, ButtonPressedMessage::new,
@@ -47,16 +50,19 @@ public class AdminMenuGui extends IndustrialEconomyModElements.ModElement {
 		containerType = new ContainerType<>(new GuiContainerModFactory());
 		FMLJavaModLoadingContext.get().getModEventBus().register(new ContainerRegisterHandler());
 	}
+
 	private static class ContainerRegisterHandler {
 		@SubscribeEvent
 		public void registerContainer(RegistryEvent.Register<ContainerType<?>> event) {
 			event.getRegistry().register(containerType.setRegistryName("admin_menu"));
 		}
 	}
+
 	@OnlyIn(Dist.CLIENT)
 	public void initElements() {
 		DeferredWorkQueue.runLater(() -> ScreenManager.registerFactory(containerType, AdminMenuGuiWindow::new));
 	}
+
 	public static class GuiContainerModFactory implements IContainerFactory {
 		public GuiContainerMod create(int id, PlayerInventory inv, PacketBuffer extraData) {
 			return new GuiContainerMod(id, inv, extraData);
@@ -70,6 +76,7 @@ public class AdminMenuGui extends IndustrialEconomyModElements.ModElement {
 		private IItemHandler internal;
 		private Map<Integer, Slot> customSlots = new HashMap<>();
 		private boolean bound = false;
+
 		public GuiContainerMod(int id, PlayerInventory inv, PacketBuffer extraData) {
 			super(containerType, id);
 			this.entity = inv.player;
@@ -96,6 +103,7 @@ public class AdminMenuGui extends IndustrialEconomyModElements.ModElement {
 
 	public static class ButtonPressedMessage {
 		int buttonID, x, y, z;
+
 		public ButtonPressedMessage(PacketBuffer buffer) {
 			this.buttonID = buffer.readInt();
 			this.x = buffer.readInt();
@@ -133,6 +141,7 @@ public class AdminMenuGui extends IndustrialEconomyModElements.ModElement {
 
 	public static class GUISlotChangedMessage {
 		int slotID, x, y, z, changeType, meta;
+
 		public GUISlotChangedMessage(int slotID, int x, int y, int z, int changeType, int meta) {
 			this.slotID = slotID;
 			this.x = x;
@@ -175,48 +184,38 @@ public class AdminMenuGui extends IndustrialEconomyModElements.ModElement {
 			context.setPacketHandled(true);
 		}
 	}
+
 	static void handleButtonAction(PlayerEntity entity, int buttonID, int x, int y, int z) {
 		World world = entity.world;
 		// security measure to prevent arbitrary chunk generation
 		if (!world.isBlockLoaded(new BlockPos(x, y, z)))
 			return;
 		if (buttonID == 0) {
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				AdminmenuSurvivalCreativeProcedure.executeProcedure($_dependencies);
-			}
+
+			AdminmenuSurvivalCreativeProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+					(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 		}
 		if (buttonID == 1) {
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("x", x);
-				$_dependencies.put("y", y);
-				$_dependencies.put("z", z);
-				$_dependencies.put("world", world);
-				AdminmenuSunRainProcedure.executeProcedure($_dependencies);
-			}
+
+			AdminmenuSunRainProcedure.executeProcedure(Stream
+					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
+							new AbstractMap.SimpleEntry<>("z", z))
+					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 		}
 		if (buttonID == 2) {
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("world", world);
-				AdminmenuDayNightProcedure.executeProcedure($_dependencies);
-			}
+
+			AdminmenuDayNightProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("world", world)).collect(HashMap::new,
+					(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 		}
 		if (buttonID == 3) {
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				ClearlagExecutedProcedure.executeProcedure($_dependencies);
-			}
+
+			ClearlagExecutedProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+					(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 		}
 		if (buttonID == 4) {
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				AdminmenuadmineditorOnClickedProcedure.executeProcedure($_dependencies);
-			}
+
+			AdminmenuadmineditorOnClickedProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+					(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 		}
 	}
 

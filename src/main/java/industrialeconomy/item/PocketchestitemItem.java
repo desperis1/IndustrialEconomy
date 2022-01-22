@@ -51,6 +51,7 @@ import industrialeconomy.IndustrialEconomyModElements;
 public class PocketchestitemItem extends IndustrialEconomyModElements.ModElement {
 	@ObjectHolder("industrial_economy:pocketchestitem")
 	public static final Item block = null;
+
 	public PocketchestitemItem(IndustrialEconomyModElements instance) {
 		super(instance, 194);
 		MinecraftForge.EVENT_BUS.register(this);
@@ -70,6 +71,7 @@ public class PocketchestitemItem extends IndustrialEconomyModElements.ModElement
 	public void initElements() {
 		elements.items.add(() -> new ItemCustom());
 	}
+
 	public static class ItemCustom extends Item {
 		public ItemCustom() {
 			super(new Item.Properties().group(ProjectMEGAItemGroup.tab).maxStackSize(1).rarity(Rarity.COMMON));
@@ -145,6 +147,7 @@ public class PocketchestitemItem extends IndustrialEconomyModElements.ModElement
 
 	private static class InventoryCapability implements ICapabilitySerializable<CompoundNBT> {
 		private final LazyOptional<ItemStackHandler> inventory = LazyOptional.of(this::createItemHandler);
+
 		@Override
 		public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> capability, @Nullable Direction side) {
 			return capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY ? this.inventory.cast() : LazyOptional.empty();
@@ -170,6 +173,10 @@ public class PocketchestitemItem extends IndustrialEconomyModElements.ModElement
 				@Override
 				public boolean isItemValid(int slot, @Nonnull ItemStack stack) {
 					return stack.getItem() != block;
+				}
+
+				@Override
+				public void setSize(int size) {
 				}
 			};
 		}

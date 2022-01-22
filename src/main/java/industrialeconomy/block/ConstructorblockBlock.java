@@ -58,12 +58,14 @@ import net.minecraft.block.Block;
 
 import javax.annotation.Nullable;
 
+import java.util.stream.Stream;
 import java.util.stream.IntStream;
 import java.util.Random;
 import java.util.Map;
 import java.util.List;
 import java.util.HashMap;
 import java.util.Collections;
+import java.util.AbstractMap;
 
 import io.netty.buffer.Unpooled;
 
@@ -83,6 +85,7 @@ public class ConstructorblockBlock extends IndustrialEconomyModElements.ModEleme
 	public static final Block block = null;
 	@ObjectHolder("industrial_economy:constructorblock")
 	public static final TileEntityType<CustomTileEntity> tileEntityType = null;
+
 	public ConstructorblockBlock(IndustrialEconomyModElements instance) {
 		super(instance, 54);
 		FMLJavaModLoadingContext.get().getModEventBus().register(new TileEntityRegisterHandler());
@@ -94,6 +97,7 @@ public class ConstructorblockBlock extends IndustrialEconomyModElements.ModEleme
 		elements.items
 				.add(() -> new BlockItem(block, new Item.Properties().group(ProjectMEGAItemGroup.tab)).setRegistryName(block.getRegistryName()));
 	}
+
 	private static class TileEntityRegisterHandler {
 		@SubscribeEvent
 		public void registerTileEntity(RegistryEvent.Register<TileEntityType<?>> event) {
@@ -103,6 +107,7 @@ public class ConstructorblockBlock extends IndustrialEconomyModElements.ModEleme
 
 	public static class CustomBlock extends Block {
 		public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
+
 		public CustomBlock() {
 			super(Block.Properties.create(Material.IRON).sound(SoundType.ANVIL).hardnessAndResistance(15f, 10f).setLightLevel(s -> 0).harvestLevel(1)
 					.harvestTool(ToolType.PICKAXE).setRequiresTool());
@@ -148,7 +153,7 @@ public class ConstructorblockBlock extends IndustrialEconomyModElements.ModEleme
 			int x = pos.getX();
 			int y = pos.getY();
 			int z = pos.getZ();
-			world.getPendingBlockTicks().scheduleTick(new BlockPos(x, y, z), this, 30);
+			world.getPendingBlockTicks().scheduleTick(pos, this, 30);
 		}
 
 		@Override
@@ -157,15 +162,12 @@ public class ConstructorblockBlock extends IndustrialEconomyModElements.ModEleme
 			int x = pos.getX();
 			int y = pos.getY();
 			int z = pos.getZ();
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("x", x);
-				$_dependencies.put("y", y);
-				$_dependencies.put("z", z);
-				$_dependencies.put("world", world);
-				ConstructorblockUpdateTickProcedure.executeProcedure($_dependencies);
-			}
-			world.getPendingBlockTicks().scheduleTick(new BlockPos(x, y, z), this, 30);
+
+			ConstructorblockUpdateTickProcedure.executeProcedure(Stream
+					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
+							new AbstractMap.SimpleEntry<>("z", z))
+					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+			world.getPendingBlockTicks().scheduleTick(pos, this, 30);
 		}
 
 		@Override
@@ -174,10 +176,8 @@ public class ConstructorblockBlock extends IndustrialEconomyModElements.ModEleme
 			int x = pos.getX();
 			int y = pos.getY();
 			int z = pos.getZ();
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				ConstructorblockBlockDestroyedByPlayerProcedure.executeProcedure($_dependencies);
-			}
+
+			ConstructorblockBlockDestroyedByPlayerProcedure.executeProcedure(Collections.EMPTY_MAP);
 			return retval;
 		}
 
@@ -187,15 +187,11 @@ public class ConstructorblockBlock extends IndustrialEconomyModElements.ModEleme
 			int x = pos.getX();
 			int y = pos.getY();
 			int z = pos.getZ();
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				$_dependencies.put("x", x);
-				$_dependencies.put("y", y);
-				$_dependencies.put("z", z);
-				$_dependencies.put("world", world);
-				ConstructorblockBlockIsPlacedByProcedure.executeProcedure($_dependencies);
-			}
+
+			ConstructorblockBlockIsPlacedByProcedure.executeProcedure(Stream
+					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
+							new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
+					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 		}
 
 		@Override
@@ -253,6 +249,7 @@ public class ConstructorblockBlock extends IndustrialEconomyModElements.ModEleme
 					InventoryHelper.dropInventoryItems(world, pos, (CustomTileEntity) tileentity);
 					world.updateComparatorOutputLevel(pos, this);
 				}
+
 				super.onReplaced(state, world, pos, newState, isMoving);
 			}
 		}
@@ -274,6 +271,7 @@ public class ConstructorblockBlock extends IndustrialEconomyModElements.ModEleme
 
 	public static class CustomTileEntity extends LockableLootTileEntity implements ISidedInventory {
 		private NonNullList<ItemStack> stacks = NonNullList.<ItemStack>withSize(2, ItemStack.EMPTY);
+
 		protected CustomTileEntity() {
 			super(tileEntityType);
 		}
@@ -377,7 +375,9 @@ public class ConstructorblockBlock extends IndustrialEconomyModElements.ModEleme
 				return false;
 			return true;
 		}
+
 		private final LazyOptional<? extends IItemHandler>[] handlers = SidedInvWrapper.create(this, Direction.values());
+
 		@Override
 		public <T> LazyOptional<T> getCapability(Capability<T> capability, @Nullable Direction facing) {
 			if (!this.removed && facing != null && capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY)

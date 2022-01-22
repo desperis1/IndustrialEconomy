@@ -27,6 +27,7 @@ public class DiamondsteelAXEguiGuiWindow extends ContainerScreen<DiamondsteelAXE
 	private int x, y, z;
 	private PlayerEntity entity;
 	private final static HashMap guistate = DiamondsteelAXEguiGui.guistate;
+
 	public DiamondsteelAXEguiGuiWindow(DiamondsteelAXEguiGui.GuiContainerMod container, PlayerInventory inventory, ITextComponent text) {
 		super(container, inventory, text);
 		this.world = container.world;
@@ -37,7 +38,9 @@ public class DiamondsteelAXEguiGuiWindow extends ContainerScreen<DiamondsteelAXE
 		this.xSize = 176;
 		this.ySize = 166;
 	}
+
 	private static final ResourceLocation texture = new ResourceLocation("industrial_economy:textures/diamondsteel_ax_egui.png");
+
 	@Override
 	public void render(MatrixStack ms, int mouseX, int mouseY, float partialTicks) {
 		this.renderBackground(ms);

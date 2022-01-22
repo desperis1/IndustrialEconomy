@@ -11,6 +11,7 @@ import java.util.Map;
 import industrialeconomy.IndustrialEconomyMod;
 
 public class ThreebythreeareabuttonpressProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
@@ -18,8 +19,8 @@ public class ThreebythreeareabuttonpressProcedure {
 			return;
 		}
 		Entity entity = (Entity) dependencies.get("entity");
-		if (((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY).getOrCreateTag()
-				.getBoolean("3x3")) == (true))) {
+		if (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY).getOrCreateTag()
+				.getBoolean("3x3") == true) {
 			((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY).getOrCreateTag().putBoolean("3x3",
 					(false));
 			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {

@@ -22,7 +22,13 @@ import industrialeconomy.IndustrialEconomyModVariables;
 import industrialeconomy.IndustrialEconomyMod;
 
 public class AutoSellUpdateTickProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency world for procedure AutoSellUpdateTick!");
+			return;
+		}
 		if (dependencies.get("x") == null) {
 			if (!dependencies.containsKey("x"))
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency x for procedure AutoSellUpdateTick!");
@@ -38,20 +44,15 @@ public class AutoSellUpdateTickProcedure {
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency z for procedure AutoSellUpdateTick!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency world for procedure AutoSellUpdateTick!");
-			return;
-		}
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
 		String owner = "";
 		double number_of_items = 0;
 		double price_from_server = 0;
 		ItemStack items_for_sell = ItemStack.EMPTY;
-		owner = (String) (new Object() {
+		owner = (new Object() {
 			public String getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
@@ -59,7 +60,7 @@ public class AutoSellUpdateTickProcedure {
 				return "";
 			}
 		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "owner"));
-		number_of_items = (double) (new Object() {
+		number_of_items = (new Object() {
 			public int getAmount(IWorld world, BlockPos pos, int sltid) {
 				AtomicInteger _retval = new AtomicInteger(0);
 				TileEntity _ent = world.getTileEntity(pos);
@@ -83,7 +84,7 @@ public class AutoSellUpdateTickProcedure {
 				return _retval.get();
 			}
 		}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (0)));
-		if ((((true) == (new Object() {
+		if (true == (new Object() {
 			public boolean getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
@@ -94,7 +95,7 @@ public class AutoSellUpdateTickProcedure {
 				new BlockPos((int) IndustrialEconomyModVariables.WorldVariables.get(world).server_x,
 						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_y,
 						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_z),
-				((owner) + "" + ("_isOnline"))))) && ((new Object() {
+				(owner + "_isOnline"))) && new Object() {
 					public double getValue(IWorld world, BlockPos pos, String tag) {
 						TileEntity tileEntity = world.getTileEntity(pos);
 						if (tileEntity != null)
@@ -105,8 +106,8 @@ public class AutoSellUpdateTickProcedure {
 						new BlockPos((int) IndustrialEconomyModVariables.WorldVariables.get(world).server_x,
 								(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_y,
 								(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_z),
-						((((items_for_sell).getDisplayName().getString())) + "" + ("_price")))) > 0))) {
-			price_from_server = (double) (new Object() {
+						((items_for_sell).getDisplayName().getString() + "_price")) > 0) {
+			price_from_server = (new Object() {
 				public double getValue(IWorld world, BlockPos pos, String tag) {
 					TileEntity tileEntity = world.getTileEntity(pos);
 					if (tileEntity != null)
@@ -117,15 +118,14 @@ public class AutoSellUpdateTickProcedure {
 					new BlockPos((int) IndustrialEconomyModVariables.WorldVariables.get(world).server_x,
 							(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_y,
 							(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_z),
-					((((items_for_sell).getDisplayName().getString())) + "" + ("_price"))));
+					((items_for_sell).getDisplayName().getString() + "_price")));
 			{
 				List<? extends PlayerEntity> _players = new ArrayList<>(world.getPlayers());
 				for (Entity entityiterator : _players) {
-					if ((((entityiterator.getDisplayName().getString())).equals(owner))) {
+					if ((entityiterator.getDisplayName().getString()).equals(owner)) {
 						{
-							double _setval = (double) (((entityiterator.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-									.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money)
-									+ (number_of_items * price_from_server));
+							double _setval = ((entityiterator.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+									.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money + number_of_items * price_from_server);
 							entityiterator.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 								capability.player_money = _setval;
 								capability.syncPlayerVariables(entityiterator);
@@ -146,16 +146,14 @@ public class AutoSellUpdateTickProcedure {
 							}
 						}
 						if (entityiterator instanceof PlayerEntity && !entityiterator.world.isRemote()) {
-							((PlayerEntity) entityiterator).sendStatusMessage(
-									new StringTextComponent((("AutoSell: ") + "" + ((new java.text.DecimalFormat("#").format(number_of_items))) + ""
-											+ (" ") + "" + (((items_for_sell).getDisplayName().getString())) + "" + (" for ") + ""
-											+ ((number_of_items * price_from_server)) + "" + (" \u010F\u017C\u02DD"))),
-									(false));
+							((PlayerEntity) entityiterator).sendStatusMessage(new StringTextComponent(("AutoSell: "
+									+ new java.text.DecimalFormat("#").format(number_of_items) + " " + (items_for_sell).getDisplayName().getString()
+									+ " for " + number_of_items * price_from_server + " \u010F\u017C\u02DD")), (false));
 						}
 					}
 				}
 			}
-		} else if (((new Object() {
+		} else if (new Object() {
 			public int getAmount(IWorld world, BlockPos pos, int sltid) {
 				AtomicInteger _retval = new AtomicInteger(0);
 				TileEntity _ent = world.getTileEntity(pos);
@@ -166,7 +164,7 @@ public class AutoSellUpdateTickProcedure {
 				}
 				return _retval.get();
 			}
-		}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1))) == 0)) {
+		}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1)) == 0) {
 			{
 				TileEntity _ent = world.getTileEntity(new BlockPos((int) x, (int) y, (int) z));
 				if (_ent != null) {

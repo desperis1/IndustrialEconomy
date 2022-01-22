@@ -1,5 +1,4 @@
 {
-  "id_map": {},
   "mod_elements": [
     {
       "name": "CateriumIngot",
@@ -7,7 +6,6 @@
       "sortid": 1,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "caterium_ingot",
       "path": "~/Items"
     },
@@ -17,7 +15,6 @@
       "sortid": 2,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "caterium_ore",
       "path": "~/Blocks/Ores"
     },
@@ -27,7 +24,6 @@
       "sortid": 3,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "caterium_block",
       "path": "~/Blocks"
     },
@@ -37,7 +33,6 @@
       "sortid": 4,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "caterium_ore_block_recipe",
       "path": "~/Blocks/Ores"
     },
@@ -47,7 +42,6 @@
       "sortid": 5,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "caterium_block_ore_recipe",
       "path": "~/Items"
     },
@@ -57,7 +51,6 @@
       "sortid": 6,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "caterium_ore_smelting",
       "path": "~/Items"
     },
@@ -67,7 +60,6 @@
       "sortid": 7,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "caterium_nod_eblock_block_is_placed_by",
       "metadata": {
         "dependencies": [
@@ -101,7 +93,6 @@
       "sortid": 7,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "caterium_nod_eblock",
       "path": "~/Nodes"
     },
@@ -111,7 +102,6 @@
       "sortid": 8,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "caterium_node_block_inactive_update_tick",
       "metadata": {
         "dependencies": [
@@ -141,7 +131,6 @@
       "sortid": 8,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "caterium_node_block_inactive",
       "path": "~/Nodes"
     },
@@ -151,7 +140,6 @@
       "sortid": 9,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "caterium_nod_eblock_update_tick",
       "metadata": {
         "dependencies": [
@@ -181,7 +169,6 @@
       "sortid": 10,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "iron_ore_node_block_block_is_placed_by",
       "metadata": {
         "dependencies": [
@@ -215,7 +202,6 @@
       "sortid": 10,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "iron_ore_node_block",
       "path": "~/Nodes"
     },
@@ -225,7 +211,6 @@
       "sortid": 11,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "iron_ore_node_block_inactive",
       "path": "~/Nodes"
     },
@@ -235,7 +220,6 @@
       "sortid": 12,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "iron_ore_node_block_update_tick",
       "metadata": {
         "dependencies": [
@@ -265,7 +249,6 @@
       "sortid": 13,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "iron_ore_node_block_inactive_update_tick",
       "metadata": {
         "dependencies": [
@@ -295,7 +278,6 @@
       "sortid": 14,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "node_scanner_right_clicked_on_block",
       "metadata": {
         "dependencies": [
@@ -333,7 +315,6 @@
       "sortid": 17,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "admin_menu",
       "path": "~/AdminMenu"
     },
@@ -343,7 +324,6 @@
       "sortid": 18,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "adminmenu_survival_creative",
       "metadata": {
         "dependencies": [
@@ -361,7 +341,6 @@
       "sortid": 19,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "adminmenukeybind_on_key_pressed",
       "metadata": {
         "dependencies": [
@@ -395,7 +374,6 @@
       "sortid": 19,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "adminmenukeybind",
       "path": "~/AdminMenu"
     },
@@ -405,7 +383,6 @@
       "sortid": 20,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "adminmenu_day_night",
       "metadata": {
         "dependencies": [
@@ -423,7 +400,6 @@
       "sortid": 21,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "adminmenu_sun_rain",
       "metadata": {
         "dependencies": [
@@ -453,7 +429,6 @@
       "sortid": 23,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "copper_ore",
       "path": "~/Blocks/Ores"
     },
@@ -463,7 +438,6 @@
       "sortid": 27,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "copper_ore_smelting",
       "path": "~/Items"
     },
@@ -473,7 +447,6 @@
       "sortid": 22,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "copper_ingot",
       "path": "~/Items"
     },
@@ -483,7 +456,6 @@
       "sortid": 25,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "copper_ore_block_recipe",
       "path": "~/Blocks/Ores"
     },
@@ -493,7 +465,6 @@
       "sortid": 26,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "copper_block_ore_recipe",
       "path": "~/Items"
     },
@@ -503,7 +474,6 @@
       "sortid": 24,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "copper_block",
       "path": "~/Blocks"
     },
@@ -513,7 +483,6 @@
       "sortid": 22,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "node_scanner_modes_keybind",
       "path": "~/Nodes"
     },
@@ -523,7 +492,6 @@
       "sortid": 31,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "coal_node_update_tick",
       "metadata": {
         "dependencies": [
@@ -553,7 +521,6 @@
       "sortid": 35,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "hub",
       "path": "~/HUB"
     },
@@ -563,7 +530,6 @@
       "sortid": 32,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "coal_node_block_is_placed_by",
       "metadata": {
         "dependencies": [
@@ -597,7 +563,6 @@
       "sortid": 37,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "hub_block_is_placed_by",
       "metadata": {
         "dependencies": [
@@ -631,7 +596,6 @@
       "sortid": 29,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "coal_node",
       "path": "~/Nodes"
     },
@@ -641,7 +605,6 @@
       "sortid": 30,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "coal_node_inactive",
       "path": "~/Nodes"
     },
@@ -651,7 +614,6 @@
       "sortid": 36,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "hub_gui",
       "path": "~/HUB"
     },
@@ -661,7 +623,6 @@
       "sortid": 33,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "coal_node_inactive_update_tick",
       "metadata": {
         "dependencies": [
@@ -691,7 +652,6 @@
       "sortid": 37,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "turbofuelmk_1",
       "path": "~/Items/TurboFuels"
     },
@@ -701,7 +661,6 @@
       "sortid": 34,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "turbofuelrecipe_1",
       "path": "~/Items/TurboFuels"
     },
@@ -711,7 +670,6 @@
       "sortid": 40,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "redstoneingotitem",
       "path": "~/Items"
     },
@@ -721,7 +679,6 @@
       "sortid": 29,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "copper_sheet_item",
       "path": "~/Items"
     },
@@ -731,7 +688,6 @@
       "sortid": 33,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "turbofuelitem_3",
       "path": "~/Items/TurboFuels"
     },
@@ -741,7 +697,6 @@
       "sortid": 31,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "turbofuelitem",
       "path": "~/Items/TurboFuels"
     },
@@ -751,7 +706,6 @@
       "sortid": 35,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "turbofuelrecipe_2",
       "path": "~/Items/TurboFuels"
     },
@@ -761,7 +715,6 @@
       "sortid": 36,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "turbofuelrecipe_3",
       "path": "~/Items/TurboFuels"
     },
@@ -771,7 +724,6 @@
       "sortid": 39,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "turbofuelmk_3",
       "path": "~/Items/TurboFuels"
     },
@@ -781,7 +733,6 @@
       "sortid": 38,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "turbofuelmk_2",
       "path": "~/Items/TurboFuels"
     },
@@ -791,7 +742,6 @@
       "sortid": 41,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "redstoneingotrecipe",
       "path": "~/Items"
     },
@@ -801,7 +751,6 @@
       "sortid": 30,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "coppersheetrecipe",
       "path": "~/Items"
     },
@@ -811,7 +760,6 @@
       "sortid": 32,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "turbofuelitem_2",
       "path": "~/Items/TurboFuels"
     },
@@ -821,7 +769,6 @@
       "sortid": 42,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "minerblock",
       "path": "~/Machines/Miner"
     },
@@ -831,7 +778,6 @@
       "sortid": 51,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "generator_mk_1_client_display_random_tick",
       "metadata": {
         "dependencies": [
@@ -861,7 +807,6 @@
       "sortid": 47,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "generator_mk_1",
       "path": "~/Machines/GeneratorMK1"
     },
@@ -871,7 +816,6 @@
       "sortid": 50,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "generator_working_label",
       "metadata": {
         "return_type": "logic",
@@ -902,7 +846,6 @@
       "sortid": 49,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "generator_mk_1_update_tick",
       "metadata": {
         "dependencies": [
@@ -932,7 +875,6 @@
       "sortid": 46,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "hub_player_starts_to_destroy",
       "metadata": {
         "dependencies": [
@@ -966,7 +908,6 @@
       "sortid": 48,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "generator_mk_1_gui",
       "path": "~/Machines/GeneratorMK1"
     },
@@ -976,7 +917,6 @@
       "sortid": 43,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "minerblock_update_tick",
       "metadata": {
         "dependencies": [
@@ -1006,7 +946,6 @@
       "sortid": 42,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "node_scanner_modes_keybind_on_key_pressed",
       "metadata": {
         "dependencies": [
@@ -1024,7 +963,6 @@
       "sortid": 54,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "constructorblock",
       "path": "~/Machines/Constructor"
     },
@@ -1034,7 +972,6 @@
       "sortid": 53,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "circuit_boardrecipe",
       "path": "~/Items"
     },
@@ -1044,7 +981,6 @@
       "sortid": 56,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "constructorgui",
       "path": "~/Machines/Constructor"
     },
@@ -1054,7 +990,6 @@
       "sortid": 52,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "circuit_boarditem",
       "path": "~/Items"
     },
@@ -1064,7 +999,6 @@
       "sortid": 55,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "constructorrecipe",
       "path": "~/Machines/Constructor"
     },
@@ -1074,7 +1008,6 @@
       "sortid": 52,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "minerblock_block_is_placed_by",
       "metadata": {
         "dependencies": [
@@ -1108,7 +1041,6 @@
       "sortid": 72,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "turbo_fueladvancement",
       "path": "~/Achievments"
     },
@@ -1118,7 +1050,6 @@
       "sortid": 60,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "hub_recipe",
       "path": "~/HUB"
     },
@@ -1128,7 +1059,6 @@
       "sortid": 70,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "electronics",
       "path": "~/Achievments"
     },
@@ -1138,7 +1068,6 @@
       "sortid": 82,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "backcommand_command_executed",
       "metadata": {
         "dependencies": [
@@ -1156,7 +1085,6 @@
       "sortid": 85,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "foundyblock_update_tick",
       "metadata": {
         "dependencies": [
@@ -1186,7 +1114,6 @@
       "sortid": 62,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "node_scanner_tool",
       "path": "~/Tools/NodeScanner"
     },
@@ -1196,7 +1123,6 @@
       "sortid": 93,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "diamondsteelitem",
       "path": "~/Items"
     },
@@ -1206,7 +1132,6 @@
       "sortid": 67,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "copper_node_update_tick",
       "metadata": {
         "dependencies": [
@@ -1236,7 +1161,6 @@
       "sortid": 94,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "diamond_steelblock",
       "path": "~/Blocks"
     },
@@ -1246,7 +1170,6 @@
       "sortid": 79,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "generator_mk_1_block_is_placed_by",
       "metadata": {
         "dependencies": [
@@ -1280,7 +1203,6 @@
       "sortid": 96,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "steelblocktoingotsrecipe",
       "path": "~/Blocks"
     },
@@ -1290,7 +1212,6 @@
       "sortid": 57,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "node_scanner_recipe",
       "path": "~/Tools/NodeScanner"
     },
@@ -1300,7 +1221,6 @@
       "sortid": 89,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "steel_block_recipe",
       "path": "~/Blocks"
     },
@@ -1310,7 +1230,6 @@
       "sortid": 91,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "unlockallrecipescommand_command_executed",
       "metadata": {
         "dependencies": [
@@ -1328,7 +1247,6 @@
       "sortid": 59,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "generator_mk_1recipe",
       "path": "~/Machines/GeneratorMK1"
     },
@@ -1338,7 +1256,6 @@
       "sortid": 68,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "copper_node_inactve_update_tick",
       "metadata": {
         "dependencies": [
@@ -1368,7 +1285,6 @@
       "sortid": 80,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "sethome",
       "path": "~/Commands"
     },
@@ -1378,7 +1294,6 @@
       "sortid": 71,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "rudit_ingotadvancement",
       "path": "~/Achievments"
     },
@@ -1388,7 +1303,6 @@
       "sortid": 75,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "chargergui",
       "path": "~/Machines/Charger"
     },
@@ -1398,7 +1312,6 @@
       "sortid": 86,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "steelingot",
       "path": "~/Items"
     },
@@ -1408,7 +1321,6 @@
       "sortid": 77,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "charger_blockrecipe",
       "path": "~/Machines/Charger"
     },
@@ -1418,7 +1330,6 @@
       "sortid": 99,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "presser_gui",
       "path": "~/Machines/Presser"
     },
@@ -1428,7 +1339,6 @@
       "sortid": 65,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "copper_node",
       "path": "~/Nodes"
     },
@@ -1438,7 +1348,6 @@
       "sortid": 88,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "steel_block",
       "path": "~/Blocks"
     },
@@ -1448,7 +1357,6 @@
       "sortid": 58,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "miner_mk_1recipe",
       "path": "~/Machines/Miner"
     },
@@ -1458,7 +1366,6 @@
       "sortid": 61,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "hub_crafted_achievment",
       "path": "~/Achievments"
     },
@@ -1468,7 +1375,6 @@
       "sortid": 73,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "copper_node_block_is_placed_by",
       "metadata": {
         "dependencies": [
@@ -1502,7 +1408,6 @@
       "sortid": 100,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "presserblock_update_tick",
       "metadata": {
         "dependencies": [
@@ -1532,7 +1437,6 @@
       "sortid": 64,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "cateriumadvancement",
       "path": "~/Achievments"
     },
@@ -1542,7 +1446,6 @@
       "sortid": 95,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "diamondsteelblockrecipe",
       "path": "~/Blocks"
     },
@@ -1552,7 +1455,6 @@
       "sortid": 76,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "chargerblock_update_tick",
       "metadata": {
         "dependencies": [
@@ -1582,7 +1484,6 @@
       "sortid": 98,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "presserblock",
       "path": "~/Machines/Presser"
     },
@@ -1592,7 +1493,6 @@
       "sortid": 81,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "home_command_executed",
       "metadata": {
         "dependencies": [
@@ -1622,7 +1522,6 @@
       "sortid": 90,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "allrecipescheat",
       "path": "~/Achievments"
     },
@@ -1632,7 +1531,6 @@
       "sortid": 91,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "unlockallrecipescommand",
       "path": "~/Commands"
     },
@@ -1642,7 +1540,6 @@
       "sortid": 63,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "copperadvancement",
       "path": "~/Achievments"
     },
@@ -1652,7 +1549,6 @@
       "sortid": 81,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "home",
       "path": "~/Commands"
     },
@@ -1662,7 +1558,6 @@
       "sortid": 82,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "backcommand",
       "path": "~/Commands"
     },
@@ -1672,7 +1567,6 @@
       "sortid": 80,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "sethome_command_executed",
       "metadata": {
         "dependencies": [
@@ -1702,7 +1596,6 @@
       "sortid": 66,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "copper_node_inactve",
       "path": "~/Nodes"
     },
@@ -1712,7 +1605,6 @@
       "sortid": 97,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "diamondsteeelblocktoingotsrecipe",
       "path": "~/Blocks"
     },
@@ -1722,7 +1614,6 @@
       "sortid": 84,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "foundry_gui",
       "path": "~/Machines/Foundry"
     },
@@ -1732,7 +1623,6 @@
       "sortid": 87,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "foundyblock_client_display_random_tick",
       "metadata": {
         "dependencies": [
@@ -1762,7 +1652,6 @@
       "sortid": 74,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "chargerblock",
       "path": "~/Machines/Charger"
     },
@@ -1772,7 +1661,6 @@
       "sortid": 101,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "presserblock_client_display_random_tick",
       "metadata": {
         "dependencies": [
@@ -1802,7 +1690,6 @@
       "sortid": 83,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "foundyblock",
       "path": "~/Machines/Foundry"
     },
@@ -1812,7 +1699,6 @@
       "sortid": 92,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "foundryrecipe",
       "path": "~/Machines/Foundry"
     },
@@ -1822,7 +1708,6 @@
       "sortid": 106,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "generator_mk_2recipe",
       "path": "~/Machines/GeneratorMK2"
     },
@@ -1832,7 +1717,6 @@
       "sortid": 112,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "diamondsteelaxe",
       "path": "~/Tools/DiamondSteelTools"
     },
@@ -1842,7 +1726,6 @@
       "sortid": 103,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "generator_mk_2_gui",
       "path": "~/Machines/GeneratorMK2"
     },
@@ -1852,7 +1735,6 @@
       "sortid": 104,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "generatormk_2_update_tick",
       "metadata": {
         "dependencies": [
@@ -1882,7 +1764,6 @@
       "sortid": 111,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "diamondsteelpickaxerecipe",
       "path": "~/Tools/DiamondSteelTools"
     },
@@ -1892,7 +1773,6 @@
       "sortid": 108,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "diamond_steel_sword",
       "path": "~/Tools/DiamondSteelTools"
     },
@@ -1902,7 +1782,6 @@
       "sortid": 102,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "generatormk_2",
       "path": "~/Machines/GeneratorMK2"
     },
@@ -1912,7 +1791,6 @@
       "sortid": 107,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "presserrecipe",
       "path": "~/Machines/Presser"
     },
@@ -1922,7 +1800,6 @@
       "sortid": 113,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "diamondsteelaxerecipe",
       "path": "~/Tools/DiamondSteelTools"
     },
@@ -1932,7 +1809,6 @@
       "sortid": 109,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "diamond_steelpickaxe",
       "path": "~/Tools/DiamondSteelTools"
     },
@@ -1942,7 +1818,6 @@
       "sortid": 105,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "generatormk_2_client_display_random_tick",
       "metadata": {
         "dependencies": [
@@ -1972,7 +1847,6 @@
       "sortid": 114,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "moreredstone",
       "metadata": {
         "dependencies": [
@@ -2002,7 +1876,6 @@
       "sortid": 110,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "diamondsteelswordrecipe",
       "path": "~/Tools/DiamondSteelTools"
     },
@@ -2012,7 +1885,6 @@
       "sortid": 102,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "highspeedconectoritem",
       "path": "~/Items"
     },
@@ -2022,7 +1894,6 @@
       "sortid": 115,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "highspeedconenctorrecipe",
       "path": "~/Items"
     },
@@ -2032,7 +1903,6 @@
       "sortid": 116,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "constructorblock_update_tick",
       "metadata": {
         "dependencies": [
@@ -2062,7 +1932,6 @@
       "sortid": 117,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "constructorblock_block_is_placed_by",
       "metadata": {
         "dependencies": [
@@ -2096,7 +1965,6 @@
       "sortid": 124,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "electricfurnancemk_1recipe",
       "path": "~/Machines/ElectricFurnanceMK1"
     },
@@ -2106,7 +1974,6 @@
       "sortid": 120,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "electric_furnance_block",
       "path": "~/Machines/ElectricFurnanceMK1"
     },
@@ -2116,7 +1983,6 @@
       "sortid": 118,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "diamondstellshovel",
       "path": "~/Tools/DiamondSteelTools"
     },
@@ -2126,7 +1992,6 @@
       "sortid": 122,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "electric_furnance_block_update_tick",
       "metadata": {
         "dependencies": [
@@ -2156,7 +2021,6 @@
       "sortid": 123,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "electric_furnance_block_client_display_random_tick",
       "metadata": {
         "dependencies": [
@@ -2186,7 +2050,6 @@
       "sortid": 119,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "diamondsteelshovelrecipe",
       "path": "~/Tools/DiamondSteelTools"
     },
@@ -2196,7 +2059,6 @@
       "sortid": 121,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "electric_furnance",
       "path": "~/Machines/ElectricFurnanceMK1"
     },
@@ -2206,7 +2068,6 @@
       "sortid": 118,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "ai_limiteritem",
       "path": "~/Items"
     },
@@ -2216,7 +2077,6 @@
       "sortid": 119,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "ai_limiterrecipe",
       "path": "~/Items"
     },
@@ -2226,7 +2086,6 @@
       "sortid": 125,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "ironextractor",
       "path": "~/Machines/Extractors/IronExtractor"
     },
@@ -2236,7 +2095,6 @@
       "sortid": 126,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "ironextractor_update_tick",
       "metadata": {
         "dependencies": [
@@ -2266,7 +2124,6 @@
       "sortid": 127,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "coal_extractor_update_tick",
       "metadata": {
         "dependencies": [
@@ -2296,7 +2153,6 @@
       "sortid": 127,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "coal_extractor",
       "path": "~/Machines/Extractors/CoalExtractor"
     },
@@ -2306,7 +2162,6 @@
       "sortid": 128,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "caterium_extractor_update_tick",
       "metadata": {
         "dependencies": [
@@ -2336,7 +2191,6 @@
       "sortid": 129,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "caterium_extractor_block_is_placed_by",
       "metadata": {
         "dependencies": [
@@ -2370,7 +2224,6 @@
       "sortid": 130,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "caterium_extractor_block_destroyed_by_player",
       "metadata": {
         "dependencies": [
@@ -2404,7 +2257,6 @@
       "sortid": 128,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "caterium_extractor",
       "path": "~/Machines/Extractors/CateriumExtractor"
     },
@@ -2414,7 +2266,6 @@
       "sortid": 131,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "copper_extractor_update_tick",
       "metadata": {
         "dependencies": [
@@ -2444,7 +2295,6 @@
       "sortid": 132,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "copper_extractor_block_is_placed_by",
       "metadata": {
         "dependencies": [
@@ -2478,7 +2328,6 @@
       "sortid": 133,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "copper_extractor_block_destroyed_by_player",
       "metadata": {
         "dependencies": [
@@ -2512,7 +2361,6 @@
       "sortid": 131,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "copper_extractor",
       "path": "~/Machines/Extractors/CopperExtractor"
     },
@@ -2522,7 +2370,6 @@
       "sortid": 134,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "ironextractorrecipe",
       "path": "~/Machines/Extractors/IronExtractor"
     },
@@ -2532,7 +2379,6 @@
       "sortid": 135,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "cateriumextractorrecipe",
       "path": "~/Machines/Extractors/CateriumExtractor"
     },
@@ -2542,7 +2388,6 @@
       "sortid": 136,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "coalextractorrecipe",
       "path": "~/Machines/Extractors/CoalExtractor"
     },
@@ -2552,7 +2397,6 @@
       "sortid": 137,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "copperextractorrecipe",
       "path": "~/Machines/Extractors/CopperExtractor"
     },
@@ -2562,7 +2406,6 @@
       "sortid": 138,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "ironextractor_gui",
       "path": "~/Machines/Extractors/IronExtractor"
     },
@@ -2572,7 +2415,6 @@
       "sortid": 139,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "copper_extracotrgui",
       "path": "~/Machines/Extractors/CopperExtractor"
     },
@@ -2582,7 +2424,6 @@
       "sortid": 140,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "caterium_extracotor_gui",
       "path": "~/Machines/Extractors/CateriumExtractor"
     },
@@ -2592,7 +2433,6 @@
       "sortid": 141,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "coal_extractor_gui",
       "path": "~/Machines/Extractors/CoalExtractor"
     },
@@ -2602,7 +2442,6 @@
       "sortid": 142,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "screw",
       "path": "~/Items"
     },
@@ -2612,7 +2451,6 @@
       "sortid": 143,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "screwrecipe",
       "path": "~/Items"
     },
@@ -2622,7 +2460,6 @@
       "sortid": 144,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "ironplate",
       "path": "~/Items"
     },
@@ -2632,7 +2469,6 @@
       "sortid": 145,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "ironplaterecipe",
       "path": "~/Items"
     },
@@ -2642,7 +2478,6 @@
       "sortid": 146,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "steeldiamondgui",
       "path": "~/Tools/DiamondSteelTools"
     },
@@ -2652,7 +2487,6 @@
       "sortid": 148,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "hardenedcobble",
       "path": "~/Blocks"
     },
@@ -2662,7 +2496,6 @@
       "sortid": 149,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "hardenedcobblerecipe",
       "path": "~/Blocks"
     },
@@ -2672,7 +2505,6 @@
       "sortid": 150,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "hardenedcobbletocbblerecipe",
       "path": "~/Blocks"
     },
@@ -2682,7 +2514,6 @@
       "sortid": 151,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "diamond_steelpickaxe_tool_in_hand_tick",
       "metadata": {
         "dependencies": [
@@ -2700,7 +2531,6 @@
       "sortid": 152,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "auto_filterbutton",
       "metadata": {
         "dependencies": [
@@ -2718,7 +2548,6 @@
       "sortid": 154,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "diamond_steelpickaxe_right_clicked_on_block",
       "metadata": {
         "dependencies": [
@@ -2752,7 +2581,6 @@
       "sortid": 155,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "extractoronoff",
       "metadata": {
         "dependencies": [
@@ -2782,7 +2610,6 @@
       "sortid": 158,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "generator_mk_1inactive",
       "path": "~/Machines/GeneratorMK1"
     },
@@ -2792,7 +2619,6 @@
       "sortid": 159,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "generator_mk_2inactive",
       "path": "~/Machines/GeneratorMK2"
     },
@@ -2802,7 +2628,6 @@
       "sortid": 160,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "generator_mk_1inactive_update_tick",
       "metadata": {
         "dependencies": [
@@ -2832,7 +2657,6 @@
       "sortid": 161,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "minerinactive",
       "path": "~/Machines/Miner"
     },
@@ -2842,7 +2666,6 @@
       "sortid": 162,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "minerinactive_update_tick",
       "metadata": {
         "dependencies": [
@@ -2872,7 +2695,6 @@
       "sortid": 164,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "electric_funanceinactive_update_tick",
       "metadata": {
         "dependencies": [
@@ -2902,7 +2724,6 @@
       "sortid": 164,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "electric_funanceinactive",
       "path": "~/Machines/ElectricFurnanceMK1"
     },
@@ -2912,7 +2733,6 @@
       "sortid": 165,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "electric_furnance_block_block_destroyed_by_player",
       "metadata": {
         "dependencies": []
@@ -2925,7 +2745,6 @@
       "sortid": 166,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "generator_mk_2inactive_update_tick",
       "metadata": {
         "dependencies": [
@@ -2955,7 +2774,6 @@
       "sortid": 168,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "diamond_steelpickaxe_block_destroyed_with_tool",
       "metadata": {
         "dependencies": [
@@ -2989,7 +2807,6 @@
       "sortid": 169,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "threebythreeareabuttonpress",
       "metadata": {
         "dependencies": [
@@ -3007,7 +2824,6 @@
       "sortid": 170,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "diamond_pickaxe_menu",
       "path": "~/Tools/DiamondSteelTools"
     },
@@ -3017,7 +2833,6 @@
       "sortid": 173,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "foundryinactive_block_is_placed_by",
       "metadata": {
         "dependencies": [
@@ -3051,7 +2866,6 @@
       "sortid": 174,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "foundryinactive_block_destroyed_by_player",
       "metadata": {
         "dependencies": [
@@ -3085,7 +2899,6 @@
       "sortid": 178,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "constructorblock_block_destroyed_by_player",
       "metadata": {
         "dependencies": []
@@ -3098,7 +2911,6 @@
       "sortid": 179,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "diamondsteelplate",
       "path": "~/Items"
     },
@@ -3108,7 +2920,6 @@
       "sortid": 180,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "diamondsteelplaterecipe",
       "path": "~/Items"
     },
@@ -3118,7 +2929,6 @@
       "sortid": 181,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "heavyironblock",
       "path": "~/Blocks"
     },
@@ -3128,7 +2938,6 @@
       "sortid": 182,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "heavyironblockrecipe",
       "path": "~/Blocks"
     },
@@ -3138,7 +2947,6 @@
       "sortid": 183,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "diamond_steel_armor",
       "metadata": {
         "eh": true,
@@ -3154,7 +2962,6 @@
       "sortid": 184,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "diamond_steel_armor_helmet_recipe",
       "path": "~/DiamondSteelArmor"
     },
@@ -3164,7 +2971,6 @@
       "sortid": 185,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "diamond_steel_armor_body_recipe",
       "path": "~/DiamondSteelArmor"
     },
@@ -3174,7 +2980,6 @@
       "sortid": 186,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "diamond_steel_armor_leggings_recipe",
       "path": "~/DiamondSteelArmor"
     },
@@ -3184,7 +2989,6 @@
       "sortid": 187,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "diamond_steel_armor_boots_recipe",
       "path": "~/DiamondSteelArmor"
     },
@@ -3194,7 +2998,6 @@
       "sortid": 188,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "diamondsteel_ax_egui",
       "path": "~/Tools/DiamondSteelTools"
     },
@@ -3204,7 +3007,6 @@
       "sortid": 189,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "treechopperclicked",
       "metadata": {
         "dependencies": [
@@ -3222,7 +3024,6 @@
       "sortid": 190,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "diamondsteelaxe_block_destroyed_with_tool",
       "metadata": {
         "dependencies": [
@@ -3256,7 +3057,6 @@
       "sortid": 191,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "diamondsteelswordgui",
       "path": "~/Tools/DiamondSteelTools"
     },
@@ -3266,7 +3066,6 @@
       "sortid": 192,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "lightingpowertonclick",
       "metadata": {
         "dependencies": [
@@ -3284,7 +3083,6 @@
       "sortid": 193,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "diamond_steel_sword_right_clicked_on_block",
       "metadata": {
         "dependencies": [
@@ -3302,7 +3100,6 @@
       "sortid": 197,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "pocketchestrecipe",
       "path": "~/Tools/PocketChest"
     },
@@ -3312,7 +3109,6 @@
       "sortid": 195,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "pocketchest",
       "path": "~/Tools/PocketChest"
     },
@@ -3322,7 +3118,6 @@
       "sortid": 194,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "pocketchestitem",
       "path": "~/Tools/PocketChest"
     },
@@ -3332,7 +3127,6 @@
       "sortid": 199,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "cateriumwirerecipe",
       "path": "~/Items"
     },
@@ -3342,7 +3136,6 @@
       "sortid": 202,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "solarpanelblockinactive_update_tick",
       "metadata": {
         "dependencies": [
@@ -3372,7 +3165,6 @@
       "sortid": 194,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "diamondscrewitem",
       "path": "~/Items"
     },
@@ -3382,7 +3174,6 @@
       "sortid": 198,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "cateriumrodrecipe",
       "path": "~/Items"
     },
@@ -3392,7 +3183,6 @@
       "sortid": 205,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "solarpanelblockinactive_block_is_placed_by",
       "metadata": {
         "dependencies": [
@@ -3426,7 +3216,6 @@
       "sortid": 196,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "cateriumroditem",
       "path": "~/Items"
     },
@@ -3436,7 +3225,6 @@
       "sortid": 201,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "solarpanelblockinactive",
       "path": "~/Machines/SolarPanel"
     },
@@ -3446,7 +3234,6 @@
       "sortid": 195,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "diamondscrewrecipe",
       "path": "~/Items"
     },
@@ -3456,7 +3243,6 @@
       "sortid": 204,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "solarpanelblockactive_block_destroyed_by_player",
       "metadata": {
         "dependencies": [
@@ -3490,7 +3276,6 @@
       "sortid": 206,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "solarpanelrecipe",
       "path": "~/Machines/SolarPanel"
     },
@@ -3500,7 +3285,6 @@
       "sortid": 197,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "cateriumwireitem",
       "path": "~/Items"
     },
@@ -3510,7 +3294,6 @@
       "sortid": 200,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "solarpanelblockactive",
       "path": "~/Machines/SolarPanel"
     },
@@ -3520,7 +3303,6 @@
       "sortid": 203,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "solarpanelblockactive_update_tick",
       "metadata": {
         "dependencies": [
@@ -3550,7 +3332,6 @@
       "sortid": 208,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "heavyframe",
       "path": "~/Blocks"
     },
@@ -3560,7 +3341,6 @@
       "sortid": 207,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "modularframe",
       "path": "~/Blocks"
     },
@@ -3570,7 +3350,6 @@
       "sortid": 209,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "modularframerecipe",
       "path": "~/Blocks"
     },
@@ -3580,7 +3359,6 @@
       "sortid": 215,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "permadayupgrade",
       "path": "~/HUB/Modules"
     },
@@ -3590,7 +3368,6 @@
       "sortid": 210,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "heavyframerecipe",
       "path": "~/Blocks"
     },
@@ -3600,7 +3377,6 @@
       "sortid": 212,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "assemblerblock_update_tick",
       "metadata": {
         "dependencies": [
@@ -3630,7 +3406,6 @@
       "sortid": 211,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "assemblergui",
       "path": "~/Machines/Assembler"
     },
@@ -3640,7 +3415,6 @@
       "sortid": 209,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "assemblerblock",
       "path": "~/Machines/Assembler"
     },
@@ -3650,7 +3424,6 @@
       "sortid": 219,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "assembler_change_recipe_o_nclick",
       "metadata": {
         "dependencies": [
@@ -3680,7 +3453,6 @@
       "sortid": 259,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "clearlag_executed",
       "metadata": {
         "dependencies": [
@@ -3698,7 +3470,6 @@
       "sortid": 251,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "cpu",
       "path": "~/Items"
     },
@@ -3708,7 +3479,6 @@
       "sortid": 248,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "concreterecipe",
       "path": "~/Items"
     },
@@ -3718,7 +3488,6 @@
       "sortid": 218,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "project_mega",
       "path": "~/Extra"
     },
@@ -3728,7 +3497,6 @@
       "sortid": 230,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "jetpack_key_bind_on_key_pressed",
       "metadata": {
         "dependencies": [
@@ -3746,7 +3514,6 @@
       "sortid": 270,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "builder_gu_nrecipe",
       "path": "~/Tools/Builder"
     },
@@ -3756,7 +3523,6 @@
       "sortid": 242,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "concretemixer_update_tick",
       "metadata": {
         "dependencies": [
@@ -3786,7 +3552,6 @@
       "sortid": 271,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "dsa_water_breatheonclick",
       "metadata": {
         "dependencies": [
@@ -3804,7 +3569,6 @@
       "sortid": 230,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "jetpack_key_bind",
       "path": "~/DiamondSteelArmor"
     },
@@ -3814,7 +3578,6 @@
       "sortid": 229,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "ds_armorkeybind_on_key_pressed",
       "metadata": {
         "dependencies": [
@@ -3848,7 +3611,6 @@
       "sortid": 264,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "buildertool_right_clicked_in_air",
       "metadata": {
         "dependencies": [
@@ -3882,7 +3644,6 @@
       "sortid": 269,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "givememarkersbutton",
       "metadata": {
         "dependencies": [
@@ -3900,7 +3661,6 @@
       "sortid": 260,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "clearlagcommand",
       "path": "~/Commands"
     },
@@ -3910,7 +3670,6 @@
       "sortid": 267,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "builderbuildprocedure",
       "metadata": {
         "dependencies": [
@@ -3944,7 +3703,6 @@
       "sortid": 234,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "markblock_update_tick",
       "metadata": {
         "dependencies": [
@@ -3974,7 +3732,6 @@
       "sortid": 235,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "limestoneactive_update_tick",
       "metadata": {
         "dependencies": [
@@ -4004,7 +3761,6 @@
       "sortid": 223,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "diamond_steel_armor_gui",
       "path": "~/DiamondSteelArmor"
     },
@@ -4014,7 +3770,6 @@
       "sortid": 228,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "diamond_steel_armor_boots_tick_event",
       "metadata": {
         "dependencies": [
@@ -4032,7 +3787,6 @@
       "sortid": 233,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "assemblerrecipue",
       "path": "~/Machines/Assembler"
     },
@@ -4042,7 +3796,6 @@
       "sortid": 262,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "position_2block",
       "path": "~/Blocks/BuildGunBlocks"
     },
@@ -4052,7 +3805,6 @@
       "sortid": 257,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "builder_gui_this_gui_is_opened",
       "metadata": {
         "dependencies": [
@@ -4070,7 +3822,6 @@
       "sortid": 239,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "concretemixer",
       "path": "~/Machines/ConcreteMixer"
     },
@@ -4080,7 +3831,6 @@
       "sortid": 260,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "clearlagcommand_command_executed",
       "metadata": {
         "dependencies": [
@@ -4098,7 +3848,6 @@
       "sortid": 240,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "concrete_mixer_gui",
       "path": "~/Machines/ConcreteMixer"
     },
@@ -4108,7 +3857,6 @@
       "sortid": 262,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "position_2block_block_is_placed_by",
       "metadata": {
         "dependencies": [
@@ -4142,7 +3890,6 @@
       "sortid": 247,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "concretemixerrecipe",
       "path": "~/Machines/ConcreteMixer"
     },
@@ -4152,7 +3899,6 @@
       "sortid": 236,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "limestoneinactive_update_tick",
       "metadata": {
         "dependencies": [
@@ -4182,7 +3928,6 @@
       "sortid": 241,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "concrete",
       "path": "~/Items"
     },
@@ -4192,7 +3937,6 @@
       "sortid": 244,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "sandstoneextractor_update_tick",
       "metadata": {
         "dependencies": [
@@ -4222,7 +3966,6 @@
       "sortid": 243,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "sandstoneextractor",
       "path": "~/Machines/Extractors"
     },
@@ -4232,7 +3975,6 @@
       "sortid": 236,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "limestoneinactive",
       "path": "~/Nodes"
     },
@@ -4242,7 +3984,6 @@
       "sortid": 266,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "builderclearprocedure",
       "metadata": {
         "dependencies": [
@@ -4276,7 +4017,6 @@
       "sortid": 249,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "control_unit",
       "path": "~/Items"
     },
@@ -4286,7 +4026,6 @@
       "sortid": 250,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "controlunitrecipe",
       "path": "~/Items"
     },
@@ -4296,7 +4035,6 @@
       "sortid": 263,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "buildertool",
       "path": "~/Tools/Builder"
     },
@@ -4306,7 +4044,6 @@
       "sortid": 231,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "jetpack_key_bind_on_key_released",
       "metadata": {
         "dependencies": [
@@ -4324,7 +4061,6 @@
       "sortid": 237,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "limestoneactive_block_is_placed_by",
       "metadata": {
         "dependencies": [
@@ -4358,7 +4094,6 @@
       "sortid": 272,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "ds_aslowfallingonclik",
       "metadata": {
         "dependencies": [
@@ -4376,7 +4111,6 @@
       "sortid": 261,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "position_1block",
       "path": "~/Blocks/BuildGunBlocks"
     },
@@ -4386,7 +4120,6 @@
       "sortid": 229,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "ds_armorkeybind",
       "path": "~/DiamondSteelArmor"
     },
@@ -4396,7 +4129,6 @@
       "sortid": 255,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "builder_gui",
       "path": "~/Tools/Builder"
     },
@@ -4406,7 +4138,6 @@
       "sortid": 261,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "position_1block_block_is_placed_by",
       "metadata": {
         "dependencies": [
@@ -4440,7 +4171,6 @@
       "sortid": 234,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "markblock",
       "path": "~/Blocks/BuildGunBlocks"
     },
@@ -4450,7 +4180,6 @@
       "sortid": 232,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "diamond_steel_armor_body_tick_event",
       "metadata": {
         "dependencies": [
@@ -4484,7 +4213,6 @@
       "sortid": 268,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "buildrange",
       "path": "~/Enchantments"
     },
@@ -4494,7 +4222,6 @@
       "sortid": 245,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "sandstoneextractorrecipe",
       "path": "~/Machines/Extractors"
     },
@@ -4504,7 +4231,6 @@
       "sortid": 235,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "limestoneactive",
       "path": "~/Nodes"
     },
@@ -4514,7 +4240,6 @@
       "sortid": 224,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "ds_night_vision_onclick",
       "metadata": {
         "dependencies": [
@@ -4532,7 +4257,6 @@
       "sortid": 226,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "dsa_jetpackonclickl",
       "metadata": {
         "dependencies": [
@@ -4550,7 +4274,6 @@
       "sortid": 225,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "dsa_speedonlcick",
       "metadata": {
         "dependencies": [
@@ -4568,7 +4291,6 @@
       "sortid": 246,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "sandstoneextractor_gui",
       "path": "~/Machines/Extractors"
     },
@@ -4578,7 +4300,6 @@
       "sortid": 265,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "builder_previewblock",
       "path": "~/Blocks/BuildGunBlocks"
     },
@@ -4588,7 +4309,6 @@
       "sortid": 217,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "constructor_change_recipe_onclick",
       "metadata": {
         "dependencies": [
@@ -4618,7 +4338,6 @@
       "sortid": 252,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "cpurecipe",
       "path": "~/Items"
     },
@@ -4628,7 +4347,6 @@
       "sortid": 227,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "diamond_steel_armor_helmet_tick_event",
       "metadata": {
         "dependencies": [
@@ -4646,7 +4364,6 @@
       "sortid": 287,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "armorcharger",
       "path": "~/Machines/ArmorChargers"
     },
@@ -4656,7 +4373,6 @@
       "sortid": 286,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "ds_aoverlaywaterbreathe",
       "metadata": {
         "return_type": "logic",
@@ -4675,7 +4391,6 @@
       "sortid": 298,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "better_cool_down_enchantment",
       "path": "~/Enchantments"
     },
@@ -4685,7 +4400,6 @@
       "sortid": 285,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "ds_aoverlayjetpack",
       "metadata": {
         "return_type": "logic",
@@ -4704,7 +4418,6 @@
       "sortid": 299,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "cheap_plasma",
       "path": "~/Enchantments"
     },
@@ -4714,7 +4427,6 @@
       "sortid": 281,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "ds_aoverlayspeed",
       "metadata": {
         "return_type": "logic",
@@ -4733,7 +4445,6 @@
       "sortid": 295,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "plasma_shootrangeditem_while_bullet_flying_tick",
       "metadata": {
         "dependencies": [
@@ -4763,7 +4474,6 @@
       "sortid": 284,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "ds_aoverlaydolphingrace",
       "metadata": {
         "return_type": "logic",
@@ -4782,7 +4492,6 @@
       "sortid": 274,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "diamond_steel_armor_leggings_tick_event",
       "metadata": {
         "dependencies": [
@@ -4800,7 +4509,6 @@
       "sortid": 273,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "ds_adolphingraceonclick",
       "metadata": {
         "dependencies": [
@@ -4818,7 +4526,6 @@
       "sortid": 297,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "plasma_shoot_cooldown_procedure",
       "metadata": {
         "dependencies": [
@@ -4836,7 +4543,6 @@
       "sortid": 287,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "armorcharger_update_tick",
       "metadata": {
         "dependencies": [
@@ -4866,7 +4572,6 @@
       "sortid": 289,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "armorchargerrecipe",
       "path": "~/Machines/ArmorChargers"
     },
@@ -4876,7 +4581,6 @@
       "sortid": 290,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "dsa_plasma_shootonclick",
       "metadata": {
         "dependencies": [
@@ -4894,7 +4598,6 @@
       "sortid": 288,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "energyplazma_entity_collides_in_the_block",
       "metadata": {
         "dependencies": [
@@ -4928,7 +4631,6 @@
       "sortid": 292,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "plasmashootkeybind_on_key_pressed",
       "metadata": {
         "dependencies": [
@@ -4946,7 +4648,6 @@
       "sortid": 282,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "ds_aoverlayslowfalling",
       "metadata": {
         "return_type": "logic",
@@ -4965,7 +4666,6 @@
       "sortid": 292,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "plasmashootkeybind",
       "path": "~/DiamondSteelArmor"
     },
@@ -4975,7 +4675,6 @@
       "sortid": 291,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "ds_aplasmalabel",
       "metadata": {
         "return_type": "logic",
@@ -4994,7 +4693,6 @@
       "sortid": 283,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "ds_aoverlaynightvision",
       "metadata": {
         "return_type": "logic",
@@ -5013,7 +4711,6 @@
       "sortid": 288,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "energyplazma",
       "path": "~/Machines/ArmorChargers"
     },
@@ -5023,7 +4720,6 @@
       "sortid": 296,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "plasma_shootrangeditem_bullet_hits_block",
       "metadata": {
         "dependencies": [
@@ -5053,7 +4749,6 @@
       "sortid": 300,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "crusher",
       "path": "~/Machines/Crusher"
     },
@@ -5063,7 +4758,6 @@
       "sortid": 294,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "plasmabulletitem",
       "path": "~/DiamondSteelArmor"
     },
@@ -5073,7 +4767,6 @@
       "sortid": 301,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "armorchargermk_2",
       "path": "~/Machines/ArmorChargers"
     },
@@ -5083,7 +4776,6 @@
       "sortid": 304,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "energyplazmamk_2_entity_collides_in_the_block",
       "metadata": {
         "dependencies": [
@@ -5117,7 +4809,6 @@
       "sortid": 302,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "energyplazmamk_2",
       "path": "~/Machines/ArmorChargers"
     },
@@ -5127,7 +4818,6 @@
       "sortid": 303,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "armorchargermk_2_update_tick",
       "metadata": {
         "dependencies": [
@@ -5157,7 +4847,6 @@
       "sortid": 305,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "energyplazma_update_tick",
       "metadata": {
         "dependencies": [
@@ -5187,7 +4876,6 @@
       "sortid": 306,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "energyplazmamk_2_update_tick",
       "metadata": {
         "dependencies": [
@@ -5217,7 +4905,6 @@
       "sortid": 307,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "armorchargermk_2recipe",
       "path": "~/Machines/ArmorChargers"
     },
@@ -5227,7 +4914,6 @@
       "sortid": 308,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "white_concrete_slab",
       "path": "~/Blocks/SlabsStairs"
     },
@@ -5237,7 +4923,6 @@
       "sortid": 309,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "white_concrete_stairs",
       "path": "~/Blocks/SlabsStairs"
     },
@@ -5247,7 +4932,6 @@
       "sortid": 310,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "orange_concrete_slab",
       "path": "~/Blocks/SlabsStairs"
     },
@@ -5257,7 +4941,6 @@
       "sortid": 311,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "orange_concrete_stairs",
       "path": "~/Blocks/SlabsStairs"
     },
@@ -5267,7 +4950,6 @@
       "sortid": 312,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "magenta_concrete_slab",
       "path": "~/Blocks/SlabsStairs"
     },
@@ -5277,7 +4959,6 @@
       "sortid": 313,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "magenta_concrete_stairs",
       "path": "~/Blocks/SlabsStairs"
     },
@@ -5287,7 +4968,6 @@
       "sortid": 314,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "light_blue_concrete_slab",
       "path": "~/Blocks/SlabsStairs"
     },
@@ -5297,7 +4977,6 @@
       "sortid": 315,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "light_blue_concrete_stairs",
       "path": "~/Blocks/SlabsStairs"
     },
@@ -5307,7 +4986,6 @@
       "sortid": 316,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "yellow_concrete_slab",
       "path": "~/Blocks/SlabsStairs"
     },
@@ -5317,7 +4995,6 @@
       "sortid": 317,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "yellow_concrete_stairs",
       "path": "~/Blocks/SlabsStairs"
     },
@@ -5327,7 +5004,6 @@
       "sortid": 318,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "lime_concrete_slab",
       "path": "~/Blocks/SlabsStairs"
     },
@@ -5337,7 +5013,6 @@
       "sortid": 319,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "lime_concrete_stairs",
       "path": "~/Blocks/SlabsStairs"
     },
@@ -5347,7 +5022,6 @@
       "sortid": 320,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "pink_concrete_slab",
       "path": "~/Blocks/SlabsStairs"
     },
@@ -5357,7 +5031,6 @@
       "sortid": 321,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "pink_concrete_stairs",
       "path": "~/Blocks/SlabsStairs"
     },
@@ -5367,7 +5040,6 @@
       "sortid": 322,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "gray_concrete_slab",
       "path": "~/Blocks/SlabsStairs"
     },
@@ -5377,7 +5049,6 @@
       "sortid": 323,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "gray_concrete_stairs",
       "path": "~/Blocks/SlabsStairs"
     },
@@ -5387,7 +5058,6 @@
       "sortid": 324,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "light_gray_concrete_slab",
       "path": "~/Blocks/SlabsStairs"
     },
@@ -5397,7 +5067,6 @@
       "sortid": 325,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "light_gray_concrete_stairs",
       "path": "~/Blocks/SlabsStairs"
     },
@@ -5407,7 +5076,6 @@
       "sortid": 326,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "cyan_concrete_slab",
       "path": "~/Blocks/SlabsStairs"
     },
@@ -5417,7 +5085,6 @@
       "sortid": 327,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "cyan_concrete_stairs",
       "path": "~/Blocks/SlabsStairs"
     },
@@ -5427,7 +5094,6 @@
       "sortid": 328,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "purple_concrete_slab",
       "path": "~/Blocks/SlabsStairs"
     },
@@ -5437,7 +5103,6 @@
       "sortid": 329,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "purple_concrete_stairs",
       "path": "~/Blocks/SlabsStairs"
     },
@@ -5447,7 +5112,6 @@
       "sortid": 330,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "blue_concrete_slab",
       "path": "~/Blocks/SlabsStairs"
     },
@@ -5457,7 +5121,6 @@
       "sortid": 331,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "blue_concrete_stairs",
       "path": "~/Blocks/SlabsStairs"
     },
@@ -5467,7 +5130,6 @@
       "sortid": 332,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "brown_concrete_slab",
       "path": "~/Blocks/SlabsStairs"
     },
@@ -5477,7 +5139,6 @@
       "sortid": 333,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "brown_concrete_stairs",
       "path": "~/Blocks/SlabsStairs"
     },
@@ -5487,7 +5148,6 @@
       "sortid": 334,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "green_concrete_slab",
       "path": "~/Blocks/SlabsStairs"
     },
@@ -5497,7 +5157,6 @@
       "sortid": 335,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "green_concrete_stairs",
       "path": "~/Blocks/SlabsStairs"
     },
@@ -5507,7 +5166,6 @@
       "sortid": 336,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "red_concrete_slab",
       "path": "~/Blocks/SlabsStairs"
     },
@@ -5517,7 +5175,6 @@
       "sortid": 337,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "red_concrete_stairs",
       "path": "~/Blocks/SlabsStairs"
     },
@@ -5527,7 +5184,6 @@
       "sortid": 338,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "black_concrete_slab",
       "path": "~/Blocks/SlabsStairs"
     },
@@ -5537,7 +5193,6 @@
       "sortid": 339,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "black_concrete_stairs",
       "path": "~/Blocks/SlabsStairs"
     },
@@ -5547,7 +5202,6 @@
       "sortid": 340,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "whiteconcreteslabrecipe",
       "path": "~/Blocks/SlabsStairs/Recipes"
     },
@@ -5557,7 +5211,6 @@
       "sortid": 341,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "whiteconcrete_stairsrecipe",
       "path": "~/Blocks/SlabsStairs/Recipes"
     },
@@ -5567,7 +5220,6 @@
       "sortid": 342,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "orangeconcreteslabrecipe",
       "path": "~/Blocks/SlabsStairs/Recipes"
     },
@@ -5577,7 +5229,6 @@
       "sortid": 343,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "orangeconcretestairsrecipe",
       "path": "~/Blocks/SlabsStairs/Recipes"
     },
@@ -5587,7 +5238,6 @@
       "sortid": 344,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "magentaconcreteslabrecipe",
       "path": "~/Blocks/SlabsStairs/Recipes"
     },
@@ -5597,7 +5247,6 @@
       "sortid": 345,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "magentaconcretestairsrecipe",
       "path": "~/Blocks/SlabsStairs/Recipes"
     },
@@ -5607,7 +5256,6 @@
       "sortid": 346,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "lightblueconcreteslabrecipe",
       "path": "~/Blocks/SlabsStairs/Recipes"
     },
@@ -5617,7 +5265,6 @@
       "sortid": 347,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "lightblueconcretestairsrecipe",
       "path": "~/Blocks/SlabsStairs/Recipes"
     },
@@ -5627,7 +5274,6 @@
       "sortid": 348,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "yellowconcreteslabrecipe",
       "path": "~/Blocks/SlabsStairs/Recipes"
     },
@@ -5637,7 +5283,6 @@
       "sortid": 349,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "yellowconcretestairsrecipe",
       "path": "~/Blocks/SlabsStairs/Recipes"
     },
@@ -5647,7 +5292,6 @@
       "sortid": 350,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "limeconcreteslabrecipe",
       "path": "~/Blocks/SlabsStairs/Recipes"
     },
@@ -5657,7 +5301,6 @@
       "sortid": 351,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "limeconcretestairsrecipe",
       "path": "~/Blocks/SlabsStairs/Recipes"
     },
@@ -5667,7 +5310,6 @@
       "sortid": 352,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "pinkconcreteslabrecipe",
       "path": "~/Blocks/SlabsStairs/Recipes"
     },
@@ -5677,7 +5319,6 @@
       "sortid": 353,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "pinkconcretestairsrecipe",
       "path": "~/Blocks/SlabsStairs/Recipes"
     },
@@ -5687,7 +5328,6 @@
       "sortid": 354,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "grayconcreteslabrecipe",
       "path": "~/Blocks/SlabsStairs/Recipes"
     },
@@ -5697,7 +5337,6 @@
       "sortid": 355,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "grayconcretestairsrecipe",
       "path": "~/Blocks/SlabsStairs/Recipes"
     },
@@ -5707,7 +5346,6 @@
       "sortid": 356,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "lightgrayconcreteslabrecipe",
       "path": "~/Blocks/SlabsStairs/Recipes"
     },
@@ -5717,7 +5355,6 @@
       "sortid": 357,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "lightgrayconcretestairsrecipe",
       "path": "~/Blocks/SlabsStairs/Recipes"
     },
@@ -5727,7 +5364,6 @@
       "sortid": 358,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "cyanconcreteslabrecipe",
       "path": "~/Blocks/SlabsStairs/Recipes"
     },
@@ -5737,7 +5373,6 @@
       "sortid": 359,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "cyanconcretestairsrecipe",
       "path": "~/Blocks/SlabsStairs/Recipes"
     },
@@ -5747,7 +5382,6 @@
       "sortid": 360,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "purpleconcreteslabrecipe",
       "path": "~/Blocks/SlabsStairs/Recipes"
     },
@@ -5757,7 +5391,6 @@
       "sortid": 361,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "purpleconcretestairsrecipe",
       "path": "~/Blocks/SlabsStairs/Recipes"
     },
@@ -5767,7 +5400,6 @@
       "sortid": 362,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "blueconcreteslabrecipe",
       "path": "~/Blocks/SlabsStairs/Recipes"
     },
@@ -5777,7 +5409,6 @@
       "sortid": 363,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "blueconcretestairsrecipe",
       "path": "~/Blocks/SlabsStairs/Recipes"
     },
@@ -5787,7 +5418,6 @@
       "sortid": 364,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "brownconcreteslabrecipe",
       "path": "~/Blocks/SlabsStairs/Recipes"
     },
@@ -5797,7 +5427,6 @@
       "sortid": 365,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "brownconcretestairsrecipe",
       "path": "~/Blocks/SlabsStairs/Recipes"
     },
@@ -5807,7 +5436,6 @@
       "sortid": 366,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "greenconcreteslabrecipe",
       "path": "~/Blocks/SlabsStairs/Recipes"
     },
@@ -5817,7 +5445,6 @@
       "sortid": 367,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "greenconcretestairsrecipe",
       "path": "~/Blocks/SlabsStairs/Recipes"
     },
@@ -5827,7 +5454,6 @@
       "sortid": 368,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "red_concreteslabrecipe",
       "path": "~/Blocks/SlabsStairs/Recipes"
     },
@@ -5837,7 +5463,6 @@
       "sortid": 369,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "redconcretestairsrecipe",
       "path": "~/Blocks/SlabsStairs/Recipes"
     },
@@ -5847,7 +5472,6 @@
       "sortid": 370,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "blackconcreteslabrecipe",
       "path": "~/Blocks/SlabsStairs/Recipes"
     },
@@ -5857,7 +5481,6 @@
       "sortid": 371,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "blackconcretestairsrecipe",
       "path": "~/Blocks/SlabsStairs/Recipes"
     },
@@ -5867,7 +5490,6 @@
       "sortid": 382,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "emptymodule",
       "path": "~/Items"
     },
@@ -5877,7 +5499,6 @@
       "sortid": 383,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "empty_modulerecipe",
       "path": "~/Items"
     },
@@ -5887,7 +5508,6 @@
       "sortid": 388,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "land_command_executed",
       "metadata": {
         "dependencies": [
@@ -5913,7 +5533,6 @@
       "sortid": 388,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "land",
       "path": "~/Commands/Land"
     },
@@ -5923,7 +5542,6 @@
       "sortid": 389,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "world_grid_check",
       "metadata": {
         "return_type": "logic",
@@ -5958,7 +5576,6 @@
       "sortid": 390,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "world_grid_destroyed_block",
       "metadata": {
         "return_type": "logic",
@@ -5989,7 +5606,6 @@
       "sortid": 391,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "money_command_executed",
       "metadata": {
         "dependencies": [
@@ -6015,7 +5631,6 @@
       "sortid": 391,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "money",
       "path": "~/Commands/Money"
     },
@@ -6025,7 +5640,6 @@
       "sortid": 392,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "sellhand_command_executed",
       "metadata": {
         "dependencies": [
@@ -6047,7 +5661,6 @@
       "sortid": 392,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "sellhand",
       "path": "~/Commands/Sell"
     },
@@ -6057,7 +5670,6 @@
       "sortid": 393,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "city_command_executed",
       "metadata": {
         "dependencies": [
@@ -6095,7 +5707,6 @@
       "sortid": 393,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "city",
       "path": "~/Commands/City"
     },
@@ -6105,7 +5716,6 @@
       "sortid": 394,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "land_use_door",
       "metadata": {
         "return_type": "logic",
@@ -6140,7 +5750,6 @@
       "sortid": 398,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "server_block",
       "path": "~/Blocks/ServerBlock"
     },
@@ -6150,7 +5759,6 @@
       "sortid": 399,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "server_block_block_is_placed_by",
       "metadata": {
         "dependencies": [
@@ -6180,7 +5788,6 @@
       "sortid": 400,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "ironextractor_block_is_placed_by",
       "metadata": {
         "dependencies": [
@@ -6214,7 +5821,6 @@
       "sortid": 401,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "electric_funanceinactive_block_is_placed_by",
       "metadata": {
         "dependencies": [
@@ -6248,7 +5854,6 @@
       "sortid": 402,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "chargerblock_block_is_placed_by",
       "metadata": {
         "dependencies": [
@@ -6282,7 +5887,6 @@
       "sortid": 403,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "armorchargermk_2_block_is_placed_by",
       "metadata": {
         "dependencies": [
@@ -6316,7 +5920,6 @@
       "sortid": 404,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "presserblock_block_is_placed_by",
       "metadata": {
         "dependencies": [
@@ -6350,7 +5953,6 @@
       "sortid": 405,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "sandstoneextractor_block_is_placed_by",
       "metadata": {
         "dependencies": [
@@ -6384,7 +5986,6 @@
       "sortid": 406,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "hub_update_tick",
       "metadata": {
         "dependencies": [
@@ -6414,7 +6015,6 @@
       "sortid": 407,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "coal_extractor_block_is_placed_by",
       "metadata": {
         "dependencies": [
@@ -6448,7 +6048,6 @@
       "sortid": 408,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "shop_gui",
       "path": "~/Shop"
     },
@@ -6458,7 +6057,6 @@
       "sortid": 409,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "nodes_shop_gui",
       "path": "~/Shop"
     },
@@ -6468,7 +6066,6 @@
       "sortid": 411,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "adminmenuadmineditor_on_clicked",
       "metadata": {
         "dependencies": [
@@ -6486,7 +6083,6 @@
       "sortid": 412,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "admineditor",
       "path": "~/Commands/Admineditor"
     },
@@ -6496,7 +6092,6 @@
       "sortid": 413,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "admineditor_command_executed",
       "metadata": {
         "dependencies": [
@@ -6522,7 +6117,6 @@
       "sortid": 417,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "industrial_diamond",
       "path": "~/Items"
     },
@@ -6532,7 +6126,6 @@
       "sortid": 419,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "allowed_blocks_in_world",
       "metadata": {
         "return_type": "logic",
@@ -6563,7 +6156,6 @@
       "sortid": 420,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "rocks_tag",
       "path": "~/Tags"
     },
@@ -6573,7 +6165,6 @@
       "sortid": 421,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "junk_items",
       "path": "~/Tags"
     },
@@ -6583,7 +6174,6 @@
       "sortid": 422,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "woodlogstag",
       "path": "~/Tags"
     },
@@ -6593,7 +6183,6 @@
       "sortid": 423,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "woodmaterials",
       "path": "~/Tags"
     },
@@ -6603,7 +6192,6 @@
       "sortid": 424,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "foodforsale",
       "path": "~/Tags"
     },
@@ -6613,7 +6201,6 @@
       "sortid": 425,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "infostick_right_clicked_on_block",
       "metadata": {
         "dependencies": [
@@ -6647,7 +6234,6 @@
       "sortid": 425,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "infostick",
       "path": "~/Items"
     },
@@ -6657,7 +6243,6 @@
       "sortid": 426,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "nodes_shop_iron_node_on_click",
       "metadata": {
         "dependencies": [
@@ -6675,7 +6260,6 @@
       "sortid": 427,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "node_shop_coal_node_on_click",
       "metadata": {
         "dependencies": [
@@ -6693,7 +6277,6 @@
       "sortid": 428,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "node_shop_copper_node_on_click",
       "metadata": {
         "dependencies": [
@@ -6711,7 +6294,6 @@
       "sortid": 429,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "node_shop_caterium_node_on_click",
       "metadata": {
         "dependencies": [
@@ -6729,7 +6311,6 @@
       "sortid": 430,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "node_shop_sand_stone_node_on_click",
       "metadata": {
         "dependencies": [
@@ -6747,7 +6328,6 @@
       "sortid": 431,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "shop_nodes_buttor_on_click",
       "metadata": {
         "dependencies": [
@@ -6781,7 +6361,6 @@
       "sortid": 432,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "shop_command_executed",
       "metadata": {
         "dependencies": [
@@ -6815,7 +6394,6 @@
       "sortid": 432,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "shop",
       "path": "~/Shop"
     },
@@ -6825,7 +6403,6 @@
       "sortid": 433,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "concretemixer_block_is_placed_by",
       "metadata": {
         "dependencies": [
@@ -6859,7 +6436,6 @@
       "sortid": 434,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "food_shop_gui",
       "path": "~/Shop"
     },
@@ -6869,7 +6445,6 @@
       "sortid": 435,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "shop_food_button_on_click",
       "metadata": {
         "dependencies": [
@@ -6903,7 +6478,6 @@
       "sortid": 436,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "food_shop_bread_on_click",
       "metadata": {
         "dependencies": [
@@ -6921,7 +6495,6 @@
       "sortid": 437,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "food_shop_steak_on_click",
       "metadata": {
         "dependencies": [
@@ -6939,7 +6512,6 @@
       "sortid": 438,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "food_shop_chicken_on_click",
       "metadata": {
         "dependencies": [
@@ -6957,7 +6529,6 @@
       "sortid": 439,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "disallowed_to_open",
       "metadata": {
         "return_type": "logic",
@@ -6988,7 +6559,6 @@
       "sortid": 440,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "player_dies_save_location",
       "metadata": {
         "dependencies": [
@@ -7018,7 +6588,6 @@
       "sortid": 441,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "world_grid_animal_kill",
       "metadata": {
         "return_type": "logic",
@@ -7053,7 +6622,6 @@
       "sortid": 442,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "player_join_world",
       "metadata": {
         "dependencies": [
@@ -7075,7 +6643,6 @@
       "sortid": 443,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "player_leaves_world",
       "metadata": {
         "dependencies": [
@@ -7097,7 +6664,6 @@
       "sortid": 444,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "diamond_steel_h_oe_right_clicked_on_block",
       "metadata": {
         "dependencies": [
@@ -7131,7 +6697,6 @@
       "sortid": 444,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "diamond_steel_h_oe",
       "path": "~/Tools/DiamondSteelTools"
     },
@@ -7141,7 +6706,6 @@
       "sortid": 445,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "diamond_steel_recipe",
       "path": "~/Tools/DiamondSteelTools"
     },
@@ -7151,7 +6715,6 @@
       "sortid": 446,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "setprice_command_executed",
       "metadata": {
         "dependencies": [
@@ -7177,7 +6740,6 @@
       "sortid": 446,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "setprice",
       "path": "~/Commands"
     },
@@ -7187,7 +6749,6 @@
       "sortid": 447,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "assemblerblock_block_is_placed_by",
       "metadata": {
         "dependencies": [
@@ -7221,7 +6782,6 @@
       "sortid": 448,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "caterium_nod_eblock_on_block_right_clicked",
       "metadata": {
         "dependencies": [
@@ -7255,7 +6815,6 @@
       "sortid": 449,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "caterium_node_block_inactive_on_block_right_clicked",
       "metadata": {
         "dependencies": [
@@ -7289,7 +6848,6 @@
       "sortid": 450,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "iron_ore_node_block_on_block_right_clicked",
       "metadata": {
         "dependencies": [
@@ -7323,7 +6881,6 @@
       "sortid": 451,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "iron_ore_node_block_inactive_on_block_right_clicked",
       "metadata": {
         "dependencies": [
@@ -7357,7 +6914,6 @@
       "sortid": 452,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "coal_node_on_block_right_clicked",
       "metadata": {
         "dependencies": [
@@ -7391,7 +6947,6 @@
       "sortid": 453,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "coal_node_inactive_on_block_right_clicked",
       "metadata": {
         "dependencies": [
@@ -7425,7 +6980,6 @@
       "sortid": 454,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "copper_node_on_block_right_clicked",
       "metadata": {
         "dependencies": [
@@ -7459,7 +7013,6 @@
       "sortid": 455,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "copper_node_inactve_on_block_right_clicked",
       "metadata": {
         "dependencies": [
@@ -7493,7 +7046,6 @@
       "sortid": 456,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "limestoneinactive_on_block_right_clicked",
       "metadata": {
         "dependencies": [
@@ -7527,7 +7079,6 @@
       "sortid": 457,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "limestoneactive_on_block_right_clicked",
       "metadata": {
         "dependencies": [
@@ -7561,7 +7112,6 @@
       "sortid": 458,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "hub_upgrade_miners_on_click",
       "metadata": {
         "dependencies": [
@@ -7595,7 +7145,6 @@
       "sortid": 459,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "auto_sell",
       "path": "~/Blocks/Autosell"
     },
@@ -7605,7 +7154,6 @@
       "sortid": 460,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "auto_sell_block_is_placed_by",
       "metadata": {
         "dependencies": [
@@ -7639,7 +7187,6 @@
       "sortid": 461,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "auto_sell_gui",
       "path": "~/Blocks/Autosell"
     },
@@ -7649,7 +7196,6 @@
       "sortid": 462,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "auto_sell_update_tick",
       "metadata": {
         "dependencies": [
@@ -7679,7 +7225,6 @@
       "sortid": 463,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "machines_shop_gui",
       "path": "~/Shop"
     },
@@ -7689,7 +7234,6 @@
       "sortid": 464,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "machines_shop_electri_furnance_on_click",
       "metadata": {
         "dependencies": [
@@ -7707,7 +7251,6 @@
       "sortid": 465,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "machines_shop_miner_on_click",
       "metadata": {
         "dependencies": [
@@ -7725,7 +7268,6 @@
       "sortid": 466,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "machines_shop_foundry_on_click",
       "metadata": {
         "dependencies": [
@@ -7743,7 +7285,6 @@
       "sortid": 467,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "machines_shop_constructor_on_click",
       "metadata": {
         "dependencies": [
@@ -7761,7 +7302,6 @@
       "sortid": 468,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "machines_shop_assembler_on_click",
       "metadata": {
         "dependencies": [
@@ -7779,7 +7319,6 @@
       "sortid": 469,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "machnies_shop_auto_sell_on_click",
       "metadata": {
         "dependencies": [
@@ -7797,7 +7336,6 @@
       "sortid": 470,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "shop_machinesbutto_nonclick",
       "metadata": {
         "dependencies": [
@@ -7831,7 +7369,6 @@
       "sortid": 471,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "plasma_rangeditem",
       "path": "~/Items"
     },
@@ -7841,7 +7378,6 @@
       "sortid": 472,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "upgrademiners_command_executed",
       "metadata": {
         "dependencies": [
@@ -7863,7 +7399,6 @@
       "sortid": 472,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "upgrademiners",
       "path": "~/Commands"
     },
@@ -7873,7 +7408,6 @@
       "sortid": 473,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "energyforupgradeitem_right_clicked_on_block",
       "metadata": {
         "dependencies": [
@@ -7907,7 +7441,6 @@
       "sortid": 473,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "energyforupgradeitem",
       "path": "~/Items"
     },
@@ -7917,7 +7450,6 @@
       "sortid": 474,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "space_suit",
       "metadata": {
         "eh": true,
@@ -7933,7 +7465,6 @@
       "sortid": 475,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "oxygencanister",
       "path": "~/SpaceSuit"
     },
@@ -7943,7 +7474,6 @@
       "sortid": 476,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "oxygencanisterecipe",
       "path": "~/SpaceSuit"
     },
@@ -7953,7 +7483,6 @@
       "sortid": 477,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "compressor_update_tick",
       "metadata": {
         "dependencies": [
@@ -7983,7 +7512,6 @@
       "sortid": 477,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "compressor",
       "path": "~/Machines/Compressor"
     },
@@ -7993,7 +7521,6 @@
       "sortid": 478,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "compressor_block_is_placed_by",
       "metadata": {
         "dependencies": [
@@ -8027,7 +7554,6 @@
       "sortid": 479,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "compressor_gui",
       "path": "~/Machines/Compressor"
     },
@@ -8037,7 +7563,6 @@
       "sortid": 480,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "case_key",
       "path": "~/Items/CaseOpening"
     },
@@ -8047,7 +7572,6 @@
       "sortid": 481,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "case_box_1",
       "path": "~/Items/CaseOpening"
     },
@@ -8057,7 +7581,6 @@
       "sortid": 482,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "case_box_gui",
       "path": "~/Items/CaseOpening"
     },
@@ -8067,7 +7590,6 @@
       "sortid": 483,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "item_in_case_box",
       "metadata": {
         "return_type": "itemstack",
@@ -8081,7 +7603,6 @@
       "sortid": 487,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "case_box_open_case_button",
       "metadata": {
         "dependencies": [
@@ -8103,7 +7624,6 @@
       "sortid": 488,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "oxygen_effect",
       "path": "~/Potions"
     },
@@ -8113,7 +7633,6 @@
       "sortid": 490,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "space_suit_with_canister",
       "metadata": {
         "eh": false,
@@ -8129,7 +7648,6 @@
       "sortid": 491,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "spacesuit_oxygen_on",
       "path": "~/SpaceSuit"
     },
@@ -8139,7 +7657,6 @@
       "sortid": 492,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "space_suit_with_canister_body_tick_event",
       "metadata": {
         "dependencies": [
@@ -8157,7 +7674,6 @@
       "sortid": 496,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "steel_dust",
       "path": "~/Items"
     },
@@ -8167,7 +7683,6 @@
       "sortid": 497,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "steel_stone_block_destroyed_by_player",
       "metadata": {
         "dependencies": [
@@ -8197,7 +7712,6 @@
       "sortid": 497,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "steel_stone",
       "path": "~/Blocks"
     },
@@ -8207,7 +7721,6 @@
       "sortid": 498,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "liquid_hydrogen",
       "metadata": {
         "gb": true
@@ -8220,7 +7733,6 @@
       "sortid": 499,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "liquid_hydrogen_mobplayer_collides_block",
       "metadata": {
         "dependencies": [
@@ -8238,7 +7750,6 @@
       "sortid": 500,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "steel_dust_smelting",
       "path": "~/Items"
     },
@@ -8248,7 +7759,6 @@
       "sortid": 501,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "crystal",
       "path": "~/Blocks/crystal"
     },
@@ -8258,7 +7768,6 @@
       "sortid": 502,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "crystalchunk",
       "path": "~/Items"
     },
@@ -8268,7 +7777,6 @@
       "sortid": 503,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "crystal_block_destroyed_by_player",
       "metadata": {
         "dependencies": [
@@ -8302,7 +7810,6 @@
       "sortid": 505,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "hydrogen_particle",
       "path": "~/Fluids"
     },
@@ -8312,7 +7819,6 @@
       "sortid": 506,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "liquid_hydrogen_client_display_random_tick",
       "metadata": {
         "dependencies": [
@@ -8342,7 +7848,6 @@
       "sortid": 510,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "caseboxbutton_show_condition",
       "metadata": {
         "return_type": "logic",
@@ -8361,7 +7866,6 @@
       "sortid": 511,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "case_box_taken_from_slot",
       "metadata": {
         "dependencies": [
@@ -8379,7 +7883,6 @@
       "sortid": 512,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "case_box_1_right_clicked_on_block",
       "metadata": {
         "dependencies": [
@@ -8413,7 +7916,6 @@
       "sortid": 513,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "money_100",
       "path": "~/Items/Money"
     },
@@ -8423,7 +7925,6 @@
       "sortid": 514,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "money_500",
       "path": "~/Items/Money"
     },
@@ -8433,7 +7934,6 @@
       "sortid": 515,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "money_1000",
       "path": "~/Items/Money"
     },
@@ -8443,7 +7943,6 @@
       "sortid": 516,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "money_2000",
       "path": "~/Items/Money"
     },
@@ -8453,7 +7952,6 @@
       "sortid": 517,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "money_5000",
       "path": "~/Items/Money"
     },
@@ -8463,7 +7961,6 @@
       "sortid": 518,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "money_10000",
       "path": "~/Items/Money"
     },
@@ -8473,7 +7970,6 @@
       "sortid": 519,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "money_50000",
       "path": "~/Items/Money"
     },
@@ -8483,7 +7979,6 @@
       "sortid": 520,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "money_100000",
       "path": "~/Items/Money"
     },
@@ -8493,7 +7988,6 @@
       "sortid": 521,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "atm",
       "path": "~/Blocks/ATM"
     },
@@ -8503,7 +7997,6 @@
       "sortid": 522,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "atmgui",
       "path": "~/Blocks/ATM"
     },
@@ -8513,7 +8006,6 @@
       "sortid": 523,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "atm_100_ebutton",
       "metadata": {
         "dependencies": [
@@ -8531,7 +8023,6 @@
       "sortid": 524,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "atm_500_ebutton",
       "metadata": {
         "dependencies": [
@@ -8549,7 +8040,6 @@
       "sortid": 525,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "atm_1000_ebutton",
       "metadata": {
         "dependencies": [
@@ -8567,7 +8057,6 @@
       "sortid": 526,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "atm_5000_ebutton",
       "metadata": {
         "dependencies": [
@@ -8585,7 +8074,6 @@
       "sortid": 527,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "atm_2000_ebutton",
       "metadata": {
         "dependencies": [
@@ -8603,7 +8091,6 @@
       "sortid": 528,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "atm_10000_ebutton",
       "metadata": {
         "dependencies": [
@@ -8621,7 +8108,6 @@
       "sortid": 529,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "atm_50000_ebutton",
       "metadata": {
         "dependencies": [
@@ -8639,7 +8125,6 @@
       "sortid": 530,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "atm_100000_ebutton",
       "metadata": {
         "dependencies": [
@@ -8657,7 +8142,6 @@
       "sortid": 531,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "atm_on_block_right_clicked",
       "metadata": {
         "dependencies": [
@@ -8675,7 +8159,6 @@
       "sortid": 532,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "hazard_shop_gui",
       "path": "~/Shop"
     },
@@ -8685,7 +8168,6 @@
       "sortid": 533,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "hazard_shop_case_on_click",
       "metadata": {
         "dependencies": [
@@ -8703,7 +8185,6 @@
       "sortid": 534,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "hazard_shop_case_key_on_click",
       "metadata": {
         "dependencies": [
@@ -8721,7 +8202,6 @@
       "sortid": 535,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "shop_hazard_button_on_click",
       "metadata": {
         "dependencies": [
@@ -8755,7 +8235,6 @@
       "sortid": 536,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "space_suit_helmet",
       "path": "~/SpaceSuit"
     },
@@ -8765,7 +8244,6 @@
       "sortid": 537,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "space_suit_body",
       "path": "~/SpaceSuit"
     },
@@ -8775,7 +8253,6 @@
       "sortid": 538,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "space_suit_leggins",
       "path": "~/SpaceSuit"
     },
@@ -8785,7 +8262,6 @@
       "sortid": 539,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "space_suit_boots",
       "path": "~/SpaceSuit"
     },
@@ -8795,7 +8271,6 @@
       "sortid": 540,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "compressor_recipe",
       "path": "~/Machines/Compressor"
     },
@@ -8805,7 +8280,6 @@
       "sortid": 541,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "test",
       "path": "~/Biomes"
     },
@@ -8815,7 +8289,6 @@
       "sortid": 542,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "testdd",
       "metadata": {
         "ep": true
@@ -8828,7 +8301,6 @@
       "sortid": 543,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "crystal_additional_generation_condition",
       "metadata": {
         "return_type": "logic",
@@ -8859,7 +8331,6 @@
       "sortid": 544,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "test_2",
       "metadata": {
         "ep": true
@@ -8872,7 +8343,6 @@
       "sortid": 545,
       "compiles": true,
       "locked_code": false,
-      "ids": {},
       "registry_name": "smelter",
       "path": "~/Enchantments"
     }
@@ -10074,5 +9544,5 @@
     "modElementsPackage": "industrialeconomy",
     "lockBaseModFiles": false
   },
-  "mcreatorVersion": 202100235315
+  "mcreatorVersion": 202100353117
 }

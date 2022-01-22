@@ -28,6 +28,7 @@ public class SpaceSuitItem extends IndustrialEconomyModElements.ModElement {
 	public static final Item legs = null;
 	@ObjectHolder("industrial_economy:space_suit_boots")
 	public static final Item boots = null;
+
 	public SpaceSuitItem(IndustrialEconomyModElements instance) {
 		super(instance, 474);
 	}
@@ -101,4 +102,5 @@ public class SpaceSuitItem extends IndustrialEconomyModElements.ModElement {
 			}
 		}.setRegistryName("space_suit_boots"));
 	}
+
 }

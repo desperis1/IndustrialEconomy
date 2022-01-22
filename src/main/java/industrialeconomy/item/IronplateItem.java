@@ -16,6 +16,7 @@ import industrialeconomy.IndustrialEconomyModElements;
 public class IronplateItem extends IndustrialEconomyModElements.ModElement {
 	@ObjectHolder("industrial_economy:ironplate")
 	public static final Item block = null;
+
 	public IronplateItem(IndustrialEconomyModElements instance) {
 		super(instance, 144);
 	}
@@ -24,6 +25,7 @@ public class IronplateItem extends IndustrialEconomyModElements.ModElement {
 	public void initElements() {
 		elements.items.add(() -> new ItemCustom());
 	}
+
 	public static class ItemCustom extends Item {
 		public ItemCustom() {
 			super(new Item.Properties().group(ProjectMEGAItemGroup.tab).maxStackSize(64).rarity(Rarity.COMMON));

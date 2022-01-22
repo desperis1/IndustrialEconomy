@@ -11,6 +11,7 @@ import java.util.Map;
 import industrialeconomy.IndustrialEconomyMod;
 
 public class LightingpowertonclickProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
@@ -18,8 +19,8 @@ public class LightingpowertonclickProcedure {
 			return;
 		}
 		Entity entity = (Entity) dependencies.get("entity");
-		if (((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY).getOrCreateTag()
-				.getBoolean("ThorPower")) == (true))) {
+		if (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY).getOrCreateTag()
+				.getBoolean("ThorPower") == true) {
 			((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY).getOrCreateTag()
 					.putBoolean("ThorPower", (false));
 			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {

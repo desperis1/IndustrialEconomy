@@ -22,12 +22,8 @@ import industrialeconomy.IndustrialEconomyModVariables;
 import industrialeconomy.IndustrialEconomyMod;
 
 public class HomeCommandExecutedProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency entity for procedure HomeCommandExecuted!");
-			return;
-		}
 		if (dependencies.get("x") == null) {
 			if (!dependencies.containsKey("x"))
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency x for procedure HomeCommandExecuted!");
@@ -43,43 +39,47 @@ public class HomeCommandExecutedProcedure {
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency z for procedure HomeCommandExecuted!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency entity for procedure HomeCommandExecuted!");
+			return;
+		}
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
+		Entity entity = (Entity) dependencies.get("entity");
 		{
-			double _setval = (double) x;
+			double _setval = x;
 			entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 				capability.player_back_x = _setval;
 				capability.syncPlayerVariables(entity);
 			});
 		}
 		{
-			double _setval = (double) y;
+			double _setval = y;
 			entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 				capability.player_back_y = _setval;
 				capability.syncPlayerVariables(entity);
 			});
 		}
 		{
-			double _setval = (double) z;
+			double _setval = z;
 			entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 				capability.player_back_z = _setval;
 				capability.syncPlayerVariables(entity);
 			});
 		}
 		{
-			String _setval = (String) ("" + ((entity.world.getDimensionKey())));
+			String _setval = ("" + entity.world.getDimensionKey());
 			entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 				capability.player_back_dimension = _setval;
 				capability.syncPlayerVariables(entity);
 			});
 		}
-		if (((!((("" + ((entity.world.getDimensionKey()))))
-				.equals(((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-						.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_home_dimension))))
-				&& (((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-						.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_home_dimension).contains("overworld")))) {
+		if (!("" + entity.world.getDimensionKey()).equals((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+				.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_home_dimension)
+				&& ((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+						.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_home_dimension).contains("overworld")) {
 			{
 				Entity _ent = entity;
 				if (!_ent.world.isRemote && _ent instanceof ServerPlayerEntity) {
@@ -121,11 +121,10 @@ public class HomeCommandExecutedProcedure {
 				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("Now you are at home."), (true));
 			}
 		}
-		if (((!((("" + ((entity.world.getDimensionKey()))))
-				.equals(((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-						.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_home_dimension))))
-				&& (((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-						.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_home_dimension).contains("nether")))) {
+		if (!("" + entity.world.getDimensionKey()).equals((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+				.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_home_dimension)
+				&& ((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+						.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_home_dimension).contains("nether")) {
 			{
 				Entity _ent = entity;
 				if (!_ent.world.isRemote && _ent instanceof ServerPlayerEntity) {
@@ -167,11 +166,10 @@ public class HomeCommandExecutedProcedure {
 				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("Now you are at home."), (true));
 			}
 		}
-		if (((!((("" + ((entity.world.getDimensionKey()))))
-				.equals(((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-						.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_home_dimension))))
-				&& (((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-						.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_home_dimension).contains("end")))) {
+		if (!("" + entity.world.getDimensionKey()).equals((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+				.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_home_dimension)
+				&& ((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+						.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_home_dimension).contains("end")) {
 			{
 				Entity _ent = entity;
 				if (!_ent.world.isRemote && _ent instanceof ServerPlayerEntity) {

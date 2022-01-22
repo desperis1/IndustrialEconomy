@@ -10,6 +10,7 @@ import industrialeconomy.IndustrialEconomyModVariables;
 import industrialeconomy.IndustrialEconomyMod;
 
 public class CaseBoxTakenFromSlotProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
@@ -18,7 +19,7 @@ public class CaseBoxTakenFromSlotProcedure {
 		}
 		Entity entity = (Entity) dependencies.get("entity");
 		{
-			boolean _setval = (boolean) (false);
+			boolean _setval = (false);
 			entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 				capability.player_rolling_case = _setval;
 				capability.syncPlayerVariables(entity);

@@ -14,14 +14,15 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
 import net.minecraft.client.Minecraft;
 
+import java.util.stream.Stream;
+import java.util.Map;
 import java.util.HashMap;
+import java.util.AbstractMap;
 
 import industrialeconomy.procedures.GeneratorWorkingLabelProcedure;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.matrix.MatrixStack;
-
-import com.google.common.collect.ImmutableMap;
 
 @OnlyIn(Dist.CLIENT)
 public class GeneratorMK1GuiGuiWindow extends ContainerScreen<GeneratorMK1GuiGui.GuiContainerMod> {
@@ -29,6 +30,7 @@ public class GeneratorMK1GuiGuiWindow extends ContainerScreen<GeneratorMK1GuiGui
 	private int x, y, z;
 	private PlayerEntity entity;
 	private final static HashMap guistate = GeneratorMK1GuiGui.guistate;
+
 	public GeneratorMK1GuiGuiWindow(GeneratorMK1GuiGui.GuiContainerMod container, PlayerInventory inventory, ITextComponent text) {
 		super(container, inventory, text);
 		this.world = container.world;
@@ -39,7 +41,9 @@ public class GeneratorMK1GuiGuiWindow extends ContainerScreen<GeneratorMK1GuiGui
 		this.xSize = 176;
 		this.ySize = 166;
 	}
+
 	private static final ResourceLocation texture = new ResourceLocation("industrial_economy:textures/generator_mk_1_gui.png");
+
 	@Override
 	public void render(MatrixStack ms, int mouseX, int mouseY, float partialTicks) {
 		this.renderBackground(ms);
@@ -76,7 +80,11 @@ public class GeneratorMK1GuiGuiWindow extends ContainerScreen<GeneratorMK1GuiGui
 	@Override
 	protected void drawGuiContainerForegroundLayer(MatrixStack ms, int mouseX, int mouseY) {
 		this.font.drawString(ms, "Generator MK1", 54, 3, -52429);
-		if (GeneratorWorkingLabelProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world)))
+		if (GeneratorWorkingLabelProcedure
+				.executeProcedure(Stream
+						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
+								new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z))
+						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll)))
 			this.font.drawString(ms, "Working", 70, 14, -13369549);
 		this.font.drawString(ms, "" + (new Object() {
 			public double getValue(BlockPos pos, String tag) {

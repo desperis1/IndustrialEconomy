@@ -23,6 +23,7 @@ public class ChargerguiGuiWindow extends ContainerScreen<ChargerguiGui.GuiContai
 	private int x, y, z;
 	private PlayerEntity entity;
 	private final static HashMap guistate = ChargerguiGui.guistate;
+
 	public ChargerguiGuiWindow(ChargerguiGui.GuiContainerMod container, PlayerInventory inventory, ITextComponent text) {
 		super(container, inventory, text);
 		this.world = container.world;
@@ -33,7 +34,9 @@ public class ChargerguiGuiWindow extends ContainerScreen<ChargerguiGui.GuiContai
 		this.xSize = 176;
 		this.ySize = 166;
 	}
+
 	private static final ResourceLocation texture = new ResourceLocation("industrial_economy:textures/chargergui.png");
+
 	@Override
 	public void render(MatrixStack ms, int mouseX, int mouseY, float partialTicks) {
 		this.renderBackground(ms);

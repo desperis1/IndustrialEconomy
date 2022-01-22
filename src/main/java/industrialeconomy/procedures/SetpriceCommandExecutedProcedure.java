@@ -19,7 +19,13 @@ import industrialeconomy.IndustrialEconomyModVariables;
 import industrialeconomy.IndustrialEconomyMod;
 
 public class SetpriceCommandExecutedProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency world for procedure SetpriceCommandExecuted!");
+			return;
+		}
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency entity for procedure SetpriceCommandExecuted!");
@@ -30,17 +36,12 @@ public class SetpriceCommandExecutedProcedure {
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency cmdparams for procedure SetpriceCommandExecuted!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency world for procedure SetpriceCommandExecuted!");
-			return;
-		}
+		IWorld world = (IWorld) dependencies.get("world");
 		Entity entity = (Entity) dependencies.get("entity");
 		HashMap cmdparams = (HashMap) dependencies.get("cmdparams");
-		IWorld world = (IWorld) dependencies.get("world");
 		double price = 0;
 		ItemStack item_in_hand = ItemStack.EMPTY;
-		if ((((new Object() {
+		if ((new Object() {
 			public String getText() {
 				String param = (String) cmdparams.get("0");
 				if (param != null) {
@@ -48,13 +49,13 @@ public class SetpriceCommandExecutedProcedure {
 				}
 				return "";
 			}
-		}.getText())).equals(""))) {
+		}.getText()).equals("")) {
 			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-				((PlayerEntity) entity).sendStatusMessage(
-						new StringTextComponent((("You can set price to item in hand.") + "" + ("Example: /setprice 500"))), (false));
+				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent(("You can set price to item in hand." + "Example: /setprice 500")),
+						(false));
 			}
 		}
-		if (((!(((new Object() {
+		if (!(new Object() {
 			public String getText() {
 				String param = (String) cmdparams.get("0");
 				if (param != null) {
@@ -62,10 +63,10 @@ public class SetpriceCommandExecutedProcedure {
 				}
 				return "";
 			}
-		}.getText())).equals(""))) && (!((ItemStack.EMPTY)
-				.getItem() == ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY).getItem())))) {
+		}.getText()).equals("") && !((ItemStack.EMPTY)
+				.getItem() == ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY).getItem())) {
 			item_in_hand = ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY);
-			price = (double) new Object() {
+			price = new Object() {
 				double convert(String s) {
 					try {
 						return Double.parseDouble(s.trim());
@@ -73,7 +74,7 @@ public class SetpriceCommandExecutedProcedure {
 					}
 					return 0;
 				}
-			}.convert((new Object() {
+			}.convert(new Object() {
 				public String getText() {
 					String param = (String) cmdparams.get("0");
 					if (param != null) {
@@ -81,7 +82,7 @@ public class SetpriceCommandExecutedProcedure {
 					}
 					return "";
 				}
-			}.getText()));
+			}.getText());
 			if (!world.isRemote()) {
 				BlockPos _bp = new BlockPos((int) IndustrialEconomyModVariables.WorldVariables.get(world).server_x,
 						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_y,
@@ -89,7 +90,7 @@ public class SetpriceCommandExecutedProcedure {
 				TileEntity _tileEntity = world.getTileEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_tileEntity != null)
-					_tileEntity.getTileData().putDouble(((((item_in_hand).getDisplayName().getString())) + "" + ("_price")), new Object() {
+					_tileEntity.getTileData().putDouble(((item_in_hand).getDisplayName().getString() + "_price"), new Object() {
 						double convert(String s) {
 							try {
 								return Double.parseDouble(s.trim());
@@ -97,7 +98,7 @@ public class SetpriceCommandExecutedProcedure {
 							}
 							return 0;
 						}
-					}.convert((new Object() {
+					}.convert(new Object() {
 						public String getText() {
 							String param = (String) cmdparams.get("0");
 							if (param != null) {
@@ -105,13 +106,13 @@ public class SetpriceCommandExecutedProcedure {
 							}
 							return "";
 						}
-					}.getText())));
+					}.getText()));
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
 			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent(
-						(("You set price for ") + "" + (((item_in_hand).getDisplayName().getString())) + "" + (" to :") + "" + (new Object() {
+				((PlayerEntity) entity).sendStatusMessage(
+						new StringTextComponent(("You set price for " + (item_in_hand).getDisplayName().getString() + " to :" + new Object() {
 							double convert(String s) {
 								try {
 									return Double.parseDouble(s.trim());
@@ -119,7 +120,7 @@ public class SetpriceCommandExecutedProcedure {
 								}
 								return 0;
 							}
-						}.convert((new Object() {
+						}.convert(new Object() {
 							public String getText() {
 								String param = (String) cmdparams.get("0");
 								if (param != null) {
@@ -127,7 +128,7 @@ public class SetpriceCommandExecutedProcedure {
 								}
 								return "";
 							}
-						}.getText()))) + "" + (" \u010F\u017C\u02DD"))), (false));
+						}.getText()) + " \u010F\u017C\u02DD")), (false));
 			}
 		}
 	}

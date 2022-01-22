@@ -14,10 +14,11 @@ import industrialeconomy.IndustrialEconomyModVariables;
 import industrialeconomy.IndustrialEconomyMod;
 
 public class HubUpgradeMinersOnClickProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency entity for procedure HubUpgradeMinersOnClick!");
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency world for procedure HubUpgradeMinersOnClick!");
 			return;
 		}
 		if (dependencies.get("x") == null) {
@@ -35,19 +36,19 @@ public class HubUpgradeMinersOnClickProcedure {
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency z for procedure HubUpgradeMinersOnClick!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency world for procedure HubUpgradeMinersOnClick!");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency entity for procedure HubUpgradeMinersOnClick!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
+		Entity entity = (Entity) dependencies.get("entity");
 		double Energy_for_upgrade = 0;
 		double current_miners_level = 0;
-		Energy_for_upgrade = (double) (new Object() {
+		Energy_for_upgrade = (new Object() {
 			public double getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
@@ -55,18 +56,18 @@ public class HubUpgradeMinersOnClickProcedure {
 				return -1;
 			}
 		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "EnergyForUpgrade"));
-		if (((new Object() {
+		if (new Object() {
 			public double getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
 					return tileEntity.getTileData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Energy")) > Energy_for_upgrade)) {
-			current_miners_level = (double) ((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Energy") > Energy_for_upgrade) {
+			current_miners_level = ((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 					.orElse(new IndustrialEconomyModVariables.PlayerVariables())).miners_level);
 			{
-				double _setval = (double) (current_miners_level + 1);
+				double _setval = (current_miners_level + 1);
 				entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 					capability.miners_level = _setval;
 					capability.syncPlayerVariables(entity);
@@ -79,7 +80,7 @@ public class HubUpgradeMinersOnClickProcedure {
 				TileEntity _tileEntity = world.getTileEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_tileEntity != null)
-					_tileEntity.getTileData().putDouble((((entity.getDisplayName().getString())) + "" + ("_minerLevel")),
+					_tileEntity.getTileData().putDouble((entity.getDisplayName().getString() + "_minerLevel"),
 							((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 									.orElse(new IndustrialEconomyModVariables.PlayerVariables())).miners_level));
 				if (world instanceof World)

@@ -14,7 +14,10 @@ import net.minecraft.client.gui.widget.button.Button;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
 import net.minecraft.client.Minecraft;
 
+import java.util.stream.Stream;
+import java.util.Map;
 import java.util.HashMap;
+import java.util.AbstractMap;
 
 import industrialeconomy.procedures.DSAplasmalabelProcedure;
 import industrialeconomy.procedures.DSAoverlaywaterbreatheProcedure;
@@ -31,14 +34,13 @@ import industrialeconomy.IndustrialEconomyMod;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.matrix.MatrixStack;
 
-import com.google.common.collect.ImmutableMap;
-
 @OnlyIn(Dist.CLIENT)
 public class DiamondSteelArmorGUIGuiWindow extends ContainerScreen<DiamondSteelArmorGUIGui.GuiContainerMod> {
 	private World world;
 	private int x, y, z;
 	private PlayerEntity entity;
 	private final static HashMap guistate = DiamondSteelArmorGUIGui.guistate;
+
 	public DiamondSteelArmorGUIGuiWindow(DiamondSteelArmorGUIGui.GuiContainerMod container, PlayerInventory inventory, ITextComponent text) {
 		super(container, inventory, text);
 		this.world = container.world;
@@ -49,7 +51,9 @@ public class DiamondSteelArmorGUIGuiWindow extends ContainerScreen<DiamondSteelA
 		this.xSize = 248;
 		this.ySize = 218;
 	}
+
 	private static final ResourceLocation texture = new ResourceLocation("industrial_economy:textures/diamond_steel_armor_gui.png");
+
 	@Override
 	public void render(MatrixStack ms, int mouseX, int mouseY, float partialTicks) {
 		this.renderBackground(ms);
@@ -66,14 +70,19 @@ public class DiamondSteelArmorGUIGuiWindow extends ContainerScreen<DiamondSteelA
 		int k = (this.width - this.xSize) / 2;
 		int l = (this.height - this.ySize) / 2;
 		this.blit(ms, k, l, 0, 0, this.xSize, this.ySize, this.xSize, this.ySize);
+
 		Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("industrial_economy:textures/2.png"));
 		this.blit(ms, this.guiLeft + 114, this.guiTop + 87, 0, 0, 16, 16, 16, 16);
+
 		Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("industrial_economy:textures/1.png"));
 		this.blit(ms, this.guiLeft + 114, this.guiTop + 60, 0, 0, 16, 16, 16, 16);
+
 		Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("industrial_economy:textures/3.png"));
 		this.blit(ms, this.guiLeft + 114, this.guiTop + 33, 0, 0, 16, 16, 16, 16);
+
 		Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("industrial_economy:textures/4.png"));
 		this.blit(ms, this.guiLeft + 114, this.guiTop + 114, 0, 0, 16, 16, 16, 16);
+
 		RenderSystem.disableBlend();
 	}
 
@@ -94,22 +103,29 @@ public class DiamondSteelArmorGUIGuiWindow extends ContainerScreen<DiamondSteelA
 	@Override
 	protected void drawGuiContainerForegroundLayer(MatrixStack ms, int mouseX, int mouseY) {
 		this.font.drawString(ms, "Armor Panel", 4, 4, -12829636);
-		if (DSAoverlayspeedProcedure.executeProcedure(ImmutableMap.of("entity", entity)))
+		if (DSAoverlayspeedProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+				(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll)))
 			this.font.drawString(ms, "Speed", 166, 197, -16724992);
-		if (DSAoverlayslowfallingProcedure.executeProcedure(ImmutableMap.of("entity", entity)))
+		if (DSAoverlayslowfallingProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+				(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll)))
 			this.font.drawString(ms, "Slow Falling", 149, 184, -13382656);
-		if (DSAoverlayjetpackProcedure.executeProcedure(ImmutableMap.of("entity", entity)))
+		if (DSAoverlayjetpackProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+				(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll)))
 			this.font.drawString(ms, "JetPack", 160, 170, -16724992);
-		if (DSAoverlaynightvisionProcedure.executeProcedure(ImmutableMap.of("entity", entity)))
+		if (DSAoverlaynightvisionProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+				(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll)))
 			this.font.drawString(ms, "Night Vision", 150, 156, -16724992);
-		if (DSAoverlaywaterbreatheProcedure.executeProcedure(ImmutableMap.of("entity", entity)))
+		if (DSAoverlaywaterbreatheProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+				(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll)))
 			this.font.drawString(ms, "Water Breathe", 14, 157, -13382656);
-		if (DSAoverlaydolphingraceProcedure.executeProcedure(ImmutableMap.of("entity", entity)))
+		if (DSAoverlaydolphingraceProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+				(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll)))
 			this.font.drawString(ms, "Fast Swim", 22, 184, -16724992);
 		this.font.drawString(ms, "Energy: " + (int) ((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 				.orElse(new IndustrialEconomyModVariables.PlayerVariables())).DSA_energy) + "", 78, 3, -16750849);
 		this.font.drawString(ms, "Active Functions", 80, 143, -12829636);
-		if (DSAplasmalabelProcedure.executeProcedure(ImmutableMap.of("entity", entity)))
+		if (DSAplasmalabelProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
+				(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll)))
 			this.font.drawString(ms, "Plasma Shoot", 16, 170, -16724992);
 		this.font.drawString(ms,
 				"Plasma Shoot CoolDown: " + (int) ((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)

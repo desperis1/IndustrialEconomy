@@ -29,6 +29,7 @@ public class ATMGUIGuiWindow extends ContainerScreen<ATMGUIGui.GuiContainerMod> 
 	private int x, y, z;
 	private PlayerEntity entity;
 	private final static HashMap guistate = ATMGUIGui.guistate;
+
 	public ATMGUIGuiWindow(ATMGUIGui.GuiContainerMod container, PlayerInventory inventory, ITextComponent text) {
 		super(container, inventory, text);
 		this.world = container.world;
@@ -39,7 +40,9 @@ public class ATMGUIGuiWindow extends ContainerScreen<ATMGUIGui.GuiContainerMod> 
 		this.xSize = 273;
 		this.ySize = 232;
 	}
+
 	private static final ResourceLocation texture = new ResourceLocation("industrial_economy:textures/atmgui.png");
+
 	@Override
 	public void render(MatrixStack ms, int mouseX, int mouseY, float partialTicks) {
 		this.renderBackground(ms);

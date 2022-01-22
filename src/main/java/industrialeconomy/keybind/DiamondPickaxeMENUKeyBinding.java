@@ -18,9 +18,11 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.client.Minecraft;
 
+import java.util.stream.Stream;
 import java.util.function.Supplier;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.AbstractMap;
 
 import industrialeconomy.procedures.DiamondSteelpickaxeRightClickedOnBlockProcedure;
 
@@ -32,6 +34,7 @@ import industrialeconomy.IndustrialEconomyMod;
 public class DiamondPickaxeMENUKeyBinding extends IndustrialEconomyModElements.ModElement {
 	@OnlyIn(Dist.CLIENT)
 	private KeyBinding keys;
+
 	public DiamondPickaxeMENUKeyBinding(IndustrialEconomyModElements instance) {
 		super(instance, 170);
 		elements.addNetworkMessage(KeyBindingPressedMessage.class, KeyBindingPressedMessage::buffer, KeyBindingPressedMessage::new,
@@ -58,8 +61,10 @@ public class DiamondPickaxeMENUKeyBinding extends IndustrialEconomyModElements.M
 			}
 		}
 	}
+
 	public static class KeyBindingPressedMessage {
 		int type, pressedms;
+
 		public KeyBindingPressedMessage(int type, int pressedms) {
 			this.type = type;
 			this.pressedms = pressedms;
@@ -83,6 +88,7 @@ public class DiamondPickaxeMENUKeyBinding extends IndustrialEconomyModElements.M
 			context.setPacketHandled(true);
 		}
 	}
+
 	private static void pressAction(PlayerEntity entity, int type, int pressedms) {
 		World world = entity.world;
 		double x = entity.getPosX();
@@ -92,15 +98,11 @@ public class DiamondPickaxeMENUKeyBinding extends IndustrialEconomyModElements.M
 		if (!world.isBlockLoaded(new BlockPos(x, y, z)))
 			return;
 		if (type == 0) {
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("entity", entity);
-				$_dependencies.put("x", x);
-				$_dependencies.put("y", y);
-				$_dependencies.put("z", z);
-				$_dependencies.put("world", world);
-				DiamondSteelpickaxeRightClickedOnBlockProcedure.executeProcedure($_dependencies);
-			}
+
+			DiamondSteelpickaxeRightClickedOnBlockProcedure.executeProcedure(Stream
+					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
+							new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
+					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 		}
 	}
 }

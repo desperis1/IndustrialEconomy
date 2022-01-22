@@ -27,7 +27,13 @@ import industrialeconomy.IndustrialEconomyModVariables;
 import industrialeconomy.IndustrialEconomyMod;
 
 public class MinerinactiveUpdateTickProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency world for procedure MinerinactiveUpdateTick!");
+			return;
+		}
 		if (dependencies.get("x") == null) {
 			if (!dependencies.containsKey("x"))
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency x for procedure MinerinactiveUpdateTick!");
@@ -43,21 +49,16 @@ public class MinerinactiveUpdateTickProcedure {
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency z for procedure MinerinactiveUpdateTick!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency world for procedure MinerinactiveUpdateTick!");
-			return;
-		}
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
 		String owner = "";
 		double players_hub_x = 0;
 		double players_hub_y = 0;
 		double players_hub_z = 0;
 		double miners_level = 0;
-		owner = (String) (new Object() {
+		owner = (new Object() {
 			public String getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
@@ -65,7 +66,7 @@ public class MinerinactiveUpdateTickProcedure {
 				return "";
 			}
 		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "owner"));
-		players_hub_x = (double) (new Object() {
+		players_hub_x = (new Object() {
 			public double getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
@@ -76,8 +77,8 @@ public class MinerinactiveUpdateTickProcedure {
 				new BlockPos((int) IndustrialEconomyModVariables.WorldVariables.get(world).server_x,
 						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_y,
 						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_z),
-				((owner) + "" + ("hub_X"))));
-		players_hub_y = (double) (new Object() {
+				(owner + "hub_X")));
+		players_hub_y = (new Object() {
 			public double getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
@@ -88,8 +89,8 @@ public class MinerinactiveUpdateTickProcedure {
 				new BlockPos((int) IndustrialEconomyModVariables.WorldVariables.get(world).server_x,
 						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_y,
 						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_z),
-				((owner) + "" + ("hub_Y"))));
-		players_hub_z = (double) (new Object() {
+				(owner + "hub_Y")));
+		players_hub_z = (new Object() {
 			public double getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
@@ -100,8 +101,8 @@ public class MinerinactiveUpdateTickProcedure {
 				new BlockPos((int) IndustrialEconomyModVariables.WorldVariables.get(world).server_x,
 						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_y,
 						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_z),
-				((owner) + "" + ("hub_Z"))));
-		miners_level = (double) (new Object() {
+				(owner + "hub_Z")));
+		miners_level = (new Object() {
 			public double getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
@@ -112,29 +113,28 @@ public class MinerinactiveUpdateTickProcedure {
 				new BlockPos((int) IndustrialEconomyModVariables.WorldVariables.get(world).server_x,
 						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_y,
 						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_z),
-				((owner) + "" + ("_minerLevel"))));
-		if ((((new Object() {
+				(owner + "_minerLevel")));
+		if (new Object() {
 			public double getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
 					return tileEntity.getTileData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos((int) players_hub_x, (int) players_hub_y, (int) players_hub_z), "Energy")) >= (15 * miners_level))
-				&& (((new Object() {
+		}.getValue(world, new BlockPos((int) players_hub_x, (int) players_hub_y, (int) players_hub_z), "Energy") >= 15 * miners_level
+				&& new Object() {
 					public double getValue(IWorld world, BlockPos pos, String tag) {
 						TileEntity tileEntity = world.getTileEntity(pos);
 						if (tileEntity != null)
 							return tileEntity.getTileData().getDouble(tag);
 						return -1;
 					}
-				}.getValue(world, new BlockPos((int) x, (int) (y - 1), (int) z), "can_be_mined")) >= 1) && ((LimestoneactiveBlock.block == (world
-						.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z))).getBlock())
-						|| (((CoalNodeBlock.block == (world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z))).getBlock())
-								|| (IronOreNodeBlockBlock.block == (world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z))).getBlock()))
-								|| ((CateriumNODEblockBlock.block == (world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z))).getBlock())
-										|| (CopperNodeBlock.block == (world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z)))
-												.getBlock()))))))) {
+				}.getValue(world, new BlockPos((int) x, (int) (y - 1), (int) z), "can_be_mined") >= 1
+				&& (LimestoneactiveBlock.block == (world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z))).getBlock()
+						|| CoalNodeBlock.block == (world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z))).getBlock()
+						|| IronOreNodeBlockBlock.block == (world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z))).getBlock()
+						|| CateriumNODEblockBlock.block == (world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z))).getBlock()
+						|| CopperNodeBlock.block == (world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z))).getBlock())) {
 			{
 				BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 				BlockState _bs = MinerblockBlock.block.getDefaultState();
@@ -174,14 +174,14 @@ public class MinerinactiveUpdateTickProcedure {
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
-			if (((LimestoneactiveBlock.block == (world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z))).getBlock()) && ((new Object() {
+			if (LimestoneactiveBlock.block == (world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z))).getBlock() && new Object() {
 				public double getValue(IWorld world, BlockPos pos, String tag) {
 					TileEntity tileEntity = world.getTileEntity(pos);
 					if (tileEntity != null)
 						return tileEntity.getTileData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos((int) x, (int) (y - 1), (int) z), "can_be_mined")) == 0))) {
+			}.getValue(world, new BlockPos((int) x, (int) (y - 1), (int) z), "can_be_mined") == 0) {
 				{
 					BlockPos _bp = new BlockPos((int) x, (int) (y - 1), (int) z);
 					BlockState _bs = LimestoneinactiveBlock.block.getDefaultState();
@@ -204,14 +204,14 @@ public class MinerinactiveUpdateTickProcedure {
 					}
 				}
 			}
-			if (((CoalNodeBlock.block == (world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z))).getBlock()) && ((new Object() {
+			if (CoalNodeBlock.block == (world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z))).getBlock() && new Object() {
 				public double getValue(IWorld world, BlockPos pos, String tag) {
 					TileEntity tileEntity = world.getTileEntity(pos);
 					if (tileEntity != null)
 						return tileEntity.getTileData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos((int) x, (int) (y - 1), (int) z), "can_be_mined")) == 0))) {
+			}.getValue(world, new BlockPos((int) x, (int) (y - 1), (int) z), "can_be_mined") == 0) {
 				{
 					BlockPos _bp = new BlockPos((int) x, (int) (y - 1), (int) z);
 					BlockState _bs = CoalNodeInactiveBlock.block.getDefaultState();
@@ -234,14 +234,14 @@ public class MinerinactiveUpdateTickProcedure {
 					}
 				}
 			}
-			if (((IronOreNodeBlockBlock.block == (world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z))).getBlock()) && ((new Object() {
+			if (IronOreNodeBlockBlock.block == (world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z))).getBlock() && new Object() {
 				public double getValue(IWorld world, BlockPos pos, String tag) {
 					TileEntity tileEntity = world.getTileEntity(pos);
 					if (tileEntity != null)
 						return tileEntity.getTileData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos((int) x, (int) (y - 1), (int) z), "can_be_mined")) == 0))) {
+			}.getValue(world, new BlockPos((int) x, (int) (y - 1), (int) z), "can_be_mined") == 0) {
 				{
 					BlockPos _bp = new BlockPos((int) x, (int) (y - 1), (int) z);
 					BlockState _bs = IronOreNodeBlockInactiveBlock.block.getDefaultState();
@@ -264,14 +264,14 @@ public class MinerinactiveUpdateTickProcedure {
 					}
 				}
 			}
-			if (((CateriumNODEblockBlock.block == (world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z))).getBlock()) && ((new Object() {
+			if (CateriumNODEblockBlock.block == (world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z))).getBlock() && new Object() {
 				public double getValue(IWorld world, BlockPos pos, String tag) {
 					TileEntity tileEntity = world.getTileEntity(pos);
 					if (tileEntity != null)
 						return tileEntity.getTileData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos((int) x, (int) (y - 1), (int) z), "can_be_mined")) == 0))) {
+			}.getValue(world, new BlockPos((int) x, (int) (y - 1), (int) z), "can_be_mined") == 0) {
 				{
 					BlockPos _bp = new BlockPos((int) x, (int) (y - 1), (int) z);
 					BlockState _bs = CateriumNodeBlockInactiveBlock.block.getDefaultState();
@@ -294,14 +294,14 @@ public class MinerinactiveUpdateTickProcedure {
 					}
 				}
 			}
-			if (((CopperNodeBlock.block == (world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z))).getBlock()) && ((new Object() {
+			if (CopperNodeBlock.block == (world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z))).getBlock() && new Object() {
 				public double getValue(IWorld world, BlockPos pos, String tag) {
 					TileEntity tileEntity = world.getTileEntity(pos);
 					if (tileEntity != null)
 						return tileEntity.getTileData().getDouble(tag);
 					return -1;
 				}
-			}.getValue(world, new BlockPos((int) x, (int) (y - 1), (int) z), "can_be_mined")) == 0))) {
+			}.getValue(world, new BlockPos((int) x, (int) (y - 1), (int) z), "can_be_mined") == 0) {
 				{
 					BlockPos _bp = new BlockPos((int) x, (int) (y - 1), (int) z);
 					BlockState _bs = CopperNodeInactveBlock.block.getDefaultState();

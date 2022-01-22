@@ -37,6 +37,7 @@ import industrialeconomy.IndustrialEconomyModElements;
 public class CrusherBlock extends IndustrialEconomyModElements.ModElement {
 	@ObjectHolder("industrial_economy:crusher")
 	public static final Block block = null;
+
 	public CrusherBlock(IndustrialEconomyModElements instance) {
 		super(instance, 300);
 	}
@@ -53,8 +54,10 @@ public class CrusherBlock extends IndustrialEconomyModElements.ModElement {
 	public void clientLoad(FMLClientSetupEvent event) {
 		RenderTypeLookup.setRenderLayer(block, RenderType.getCutout());
 	}
+
 	public static class CustomBlock extends Block {
 		public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
+
 		public CustomBlock() {
 			super(Block.Properties.create(Material.IRON).sound(SoundType.METAL).hardnessAndResistance(1f, 10f).setLightLevel(s -> 0).notSolid()
 					.setOpaque((bs, br, bp) -> false));

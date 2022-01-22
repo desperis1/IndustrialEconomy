@@ -17,6 +17,7 @@ import industrialeconomy.IndustrialEconomyModElements;
 public class DiamondstellshovelItem extends IndustrialEconomyModElements.ModElement {
 	@ObjectHolder("industrial_economy:diamondstellshovel")
 	public static final Item block = null;
+
 	public DiamondstellshovelItem(IndustrialEconomyModElements instance) {
 		super(instance, 118);
 	}

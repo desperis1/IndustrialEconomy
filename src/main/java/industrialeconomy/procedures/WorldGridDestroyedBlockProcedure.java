@@ -40,10 +40,11 @@ public class WorldGridDestroyedBlockProcedure {
 			executeProcedure(dependencies);
 		}
 	}
+
 	public static boolean executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency entity for procedure WorldGridDestroyedBlock!");
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency world for procedure WorldGridDestroyedBlock!");
 			return false;
 		}
 		if (dependencies.get("x") == null) {
@@ -56,33 +57,29 @@ public class WorldGridDestroyedBlockProcedure {
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency z for procedure WorldGridDestroyedBlock!");
 			return false;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency world for procedure WorldGridDestroyedBlock!");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency entity for procedure WorldGridDestroyedBlock!");
 			return false;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
+		Entity entity = (Entity) dependencies.get("entity");
 		double grid_X = 0;
 		double grid_Z = 0;
 		String player_name = "";
-		if ((((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-				.orElse(new IndustrialEconomyModVariables.PlayerVariables())).admin_editor) == (false))) {
-			if (((entity instanceof PlayerEntity) || (entity instanceof ServerPlayerEntity))) {
-				player_name = (String) (entity.getDisplayName().getString());
-				grid_X = (double) Math.floor((x / 20));
-				grid_Z = (double) Math.floor((z / 20));
-				if (((IndustrialEconomyModVariables.WorldVariables.get(world).lands
-						.contains(((player_name) + "" + (":") + "" + (grid_X) + "" + (":") + "" + (grid_Z) + "" + (","))))
-						&& (IndustrialEconomyModVariables.WorldVariables.get(world).is_city
-								.contains(((":") + "" + (grid_X) + "" + (":") + "" + (grid_Z) + "" + (",")))))) {
-					return (true);
-				} else if (((!(IndustrialEconomyModVariables.WorldVariables.get(world).lands
-						.contains(((player_name) + "" + (":") + "" + (grid_X) + "" + (":") + "" + (grid_Z) + "" + (",")))))
-						&& (IndustrialEconomyModVariables.WorldVariables.get(world).is_city
-								.contains(((":") + "" + (grid_X) + "" + (":") + "" + (grid_Z) + "" + (",")))))) {
+		if ((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+				.orElse(new IndustrialEconomyModVariables.PlayerVariables())).admin_editor == false) {
+			if (entity instanceof PlayerEntity || entity instanceof ServerPlayerEntity) {
+				player_name = (entity.getDisplayName().getString());
+				grid_X = Math.floor(x / 20);
+				grid_Z = Math.floor(z / 20);
+				if (IndustrialEconomyModVariables.WorldVariables.get(world).lands.contains(player_name + ":" + grid_X + ":" + grid_Z + ",")
+						&& IndustrialEconomyModVariables.WorldVariables.get(world).is_city.contains(":" + grid_X + ":" + grid_Z + ",")) {
+					return true;
+				} else if (!IndustrialEconomyModVariables.WorldVariables.get(world).lands.contains(player_name + ":" + grid_X + ":" + grid_Z + ",")
+						&& IndustrialEconomyModVariables.WorldVariables.get(world).is_city.contains(":" + grid_X + ":" + grid_Z + ",")) {
 					if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
 						((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("You dont own this land"), (true));
 					}
@@ -95,11 +92,11 @@ public class WorldGridDestroyedBlockProcedure {
 						}
 					}
 				} else {
-					return (true);
+					return true;
 				}
 			}
-			return (false);
+			return false;
 		}
-		return (false);
+		return false;
 	}
 }

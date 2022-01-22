@@ -18,10 +18,12 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Block;
 
+import java.util.stream.Stream;
 import java.util.Map;
 import java.util.List;
 import java.util.HashMap;
 import java.util.Collections;
+import java.util.AbstractMap;
 
 import industrialeconomy.procedures.SteelStoneBlockDestroyedByPlayerProcedure;
 
@@ -31,6 +33,7 @@ import industrialeconomy.IndustrialEconomyModElements;
 public class SteelStoneBlock extends IndustrialEconomyModElements.ModElement {
 	@ObjectHolder("industrial_economy:steel_stone")
 	public static final Block block = null;
+
 	public SteelStoneBlock(IndustrialEconomyModElements instance) {
 		super(instance, 497);
 	}
@@ -41,6 +44,7 @@ public class SteelStoneBlock extends IndustrialEconomyModElements.ModElement {
 		elements.items
 				.add(() -> new BlockItem(block, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)).setRegistryName(block.getRegistryName()));
 	}
+
 	public static class CustomBlock extends Block {
 		public CustomBlock() {
 			super(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(10f, 10f).setLightLevel(s -> 0));
@@ -66,14 +70,11 @@ public class SteelStoneBlock extends IndustrialEconomyModElements.ModElement {
 			int x = pos.getX();
 			int y = pos.getY();
 			int z = pos.getZ();
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("x", x);
-				$_dependencies.put("y", y);
-				$_dependencies.put("z", z);
-				$_dependencies.put("world", world);
-				SteelStoneBlockDestroyedByPlayerProcedure.executeProcedure($_dependencies);
-			}
+
+			SteelStoneBlockDestroyedByPlayerProcedure.executeProcedure(Stream
+					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
+							new AbstractMap.SimpleEntry<>("z", z))
+					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			return retval;
 		}
 	}

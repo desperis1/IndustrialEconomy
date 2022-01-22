@@ -16,6 +16,7 @@ import industrialeconomy.IndustrialEconomyModElements;
 public class RedstoneingotitemItem extends IndustrialEconomyModElements.ModElement {
 	@ObjectHolder("industrial_economy:redstoneingotitem")
 	public static final Item block = null;
+
 	public RedstoneingotitemItem(IndustrialEconomyModElements instance) {
 		super(instance, 40);
 	}
@@ -24,6 +25,7 @@ public class RedstoneingotitemItem extends IndustrialEconomyModElements.ModEleme
 	public void initElements() {
 		elements.items.add(() -> new ItemCustom());
 	}
+
 	public static class ItemCustom extends Item {
 		public ItemCustom() {
 			super(new Item.Properties().group(ProjectMEGAItemGroup.tab).maxStackSize(64).rarity(Rarity.COMMON));

@@ -27,7 +27,13 @@ import industrialeconomy.IndustrialEconomyModVariables;
 import industrialeconomy.IndustrialEconomyMod;
 
 public class GeneratorMK1inactiveUpdateTickProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency world for procedure GeneratorMK1inactiveUpdateTick!");
+			return;
+		}
 		if (dependencies.get("x") == null) {
 			if (!dependencies.containsKey("x"))
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency x for procedure GeneratorMK1inactiveUpdateTick!");
@@ -43,17 +49,12 @@ public class GeneratorMK1inactiveUpdateTickProcedure {
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency z for procedure GeneratorMK1inactiveUpdateTick!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency world for procedure GeneratorMK1inactiveUpdateTick!");
-			return;
-		}
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
 		String owner = "";
-		owner = (String) (new Object() {
+		owner = (new Object() {
 			public String getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
@@ -61,7 +62,7 @@ public class GeneratorMK1inactiveUpdateTickProcedure {
 				return "";
 			}
 		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "owner"));
-		if (((new Object() {
+		if ((new Object() {
 			public ItemStack getItemStack(BlockPos pos, int sltid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				TileEntity _ent = world.getTileEntity(pos);
@@ -72,7 +73,7 @@ public class GeneratorMK1inactiveUpdateTickProcedure {
 				}
 				return _retval.get();
 			}
-		}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (0))).getItem() == TurbofuelitemItem.block)) {
+		}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (0))).getItem() == TurbofuelitemItem.block) {
 			{
 				TileEntity _ent = world.getTileEntity(new BlockPos((int) x, (int) y, (int) z));
 				if (_ent != null) {
@@ -89,7 +90,7 @@ public class GeneratorMK1inactiveUpdateTickProcedure {
 							return _retval.get();
 						}
 					}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (0)));
-					_setstack.setCount((int) ((new Object() {
+					_setstack.setCount((int) (new Object() {
 						public int getAmount(IWorld world, BlockPos pos, int sltid) {
 							AtomicInteger _retval = new AtomicInteger(0);
 							TileEntity _ent = world.getTileEntity(pos);
@@ -100,7 +101,7 @@ public class GeneratorMK1inactiveUpdateTickProcedure {
 							}
 							return _retval.get();
 						}
-					}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (0))) - 1));
+					}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (0)) - 1));
 					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
 						if (capability instanceof IItemHandlerModifiable) {
 							((IItemHandlerModifiable) capability).setStackInSlot(_sltid, _setstack);
@@ -113,19 +114,19 @@ public class GeneratorMK1inactiveUpdateTickProcedure {
 				TileEntity _tileEntity = world.getTileEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_tileEntity != null)
-					_tileEntity.getTileData().putDouble("GeneratorEnergy", ((new Object() {
+					_tileEntity.getTileData().putDouble("GeneratorEnergy", (new Object() {
 						public double getValue(IWorld world, BlockPos pos, String tag) {
 							TileEntity tileEntity = world.getTileEntity(pos);
 							if (tileEntity != null)
 								return tileEntity.getTileData().getDouble(tag);
 							return -1;
 						}
-					}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "GeneratorEnergy")) + 1315));
+					}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "GeneratorEnergy") + 1315));
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
 		}
-		if (((new Object() {
+		if ((new Object() {
 			public ItemStack getItemStack(BlockPos pos, int sltid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				TileEntity _ent = world.getTileEntity(pos);
@@ -136,7 +137,7 @@ public class GeneratorMK1inactiveUpdateTickProcedure {
 				}
 				return _retval.get();
 			}
-		}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (0))).getItem() == Turbofuelitem2Item.block)) {
+		}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (0))).getItem() == Turbofuelitem2Item.block) {
 			{
 				TileEntity _ent = world.getTileEntity(new BlockPos((int) x, (int) y, (int) z));
 				if (_ent != null) {
@@ -153,7 +154,7 @@ public class GeneratorMK1inactiveUpdateTickProcedure {
 							return _retval.get();
 						}
 					}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (0)));
-					_setstack.setCount((int) ((new Object() {
+					_setstack.setCount((int) (new Object() {
 						public int getAmount(IWorld world, BlockPos pos, int sltid) {
 							AtomicInteger _retval = new AtomicInteger(0);
 							TileEntity _ent = world.getTileEntity(pos);
@@ -164,7 +165,7 @@ public class GeneratorMK1inactiveUpdateTickProcedure {
 							}
 							return _retval.get();
 						}
-					}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (0))) - 1));
+					}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (0)) - 1));
 					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
 						if (capability instanceof IItemHandlerModifiable) {
 							((IItemHandlerModifiable) capability).setStackInSlot(_sltid, _setstack);
@@ -177,19 +178,19 @@ public class GeneratorMK1inactiveUpdateTickProcedure {
 				TileEntity _tileEntity = world.getTileEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_tileEntity != null)
-					_tileEntity.getTileData().putDouble("GeneratorEnergy", ((new Object() {
+					_tileEntity.getTileData().putDouble("GeneratorEnergy", (new Object() {
 						public double getValue(IWorld world, BlockPos pos, String tag) {
 							TileEntity tileEntity = world.getTileEntity(pos);
 							if (tileEntity != null)
 								return tileEntity.getTileData().getDouble(tag);
 							return -1;
 						}
-					}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "GeneratorEnergy")) + 14800));
+					}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "GeneratorEnergy") + 14800));
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
 		}
-		if (((new Object() {
+		if ((new Object() {
 			public ItemStack getItemStack(BlockPos pos, int sltid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
 				TileEntity _ent = world.getTileEntity(pos);
@@ -200,7 +201,7 @@ public class GeneratorMK1inactiveUpdateTickProcedure {
 				}
 				return _retval.get();
 			}
-		}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (0))).getItem() == Turbofuelitem3Item.block)) {
+		}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (0))).getItem() == Turbofuelitem3Item.block) {
 			{
 				TileEntity _ent = world.getTileEntity(new BlockPos((int) x, (int) y, (int) z));
 				if (_ent != null) {
@@ -217,7 +218,7 @@ public class GeneratorMK1inactiveUpdateTickProcedure {
 							return _retval.get();
 						}
 					}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (0)));
-					_setstack.setCount((int) ((new Object() {
+					_setstack.setCount((int) (new Object() {
 						public int getAmount(IWorld world, BlockPos pos, int sltid) {
 							AtomicInteger _retval = new AtomicInteger(0);
 							TileEntity _ent = world.getTileEntity(pos);
@@ -228,7 +229,7 @@ public class GeneratorMK1inactiveUpdateTickProcedure {
 							}
 							return _retval.get();
 						}
-					}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (0))) - 1));
+					}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (0)) - 1));
 					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
 						if (capability instanceof IItemHandlerModifiable) {
 							((IItemHandlerModifiable) capability).setStackInSlot(_sltid, _setstack);
@@ -241,26 +242,26 @@ public class GeneratorMK1inactiveUpdateTickProcedure {
 				TileEntity _tileEntity = world.getTileEntity(_bp);
 				BlockState _bs = world.getBlockState(_bp);
 				if (_tileEntity != null)
-					_tileEntity.getTileData().putDouble("GeneratorEnergy", ((new Object() {
+					_tileEntity.getTileData().putDouble("GeneratorEnergy", (new Object() {
 						public double getValue(IWorld world, BlockPos pos, String tag) {
 							TileEntity tileEntity = world.getTileEntity(pos);
 							if (tileEntity != null)
 								return tileEntity.getTileData().getDouble(tag);
 							return -1;
 						}
-					}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "GeneratorEnergy")) + 50000));
+					}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "GeneratorEnergy") + 50000));
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
 		}
-		if ((((new Object() {
+		if (new Object() {
 			public double getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
 					return tileEntity.getTileData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "GeneratorEnergy")) > 1) && ((true) == (new Object() {
+		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "GeneratorEnergy") > 1 && true == (new Object() {
 			public boolean getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
 				if (tileEntity != null)
@@ -271,7 +272,7 @@ public class GeneratorMK1inactiveUpdateTickProcedure {
 				new BlockPos((int) IndustrialEconomyModVariables.WorldVariables.get(world).server_x,
 						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_y,
 						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_z),
-				((owner) + "" + ("_isOnline"))))))) {
+				(owner + "_isOnline")))) {
 			{
 				BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 				BlockState _bs = GeneratorMK1Block.block.getDefaultState();

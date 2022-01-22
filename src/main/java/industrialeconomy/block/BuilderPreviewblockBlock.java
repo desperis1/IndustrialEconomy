@@ -29,6 +29,7 @@ import industrialeconomy.IndustrialEconomyModElements;
 public class BuilderPreviewblockBlock extends IndustrialEconomyModElements.ModElement {
 	@ObjectHolder("industrial_economy:builder_previewblock")
 	public static final Block block = null;
+
 	public BuilderPreviewblockBlock(IndustrialEconomyModElements instance) {
 		super(instance, 265);
 	}
@@ -44,6 +45,7 @@ public class BuilderPreviewblockBlock extends IndustrialEconomyModElements.ModEl
 	public void clientLoad(FMLClientSetupEvent event) {
 		RenderTypeLookup.setRenderLayer(block, RenderType.getTranslucent());
 	}
+
 	public static class CustomBlock extends Block {
 		public CustomBlock() {
 			super(Block.Properties.create(Material.IRON).sound(SoundType.METAL).hardnessAndResistance(500f, 500f).setLightLevel(s -> 0)

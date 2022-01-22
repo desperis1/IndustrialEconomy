@@ -12,14 +12,15 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
 import net.minecraft.client.Minecraft;
 
+import java.util.stream.Stream;
+import java.util.Map;
 import java.util.HashMap;
+import java.util.AbstractMap;
 
 import industrialeconomy.procedures.GeneratorWorkingLabelProcedure;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.matrix.MatrixStack;
-
-import com.google.common.collect.ImmutableMap;
 
 @OnlyIn(Dist.CLIENT)
 public class FoundryGUIGuiWindow extends ContainerScreen<FoundryGUIGui.GuiContainerMod> {
@@ -27,6 +28,7 @@ public class FoundryGUIGuiWindow extends ContainerScreen<FoundryGUIGui.GuiContai
 	private int x, y, z;
 	private PlayerEntity entity;
 	private final static HashMap guistate = FoundryGUIGui.guistate;
+
 	public FoundryGUIGuiWindow(FoundryGUIGui.GuiContainerMod container, PlayerInventory inventory, ITextComponent text) {
 		super(container, inventory, text);
 		this.world = container.world;
@@ -37,7 +39,9 @@ public class FoundryGUIGuiWindow extends ContainerScreen<FoundryGUIGui.GuiContai
 		this.xSize = 176;
 		this.ySize = 166;
 	}
+
 	private static final ResourceLocation texture = new ResourceLocation("industrial_economy:textures/foundry_gui.png");
+
 	@Override
 	public void render(MatrixStack ms, int mouseX, int mouseY, float partialTicks) {
 		this.renderBackground(ms);
@@ -74,7 +78,11 @@ public class FoundryGUIGuiWindow extends ContainerScreen<FoundryGUIGui.GuiContai
 	@Override
 	protected void drawGuiContainerForegroundLayer(MatrixStack ms, int mouseX, int mouseY) {
 		this.font.drawString(ms, "Foundry", 70, 3, -65536);
-		if (GeneratorWorkingLabelProcedure.executeProcedure(ImmutableMap.of("x", x, "y", y, "z", z, "world", world)))
+		if (GeneratorWorkingLabelProcedure
+				.executeProcedure(Stream
+						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
+								new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z))
+						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll)))
 			this.font.drawString(ms, "Working", 69, 34, -16738048);
 		this.font.drawString(ms, "1000 MW", 133, 3, -16763956);
 	}

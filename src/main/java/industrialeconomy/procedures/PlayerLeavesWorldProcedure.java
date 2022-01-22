@@ -34,19 +34,20 @@ public class PlayerLeavesWorldProcedure {
 			executeProcedure(dependencies);
 		}
 	}
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency entity for procedure PlayerLeavesWorld!");
-			return;
-		}
 		if (dependencies.get("world") == null) {
 			if (!dependencies.containsKey("world"))
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency world for procedure PlayerLeavesWorld!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency entity for procedure PlayerLeavesWorld!");
+			return;
+		}
 		IWorld world = (IWorld) dependencies.get("world");
+		Entity entity = (Entity) dependencies.get("entity");
 		if (!world.isRemote()) {
 			BlockPos _bp = new BlockPos((int) IndustrialEconomyModVariables.WorldVariables.get(world).server_x,
 					(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_y,
@@ -54,7 +55,7 @@ public class PlayerLeavesWorldProcedure {
 			TileEntity _tileEntity = world.getTileEntity(_bp);
 			BlockState _bs = world.getBlockState(_bp);
 			if (_tileEntity != null)
-				_tileEntity.getTileData().putBoolean((((entity.getDisplayName().getString())) + "" + ("_") + "" + ("isOnline")), (false));
+				_tileEntity.getTileData().putBoolean((entity.getDisplayName().getString() + "_" + "isOnline"), (false));
 			if (world instanceof World)
 				((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 		}

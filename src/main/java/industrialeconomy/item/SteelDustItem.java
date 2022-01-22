@@ -15,6 +15,7 @@ import industrialeconomy.IndustrialEconomyModElements;
 public class SteelDustItem extends IndustrialEconomyModElements.ModElement {
 	@ObjectHolder("industrial_economy:steel_dust")
 	public static final Item block = null;
+
 	public SteelDustItem(IndustrialEconomyModElements instance) {
 		super(instance, 496);
 	}
@@ -23,6 +24,7 @@ public class SteelDustItem extends IndustrialEconomyModElements.ModElement {
 	public void initElements() {
 		elements.items.add(() -> new ItemCustom());
 	}
+
 	public static class ItemCustom extends Item {
 		public ItemCustom() {
 			super(new Item.Properties().group(ItemGroup.MISC).maxStackSize(64).rarity(Rarity.COMMON));

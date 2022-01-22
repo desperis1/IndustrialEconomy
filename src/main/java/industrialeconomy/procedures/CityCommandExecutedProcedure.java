@@ -17,15 +17,11 @@ import industrialeconomy.IndustrialEconomyModVariables;
 import industrialeconomy.IndustrialEconomyMod;
 
 public class CityCommandExecutedProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency entity for procedure CityCommandExecuted!");
-			return;
-		}
-		if (dependencies.get("cmdparams") == null) {
-			if (!dependencies.containsKey("cmdparams"))
-				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency cmdparams for procedure CityCommandExecuted!");
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency world for procedure CityCommandExecuted!");
 			return;
 		}
 		if (dependencies.get("x") == null) {
@@ -43,17 +39,22 @@ public class CityCommandExecutedProcedure {
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency z for procedure CityCommandExecuted!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency world for procedure CityCommandExecuted!");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency entity for procedure CityCommandExecuted!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
-		HashMap cmdparams = (HashMap) dependencies.get("cmdparams");
+		if (dependencies.get("cmdparams") == null) {
+			if (!dependencies.containsKey("cmdparams"))
+				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency cmdparams for procedure CityCommandExecuted!");
+			return;
+		}
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
+		Entity entity = (Entity) dependencies.get("entity");
+		HashMap cmdparams = (HashMap) dependencies.get("cmdparams");
 		double local_x = 0;
 		double local_z = 0;
 		double local_y = 0;
@@ -66,7 +67,7 @@ public class CityCommandExecutedProcedure {
 		String cityname = "";
 		String playername = "";
 		String online_players = "";
-		if (((((new Object() {
+		if ((new Object() {
 			public String getText() {
 				String param = (String) cmdparams.get("0");
 				if (param != null) {
@@ -74,17 +75,17 @@ public class CityCommandExecutedProcedure {
 				}
 				return "";
 			}
-		}.getText())).equals("create")) && (((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-				.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money) >= 1000000))) {
+		}.getText()).equals("create") && (entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+				.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money >= 1000000) {
 			{
-				double _setval = (double) (((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-						.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money) - 1000000);
+				double _setval = ((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+						.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money - 1000000);
 				entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 					capability.player_money = _setval;
 					capability.syncPlayerVariables(entity);
 				});
 			}
-			cityname = (String) (new Object() {
+			cityname = (new Object() {
 				public String getText() {
 					String param = (String) cmdparams.get("1");
 					if (param != null) {
@@ -93,53 +94,53 @@ public class CityCommandExecutedProcedure {
 					return "";
 				}
 			}.getText());
-			X_multipler = (double) Math.round((x / 20));
-			sync_X_with_grid = (double) (X_multipler * 20);
-			Z_multipler = (double) Math.round((z / 20));
-			sync_Z_with_grid = (double) (Z_multipler * 20);
+			X_multipler = Math.round(x / 20);
+			sync_X_with_grid = (X_multipler * 20);
+			Z_multipler = Math.round(z / 20);
+			sync_Z_with_grid = (Z_multipler * 20);
 			{
-				String _setval = (String) ((((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-						.orElse(new IndustrialEconomyModVariables.PlayerVariables())).players_city_name)) + "" + (",") + "" + (cityname));
+				String _setval = ((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+						.orElse(new IndustrialEconomyModVariables.PlayerVariables())).players_city_name + "," + cityname);
 				entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 					capability.players_city_name = _setval;
 					capability.syncPlayerVariables(entity);
 				});
 			}
 			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-				((PlayerEntity) entity).sendStatusMessage(
-						new StringTextComponent((("synced X: ") + "" + (sync_X_with_grid) + "" + ("synced Z: ") + "" + (sync_Z_with_grid))), (false));
+				((PlayerEntity) entity)
+						.sendStatusMessage(new StringTextComponent(("synced X: " + sync_X_with_grid + "synced Z: " + sync_Z_with_grid)), (false));
 			}
 			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent((("You Created City with name: ") + "" + (cityname))), (false));
+				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent(("You Created City with name: " + cityname)), (false));
 			}
-			local_z = (double) (sync_Z_with_grid + 100);
+			local_z = (sync_Z_with_grid + 100);
 			for (int index0 = 0; index0 < (int) (10); index0++) {
-				local_x = (double) (sync_X_with_grid + 100);
+				local_x = (sync_X_with_grid + 100);
 				for (int index1 = 0; index1 < (int) (10); index1++) {
-					while (((world.canBlockSeeSky(new BlockPos((int) local_x, (int) local_y, (int) local_z))) == (false))) {
-						local_y = (double) (local_y + 1);
+					while (world.canBlockSeeSky(new BlockPos((int) local_x, (int) local_y, (int) local_z)) == false) {
+						local_y = (local_y + 1);
 					}
-					while ((((world.canBlockSeeSky(new BlockPos((int) local_x, (int) local_y, (int) local_z))) == (true))
-							&& (world.isAirBlock(new BlockPos((int) local_x, (int) (local_y - 1), (int) local_z))))) {
-						local_y = (double) (local_y - 1);
+					while (world.canBlockSeeSky(new BlockPos((int) local_x, (int) local_y, (int) local_z)) == true
+							&& world.isAirBlock(new BlockPos((int) local_x, (int) (local_y - 1), (int) local_z))) {
+						local_y = (local_y - 1);
 					}
-					if ((((world.canBlockSeeSky(new BlockPos((int) local_x, (int) local_y, (int) local_z))) == (true))
-							&& (!(world.isAirBlock(new BlockPos((int) local_x, (int) (local_y - 1), (int) local_z)))))) {
+					if (world.canBlockSeeSky(new BlockPos((int) local_x, (int) local_y, (int) local_z)) == true
+							&& !world.isAirBlock(new BlockPos((int) local_x, (int) (local_y - 1), (int) local_z))) {
 						world.setBlockState(new BlockPos((int) local_x, (int) local_y, (int) local_z), Blocks.RED_WOOL.getDefaultState(), 3);
-						land_X_grid = (double) (local_x / 20);
-						land_Z_grid = (double) (local_z / 20);
+						land_X_grid = (local_x / 20);
+						land_Z_grid = (local_z / 20);
 						IndustrialEconomyModVariables.WorldVariables
-								.get(world).is_city = (String) ((IndustrialEconomyModVariables.WorldVariables.get(world).is_city) + ""
-										+ (((cityname) + "" + (":") + "" + (land_X_grid) + "" + (":") + "" + (land_Z_grid) + "" + (","))));
+								.get(world).is_city = (IndustrialEconomyModVariables.WorldVariables.get(world).is_city + ""
+										+ (cityname + ":" + land_X_grid + ":" + land_Z_grid + ","));
 						IndustrialEconomyModVariables.WorldVariables.get(world).syncData(world);
-						local_y = (double) (y + 1);
+						local_y = (y + 1);
 					}
-					local_x = (double) (local_x - 20);
+					local_x = (local_x - 20);
 				}
-				local_z = (double) (local_z - 20);
+				local_z = (local_z - 20);
 			}
 		}
-		if ((((new Object() {
+		if ((new Object() {
 			public String getText() {
 				String param = (String) cmdparams.get("0");
 				if (param != null) {
@@ -147,8 +148,8 @@ public class CityCommandExecutedProcedure {
 				}
 				return "";
 			}
-		}.getText())).equals("join"))) {
-			cityname = (String) (new Object() {
+		}.getText()).equals("join")) {
+			cityname = (new Object() {
 				public String getText() {
 					String param = (String) cmdparams.get("1");
 					if (param != null) {
@@ -157,7 +158,7 @@ public class CityCommandExecutedProcedure {
 					return "";
 				}
 			}.getText());
-			playername = (String) (new Object() {
+			playername = (new Object() {
 				public String getText() {
 					String param = (String) cmdparams.get("2");
 					if (param != null) {
@@ -169,10 +170,10 @@ public class CityCommandExecutedProcedure {
 			{
 				List<? extends PlayerEntity> _players = new ArrayList<>(world.getPlayers());
 				for (Entity entityiterator : _players) {
-					online_players = (String) ((online_players) + "" + ((entityiterator.getDisplayName().getString())) + "" + (","));
+					online_players = (online_players + "" + entityiterator.getDisplayName().getString() + ",");
 				}
 			}
-			if (((((new Object() {
+			if ((new Object() {
 				public String getText() {
 					String param = (String) cmdparams.get("1");
 					if (param != null) {
@@ -180,7 +181,7 @@ public class CityCommandExecutedProcedure {
 					}
 					return "";
 				}
-			}.getText())).equals("")) || (((new Object() {
+			}.getText()).equals("") || (new Object() {
 				public String getText() {
 					String param = (String) cmdparams.get("2");
 					if (param != null) {
@@ -188,13 +189,13 @@ public class CityCommandExecutedProcedure {
 					}
 					return "";
 				}
-			}.getText())).equals("")))) {
+			}.getText()).equals("")) {
 				if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
 					((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("Example of usage: /city join cityname playername"), (false));
 				}
 			}
-			if ((!(((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-					.orElse(new IndustrialEconomyModVariables.PlayerVariables())).players_city_name).contains((new Object() {
+			if (!((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+					.orElse(new IndustrialEconomyModVariables.PlayerVariables())).players_city_name).contains(new Object() {
 						public String getText() {
 							String param = (String) cmdparams.get("1");
 							if (param != null) {
@@ -202,13 +203,13 @@ public class CityCommandExecutedProcedure {
 							}
 							return "";
 						}
-					}.getText()))))) {
+					}.getText())) {
 				if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
 					((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("You are not owner of this city or this city doesnt not exist"),
 							(false));
 				}
 			}
-			if ((!(online_players.contains((new Object() {
+			if (!online_players.contains(new Object() {
 				public String getText() {
 					String param = (String) cmdparams.get("2");
 					if (param != null) {
@@ -216,13 +217,13 @@ public class CityCommandExecutedProcedure {
 					}
 					return "";
 				}
-			}.getText()))))) {
+			}.getText())) {
 				if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
 					((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("Player doesnt not exist or is not online"), (false));
 				}
 			}
-			if (((((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-					.orElse(new IndustrialEconomyModVariables.PlayerVariables())).players_city_name).contains((new Object() {
+			if (((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+					.orElse(new IndustrialEconomyModVariables.PlayerVariables())).players_city_name).contains(new Object() {
 						public String getText() {
 							String param = (String) cmdparams.get("1");
 							if (param != null) {
@@ -230,7 +231,7 @@ public class CityCommandExecutedProcedure {
 							}
 							return "";
 						}
-					}.getText()))) && (online_players.contains((new Object() {
+					}.getText()) && online_players.contains(new Object() {
 						public String getText() {
 							String param = (String) cmdparams.get("2");
 							if (param != null) {
@@ -238,11 +239,11 @@ public class CityCommandExecutedProcedure {
 							}
 							return "";
 						}
-					}.getText()))))) {
+					}.getText())) {
 				{
 					List<? extends PlayerEntity> _players = new ArrayList<>(world.getPlayers());
 					for (Entity entityiterator : _players) {
-						if ((((entityiterator.getDisplayName().getString())).equals((new Object() {
+						if ((entityiterator.getDisplayName().getString()).equals(new Object() {
 							public String getText() {
 								String param = (String) cmdparams.get("2");
 								if (param != null) {
@@ -250,9 +251,9 @@ public class CityCommandExecutedProcedure {
 								}
 								return "";
 							}
-						}.getText())))) {
+						}.getText())) {
 							{
-								String _setval = (String) (new Object() {
+								String _setval = (new Object() {
 									public String getText() {
 										String param = (String) cmdparams.get("1");
 										if (param != null) {
@@ -269,8 +270,7 @@ public class CityCommandExecutedProcedure {
 							}
 							if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
 								((PlayerEntity) entity).sendStatusMessage(new StringTextComponent(
-										(("Player ") + "" + ((entityiterator.getDisplayName().getString())) + "" + (" was added to this city"))),
-										(false));
+										("Player " + entityiterator.getDisplayName().getString() + " was added to this city")), (false));
 							}
 						}
 					}

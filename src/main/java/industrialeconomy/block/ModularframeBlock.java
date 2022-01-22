@@ -30,6 +30,7 @@ import industrialeconomy.IndustrialEconomyModElements;
 public class ModularframeBlock extends IndustrialEconomyModElements.ModElement {
 	@ObjectHolder("industrial_economy:modularframe")
 	public static final Block block = null;
+
 	public ModularframeBlock(IndustrialEconomyModElements instance) {
 		super(instance, 207);
 	}
@@ -46,6 +47,7 @@ public class ModularframeBlock extends IndustrialEconomyModElements.ModElement {
 	public void clientLoad(FMLClientSetupEvent event) {
 		RenderTypeLookup.setRenderLayer(block, RenderType.getTranslucent());
 	}
+
 	public static class CustomBlock extends Block {
 		public CustomBlock() {
 			super(Block.Properties.create(Material.IRON).sound(SoundType.METAL).hardnessAndResistance(3f, 10f).setLightLevel(s -> 0).notSolid()

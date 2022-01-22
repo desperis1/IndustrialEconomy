@@ -23,11 +23,13 @@ import net.minecraft.block.HorizontalBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Block;
 
+import java.util.stream.Stream;
 import java.util.Random;
 import java.util.Map;
 import java.util.List;
 import java.util.HashMap;
 import java.util.Collections;
+import java.util.AbstractMap;
 
 import industrialeconomy.procedures.ArmorchargerUpdateTickProcedure;
 
@@ -39,6 +41,7 @@ import industrialeconomy.IndustrialEconomyModElements;
 public class ArmorchargerBlock extends IndustrialEconomyModElements.ModElement {
 	@ObjectHolder("industrial_economy:armorcharger")
 	public static final Block block = null;
+
 	public ArmorchargerBlock(IndustrialEconomyModElements instance) {
 		super(instance, 287);
 	}
@@ -49,8 +52,10 @@ public class ArmorchargerBlock extends IndustrialEconomyModElements.ModElement {
 		elements.items
 				.add(() -> new BlockItem(block, new Item.Properties().group(ProjectMEGAItemGroup.tab)).setRegistryName(block.getRegistryName()));
 	}
+
 	public static class CustomBlock extends Block {
 		public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
+
 		public CustomBlock() {
 			super(Block.Properties.create(Material.IRON).sound(SoundType.METAL).hardnessAndResistance(1f, 10f).setLightLevel(s -> 0));
 			this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH));
@@ -95,7 +100,7 @@ public class ArmorchargerBlock extends IndustrialEconomyModElements.ModElement {
 			int x = pos.getX();
 			int y = pos.getY();
 			int z = pos.getZ();
-			world.getPendingBlockTicks().scheduleTick(new BlockPos(x, y, z), this, 10);
+			world.getPendingBlockTicks().scheduleTick(pos, this, 10);
 		}
 
 		@Override
@@ -104,15 +109,12 @@ public class ArmorchargerBlock extends IndustrialEconomyModElements.ModElement {
 			int x = pos.getX();
 			int y = pos.getY();
 			int z = pos.getZ();
-			{
-				Map<String, Object> $_dependencies = new HashMap<>();
-				$_dependencies.put("x", x);
-				$_dependencies.put("y", y);
-				$_dependencies.put("z", z);
-				$_dependencies.put("world", world);
-				ArmorchargerUpdateTickProcedure.executeProcedure($_dependencies);
-			}
-			world.getPendingBlockTicks().scheduleTick(new BlockPos(x, y, z), this, 10);
+
+			ArmorchargerUpdateTickProcedure.executeProcedure(Stream
+					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
+							new AbstractMap.SimpleEntry<>("z", z))
+					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+			world.getPendingBlockTicks().scheduleTick(pos, this, 10);
 		}
 	}
 }

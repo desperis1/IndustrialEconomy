@@ -29,6 +29,7 @@ public class NodesShopGUIGuiWindow extends ContainerScreen<NodesShopGUIGui.GuiCo
 	private int x, y, z;
 	private PlayerEntity entity;
 	private final static HashMap guistate = NodesShopGUIGui.guistate;
+
 	public NodesShopGUIGuiWindow(NodesShopGUIGui.GuiContainerMod container, PlayerInventory inventory, ITextComponent text) {
 		super(container, inventory, text);
 		this.world = container.world;
@@ -39,7 +40,9 @@ public class NodesShopGUIGuiWindow extends ContainerScreen<NodesShopGUIGui.GuiCo
 		this.xSize = 281;
 		this.ySize = 185;
 	}
+
 	private static final ResourceLocation texture = new ResourceLocation("industrial_economy:textures/nodes_shop_gui.png");
+
 	@Override
 	public void render(MatrixStack ms, int mouseX, int mouseY, float partialTicks) {
 		this.renderBackground(ms);

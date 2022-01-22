@@ -34,9 +34,11 @@ import net.minecraft.block.FlowingFluidBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Block;
 
+import java.util.stream.Stream;
 import java.util.Random;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.AbstractMap;
 
 import industrialeconomy.procedures.LiquidHydrogenMobplayerCollidesBlockProcedure;
 import industrialeconomy.procedures.LiquidHydrogenClientDisplayRandomTickProcedure;
@@ -52,10 +54,12 @@ public class LiquidHydrogenBlock extends IndustrialEconomyModElements.ModElement
 	public static FlowingFluid flowing = null;
 	public static FlowingFluid still = null;
 	private ForgeFlowingFluid.Properties fluidproperties = null;
+
 	public LiquidHydrogenBlock(IndustrialEconomyModElements instance) {
 		super(instance, 498);
 		FMLJavaModLoadingContext.get().getModEventBus().register(new FluidRegisterHandler());
 	}
+
 	private static class FluidRegisterHandler {
 		@SubscribeEvent
 		public void registerFluids(RegistryEvent.Register<Fluid> event) {
@@ -63,6 +67,7 @@ public class LiquidHydrogenBlock extends IndustrialEconomyModElements.ModElement
 			event.getRegistry().register(flowing);
 		}
 	}
+
 	@Override
 	@OnlyIn(Dist.CLIENT)
 	public void clientLoad(FMLClientSetupEvent event) {
@@ -76,8 +81,11 @@ public class LiquidHydrogenBlock extends IndustrialEconomyModElements.ModElement
 				FluidAttributes
 						.builder(new ResourceLocation("industrial_economy:blocks/liquid_hydrogen_still"),
 								new ResourceLocation("industrial_economy:blocks/liquid_hydrogen_still"))
-						.luminosity(0).density(200).viscosity(1000).temperature(10).rarity(Rarity.COMMON)).explosionResistance(100f).tickRate(5)
-								.levelDecreasePerBlock(1).slopeFindDistance(4).bucket(() -> bucket).block(() -> block);
+						.luminosity(0).density(200).viscosity(1000).temperature(10)
+
+						.rarity(Rarity.COMMON)).explosionResistance(100f)
+
+								.tickRate(5).levelDecreasePerBlock(1).slopeFindDistance(4).bucket(() -> bucket).block(() -> block);
 		still = (FlowingFluid) new ForgeFlowingFluid.Source(fluidproperties).setRegistryName("liquid_hydrogen");
 		flowing = (FlowingFluid) new ForgeFlowingFluid.Flowing(fluidproperties).setRegistryName("liquid_hydrogen_flowing");
 		elements.blocks.add(() -> new FlowingFluidBlock(still,
@@ -98,11 +106,9 @@ public class LiquidHydrogenBlock extends IndustrialEconomyModElements.ModElement
 				int x = pos.getX();
 				int y = pos.getY();
 				int z = pos.getZ();
-				{
-					Map<String, Object> $_dependencies = new HashMap<>();
-					$_dependencies.put("entity", entity);
-					LiquidHydrogenMobplayerCollidesBlockProcedure.executeProcedure($_dependencies);
-				}
+
+				LiquidHydrogenMobplayerCollidesBlockProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity))
+						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			}
 
 			@OnlyIn(Dist.CLIENT)
@@ -113,14 +119,11 @@ public class LiquidHydrogenBlock extends IndustrialEconomyModElements.ModElement
 				int x = pos.getX();
 				int y = pos.getY();
 				int z = pos.getZ();
-				{
-					Map<String, Object> $_dependencies = new HashMap<>();
-					$_dependencies.put("x", x);
-					$_dependencies.put("y", y);
-					$_dependencies.put("z", z);
-					$_dependencies.put("world", world);
-					LiquidHydrogenClientDisplayRandomTickProcedure.executeProcedure($_dependencies);
-				}
+
+				LiquidHydrogenClientDisplayRandomTickProcedure.executeProcedure(Stream
+						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
+								new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z))
+						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			}
 		}.setRegistryName("liquid_hydrogen"));
 		elements.items.add(() -> new BucketItem(still,

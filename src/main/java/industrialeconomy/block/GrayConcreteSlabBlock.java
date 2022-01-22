@@ -24,6 +24,7 @@ import industrialeconomy.IndustrialEconomyModElements;
 public class GrayConcreteSlabBlock extends IndustrialEconomyModElements.ModElement {
 	@ObjectHolder("industrial_economy:gray_concrete_slab")
 	public static final Block block = null;
+
 	public GrayConcreteSlabBlock(IndustrialEconomyModElements instance) {
 		super(instance, 322);
 	}
@@ -34,6 +35,7 @@ public class GrayConcreteSlabBlock extends IndustrialEconomyModElements.ModEleme
 		elements.items
 				.add(() -> new BlockItem(block, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)).setRegistryName(block.getRegistryName()));
 	}
+
 	public static class CustomBlock extends SlabBlock {
 		public CustomBlock() {
 			super(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1f, 10f).setLightLevel(s -> 0));

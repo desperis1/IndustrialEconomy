@@ -17,8 +17,10 @@ import net.minecraft.entity.ai.attributes.Attribute;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.block.BlockState;
 
+import java.util.stream.Stream;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.AbstractMap;
 
 import industrialeconomy.procedures.BuildertoolRightClickedInAirProcedure;
 
@@ -33,6 +35,7 @@ import com.google.common.collect.ImmutableMultimap;
 public class BuildertoolItem extends IndustrialEconomyModElements.ModElement {
 	@ObjectHolder("industrial_economy:buildertool")
 	public static final Item block = null;
+
 	public BuildertoolItem(IndustrialEconomyModElements instance) {
 		super(instance, 263);
 	}
@@ -47,19 +50,17 @@ public class BuildertoolItem extends IndustrialEconomyModElements.ModElement {
 				double x = entity.getPosX();
 				double y = entity.getPosY();
 				double z = entity.getPosZ();
-				{
-					Map<String, Object> $_dependencies = new HashMap<>();
-					$_dependencies.put("entity", entity);
-					$_dependencies.put("x", x);
-					$_dependencies.put("y", y);
-					$_dependencies.put("z", z);
-					$_dependencies.put("world", world);
-					BuildertoolRightClickedInAirProcedure.executeProcedure($_dependencies);
-				}
+
+				BuildertoolRightClickedInAirProcedure.executeProcedure(Stream
+						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
+								new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z),
+								new AbstractMap.SimpleEntry<>("entity", entity))
+						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				return retval;
 			}
 		}.setRegistryName("buildertool"));
 	}
+
 	private static class ItemToolCustom extends Item {
 		protected ItemToolCustom() {
 			super(new Item.Properties().group(ProjectMEGAItemGroup.tab).maxDamage(750));

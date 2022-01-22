@@ -21,10 +21,11 @@ import industrialeconomy.IndustrialEconomyModVariables;
 import industrialeconomy.IndustrialEconomyMod;
 
 public class BuilderbuildprocedureProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency entity for procedure Builderbuildprocedure!");
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency world for procedure Builderbuildprocedure!");
 			return;
 		}
 		if (dependencies.get("x") == null) {
@@ -42,33 +43,33 @@ public class BuilderbuildprocedureProcedure {
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency z for procedure Builderbuildprocedure!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency world for procedure Builderbuildprocedure!");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency entity for procedure Builderbuildprocedure!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
+		Entity entity = (Entity) dependencies.get("entity");
 		double sx = 0;
 		double sy = 0;
 		double sz = 0;
-		if ((((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)).getDamage()) < 745)) {
-			sx = (double) (-150);
+		if ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)).getDamage() < 745) {
+			sx = (-150);
 			for (int index0 = 0; index0 < (int) (300); index0++) {
-				sy = (double) (-20);
+				sy = (-20);
 				for (int index1 = 0; index1 < (int) (70); index1++) {
-					sz = (double) (-150);
+					sz = (-150);
 					for (int index2 = 0; index2 < (int) (300); index2++) {
-						if (((world.getBlockState(new BlockPos((int) (x + sx), (int) (y + sy), (int) (z + sz))))
-								.getBlock() == BuilderPreviewblockBlock.block)) {
-							if (((entity instanceof PlayerEntity)
+						if ((world.getBlockState(new BlockPos((int) (x + sx), (int) (y + sy), (int) (z + sz))))
+								.getBlock() == BuilderPreviewblockBlock.block) {
+							if ((entity instanceof PlayerEntity)
 									? ((PlayerEntity) entity).inventory
 											.hasItemStack(((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 													.orElse(new IndustrialEconomyModVariables.PlayerVariables())).buildgun_material))
-									: false)) {
+									: false) {
 								world.setBlockState(new BlockPos((int) (x + sx), (int) (y + sy), (int) (z + sz)), (new Object() {
 									public BlockState toBlock(ItemStack _stk) {
 										if (_stk.getItem() instanceof BlockItem) {
@@ -84,8 +85,8 @@ public class BuilderbuildprocedureProcedure {
 									((PlayerEntity) entity).inventory.func_234564_a_(p -> _stktoremove.getItem() == p.getItem(), (int) 1,
 											((PlayerEntity) entity).container.func_234641_j_());
 								}
-								if ((((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY))
-										.getDamage()) < 745)) {
+								if ((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY))
+										.getDamage() < 745) {
 									{
 										ItemStack _ist = ((entity instanceof LivingEntity)
 												? ((LivingEntity) entity).getHeldItemMainhand()
@@ -108,11 +109,11 @@ public class BuilderbuildprocedureProcedure {
 								break;
 							}
 						}
-						sz = (double) (sz + 1);
+						sz = (sz + 1);
 					}
-					sy = (double) (sy + 1);
+					sy = (sy + 1);
 				}
-				sx = (double) (sx + 1);
+				sx = (sx + 1);
 			}
 			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
 				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("Builded"), (false));

@@ -17,8 +17,10 @@ import net.minecraft.item.HoeItem;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.block.BlockState;
 
+import java.util.stream.Stream;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.AbstractMap;
 
 import industrialeconomy.procedures.DiamondSteelHOeRightClickedOnBlockProcedure;
 
@@ -28,6 +30,7 @@ import industrialeconomy.IndustrialEconomyModElements;
 public class DiamondSteelHOeItem extends IndustrialEconomyModElements.ModElement {
 	@ObjectHolder("industrial_economy:diamond_steel_h_oe")
 	public static final Item block = null;
+
 	public DiamondSteelHOeItem(IndustrialEconomyModElements instance) {
 		super(instance, 444);
 	}
@@ -71,15 +74,12 @@ public class DiamondSteelHOeItem extends IndustrialEconomyModElements.ModElement
 				int y = pos.getY();
 				int z = pos.getZ();
 				ItemStack itemstack = context.getItem();
-				{
-					Map<String, Object> $_dependencies = new HashMap<>();
-					$_dependencies.put("entity", entity);
-					$_dependencies.put("x", x);
-					$_dependencies.put("y", y);
-					$_dependencies.put("z", z);
-					$_dependencies.put("world", world);
-					DiamondSteelHOeRightClickedOnBlockProcedure.executeProcedure($_dependencies);
-				}
+
+				DiamondSteelHOeRightClickedOnBlockProcedure.executeProcedure(Stream
+						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
+								new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z),
+								new AbstractMap.SimpleEntry<>("entity", entity))
+						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				return retval;
 			}
 		}.setRegistryName("diamond_steel_h_oe"));

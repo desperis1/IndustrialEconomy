@@ -24,6 +24,7 @@ import com.google.common.collect.ImmutableMultimap;
 public class OxygencanisterItem extends IndustrialEconomyModElements.ModElement {
 	@ObjectHolder("industrial_economy:oxygencanister")
 	public static final Item block = null;
+
 	public OxygencanisterItem(IndustrialEconomyModElements instance) {
 		super(instance, 475);
 	}
@@ -33,6 +34,7 @@ public class OxygencanisterItem extends IndustrialEconomyModElements.ModElement 
 		elements.items.add(() -> new ItemToolCustom() {
 		}.setRegistryName("oxygencanister"));
 	}
+
 	private static class ItemToolCustom extends Item {
 		protected ItemToolCustom() {
 			super(new Item.Properties().group(ItemGroup.TOOLS).maxDamage(1000));

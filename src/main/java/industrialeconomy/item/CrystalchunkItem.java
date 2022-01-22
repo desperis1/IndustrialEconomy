@@ -17,6 +17,7 @@ import industrialeconomy.IndustrialEconomyModElements;
 public class CrystalchunkItem extends IndustrialEconomyModElements.ModElement {
 	@ObjectHolder("industrial_economy:crystalchunk")
 	public static final Item block = null;
+
 	public CrystalchunkItem(IndustrialEconomyModElements instance) {
 		super(instance, 502);
 	}
@@ -25,6 +26,7 @@ public class CrystalchunkItem extends IndustrialEconomyModElements.ModElement {
 	public void initElements() {
 		elements.items.add(() -> new ItemCustom());
 	}
+
 	public static class ItemCustom extends Item {
 		public ItemCustom() {
 			super(new Item.Properties().group(ItemGroup.MISC).maxStackSize(64).rarity(Rarity.COMMON));

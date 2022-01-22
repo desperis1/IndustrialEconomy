@@ -24,10 +24,11 @@ import industrialeconomy.block.CopperNodeBlock;
 import industrialeconomy.IndustrialEconomyMod;
 
 public class CopperNodeBlockIsPlacedByProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency entity for procedure CopperNodeBlockIsPlacedBy!");
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency world for procedure CopperNodeBlockIsPlacedBy!");
 			return;
 		}
 		if (dependencies.get("x") == null) {
@@ -45,19 +46,19 @@ public class CopperNodeBlockIsPlacedByProcedure {
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency z for procedure CopperNodeBlockIsPlacedBy!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency world for procedure CopperNodeBlockIsPlacedBy!");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency entity for procedure CopperNodeBlockIsPlacedBy!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
-		if ((((world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z))).getBlock() == Blocks.DIRT)
-				|| (((world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z))).getBlock() == Blocks.STONE)
-						|| ((world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z))).getBlock() == Blocks.GRASS_BLOCK)))) {
+		Entity entity = (Entity) dependencies.get("entity");
+		if ((world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z))).getBlock() == Blocks.DIRT
+				|| (world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z))).getBlock() == Blocks.STONE
+				|| (world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z))).getBlock() == Blocks.GRASS_BLOCK) {
 			world.setBlockState(new BlockPos((int) x, (int) y, (int) z), Blocks.AIR.getDefaultState(), 3);
 			world.setBlockState(new BlockPos((int) x, (int) (y - 1), (int) z), CopperNodeBlock.block.getDefaultState(), 3);
 			if (!world.isRemote()) {
@@ -75,7 +76,7 @@ public class CopperNodeBlockIsPlacedByProcedure {
 			world.setBlockState(new BlockPos((int) x, (int) (y - 1), (int) (z + 1)), CopperOreBlock.block.getDefaultState(), 3);
 		} else {
 			world.setBlockState(new BlockPos((int) x, (int) y, (int) z), Blocks.AIR.getDefaultState(), 3);
-			if ((new Object() {
+			if (new Object() {
 				public boolean checkGamemode(Entity _ent) {
 					if (_ent instanceof ServerPlayerEntity) {
 						return ((ServerPlayerEntity) _ent).interactionManager.getGameType() == GameType.SURVIVAL;
@@ -86,7 +87,7 @@ public class CopperNodeBlockIsPlacedByProcedure {
 					}
 					return false;
 				}
-			}.checkGamemode(entity))) {
+			}.checkGamemode(entity)) {
 				if (world instanceof World && !world.isRemote()) {
 					ItemEntity entityToSpawn = new ItemEntity((World) world, x, y, z, new ItemStack(CopperNodeBlock.block));
 					entityToSpawn.setPickupDelay((int) 1);

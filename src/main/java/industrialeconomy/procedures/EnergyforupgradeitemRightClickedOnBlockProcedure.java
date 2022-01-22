@@ -14,10 +14,11 @@ import java.util.Map;
 import industrialeconomy.IndustrialEconomyMod;
 
 public class EnergyforupgradeitemRightClickedOnBlockProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency entity for procedure EnergyforupgradeitemRightClickedOnBlock!");
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency world for procedure EnergyforupgradeitemRightClickedOnBlock!");
 			return;
 		}
 		if (dependencies.get("x") == null) {
@@ -35,16 +36,16 @@ public class EnergyforupgradeitemRightClickedOnBlockProcedure {
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency z for procedure EnergyforupgradeitemRightClickedOnBlock!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency world for procedure EnergyforupgradeitemRightClickedOnBlock!");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency entity for procedure EnergyforupgradeitemRightClickedOnBlock!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
+		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		IWorld world = (IWorld) dependencies.get("world");
+		Entity entity = (Entity) dependencies.get("entity");
 		if (!world.isRemote()) {
 			BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 			TileEntity _tileEntity = world.getTileEntity(_bp);
@@ -55,7 +56,7 @@ public class EnergyforupgradeitemRightClickedOnBlockProcedure {
 				((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 		}
 		if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-			((PlayerEntity) entity).sendStatusMessage(new StringTextComponent((("EnergyForUpgrade set to:  ") + "" + (1000000000))), (false));
+			((PlayerEntity) entity).sendStatusMessage(new StringTextComponent(("EnergyForUpgrade set to:  " + 1000000000)), (false));
 		}
 	}
 }

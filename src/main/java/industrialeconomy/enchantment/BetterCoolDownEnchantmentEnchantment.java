@@ -16,6 +16,7 @@ import industrialeconomy.IndustrialEconomyModElements;
 public class BetterCoolDownEnchantmentEnchantment extends IndustrialEconomyModElements.ModElement {
 	@ObjectHolder("industrial_economy:better_cool_down_enchantment")
 	public static final Enchantment enchantment = null;
+
 	public BetterCoolDownEnchantmentEnchantment(IndustrialEconomyModElements instance) {
 		super(instance, 298);
 	}
@@ -24,6 +25,7 @@ public class BetterCoolDownEnchantmentEnchantment extends IndustrialEconomyModEl
 	public void initElements() {
 		elements.enchantments.add(() -> new CustomEnchantment(EquipmentSlotType.MAINHAND).setRegistryName("better_cool_down_enchantment"));
 	}
+
 	public static class CustomEnchantment extends Enchantment {
 		public CustomEnchantment(EquipmentSlotType... slots) {
 			super(Enchantment.Rarity.VERY_RARE, EnchantmentType.ARMOR_CHEST, slots);

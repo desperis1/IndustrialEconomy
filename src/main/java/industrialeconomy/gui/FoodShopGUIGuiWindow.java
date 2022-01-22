@@ -29,6 +29,7 @@ public class FoodShopGUIGuiWindow extends ContainerScreen<FoodShopGUIGui.GuiCont
 	private int x, y, z;
 	private PlayerEntity entity;
 	private final static HashMap guistate = FoodShopGUIGui.guistate;
+
 	public FoodShopGUIGuiWindow(FoodShopGUIGui.GuiContainerMod container, PlayerInventory inventory, ITextComponent text) {
 		super(container, inventory, text);
 		this.world = container.world;
@@ -39,7 +40,9 @@ public class FoodShopGUIGuiWindow extends ContainerScreen<FoodShopGUIGui.GuiCont
 		this.xSize = 362;
 		this.ySize = 215;
 	}
+
 	private static final ResourceLocation texture = new ResourceLocation("industrial_economy:textures/food_shop_gui.png");
+
 	@Override
 	public void render(MatrixStack ms, int mouseX, int mouseY, float partialTicks) {
 		this.renderBackground(ms);

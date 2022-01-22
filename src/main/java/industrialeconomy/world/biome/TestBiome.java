@@ -41,10 +41,12 @@ import industrialeconomy.IndustrialEconomyModElements;
 @IndustrialEconomyModElements.ModElement.Tag
 public class TestBiome extends IndustrialEconomyModElements.ModElement {
 	public static Biome biome;
+
 	public TestBiome(IndustrialEconomyModElements instance) {
 		super(instance, 541);
 		FMLJavaModLoadingContext.get().getModEventBus().register(new BiomeRegisterHandler());
 	}
+
 	private static class BiomeRegisterHandler {
 		@SubscribeEvent
 		public void registerBiomes(RegistryEvent.Register<Biome> event) {
@@ -65,9 +67,11 @@ public class TestBiome extends IndustrialEconomyModElements.ModElement {
 			}
 		}
 	}
+
 	@Override
 	public void init(FMLCommonSetupEvent event) {
 	}
+
 	private static class CustomLeaveVineTreeDecorator extends LeaveVineTreeDecorator {
 		public static final CustomLeaveVineTreeDecorator instance = new CustomLeaveVineTreeDecorator();
 		public static com.mojang.serialization.Codec<LeaveVineTreeDecorator> codec;
@@ -78,6 +82,7 @@ public class TestBiome extends IndustrialEconomyModElements.ModElement {
 			tdt.setRegistryName("test_lvtd");
 			ForgeRegistries.TREE_DECORATOR_TYPES.register(tdt);
 		}
+
 		@Override
 		protected TreeDecoratorType<?> func_230380_a_() {
 			return tdt;
@@ -99,6 +104,7 @@ public class TestBiome extends IndustrialEconomyModElements.ModElement {
 			tdt.setRegistryName("test_tvtd");
 			ForgeRegistries.TREE_DECORATOR_TYPES.register(tdt);
 		}
+
 		@Override
 		protected TreeDecoratorType<?> func_230380_a_() {
 			return tdt;
@@ -120,6 +126,7 @@ public class TestBiome extends IndustrialEconomyModElements.ModElement {
 			tdt.setRegistryName("test_ctd");
 			ForgeRegistries.TREE_DECORATOR_TYPES.register(tdt);
 		}
+
 		public CustomCocoaTreeDecorator() {
 			super(0.2f);
 		}

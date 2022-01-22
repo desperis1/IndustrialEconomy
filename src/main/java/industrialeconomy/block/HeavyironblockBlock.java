@@ -25,6 +25,7 @@ import industrialeconomy.IndustrialEconomyModElements;
 public class HeavyironblockBlock extends IndustrialEconomyModElements.ModElement {
 	@ObjectHolder("industrial_economy:heavyironblock")
 	public static final Block block = null;
+
 	public HeavyironblockBlock(IndustrialEconomyModElements instance) {
 		super(instance, 181);
 	}
@@ -35,6 +36,7 @@ public class HeavyironblockBlock extends IndustrialEconomyModElements.ModElement
 		elements.items
 				.add(() -> new BlockItem(block, new Item.Properties().group(ProjectMEGAItemGroup.tab)).setRegistryName(block.getRegistryName()));
 	}
+
 	public static class CustomBlock extends Block {
 		public CustomBlock() {
 			super(Block.Properties.create(Material.ANVIL).sound(SoundType.ANVIL).hardnessAndResistance(50f, 50f).setLightLevel(s -> 0));

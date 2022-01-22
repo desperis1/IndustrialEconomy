@@ -29,6 +29,7 @@ public class AdminMenuGuiWindow extends ContainerScreen<AdminMenuGui.GuiContaine
 	private int x, y, z;
 	private PlayerEntity entity;
 	private final static HashMap guistate = AdminMenuGui.guistate;
+
 	public AdminMenuGuiWindow(AdminMenuGui.GuiContainerMod container, PlayerInventory inventory, ITextComponent text) {
 		super(container, inventory, text);
 		this.world = container.world;
@@ -39,7 +40,9 @@ public class AdminMenuGuiWindow extends ContainerScreen<AdminMenuGui.GuiContaine
 		this.xSize = 280;
 		this.ySize = 205;
 	}
+
 	private static final ResourceLocation texture = new ResourceLocation("industrial_economy:textures/admin_menu.png");
+
 	@Override
 	public void render(MatrixStack ms, int mouseX, int mouseY, float partialTicks) {
 		this.renderBackground(ms);

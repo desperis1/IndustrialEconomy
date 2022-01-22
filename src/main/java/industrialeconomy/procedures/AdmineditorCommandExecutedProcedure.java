@@ -15,7 +15,13 @@ import industrialeconomy.IndustrialEconomyModVariables;
 import industrialeconomy.IndustrialEconomyMod;
 
 public class AdmineditorCommandExecutedProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
+		if (dependencies.get("world") == null) {
+			if (!dependencies.containsKey("world"))
+				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency world for procedure AdmineditorCommandExecuted!");
+			return;
+		}
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency entity for procedure AdmineditorCommandExecuted!");
@@ -26,15 +32,10 @@ public class AdmineditorCommandExecutedProcedure {
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency cmdparams for procedure AdmineditorCommandExecuted!");
 			return;
 		}
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency world for procedure AdmineditorCommandExecuted!");
-			return;
-		}
+		IWorld world = (IWorld) dependencies.get("world");
 		Entity entity = (Entity) dependencies.get("entity");
 		HashMap cmdparams = (HashMap) dependencies.get("cmdparams");
-		IWorld world = (IWorld) dependencies.get("world");
-		if ((((new Object() {
+		if ((new Object() {
 			public String getText() {
 				String param = (String) cmdparams.get("0");
 				if (param != null) {
@@ -42,7 +43,7 @@ public class AdmineditorCommandExecutedProcedure {
 				}
 				return "";
 			}
-		}.getText())).equals(""))) {
+		}.getText()).equals("")) {
 			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
 				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("Example usage:"), (false));
 			}
@@ -50,7 +51,7 @@ public class AdmineditorCommandExecutedProcedure {
 				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("/admineditor playername true/false"), (false));
 			}
 		}
-		if (((!(((new Object() {
+		if (!(new Object() {
 			public String getText() {
 				String param = (String) cmdparams.get("1");
 				if (param != null) {
@@ -58,7 +59,7 @@ public class AdmineditorCommandExecutedProcedure {
 				}
 				return "";
 			}
-		}.getText())).equals(""))) && (((new Object() {
+		}.getText()).equals("") && (new Object() {
 			public String getText() {
 				String param = (String) cmdparams.get("2");
 				if (param != null) {
@@ -66,11 +67,11 @@ public class AdmineditorCommandExecutedProcedure {
 				}
 				return "";
 			}
-		}.getText())).equals("true")))) {
+		}.getText()).equals("true")) {
 			{
 				List<? extends PlayerEntity> _players = new ArrayList<>(world.getPlayers());
 				for (Entity entityiterator : _players) {
-					if ((((new Object() {
+					if ((new Object() {
 						public String getText() {
 							String param = (String) cmdparams.get("1");
 							if (param != null) {
@@ -78,16 +79,16 @@ public class AdmineditorCommandExecutedProcedure {
 							}
 							return "";
 						}
-					}.getText())).equals((entityiterator.getDisplayName().getString())))) {
+					}.getText()).equals(entityiterator.getDisplayName().getString())) {
 						{
-							boolean _setval = (boolean) (true);
+							boolean _setval = (true);
 							entityiterator.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 								capability.admin_editor = _setval;
 								capability.syncPlayerVariables(entityiterator);
 							});
 						}
 						if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-							((PlayerEntity) entity).sendStatusMessage(new StringTextComponent((("Player ") + "" + ((new Object() {
+							((PlayerEntity) entity).sendStatusMessage(new StringTextComponent(("Player " + (new Object() {
 								public String getText() {
 									String param = (String) cmdparams.get("1");
 									if (param != null) {
@@ -95,13 +96,13 @@ public class AdmineditorCommandExecutedProcedure {
 									}
 									return "";
 								}
-							}.getText())) + "" + ("now has Admin Editor Enabled!"))), (false));
+							}.getText()) + "now has Admin Editor Enabled!")), (false));
 						}
 					}
 				}
 			}
 		}
-		if (((!(((new Object() {
+		if (!(new Object() {
 			public String getText() {
 				String param = (String) cmdparams.get("1");
 				if (param != null) {
@@ -109,7 +110,7 @@ public class AdmineditorCommandExecutedProcedure {
 				}
 				return "";
 			}
-		}.getText())).equals(""))) && (((new Object() {
+		}.getText()).equals("") && (new Object() {
 			public String getText() {
 				String param = (String) cmdparams.get("2");
 				if (param != null) {
@@ -117,11 +118,11 @@ public class AdmineditorCommandExecutedProcedure {
 				}
 				return "";
 			}
-		}.getText())).equals("false")))) {
+		}.getText()).equals("false")) {
 			{
 				List<? extends PlayerEntity> _players = new ArrayList<>(world.getPlayers());
 				for (Entity entityiterator : _players) {
-					if ((((new Object() {
+					if ((new Object() {
 						public String getText() {
 							String param = (String) cmdparams.get("1");
 							if (param != null) {
@@ -129,16 +130,16 @@ public class AdmineditorCommandExecutedProcedure {
 							}
 							return "";
 						}
-					}.getText())).equals((entityiterator.getDisplayName().getString())))) {
+					}.getText()).equals(entityiterator.getDisplayName().getString())) {
 						{
-							boolean _setval = (boolean) (false);
+							boolean _setval = (false);
 							entityiterator.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 								capability.admin_editor = _setval;
 								capability.syncPlayerVariables(entityiterator);
 							});
 						}
 						if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-							((PlayerEntity) entity).sendStatusMessage(new StringTextComponent((("Player ") + "" + ((new Object() {
+							((PlayerEntity) entity).sendStatusMessage(new StringTextComponent(("Player " + (new Object() {
 								public String getText() {
 									String param = (String) cmdparams.get("1");
 									if (param != null) {
@@ -146,7 +147,7 @@ public class AdmineditorCommandExecutedProcedure {
 									}
 									return "";
 								}
-							}.getText())) + "" + ("now has Admin Editor disabled!"))), (false));
+							}.getText()) + "now has Admin Editor disabled!")), (false));
 						}
 					}
 				}

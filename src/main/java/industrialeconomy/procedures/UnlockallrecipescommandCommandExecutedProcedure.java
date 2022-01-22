@@ -13,6 +13,7 @@ import java.util.Iterator;
 import industrialeconomy.IndustrialEconomyMod;
 
 public class UnlockallrecipescommandCommandExecutedProcedure {
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))

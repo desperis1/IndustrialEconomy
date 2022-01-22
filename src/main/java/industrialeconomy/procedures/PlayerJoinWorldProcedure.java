@@ -36,19 +36,20 @@ public class PlayerJoinWorldProcedure {
 			executeProcedure(dependencies);
 		}
 	}
+
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("entity") == null) {
-			if (!dependencies.containsKey("entity"))
-				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency entity for procedure PlayerJoinWorld!");
-			return;
-		}
 		if (dependencies.get("world") == null) {
 			if (!dependencies.containsKey("world"))
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency world for procedure PlayerJoinWorld!");
 			return;
 		}
-		Entity entity = (Entity) dependencies.get("entity");
+		if (dependencies.get("entity") == null) {
+			if (!dependencies.containsKey("entity"))
+				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency entity for procedure PlayerJoinWorld!");
+			return;
+		}
 		IWorld world = (IWorld) dependencies.get("world");
+		Entity entity = (Entity) dependencies.get("entity");
 		if (!world.isRemote()) {
 			BlockPos _bp = new BlockPos((int) IndustrialEconomyModVariables.WorldVariables.get(world).server_x,
 					(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_y,
@@ -56,20 +57,22 @@ public class PlayerJoinWorldProcedure {
 			TileEntity _tileEntity = world.getTileEntity(_bp);
 			BlockState _bs = world.getBlockState(_bp);
 			if (_tileEntity != null)
-				_tileEntity.getTileData().putBoolean((((entity.getDisplayName().getString())) + "" + ("_") + "" + ("isOnline")), (true));
+				_tileEntity.getTileData().putBoolean((entity.getDisplayName().getString() + "_" + "isOnline"), (true));
 			if (world instanceof World)
 				((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 		}
 		if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-			((PlayerEntity) entity).sendStatusMessage(new StringTextComponent((("Hello ") + "" + ((entity.getDisplayName().getString())))), (false));
+			((PlayerEntity) entity).sendStatusMessage(new StringTextComponent(("Hello " + entity.getDisplayName().getString())), (false));
 		}
 		if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-			((PlayerEntity) entity).sendStatusMessage(
-					new StringTextComponent((("You have: ") + ""
-							+ (Math.round(((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-									.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money)))
-							+ "" + (" \u010F\u017C\u02DD"))),
-					(false));
+			((PlayerEntity) entity)
+					.sendStatusMessage(
+							new StringTextComponent(
+									("You have: "
+											+ Math.round((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+													.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money)
+											+ " \u010F\u017C\u02DD")),
+							(false));
 		}
 		if (!world.isRemote()) {
 			BlockPos _bp = new BlockPos((int) IndustrialEconomyModVariables.WorldVariables.get(world).server_x,
@@ -78,15 +81,15 @@ public class PlayerJoinWorldProcedure {
 			TileEntity _tileEntity = world.getTileEntity(_bp);
 			BlockState _bs = world.getBlockState(_bp);
 			if (_tileEntity != null)
-				_tileEntity.getTileData().putDouble((((entity.getDisplayName().getString())) + "" + ("_minerLevel")),
+				_tileEntity.getTileData().putDouble((entity.getDisplayName().getString() + "_minerLevel"),
 						((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 								.orElse(new IndustrialEconomyModVariables.PlayerVariables())).miners_level));
 			if (world instanceof World)
 				((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 		}
 		{
-			double _setval = (double) Math.round(((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-					.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money));
+			double _setval = Math.round((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+					.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money);
 			entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
 				capability.player_money = _setval;
 				capability.syncPlayerVariables(entity);

@@ -17,8 +17,10 @@ import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.Entity;
 
+import java.util.stream.Stream;
 import java.util.Map;
 import java.util.HashMap;
+import java.util.AbstractMap;
 
 import industrialeconomy.procedures.DiamondSteelArmorLeggingsTickEventProcedure;
 import industrialeconomy.procedures.DiamondSteelArmorHelmetTickEventProcedure;
@@ -39,6 +41,7 @@ public class DiamondSteelArmorItem extends IndustrialEconomyModElements.ModEleme
 	public static final Item legs = null;
 	@ObjectHolder("industrial_economy:diamond_steel_armor_boots")
 	public static final Item boots = null;
+
 	public DiamondSteelArmorItem(IndustrialEconomyModElements instance) {
 		super(instance, 183);
 	}
@@ -99,11 +102,9 @@ public class DiamondSteelArmorItem extends IndustrialEconomyModElements.ModEleme
 				double x = entity.getPosX();
 				double y = entity.getPosY();
 				double z = entity.getPosZ();
-				{
-					Map<String, Object> $_dependencies = new HashMap<>();
-					$_dependencies.put("entity", entity);
-					DiamondSteelArmorHelmetTickEventProcedure.executeProcedure($_dependencies);
-				}
+
+				DiamondSteelArmorHelmetTickEventProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity))
+						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			}
 		}.setRegistryName("diamond_steel_armor_helmet"));
 		elements.items.add(() -> new ArmorItem(armormaterial, EquipmentSlotType.CHEST, new Item.Properties().group(ProjectMEGAItemGroup.tab)) {
@@ -117,15 +118,12 @@ public class DiamondSteelArmorItem extends IndustrialEconomyModElements.ModEleme
 				double x = entity.getPosX();
 				double y = entity.getPosY();
 				double z = entity.getPosZ();
-				{
-					Map<String, Object> $_dependencies = new HashMap<>();
-					$_dependencies.put("entity", entity);
-					$_dependencies.put("x", x);
-					$_dependencies.put("y", y);
-					$_dependencies.put("z", z);
-					$_dependencies.put("world", world);
-					DiamondSteelArmorBodyTickEventProcedure.executeProcedure($_dependencies);
-				}
+
+				DiamondSteelArmorBodyTickEventProcedure.executeProcedure(Stream
+						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
+								new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z),
+								new AbstractMap.SimpleEntry<>("entity", entity))
+						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			}
 		}.setRegistryName("diamond_steel_armor_chestplate"));
 		elements.items.add(() -> new ArmorItem(armormaterial, EquipmentSlotType.LEGS, new Item.Properties().group(ProjectMEGAItemGroup.tab)) {
@@ -139,11 +137,9 @@ public class DiamondSteelArmorItem extends IndustrialEconomyModElements.ModEleme
 				double x = entity.getPosX();
 				double y = entity.getPosY();
 				double z = entity.getPosZ();
-				{
-					Map<String, Object> $_dependencies = new HashMap<>();
-					$_dependencies.put("entity", entity);
-					DiamondSteelArmorLeggingsTickEventProcedure.executeProcedure($_dependencies);
-				}
+
+				DiamondSteelArmorLeggingsTickEventProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity))
+						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			}
 		}.setRegistryName("diamond_steel_armor_leggings"));
 		elements.items.add(() -> new ArmorItem(armormaterial, EquipmentSlotType.FEET, new Item.Properties().group(ProjectMEGAItemGroup.tab)) {
@@ -157,12 +153,11 @@ public class DiamondSteelArmorItem extends IndustrialEconomyModElements.ModEleme
 				double x = entity.getPosX();
 				double y = entity.getPosY();
 				double z = entity.getPosZ();
-				{
-					Map<String, Object> $_dependencies = new HashMap<>();
-					$_dependencies.put("entity", entity);
-					DiamondSteelArmorBootsTickEventProcedure.executeProcedure($_dependencies);
-				}
+
+				DiamondSteelArmorBootsTickEventProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity))
+						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			}
 		}.setRegistryName("diamond_steel_armor_boots"));
 	}
+
 }
