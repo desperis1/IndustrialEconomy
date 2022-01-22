@@ -79,11 +79,8 @@ public class ATMGUIGuiWindow extends ContainerScreen<ATMGUIGui.GuiContainerMod> 
 	@Override
 	protected void drawGuiContainerForegroundLayer(MatrixStack ms, int mouseX, int mouseY) {
 		this.font.drawString(ms, "ATM", 127, 4, -12829636);
-		this.font
-				.drawString(ms,
-						"Money: " + ((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-								.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money) + " \u010F\u017C\u02DD",
-						5, 216, -12829636);
+		this.font.drawString(ms, "Money: " + ((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+				.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money) + " \uFFFD", 5, 216, -12829636);
 		this.font.drawString(ms, "Deposit", 204, 116, -12829636);
 	}
 
