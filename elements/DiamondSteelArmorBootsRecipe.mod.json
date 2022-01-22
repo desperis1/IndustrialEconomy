@@ -10,13 +10,13 @@
     "recipeShapeless": false,
     "recipeSlots": [
       {
-        "value": ""
+        "value": "CUSTOM:Highspeedconectoritem"
       },
       {
         "value": ""
       },
       {
-        "value": ""
+        "value": "CUSTOM:Highspeedconectoritem"
       },
       {
         "value": "CUSTOM:Diamondsteelplate"

@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "01",
+    " 3",
+    " 5"
+  ],
+  "key": {
+    "0": {
+      "item": "industrial_economy:steel_block"
+    },
+    "1": {
+      "item": "industrial_economy:steel_block"
+    },
+    "3": {
+      "item": "minecraft:iron_block"
+    },
+    "5": {
+      "item": "minecraft:iron_block"
+    }
+  },
+  "result": {
+    "item": "industrial_economy:steel_tool_s_hoe",
+    "count": 1
+  }
+}

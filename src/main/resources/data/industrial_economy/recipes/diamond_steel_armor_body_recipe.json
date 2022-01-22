@@ -2,13 +2,16 @@
   "group": "diamondsteelarmorchestplate",
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "0 2",
+    "012",
     "345",
     "678"
   ],
   "key": {
     "0": {
       "item": "industrial_economy:diamondsteelplate"
+    },
+    "1": {
+      "item": "industrial_economy:cpu"
     },
     "2": {
       "item": "industrial_economy:diamondsteelplate"

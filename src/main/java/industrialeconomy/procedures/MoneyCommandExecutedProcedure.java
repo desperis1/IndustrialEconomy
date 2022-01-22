@@ -48,12 +48,11 @@ public class MoneyCommandExecutedProcedure {
 			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
 				((PlayerEntity) entity)
 						.sendStatusMessage(
-								new StringTextComponent(
-										("You have: "
-												+ new java.text.DecimalFormat("#")
-														.format((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-																.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money)
-												+ " \uFFFD")),
+								new StringTextComponent(("You have: "
+										+ new java.text.DecimalFormat("#")
+												.format((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+														.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money)
+										+ " \u010F\u017C\u02DD")),
 								(false));
 			}
 		} else if ((new Object() {
@@ -98,7 +97,7 @@ public class MoneyCommandExecutedProcedure {
 						}
 						return "";
 					}
-				}.getText()) + " \uFFFD " + "sucessfully added.")), (false));
+				}.getText()) + " \u010F\u017C\u02DD " + "sucessfully added.")), (false));
 			}
 		} else if ((new Object() {
 			public String getText() {
@@ -189,12 +188,15 @@ public class MoneyCommandExecutedProcedure {
 								}
 								if (entityiterator instanceof PlayerEntity && !entityiterator.world.isRemote()) {
 									((PlayerEntity) entityiterator).sendStatusMessage(
-											new StringTextComponent(("You receive " + amount + "\uFFFD from " + entity.getDisplayName().getString())),
+											new StringTextComponent(
+													("You receive " + amount + "\u010F\u017C\u02DD from " + entity.getDisplayName().getString())),
 											(false));
 								}
 								if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-									((PlayerEntity) entity).sendStatusMessage(new StringTextComponent(
-											("You send " + amount + "\uFFFD to " + entityiterator.getDisplayName().getString())), (false));
+									((PlayerEntity) entity).sendStatusMessage(
+											new StringTextComponent(
+													("You send " + amount + "\u010F\u017C\u02DD to " + entityiterator.getDisplayName().getString())),
+											(false));
 								}
 							}
 						}
@@ -268,7 +270,7 @@ public class MoneyCommandExecutedProcedure {
 								}.getText()) + " have "
 										+ Math.round((entityiterator.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 												.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money)
-										+ " \uFFFD")), (false));
+										+ " \u010F\u017C\u02DD")), (false));
 							}
 						}
 					}

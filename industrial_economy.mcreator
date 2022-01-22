@@ -7785,6 +7785,107 @@
       "path": "~/SpaceSuit"
     },
     {
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+      "name": "SteelToolSPickaxe",
+      "type": "tool",
+      "sortid": 546,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "steel_tool_s_pickaxe",
+      "path": "~/Tools/SteelTools"
+    },
+    {
+      "name": "SteelToolSAxe",
+      "type": "tool",
+      "sortid": 547,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "steel_tool_s_axe",
+      "path": "~/Tools/SteelTools"
+    },
+    {
+      "name": "SteelToolSSword",
+      "type": "tool",
+      "sortid": 548,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "steel_tool_s_sword",
+      "path": "~/Tools/SteelTools"
+    },
+    {
+      "name": "SteelToolSShovel",
+      "type": "tool",
+      "sortid": 549,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "steel_tool_s_shovel",
+      "path": "~/Tools/SteelTools"
+    },
+    {
+      "name": "SteelToolSHoe",
+      "type": "tool",
+      "sortid": 550,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "steel_tool_s_hoe",
+      "path": "~/Tools/SteelTools"
+    },
+    {
+      "name": "SteelToolSPickaxeRecipe",
+      "type": "recipe",
+      "sortid": 551,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "steel_tool_s_pickaxe_recipe",
+      "path": "~/Tools/SteelTools"
+    },
+    {
+      "name": "SteelToolSAxeRecipe",
+      "type": "recipe",
+      "sortid": 552,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "steel_tool_s_axe_recipe",
+      "path": "~/Tools/SteelTools"
+    },
+    {
+      "name": "SteelToolSSwordRecipe",
+      "type": "recipe",
+      "sortid": 553,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "steel_tool_s_sword_recipe",
+      "path": "~/Tools/SteelTools"
+    },
+    {
+      "name": "SteelToolSShovelRecipe",
+      "type": "recipe",
+      "sortid": 554,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "steel_tool_s_shovel_recipe",
+      "path": "~/Tools/SteelTools"
+    },
+    {
+      "name": "SteelToolSHoeRecipe",
+      "type": "recipe",
+      "sortid": 555,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "steel_tool_s_hoe_recipe",
+      "path": "~/Tools/SteelTools"
+    },
+    {
+      "name": "MAM",
+      "type": "block",
+      "sortid": 556,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "mam"
+=======
+>>>>>>> Stashed changes
       "name": "Testset",
       "type": "command",
       "sortid": 546,
@@ -7816,6 +7917,10 @@
         "dependencies": []
       },
       "path": "~/Extra"
+<<<<<<< Updated upstream
+=======
+>>>>>>> f9a0c2992cf62ffc3b1e29a2f63b8ea3ab23ff83
+>>>>>>> Stashed changes
     }
   ],
   "variable_elements": [
@@ -8282,6 +8387,7 @@
     "en_us": {
       "block.industrial_economy.orange_concrete_slab": "Orange Concrete Slab",
       "item.industrial_economy.space_suit_with_canister_helmet": "Space Suit With Canister Helmet",
+      "item.industrial_economy.steel_tool_s_pickaxe": "SteelToolS Pickaxe",
       "item.mega_project.redstoneingotitem": "Redstone Ingot",
       "block.mega_project.generatormk_2": "Generator MK2",
       "item.satis_mine.control_unit": "Control Unit",
@@ -8323,11 +8429,11 @@
       "item.industrial_economy.plasma_rangeditem": "Plasma RANGEDITEM",
       "key.satis_mine.node_scanner_modes_keybind": "Node Scanner Modes",
       "block.industrial_economy.assemblerblock": "Assembler",
-      "block.satis_mine.lime_concrete_stairs": "Lime Concrete Stairs",
       "advancements.rudit_ingotadvancement.descr": "Advanced Redstone",
-      "item.industrial_economy.diamond_steel_armor_boots": "DiamondS teel Boots",
-      "item.mega_project.diamondscrewitem": "Diamond screw",
+      "block.satis_mine.lime_concrete_stairs": "Lime Concrete Stairs",
       "item.mega_project.diamond_steel_armor_chestplate": "Diamond Steel Chestplate",
+      "item.mega_project.diamondscrewitem": "Diamond screw",
+      "item.industrial_economy.diamond_steel_armor_boots": "DiamondS teel Boots",
       "block.mega_project.haarp": "Haarp!",
       "block.industrial_economy.armorchargermk_2": "Armor Charger MK2",
       "key.satis_mine.plasmashootkeybind": "Plasma Shoot",
@@ -8361,8 +8467,8 @@
       "block.industrial_economy.energyplazma": "Energy Plazma",
       "block.mega_project.gray_concrete_slab": "Gray Concrete Slab",
       "block.satis_mine.blue_concrete_slab": "Blue Concrete Slab",
-      "block.satis_mine.modularframe": "Modular Frame",
       "block.satis_mine.magenta_concrete_slab": "Magenta Concrete Slab",
+      "block.satis_mine.modularframe": "Modular Frame",
       "block.mega_project.purple_concrete_slab": "Purple Concrete Slab",
       "block.industrial_economy.black_concrete_slab": "Black Concrete Slab",
       "block.satis_mine.limestoneactive": "Limestoneactive",
@@ -8375,11 +8481,12 @@
       "block.satis_mine.red_concrete_slab": "Red Concrete Slab",
       "block.industrial_economy.orange_concrete_stairs": "Orange Concrete Stairs",
       "item.industrial_economy.buildertool": "Builder Gun",
-      "block.industrial_economy.iron_ore_node_block": "Iron Ore Node Block(active)",
-      "block.satis_mine.yellow_concrete_stairs": "Yellow Concrete Stairs",
       "enchantment.satis_mine.better_cool_down_enchantment": "Better CoolDown",
+      "block.satis_mine.yellow_concrete_stairs": "Yellow Concrete Stairs",
+      "block.industrial_economy.iron_ore_node_block": "Iron Ore Node Block(active)",
       "block.industrial_economy.lime_concrete_slab": "Lime Concrete Slab",
       "block.mega_project.heavyframe": "Heavy Frame",
+      "block.industrial_economy.mam": "M.A.M.",
       "block.satis_mine.heavyframe": "Heavy Frame",
       "item.industrial_economy.redstoneingotitem": "Redstone Ingot",
       "block.mega_project.pink_concrete_stairs": "Pink Concrete Stairs",
@@ -8388,8 +8495,8 @@
       "effect.oxygen_effect": "Pure Oxygen",
       "item.industrial_economy.emptymodule": "Empty Module",
       "block.satis_mine.pink_concrete_stairs": "Pink Concrete Stairs",
-      "block.industrial_economy.cyan_concrete_slab": "Cyan Concrete Slab",
       "block.satis_mine.coal_node": "Coal Node(active)",
+      "block.industrial_economy.cyan_concrete_slab": "Cyan Concrete Slab",
       "block.mega_project.purple_concrete_stairs": "Purple Concrete Stairs",
       "block.industrial_economy.crystal": "Crystal",
       "advancements.allrecipescheat.descr": "Unlock Recipe Cheat",
@@ -8400,9 +8507,10 @@
       "block.satis_mine.light_gray_concrete_stairs": "Light Gray Concrete Stairs",
       "block.mega_project.orange_concrete_stairs": "Orange Concrete Stairs",
       "item.satis_mine.highspeedconectoritem": "High Speed Connector",
+      "item.industrial_economy.test_2": "Test 2 Portal Igniter",
       "item.mega_project.control_unit": "Control Unit",
-      "block.industrial_economy.position_1block": "Position 1",
       "item.industrial_economy.diamond_steel_armor_leggings": "Diamond Steel Leggings",
+      "block.industrial_economy.position_1block": "Position 1",
       "block.industrial_economy.red_concrete_stairs": "Red Concrete Stairs",
       "block.mega_project.magenta_concrete_slab": "Magenta Concrete Slab",
       "item.industrial_economy.cateriumroditem": "Caterium rod",
@@ -8454,6 +8562,7 @@
       "block.industrial_economy.green_concrete_slab": "Green Concrete Slab",
       "block.industrial_economy.steel_stone": "Steel Stone",
       "item.satis_mine.diamond_steelpickaxe": "Diamond Steel Pickaxe",
+      "item.industrial_economy.steel_tool_s_shovel": "SteelToolS Shovel",
       "block.mega_project.steel_block": "Steel Block",
       "block.satis_mine.armorchargermk_2": "Armor Charger MK2",
       "block.satis_mine.coal_extractor": "Coal Extractor",
@@ -8546,6 +8655,7 @@
       "block.satis_mine.armorcharger": "Armor Charger",
       "block.satis_mine.caterium_block": "Block of Caterium",
       "item.industrial_economy.energyforupgradeitem": "Energyforupgradeitem",
+      "item.industrial_economy.steel_tool_s_axe": "SteelToolS Axe",
       "item.satis_mine.diamond_steel_armor_leggings": "Diamond Steel Leggings",
       "block.industrial_economy.constructorblock": "Constructor",
       "block.industrial_economy.compressor": "Compressor",
@@ -8579,6 +8689,7 @@
       "block.mega_project.generator_mk_2inactive": "Generator MK 2",
       "block.mega_project.copper_block": "Block of Copper",
       "subtitles.jetpack_sound": "",
+      "item.industrial_economy.steel_tool_s_sword": "SteelToolS Sword",
       "block.mega_project.caterium_extractor": "Caterium Extractor",
       "item.satis_mine.steelingot": "Steel Ingot",
       "item.mega_project.screw": "Screw",
@@ -8649,6 +8760,7 @@
       "block.mega_project.yellow_concrete_slab": "Yellow Concrete Slab",
       "block.industrial_economy.magenta_concrete_stairs": "Magenta Concrete Stairs",
       "key.industrial_economy.node_scanner_modes_keybind": "Node Scanner Modes",
+      "item.industrial_economy.steel_tool_s_hoe": "SteelToolS Hoe",
       "block.mega_project.light_gray_concrete_slab": "Light Gray Concrete Slab",
       "block.mega_project.hub": "Hub",
       "block.mega_project.blue_concrete_stairs": "Blue Concrete Stairs",
@@ -8872,6 +8984,10 @@
           },
           {
             "name": "PocketChest",
+            "children": []
+          },
+          {
+            "name": "SteelTools",
             "children": []
           }
         ]

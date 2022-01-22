@@ -14,10 +14,10 @@
       "item": "industrial_economy:diamondsteelplate"
     },
     "3": {
-      "item": "industrial_economy:diamondsteelitem"
+      "item": "industrial_economy:diamond_steelblock"
     },
     "5": {
-      "item": "industrial_economy:diamondsteelitem"
+      "item": "industrial_economy:diamond_steelblock"
     }
   },
   "result": {

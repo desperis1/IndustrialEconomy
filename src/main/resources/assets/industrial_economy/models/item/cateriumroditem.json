@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "industrial_economy:items/cateriumrod"
+    "layer0": "industrial_economy:items/cateriumrodnew"
   }
 }

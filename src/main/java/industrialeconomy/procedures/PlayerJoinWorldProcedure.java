@@ -69,6 +69,33 @@ public class PlayerJoinWorldProcedure {
 				}
 			}
 		}
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+		if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
+			((PlayerEntity) entity)
+					.sendStatusMessage(
+							new StringTextComponent(
+									("You have: "
+											+ Math.round((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+													.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money)
+											+ " \u010F\u017C\u02DD")),
+							(false));
+		}
+		if (!world.isRemote()) {
+			BlockPos _bp = new BlockPos((int) IndustrialEconomyModVariables.WorldVariables.get(world).server_x,
+					(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_y,
+					(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_z);
+			TileEntity _tileEntity = world.getTileEntity(_bp);
+			BlockState _bs = world.getBlockState(_bp);
+			if (_tileEntity != null)
+				_tileEntity.getTileData().putDouble((entity.getDisplayName().getString() + "_minerLevel"),
+						((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+								.orElse(new IndustrialEconomyModVariables.PlayerVariables())).miners_level));
+			if (world instanceof World)
+				((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
+=======
+>>>>>>> Stashed changes
 		{
 			try {
 				BufferedReader bufferedReader = new BufferedReader(new FileReader(playerConfig));
@@ -84,6 +111,10 @@ public class PlayerJoinWorldProcedure {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+<<<<<<< Updated upstream
+=======
+>>>>>>> f9a0c2992cf62ffc3b1e29a2f63b8ea3ab23ff83
+>>>>>>> Stashed changes
 		}
 		{
 			Gson mainGSONBuilderVariable = new GsonBuilder().setPrettyPrinting().create();

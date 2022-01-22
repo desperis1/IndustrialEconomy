@@ -3,7 +3,7 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "012",
-    "3 5",
+    "345",
     "6 8"
   ],
   "key": {
@@ -18,6 +18,9 @@
     },
     "3": {
       "item": "industrial_economy:diamondsteelplate"
+    },
+    "4": {
+      "item": "industrial_economy:highspeedconectoritem"
     },
     "5": {
       "item": "industrial_economy:diamondsteelplate"

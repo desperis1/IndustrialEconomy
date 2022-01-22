@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "industrial_economy:blocks/mambok",
+    "up": "industrial_economy:blocks/mambok",
+    "north": "industrial_economy:blocks/mam",
+    "east": "industrial_economy:blocks/mam",
+    "south": "industrial_economy:blocks/mam",
+    "west": "industrial_economy:blocks/mam",
+    "particle": "industrial_economy:blocks/mambok"
+  }
+}
