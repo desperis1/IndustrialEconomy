@@ -8373,6 +8373,35 @@
         ]
       },
       "path": "~/Test"
+    },
+    {
+      "name": "Dztest",
+      "type": "procedure",
+      "sortid": 547,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "dztest",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Test"
     }
   ],
   "variable_elements": [
