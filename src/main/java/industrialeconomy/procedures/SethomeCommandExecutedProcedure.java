@@ -1,14 +1,23 @@
 package industrialeconomy.procedures;
 
+import net.minecraftforge.fml.loading.FMLPaths;
+
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.Entity;
 
 import java.util.Map;
 
-import industrialeconomy.IndustrialEconomyModVariables;
+import java.io.IOException;
+import java.io.FileWriter;
+import java.io.FileReader;
+import java.io.File;
+import java.io.BufferedReader;
 
 import industrialeconomy.IndustrialEconomyMod;
+
+import com.google.gson.GsonBuilder;
+import com.google.gson.Gson;
 
 public class SethomeCommandExecutedProcedure {
 
@@ -37,38 +46,42 @@ public class SethomeCommandExecutedProcedure {
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		Entity entity = (Entity) dependencies.get("entity");
+		File playerConfig = new File("");
+		com.google.gson.JsonObject mainObject = new com.google.gson.JsonObject();
+		playerConfig = (File) new File((FMLPaths.GAMEDIR.get().toString() + "/config/"),
+				File.separator + (entity.getDisplayName().getString() + ".json"));
 		{
-			double _setval = x;
-			entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-				capability.player_home_x = _setval;
-				capability.syncPlayerVariables(entity);
-			});
+			try {
+				BufferedReader bufferedReader = new BufferedReader(new FileReader(playerConfig));
+				StringBuilder jsonstringbuilder = new StringBuilder();
+				String line;
+				while ((line = bufferedReader.readLine()) != null) {
+					jsonstringbuilder.append(line);
+				}
+				bufferedReader.close();
+				mainObject = new Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
+				mainObject.addProperty("homeX", Math.round(x));
+				mainObject.addProperty("homeY", Math.round(y));
+				mainObject.addProperty("homeZ", Math.round(z));
+				mainObject.addProperty("homeDimension", ("" + entity.world.getDimensionKey()));
+				if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
+					((PlayerEntity) entity).sendStatusMessage(new StringTextComponent(
+							("Your Home was saved at:" + "X: " + Math.round(x) + "Y: " + Math.round(y) + "Z: " + Math.round(z))), (true));
+				}
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 		{
-			double _setval = y;
-			entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-				capability.player_home_y = _setval;
-				capability.syncPlayerVariables(entity);
-			});
-		}
-		{
-			double _setval = z;
-			entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-				capability.player_home_z = _setval;
-				capability.syncPlayerVariables(entity);
-			});
-		}
-		{
-			String _setval = ("" + entity.world.getDimensionKey());
-			entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-				capability.player_home_dimension = _setval;
-				capability.syncPlayerVariables(entity);
-			});
-		}
-		if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-			((PlayerEntity) entity).sendStatusMessage(
-					new StringTextComponent(("Your Home was saved at:" + "X: " + Math.round(x) + "Y: " + Math.round(y) + "Z: " + Math.round(z))),
-					(true));
+			Gson mainGSONBuilderVariable = new GsonBuilder().setPrettyPrinting().create();
+			try {
+				FileWriter fileWriter = new FileWriter(playerConfig);
+				fileWriter.write(mainGSONBuilderVariable.toJson(mainObject));
+				fileWriter.close();
+			} catch (IOException exception) {
+				exception.printStackTrace();
+			}
 		}
 	}
 }

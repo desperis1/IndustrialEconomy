@@ -75,6 +75,8 @@ import industrialeconomy.procedures.GeneratorMK1UpdateTickProcedure;
 import industrialeconomy.procedures.GeneratorMK1ClientDisplayRandomTickProcedure;
 import industrialeconomy.procedures.GeneratorMK1BlockIsPlacedByProcedure;
 
+import industrialeconomy.itemgroup.ProjectMEGAItemGroup;
+
 import industrialeconomy.gui.GeneratorMK1GuiGui;
 
 import industrialeconomy.IndustrialEconomyModElements;
@@ -94,7 +96,8 @@ public class GeneratorMK1Block extends IndustrialEconomyModElements.ModElement {
 	@Override
 	public void initElements() {
 		elements.blocks.add(() -> new CustomBlock());
-		elements.items.add(() -> new BlockItem(block, new Item.Properties().group(null)).setRegistryName(block.getRegistryName()));
+		elements.items
+				.add(() -> new BlockItem(block, new Item.Properties().group(ProjectMEGAItemGroup.tab)).setRegistryName(block.getRegistryName()));
 	}
 
 	private static class TileEntityRegisterHandler {
@@ -149,7 +152,7 @@ public class GeneratorMK1Block extends IndustrialEconomyModElements.ModElement {
 			List<ItemStack> dropsOriginal = super.getDrops(state, builder);
 			if (!dropsOriginal.isEmpty())
 				return dropsOriginal;
-			return Collections.singletonList(new ItemStack(GeneratorMK1inactiveBlock.block));
+			return Collections.singletonList(new ItemStack(this, 1));
 		}
 
 		@Override

@@ -39,7 +39,7 @@
     "hasGravity": false,
     "isWaterloggable": false,
     "creativeTab": {
-      "value": "No creative tab entry"
+      "value": "CUSTOM:ProjectMEGA"
     },
     "destroyTool": "Not specified",
     "customDrop": {
@@ -122,10 +122,13 @@
     "fluidCapacity": 8000,
     "fluidRestrictions": [],
     "onTickUpdate": {
-      "name": "Generatormk2UpdateTick"
+      "name": "GeneratorMK2UpdateTick"
     },
     "onRandomUpdateEvent": {
       "name": "Generatormk2ClientDisplayRandomTick"
+    },
+    "onBlockPlayedBy": {
+      "name": "GeneratorMK1BlockIsPlacedBy"
     },
     "spawnWorldTypes": [],
     "restrictionBiomes": [],

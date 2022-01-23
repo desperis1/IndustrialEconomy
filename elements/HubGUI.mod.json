@@ -216,12 +216,12 @@
       {
         "type": "label",
         "data": {
-          "text": "<VAR:miners_level>",
+          "text": "<VAR:minerLevel>",
           "color": {
             "value": -12829636,
             "falpha": 0.0
           },
-          "name": "<VAR:miners_level>",
+          "name": "<VAR:minerLevel>",
           "x": 346,
           "y": 219
         }
@@ -315,12 +315,12 @@
       {
         "type": "label",
         "data": {
-          "text": "<BNBT:number:EnergyForUpgrade>",
+          "text": "<BNBT:number:EnergyForMinerUpgrade>",
           "color": {
             "value": -12829636,
             "falpha": 0.0
           },
-          "name": "<BNBT:number:EnergyForUpgrade>",
+          "name": "<BNBT:number:EnergyForMinerUpgrade>",
           "x": 19,
           "y": 218
         }

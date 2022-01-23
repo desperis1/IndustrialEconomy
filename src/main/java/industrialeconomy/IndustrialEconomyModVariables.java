@@ -47,8 +47,7 @@ public class IndustrialEconomyModVariables {
 		CapabilityManager.INSTANCE.register(PlayerVariables.class, new PlayerVariablesStorage(), PlayerVariables::new);
 	}
 
-	public static File prices_config = new File("");
-	public static File playerconfig = new File("");
+	public static File prices = new File("");
 
 	@SubscribeEvent
 	public void onPlayerLoggedIn(PlayerEvent.PlayerLoggedInEvent event) {

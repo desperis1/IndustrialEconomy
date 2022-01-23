@@ -49,6 +49,7 @@ import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.client.Minecraft;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.SoundType;
@@ -69,8 +70,11 @@ import java.util.AbstractMap;
 
 import io.netty.buffer.Unpooled;
 
-import industrialeconomy.procedures.Generatormk2UpdateTickProcedure;
 import industrialeconomy.procedures.Generatormk2ClientDisplayRandomTickProcedure;
+import industrialeconomy.procedures.GeneratorMK2UpdateTickProcedure;
+import industrialeconomy.procedures.GeneratorMK1BlockIsPlacedByProcedure;
+
+import industrialeconomy.itemgroup.ProjectMEGAItemGroup;
 
 import industrialeconomy.gui.GeneratorMK2GUIGui;
 
@@ -91,7 +95,8 @@ public class Generatormk2Block extends IndustrialEconomyModElements.ModElement {
 	@Override
 	public void initElements() {
 		elements.blocks.add(() -> new CustomBlock());
-		elements.items.add(() -> new BlockItem(block, new Item.Properties().group(null)).setRegistryName(block.getRegistryName()));
+		elements.items
+				.add(() -> new BlockItem(block, new Item.Properties().group(ProjectMEGAItemGroup.tab)).setRegistryName(block.getRegistryName()));
 	}
 
 	private static class TileEntityRegisterHandler {
@@ -158,7 +163,7 @@ public class Generatormk2Block extends IndustrialEconomyModElements.ModElement {
 			int y = pos.getY();
 			int z = pos.getZ();
 
-			Generatormk2UpdateTickProcedure.executeProcedure(Stream
+			GeneratorMK2UpdateTickProcedure.executeProcedure(Stream
 					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
 							new AbstractMap.SimpleEntry<>("z", z))
 					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
@@ -177,6 +182,19 @@ public class Generatormk2Block extends IndustrialEconomyModElements.ModElement {
 			Generatormk2ClientDisplayRandomTickProcedure.executeProcedure(Stream
 					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
 							new AbstractMap.SimpleEntry<>("z", z))
+					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+		}
+
+		@Override
+		public void onBlockPlacedBy(World world, BlockPos pos, BlockState blockstate, LivingEntity entity, ItemStack itemstack) {
+			super.onBlockPlacedBy(world, pos, blockstate, entity, itemstack);
+			int x = pos.getX();
+			int y = pos.getY();
+			int z = pos.getZ();
+
+			GeneratorMK1BlockIsPlacedByProcedure.executeProcedure(Stream
+					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
+							new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
 					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 		}
 
