@@ -1,34 +1,6 @@
 package industrialeconomy.procedures;
 
-import net.minecraftforge.fml.loading.FMLPaths;
-
-import net.minecraft.world.server.ServerWorld;
-import net.minecraft.world.World;
-import net.minecraft.util.text.StringTextComponent;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.RegistryKey;
-import net.minecraft.potion.EffectInstance;
-import net.minecraft.network.play.server.SPlayerAbilitiesPacket;
-import net.minecraft.network.play.server.SPlaySoundEventPacket;
-import net.minecraft.network.play.server.SPlayEntityEffectPacket;
-import net.minecraft.network.play.server.SChangeGameStatePacket;
-import net.minecraft.entity.player.ServerPlayerEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.Entity;
-
-import java.util.Map;
-import java.util.Collections;
-
-import java.io.IOException;
-import java.io.FileWriter;
-import java.io.FileReader;
-import java.io.File;
-import java.io.BufferedReader;
-
-import industrialeconomy.IndustrialEconomyMod;
-
-import com.google.gson.GsonBuilder;
-import com.google.gson.Gson;
+import net.minecraftforge.eventbus.api.Event;
 
 public class HomeCommandExecutedProcedure {
 
@@ -53,10 +25,12 @@ public class HomeCommandExecutedProcedure {
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency entity for procedure HomeCommandExecuted!");
 			return;
 		}
+
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		Entity entity = (Entity) dependencies.get("entity");
+
 		File playerConfig = new File("");
 		com.google.gson.JsonObject mainObject = new com.google.gson.JsonObject();
 		playerConfig = (File) new File((FMLPaths.GAMEDIR.get().toString() + "/config/"),
@@ -70,6 +44,7 @@ public class HomeCommandExecutedProcedure {
 					jsonstringbuilder.append(line);
 				}
 				bufferedReader.close();
+
 				mainObject = new Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
 				mainObject.addProperty("backX", Math.round(x));
 				mainObject.addProperty("backY", Math.round(y));
@@ -81,6 +56,7 @@ public class HomeCommandExecutedProcedure {
 						Entity _ent = entity;
 						if (!_ent.world.isRemote && _ent instanceof ServerPlayerEntity) {
 							RegistryKey<World> destinationType = World.OVERWORLD;
+
 							ServerWorld nextWorld = _ent.getServer().getWorld(destinationType);
 							if (nextWorld != null) {
 								((ServerPlayerEntity) _ent).connection
@@ -116,6 +92,7 @@ public class HomeCommandExecutedProcedure {
 						Entity _ent = entity;
 						if (!_ent.world.isRemote && _ent instanceof ServerPlayerEntity) {
 							RegistryKey<World> destinationType = World.THE_NETHER;
+
 							ServerWorld nextWorld = _ent.getServer().getWorld(destinationType);
 							if (nextWorld != null) {
 								((ServerPlayerEntity) _ent).connection
@@ -151,6 +128,7 @@ public class HomeCommandExecutedProcedure {
 						Entity _ent = entity;
 						if (!_ent.world.isRemote && _ent instanceof ServerPlayerEntity) {
 							RegistryKey<World> destinationType = World.THE_END;
+
 							ServerWorld nextWorld = _ent.getServer().getWorld(destinationType);
 							if (nextWorld != null) {
 								((ServerPlayerEntity) _ent).connection
@@ -201,6 +179,7 @@ public class HomeCommandExecutedProcedure {
 		}
 		{
 			Gson mainGSONBuilderVariable = new GsonBuilder().setPrettyPrinting().create();
+
 			try {
 				FileWriter fileWriter = new FileWriter(playerConfig);
 				fileWriter.write(mainGSONBuilderVariable.toJson(mainObject));
@@ -210,4 +189,5 @@ public class HomeCommandExecutedProcedure {
 			}
 		}
 	}
+
 }

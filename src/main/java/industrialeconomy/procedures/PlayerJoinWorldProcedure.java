@@ -1,27 +1,9 @@
 package industrialeconomy.procedures;
 
-import net.minecraftforge.fml.loading.FMLPaths;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.event.entity.player.PlayerEvent;
-
-import net.minecraft.entity.Entity;
-
-import java.util.Map;
-import java.util.HashMap;
-
-import java.io.IOException;
-import java.io.FileWriter;
-import java.io.FileReader;
-import java.io.File;
-import java.io.BufferedReader;
-
-import industrialeconomy.IndustrialEconomyMod;
-
-import com.google.gson.GsonBuilder;
-import com.google.gson.Gson;
+import net.minecraftforge.eventbus.api.Event;
 
 public class PlayerJoinWorldProcedure {
+
 	@Mod.EventBusSubscriber
 	private static class GlobalTrigger {
 		@SubscribeEvent
@@ -44,7 +26,9 @@ public class PlayerJoinWorldProcedure {
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency entity for procedure PlayerJoinWorld!");
 			return;
 		}
+
 		Entity entity = (Entity) dependencies.get("entity");
+
 		File playerConfig = new File("");
 		com.google.gson.JsonObject mainObject = new com.google.gson.JsonObject();
 		playerConfig = (File) new File((FMLPaths.GAMEDIR.get().toString() + "/config/"),
@@ -60,6 +44,7 @@ public class PlayerJoinWorldProcedure {
 			mainObject.addProperty("Money", 0);
 			{
 				Gson mainGSONBuilderVariable = new GsonBuilder().setPrettyPrinting().create();
+
 				try {
 					FileWriter fileWriter = new FileWriter(playerConfig);
 					fileWriter.write(mainGSONBuilderVariable.toJson(mainObject));
@@ -78,6 +63,7 @@ public class PlayerJoinWorldProcedure {
 					jsonstringbuilder.append(line);
 				}
 				bufferedReader.close();
+
 				mainObject = new Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
 				mainObject.addProperty("isOnline", (true));
 
@@ -87,6 +73,7 @@ public class PlayerJoinWorldProcedure {
 		}
 		{
 			Gson mainGSONBuilderVariable = new GsonBuilder().setPrettyPrinting().create();
+
 			try {
 				FileWriter fileWriter = new FileWriter(playerConfig);
 				fileWriter.write(mainGSONBuilderVariable.toJson(mainObject));
@@ -96,4 +83,5 @@ public class PlayerJoinWorldProcedure {
 			}
 		}
 	}
+
 }

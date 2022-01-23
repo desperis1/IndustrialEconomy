@@ -1,23 +1,6 @@
 package industrialeconomy.procedures;
 
-import net.minecraftforge.fml.loading.FMLPaths;
-
-import net.minecraft.util.text.StringTextComponent;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.Entity;
-
-import java.util.Map;
-
-import java.io.IOException;
-import java.io.FileWriter;
-import java.io.FileReader;
-import java.io.File;
-import java.io.BufferedReader;
-
-import industrialeconomy.IndustrialEconomyMod;
-
-import com.google.gson.GsonBuilder;
-import com.google.gson.Gson;
+import net.minecraftforge.eventbus.api.Event;
 
 public class SethomeCommandExecutedProcedure {
 
@@ -42,10 +25,12 @@ public class SethomeCommandExecutedProcedure {
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency entity for procedure SethomeCommandExecuted!");
 			return;
 		}
+
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		Entity entity = (Entity) dependencies.get("entity");
+
 		File playerConfig = new File("");
 		com.google.gson.JsonObject mainObject = new com.google.gson.JsonObject();
 		playerConfig = (File) new File((FMLPaths.GAMEDIR.get().toString() + "/config/"),
@@ -59,6 +44,7 @@ public class SethomeCommandExecutedProcedure {
 					jsonstringbuilder.append(line);
 				}
 				bufferedReader.close();
+
 				mainObject = new Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
 				mainObject.addProperty("homeX", Math.round(x));
 				mainObject.addProperty("homeY", Math.round(y));
@@ -75,6 +61,7 @@ public class SethomeCommandExecutedProcedure {
 		}
 		{
 			Gson mainGSONBuilderVariable = new GsonBuilder().setPrettyPrinting().create();
+
 			try {
 				FileWriter fileWriter = new FileWriter(playerConfig);
 				fileWriter.write(mainGSONBuilderVariable.toJson(mainObject));
@@ -84,4 +71,5 @@ public class SethomeCommandExecutedProcedure {
 			}
 		}
 	}
+
 }

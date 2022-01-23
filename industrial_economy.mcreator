@@ -1488,6 +1488,35 @@
       "path": "~/Machines/Presser"
     },
     {
+      "name": "HomeCommandExecuted",
+      "type": "procedure",
+      "sortid": 81,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "home_command_executed",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          }
+        ]
+      },
+      "path": "~/Commands"
+    },
+    {
       "name": "Allrecipescheat",
       "type": "achievement",
       "sortid": 90,
@@ -1513,6 +1542,15 @@
       "locked_code": false,
       "registry_name": "copperadvancement",
       "path": "~/Achievments"
+    },
+    {
+      "name": "Home",
+      "type": "command",
+      "sortid": 81,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "home",
+      "path": "~/Commands"
     },
     {
       "name": "Backcommand",
@@ -1689,6 +1727,35 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "generator_mk_2_gui",
+      "path": "~/Machines/GeneratorMK2"
+    },
+    {
+      "name": "Generatormk2UpdateTick",
+      "type": "procedure",
+      "sortid": 104,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "generatormk_2_update_tick",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
       "path": "~/Machines/GeneratorMK2"
     },
     {
@@ -2538,6 +2605,53 @@
       "path": "~/Machines/Extractors"
     },
     {
+      "name": "GeneratorMK1inactive",
+      "type": "block",
+      "sortid": 158,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "generator_mk_1inactive",
+      "path": "~/Machines/GeneratorMK1"
+    },
+    {
+      "name": "GeneratorMK2inactive",
+      "type": "block",
+      "sortid": 159,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "generator_mk_2inactive",
+      "path": "~/Machines/GeneratorMK2"
+    },
+    {
+      "name": "GeneratorMK1inactiveUpdateTick",
+      "type": "procedure",
+      "sortid": 160,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "generator_mk_1inactive_update_tick",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Machines/GeneratorMK1"
+    },
+    {
       "name": "Minerinactive",
       "type": "block",
       "sortid": 161,
@@ -2624,6 +2738,35 @@
         "dependencies": []
       },
       "path": "~/Machines/ElectricFurnanceMK1"
+    },
+    {
+      "name": "GeneratorMK2inactiveUpdateTick",
+      "type": "procedure",
+      "sortid": 166,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "generator_mk_2inactive_update_tick",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Machines/GeneratorMK2"
     },
     {
       "name": "DiamondSteelpickaxeBlockDestroyedWithTool",
@@ -5360,6 +5503,104 @@
       "path": "~/Items"
     },
     {
+      "name": "LandCommandExecuted",
+      "type": "procedure",
+      "sortid": 388,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "land_command_executed",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "cmdparams",
+            "type": "map"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Commands/Land"
+    },
+    {
+      "name": "Land",
+      "type": "command",
+      "sortid": 388,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "land",
+      "path": "~/Commands/Land"
+    },
+    {
+      "name": "WorldGridCheck",
+      "type": "procedure",
+      "sortid": 389,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "world_grid_check",
+      "metadata": {
+        "return_type": "logic",
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Extra"
+    },
+    {
+      "name": "WorldGridDestroyedBlock",
+      "type": "procedure",
+      "sortid": 390,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "world_grid_destroyed_block",
+      "metadata": {
+        "return_type": "logic",
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Extra"
+    },
+    {
       "name": "MoneyCommandExecuted",
       "type": "procedure",
       "sortid": 391,
@@ -5422,6 +5663,86 @@
       "locked_code": false,
       "registry_name": "sellhand",
       "path": "~/Commands/Sell"
+    },
+    {
+      "name": "CityCommandExecuted",
+      "type": "procedure",
+      "sortid": 393,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "city_command_executed",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "cmdparams",
+            "type": "map"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Commands/City"
+    },
+    {
+      "name": "City",
+      "type": "command",
+      "sortid": 393,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "city",
+      "path": "~/Commands/City"
+    },
+    {
+      "name": "LandUseDoor",
+      "type": "procedure",
+      "sortid": 394,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "land_use_door",
+      "metadata": {
+        "return_type": "logic",
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Extra"
     },
     {
       "name": "IronextractorBlockIsPlacedBy",
@@ -5744,6 +6065,36 @@
       "path": "~/Items"
     },
     {
+      "name": "AllowedBlocksInWorld",
+      "type": "procedure",
+      "sortid": 419,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "allowed_blocks_in_world",
+      "metadata": {
+        "return_type": "logic",
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Extra"
+    },
+    {
       "name": "RocksTAG",
       "type": "tag",
       "sortid": 420,
@@ -5864,6 +6215,36 @@
       "path": "~/Machines/ConcreteMixer"
     },
     {
+      "name": "DisallowedToOpen",
+      "type": "procedure",
+      "sortid": 439,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "disallowed_to_open",
+      "metadata": {
+        "return_type": "logic",
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Extra"
+    },
+    {
       "name": "PlayerDiesSaveLocaion",
       "type": "procedure",
       "sortid": 440,
@@ -5893,6 +6274,40 @@
       "path": "~/Extra"
     },
     {
+      "name": "WorldGridAnimalKill",
+      "type": "procedure",
+      "sortid": 441,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "world_grid_animal_kill",
+      "metadata": {
+        "return_type": "logic",
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Extra"
+    },
+    {
       "name": "PlayerJoinWorld",
       "type": "procedure",
       "sortid": 442,
@@ -5904,10 +6319,6 @@
           {
             "name": "entity",
             "type": "entity"
-          },
-          {
-            "name": "world",
-            "type": "world"
           }
         ]
       },
@@ -6673,6 +7084,23 @@
       "path": "~/Items/Money"
     },
     {
+      "name": "CaseBoxTakenFromSlot",
+      "type": "procedure",
+      "sortid": 511,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "case_box_taken_from_slot",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Items/CaseOpening"
+    },
+    {
       "name": "Test",
       "type": "biome",
       "sortid": 541,
@@ -6691,6 +7119,15 @@
       "path": "~/SpaceSuit"
     },
     {
+      "name": "CaseBox1",
+      "type": "item",
+      "sortid": 481,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "case_box_1",
+      "path": "~/Items/CaseOpening"
+    },
+    {
       "name": "SpacesuitOxygenON",
       "type": "recipe",
       "sortid": 491,
@@ -6698,6 +7135,15 @@
       "locked_code": false,
       "registry_name": "spacesuit_oxygen_on",
       "path": "~/SpaceSuit"
+    },
+    {
+      "name": "CaseKey",
+      "type": "item",
+      "sortid": 480,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "case_key",
+      "path": "~/Items/CaseOpening"
     },
     {
       "name": "CompressorRecipe",
@@ -6979,6 +7425,73 @@
       "path": "~/SpaceSuit"
     },
     {
+      "name": "CaseBoxOpenCaseButton",
+      "type": "procedure",
+      "sortid": 487,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "case_box_open_case_button",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Items/CaseOpening"
+    },
+    {
+      "name": "ItemInCaseBox",
+      "type": "procedure",
+      "sortid": 483,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "item_in_case_box",
+      "metadata": {
+        "return_type": "itemstack",
+        "dependencies": []
+      },
+      "path": "~/Items/CaseOpening"
+    },
+    {
+      "name": "CaseBox1RightClickedOnBlock",
+      "type": "procedure",
+      "sortid": 512,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "case_box_1_right_clicked_on_block",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Items/CaseOpening"
+    },
+    {
       "name": "SteelDustSmelting",
       "type": "recipe",
       "sortid": 500,
@@ -7193,6 +7706,15 @@
       "path": "~/SpaceSuit"
     },
     {
+      "name": "CaseBoxGUI",
+      "type": "gui",
+      "sortid": 482,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "case_box_gui",
+      "path": "~/Items/CaseOpening"
+    },
+    {
       "name": "LiquidHydrogen",
       "type": "fluid",
       "sortid": 498,
@@ -7203,6 +7725,24 @@
         "gb": true
       },
       "path": "~/Fluids"
+    },
+    {
+      "name": "CaseboxbuttonShowCondition",
+      "type": "procedure",
+      "sortid": 510,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "caseboxbutton_show_condition",
+      "metadata": {
+        "return_type": "logic",
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Items/CaseOpening"
     },
     {
       "name": "ATM",
@@ -7347,6 +7887,104 @@
       "registry_name": "mam"
     },
     {
+      "name": "MAMpart",
+      "type": "block",
+      "sortid": 557,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ma_mpart",
+      "path": "~/MAM"
+    },
+    {
+      "name": "Mamrecipe",
+      "type": "recipe",
+      "sortid": 557,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "mamrecipe",
+      "path": "~/MAM"
+    },
+    {
+      "name": "MAMUpdateTick",
+      "type": "procedure",
+      "sortid": 561,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "mam_update_tick",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/MAM"
+    },
+    {
+      "name": "MAMpartrecipe",
+      "type": "recipe",
+      "sortid": 558,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ma_mpartrecipe",
+      "path": "~/MAM"
+    },
+    {
+      "name": "MAMBlockIsPlacedBy",
+      "type": "procedure",
+      "sortid": 560,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "mam_block_is_placed_by",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/MAM"
+    },
+    {
+      "name": "MAMgui",
+      "type": "gui",
+      "sortid": 559,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ma_mgui",
+      "path": "~/MAM"
+    },
+    {
       "name": "GeneratorMK2UpdateTick",
       "type": "procedure",
       "sortid": 557,
@@ -7374,44 +8012,6 @@
         ]
       },
       "path": "~/Machines/GeneratorMK2"
-    },
-    {
-      "name": "HomeCommandExecuted",
-      "type": "procedure",
-      "sortid": 558,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "home_command_executed",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          }
-        ]
-      },
-      "path": "~/Commands"
-    },
-    {
-      "name": "Home",
-      "type": "command",
-      "sortid": 558,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "home",
-      "path": "~/Commands"
     }
   ],
   "variable_elements": [
@@ -8427,6 +9027,10 @@
         "children": []
       },
       {
+        "name": "MAM",
+        "children": []
+      },
+      {
         "name": "Items",
         "children": [
           {
@@ -8447,6 +9051,10 @@
         "name": "Tools",
         "children": [
           {
+            "name": "SteelTools",
+            "children": []
+          },
+          {
             "name": "NodeScanner",
             "children": []
           },
@@ -8460,10 +9068,6 @@
           },
           {
             "name": "PocketChest",
-            "children": []
-          },
-          {
-            "name": "SteelTools",
             "children": []
           }
         ]

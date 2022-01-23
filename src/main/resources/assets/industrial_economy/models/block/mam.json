@@ -5,7 +5,7 @@
     "up": "industrial_economy:blocks/mambok",
     "north": "industrial_economy:blocks/mam",
     "east": "industrial_economy:blocks/mam",
-    "south": "industrial_economy:blocks/mam",
+    "south": "industrial_economy:blocks/generatormk2_top",
     "west": "industrial_economy:blocks/mam",
     "particle": "industrial_economy:blocks/mambok"
   }

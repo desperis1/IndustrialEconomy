@@ -1,0 +1,41 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "345",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "industrial_economy:heavyframe"
+    },
+    "1": {
+      "item": "industrial_economy:ma_mpart"
+    },
+    "2": {
+      "item": "industrial_economy:heavyframe"
+    },
+    "3": {
+      "item": "industrial_economy:cateriumroditem"
+    },
+    "4": {
+      "item": "minecraft:glass_bottle"
+    },
+    "5": {
+      "item": "minecraft:gold_block"
+    },
+    "6": {
+      "item": "industrial_economy:heavyframe"
+    },
+    "7": {
+      "item": "minecraft:gold_block"
+    },
+    "8": {
+      "item": "industrial_economy:heavyframe"
+    }
+  },
+  "result": {
+    "item": "industrial_economy:mam",
+    "count": 1
+  }
+}
