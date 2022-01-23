@@ -1,18 +1,6 @@
 package industrialeconomy.procedures;
 
-import net.minecraft.world.IWorld;
-import net.minecraft.util.text.StringTextComponent;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.Entity;
-
-import java.util.Map;
-import java.util.List;
-import java.util.HashMap;
-import java.util.ArrayList;
-
-import industrialeconomy.IndustrialEconomyModVariables;
-
-import industrialeconomy.IndustrialEconomyMod;
+import net.minecraftforge.eventbus.api.Event;
 
 public class MoneyCommandExecutedProcedure {
 
@@ -32,9 +20,11 @@ public class MoneyCommandExecutedProcedure {
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency cmdparams for procedure MoneyCommandExecuted!");
 			return;
 		}
+
 		IWorld world = (IWorld) dependencies.get("world");
 		Entity entity = (Entity) dependencies.get("entity");
 		HashMap cmdparams = (HashMap) dependencies.get("cmdparams");
+
 		double amount = 0;
 		if ((new Object() {
 			public String getText() {
@@ -278,4 +268,5 @@ public class MoneyCommandExecutedProcedure {
 			}
 		}
 	}
+
 }

@@ -38,7 +38,7 @@
       }
     ],
     "recipeReturnStack": {
-      "value": "CUSTOM:GeneratorMK1inactive"
+      "value": "CUSTOM:GeneratorMK1"
     },
     "name": "generator_mk_1recipe",
     "namespace": "mod"

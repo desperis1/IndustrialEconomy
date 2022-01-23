@@ -1,100 +1,30 @@
 
 package industrialeconomy.block;
 
-import net.minecraftforge.registries.ObjectHolder;
-import net.minecraftforge.items.wrapper.SidedInvWrapper;
-import net.minecraftforge.items.IItemHandler;
-import net.minecraftforge.items.CapabilityItemHandler;
-import net.minecraftforge.fml.network.NetworkHooks;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.common.capabilities.Capability;
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.api.distmarker.Dist;
-
-import net.minecraft.world.server.ServerWorld;
-import net.minecraft.world.World;
-import net.minecraft.world.IBlockReader;
-import net.minecraft.util.text.StringTextComponent;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.math.BlockRayTraceResult;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.Rotation;
-import net.minecraft.util.NonNullList;
-import net.minecraft.util.Mirror;
-import net.minecraft.util.Hand;
-import net.minecraft.util.Direction;
-import net.minecraft.util.ActionResultType;
-import net.minecraft.tileentity.TileEntityType;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.tileentity.LockableLootTileEntity;
-import net.minecraft.state.StateContainer;
-import net.minecraft.state.DirectionProperty;
-import net.minecraft.network.play.server.SUpdateTileEntityPacket;
-import net.minecraft.network.PacketBuffer;
-import net.minecraft.network.NetworkManager;
-import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.loot.LootContext;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Item;
-import net.minecraft.item.BlockItemUseContext;
-import net.minecraft.item.BlockItem;
-import net.minecraft.inventory.container.INamedContainerProvider;
-import net.minecraft.inventory.container.Container;
-import net.minecraft.inventory.ItemStackHelper;
-import net.minecraft.inventory.InventoryHelper;
-import net.minecraft.inventory.ISidedInventory;
-import net.minecraft.entity.player.ServerPlayerEntity;
-import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.client.Minecraft;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.SoundType;
-import net.minecraft.block.HorizontalBlock;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Block;
-
-import javax.annotation.Nullable;
-
-import java.util.stream.Stream;
-import java.util.stream.IntStream;
-import java.util.Random;
-import java.util.Map;
-import java.util.List;
-import java.util.HashMap;
-import java.util.Collections;
-import java.util.AbstractMap;
-
-import io.netty.buffer.Unpooled;
-
-import industrialeconomy.procedures.GeneratorMK1UpdateTickProcedure;
-import industrialeconomy.procedures.GeneratorMK1ClientDisplayRandomTickProcedure;
-import industrialeconomy.procedures.GeneratorMK1BlockIsPlacedByProcedure;
-
-import industrialeconomy.gui.GeneratorMK1GuiGui;
-
-import industrialeconomy.IndustrialEconomyModElements;
+import net.minecraft.util.SoundEvent;
 
 @IndustrialEconomyModElements.ModElement.Tag
 public class GeneratorMK1Block extends IndustrialEconomyModElements.ModElement {
+
 	@ObjectHolder("industrial_economy:generator_mk_1")
 	public static final Block block = null;
+
 	@ObjectHolder("industrial_economy:generator_mk_1")
 	public static final TileEntityType<CustomTileEntity> tileEntityType = null;
 
 	public GeneratorMK1Block(IndustrialEconomyModElements instance) {
 		super(instance, 47);
+
 		FMLJavaModLoadingContext.get().getModEventBus().register(new TileEntityRegisterHandler());
+
 	}
 
 	@Override
 	public void initElements() {
 		elements.blocks.add(() -> new CustomBlock());
-		elements.items.add(() -> new BlockItem(block, new Item.Properties().group(null)).setRegistryName(block.getRegistryName()));
+		elements.items
+				.add(() -> new BlockItem(block, new Item.Properties().group(ProjectMEGAItemGroup.tab)).setRegistryName(block.getRegistryName()));
 	}
 
 	private static class TileEntityRegisterHandler {
@@ -105,11 +35,14 @@ public class GeneratorMK1Block extends IndustrialEconomyModElements.ModElement {
 	}
 
 	public static class CustomBlock extends Block {
+
 		public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
 
 		public CustomBlock() {
 			super(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(15f, 20f).setLightLevel(s -> 0));
+
 			this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH));
+
 			setRegistryName("generator_mk_1");
 		}
 
@@ -146,10 +79,11 @@ public class GeneratorMK1Block extends IndustrialEconomyModElements.ModElement {
 
 		@Override
 		public List<ItemStack> getDrops(BlockState state, LootContext.Builder builder) {
+
 			List<ItemStack> dropsOriginal = super.getDrops(state, builder);
 			if (!dropsOriginal.isEmpty())
 				return dropsOriginal;
-			return Collections.singletonList(new ItemStack(GeneratorMK1inactiveBlock.block));
+			return Collections.singletonList(new ItemStack(this, 1));
 		}
 
 		@Override
@@ -172,6 +106,7 @@ public class GeneratorMK1Block extends IndustrialEconomyModElements.ModElement {
 					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
 							new AbstractMap.SimpleEntry<>("z", z))
 					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+
 			world.getPendingBlockTicks().scheduleTick(pos, this, 20);
 		}
 
@@ -207,9 +142,11 @@ public class GeneratorMK1Block extends IndustrialEconomyModElements.ModElement {
 		public ActionResultType onBlockActivated(BlockState blockstate, World world, BlockPos pos, PlayerEntity entity, Hand hand,
 				BlockRayTraceResult hit) {
 			super.onBlockActivated(blockstate, world, pos, entity, hand, hit);
+
 			int x = pos.getX();
 			int y = pos.getY();
 			int z = pos.getZ();
+
 			if (entity instanceof ServerPlayerEntity) {
 				NetworkHooks.openGui((ServerPlayerEntity) entity, new INamedContainerProvider() {
 					@Override
@@ -224,6 +161,7 @@ public class GeneratorMK1Block extends IndustrialEconomyModElements.ModElement {
 					}
 				}, new BlockPos(x, y, z));
 			}
+
 			return ActionResultType.SUCCESS;
 		}
 
@@ -276,9 +214,11 @@ public class GeneratorMK1Block extends IndustrialEconomyModElements.ModElement {
 			else
 				return 0;
 		}
+
 	}
 
 	public static class CustomTileEntity extends LockableLootTileEntity implements ISidedInventory {
+
 		private NonNullList<ItemStack> stacks = NonNullList.<ItemStack>withSize(1, ItemStack.EMPTY);
 
 		protected CustomTileEntity() {
@@ -288,18 +228,23 @@ public class GeneratorMK1Block extends IndustrialEconomyModElements.ModElement {
 		@Override
 		public void read(BlockState blockState, CompoundNBT compound) {
 			super.read(blockState, compound);
+
 			if (!this.checkLootAndRead(compound)) {
 				this.stacks = NonNullList.withSize(this.getSizeInventory(), ItemStack.EMPTY);
 			}
+
 			ItemStackHelper.loadAllItems(compound, this.stacks);
+
 		}
 
 		@Override
 		public CompoundNBT write(CompoundNBT compound) {
 			super.write(compound);
+
 			if (!this.checkLootAndWrite(compound)) {
 				ItemStackHelper.saveAllItems(compound, this.stacks);
 			}
+
 			return compound;
 		}
 
@@ -387,6 +332,7 @@ public class GeneratorMK1Block extends IndustrialEconomyModElements.ModElement {
 		public <T> LazyOptional<T> getCapability(Capability<T> capability, @Nullable Direction facing) {
 			if (!this.removed && facing != null && capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY)
 				return handlers[facing.ordinal()].cast();
+
 			return super.getCapability(capability, facing);
 		}
 
@@ -396,5 +342,7 @@ public class GeneratorMK1Block extends IndustrialEconomyModElements.ModElement {
 			for (LazyOptional<? extends IItemHandler> handler : handlers)
 				handler.invalidate();
 		}
+
 	}
+
 }

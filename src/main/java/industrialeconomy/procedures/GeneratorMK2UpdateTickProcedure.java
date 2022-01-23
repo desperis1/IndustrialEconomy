@@ -2,27 +2,27 @@ package industrialeconomy.procedures;
 
 import net.minecraftforge.eventbus.api.Event;
 
-public class GeneratorMK1UpdateTickProcedure {
+public class Generatormk2UpdateTickProcedure {
 
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("world") == null) {
 			if (!dependencies.containsKey("world"))
-				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency world for procedure GeneratorMK1UpdateTick!");
+				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency world for procedure Generatormk2UpdateTick!");
 			return;
 		}
 		if (dependencies.get("x") == null) {
 			if (!dependencies.containsKey("x"))
-				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency x for procedure GeneratorMK1UpdateTick!");
+				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency x for procedure Generatormk2UpdateTick!");
 			return;
 		}
 		if (dependencies.get("y") == null) {
 			if (!dependencies.containsKey("y"))
-				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency y for procedure GeneratorMK1UpdateTick!");
+				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency y for procedure Generatormk2UpdateTick!");
 			return;
 		}
 		if (dependencies.get("z") == null) {
 			if (!dependencies.containsKey("z"))
-				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency z for procedure GeneratorMK1UpdateTick!");
+				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency z for procedure Generatormk2UpdateTick!");
 			return;
 		}
 
@@ -270,7 +270,7 @@ public class GeneratorMK1UpdateTickProcedure {
 						if (world instanceof World)
 							((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 					}
-					mainObject.addProperty("Energy", (mainObject.get("Energy").getAsDouble() + 25));
+					mainObject.addProperty("Energy", (mainObject.get("Energy").getAsDouble() + 500));
 				} else {
 					if (!world.isRemote()) {
 						BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);

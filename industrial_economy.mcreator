@@ -6336,6 +6336,10 @@
           {
             "name": "entity",
             "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
           }
         ]
       },
@@ -7880,8 +7884,7 @@
       "sortid": 556,
       "compiles": true,
       "locked_code": false,
-      "registry_name": "mam",
-      "path": "~/MAM"
+      "registry_name": "mam"
     },
     {
       "name": "MAMpart",
@@ -7890,15 +7893,6 @@
       "compiles": true,
       "locked_code": false,
       "registry_name": "ma_mpart",
-      "path": "~/MAM"
-    },
-    {
-      "name": "MAMpartrecipe",
-      "type": "recipe",
-      "sortid": 558,
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "ma_mpartrecipe",
       "path": "~/MAM"
     },
     {
@@ -7911,12 +7905,41 @@
       "path": "~/MAM"
     },
     {
-      "name": "MAMgui",
-      "type": "gui",
-      "sortid": 559,
+      "name": "MAMUpdateTick",
+      "type": "procedure",
+      "sortid": 561,
       "compiles": true,
       "locked_code": false,
-      "registry_name": "ma_mgui",
+      "registry_name": "mam_update_tick",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/MAM"
+    },
+    {
+      "name": "MAMpartrecipe",
+      "type": "recipe",
+      "sortid": 558,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ma_mpartrecipe",
       "path": "~/MAM"
     },
     {
@@ -7953,12 +7976,21 @@
       "path": "~/MAM"
     },
     {
-      "name": "MAMUpdateTick",
-      "type": "procedure",
-      "sortid": 561,
+      "name": "MAMgui",
+      "type": "gui",
+      "sortid": 559,
       "compiles": true,
       "locked_code": false,
-      "registry_name": "mam_update_tick",
+      "registry_name": "ma_mgui",
+      "path": "~/MAM"
+    },
+    {
+      "name": "GeneratorMK2UpdateTick",
+      "type": "procedure",
+      "sortid": 557,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "generator_mk_2_update_tick",
       "metadata": {
         "dependencies": [
           {
@@ -7979,7 +8011,7 @@
           }
         ]
       },
-      "path": "~/MAM"
+      "path": "~/Machines/GeneratorMK2"
     }
   ],
   "variable_elements": [
@@ -8482,11 +8514,11 @@
       "item.industrial_economy.plasma_rangeditem": "Plasma RANGEDITEM",
       "key.satis_mine.node_scanner_modes_keybind": "Node Scanner Modes",
       "block.industrial_economy.assemblerblock": "Assembler",
-      "block.satis_mine.lime_concrete_stairs": "Lime Concrete Stairs",
       "advancements.rudit_ingotadvancement.descr": "Advanced Redstone",
-      "item.industrial_economy.diamond_steel_armor_boots": "DiamondS teel Boots",
-      "item.mega_project.diamondscrewitem": "Diamond screw",
+      "block.satis_mine.lime_concrete_stairs": "Lime Concrete Stairs",
       "item.mega_project.diamond_steel_armor_chestplate": "Diamond Steel Chestplate",
+      "item.mega_project.diamondscrewitem": "Diamond screw",
+      "item.industrial_economy.diamond_steel_armor_boots": "DiamondS teel Boots",
       "block.mega_project.haarp": "Haarp!",
       "block.industrial_economy.armorchargermk_2": "Armor Charger MK2",
       "key.satis_mine.plasmashootkeybind": "Plasma Shoot",
@@ -8527,16 +8559,15 @@
       "block.satis_mine.limestoneactive": "Limestoneactive",
       "block.industrial_economy.hub": "Hub",
       "block.mega_project.energyplazmamk_2": "Energy Plazma",
-      "item.industrial_economy.case_box_1": "Case Box 1",
       "item.satis_mine.plasmabulletitem": "Plasma Bullet",
       "item.satis_mine.diamond_steel_armor_boots": "DiamondS teel Boots",
       "block.satis_mine.markblock": "Markblock",
       "block.satis_mine.red_concrete_slab": "Red Concrete Slab",
       "block.industrial_economy.orange_concrete_stairs": "Orange Concrete Stairs",
       "item.industrial_economy.buildertool": "Builder Gun",
-      "block.industrial_economy.iron_ore_node_block": "Iron Ore Node Block(active)",
-      "block.satis_mine.yellow_concrete_stairs": "Yellow Concrete Stairs",
       "enchantment.satis_mine.better_cool_down_enchantment": "Better CoolDown",
+      "block.satis_mine.yellow_concrete_stairs": "Yellow Concrete Stairs",
+      "block.industrial_economy.iron_ore_node_block": "Iron Ore Node Block(active)",
       "block.industrial_economy.lime_concrete_slab": "Lime Concrete Slab",
       "block.mega_project.heavyframe": "Heavy Frame",
       "block.industrial_economy.mam": "M.A.M.",
@@ -8548,8 +8579,8 @@
       "effect.oxygen_effect": "Pure Oxygen",
       "item.industrial_economy.emptymodule": "Empty Module",
       "block.satis_mine.pink_concrete_stairs": "Pink Concrete Stairs",
-      "block.industrial_economy.cyan_concrete_slab": "Cyan Concrete Slab",
       "block.satis_mine.coal_node": "Coal Node(active)",
+      "block.industrial_economy.cyan_concrete_slab": "Cyan Concrete Slab",
       "block.mega_project.purple_concrete_stairs": "Purple Concrete Stairs",
       "block.industrial_economy.crystal": "Crystal",
       "advancements.allrecipescheat.descr": "Unlock Recipe Cheat",
@@ -8561,8 +8592,8 @@
       "block.mega_project.orange_concrete_stairs": "Orange Concrete Stairs",
       "item.satis_mine.highspeedconectoritem": "High Speed Connector",
       "item.mega_project.control_unit": "Control Unit",
-      "block.industrial_economy.position_1block": "Position 1",
       "item.industrial_economy.diamond_steel_armor_leggings": "Diamond Steel Leggings",
+      "block.industrial_economy.position_1block": "Position 1",
       "block.industrial_economy.red_concrete_stairs": "Red Concrete Stairs",
       "block.mega_project.magenta_concrete_slab": "Magenta Concrete Slab",
       "item.industrial_economy.cateriumroditem": "Caterium rod",
@@ -8596,7 +8627,6 @@
       "block.satis_mine.ironextractor": "Iron Extractor",
       "item.mega_project.ironplate": "Iron Plate",
       "item.industrial_economy.diamondstellshovel": "Diamond Steel Shovel",
-      "block.industrial_economy.generator_mk_1inactive": "Generator MK 1",
       "enchantment.industrial_economy.cheap_plasma": "Cheap Plasma",
       "block.industrial_economy.minerinactive": "Miner MK1",
       "item.mega_project.copper_ingot": "Copper",
@@ -8720,7 +8750,6 @@
       "block.industrial_economy.sandstoneextractor": "SandStone Extractor",
       "item.satis_mine.diamondsteelplate": "Diamond Steel Plate",
       "block.industrial_economy.solarpanelblockinactive": "Solar panel ",
-      "item.industrial_economy.case_key": "Case Key",
       "block.satis_mine.position_2block": "Position 2.",
       "key.mcreator.ds_armorkeybind": "Diamond Steel Armor GUI",
       "block.satis_mine.generator_mk_1": "Generator MK 1",
@@ -8736,7 +8765,6 @@
       "block.industrial_economy.copper_ore": "Copper Ore",
       "enchantment.industrial_economy.smelter": "Smelter",
       "item.satis_mine.buildertool": "Builder Gun",
-      "block.industrial_economy.generator_mk_2inactive": "Generator MK 2",
       "block.industrial_economy.black_concrete_stairs": "Black Concrete Stairs",
       "block.mega_project.generator_mk_2inactive": "Generator MK 2",
       "block.mega_project.copper_block": "Block of Copper",
@@ -8830,7 +8858,6 @@
       "block.industrial_economy.lime_concrete_stairs": "Lime Concrete Stairs",
       "advancements.electronics.title": "Electronics",
       "block.mega_project.orangelog": "Oring Log",
-      "block.industrial_economy.ma_mpart": "MAM part",
       "block.mega_project.position_2block": "Position 2.",
       "block.industrial_economy.blue_concrete_slab": "Blue Concrete Slab",
       "block.satis_mine.presserblock": "Presser",
@@ -9000,6 +9027,10 @@
         "children": []
       },
       {
+        "name": "MAM",
+        "children": []
+      },
+      {
         "name": "Items",
         "children": [
           {
@@ -9008,10 +9039,6 @@
           },
           {
             "name": "Money",
-            "children": []
-          },
-          {
-            "name": "CaseOpening",
             "children": []
           }
         ]
@@ -9023,6 +9050,10 @@
       {
         "name": "Tools",
         "children": [
+          {
+            "name": "SteelTools",
+            "children": []
+          },
           {
             "name": "NodeScanner",
             "children": []
@@ -9037,10 +9068,6 @@
           },
           {
             "name": "PocketChest",
-            "children": []
-          },
-          {
-            "name": "SteelTools",
             "children": []
           }
         ]
@@ -9147,19 +9174,11 @@
         "name": "Commands",
         "children": [
           {
-            "name": "Land",
-            "children": []
-          },
-          {
             "name": "Admineditor",
             "children": []
           },
           {
             "name": "Sell",
-            "children": []
-          },
-          {
-            "name": "City",
             "children": []
           },
           {
@@ -9170,10 +9189,6 @@
       },
       {
         "name": "Enchantments",
-        "children": []
-      },
-      {
-        "name": "MAM",
         "children": []
       }
     ]

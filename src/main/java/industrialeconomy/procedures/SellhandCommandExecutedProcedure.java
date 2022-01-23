@@ -1,26 +1,6 @@
 package industrialeconomy.procedures;
 
-import net.minecraft.world.IWorld;
-import net.minecraft.util.text.StringTextComponent;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.tags.ItemTags;
-import net.minecraft.tags.BlockTags;
-import net.minecraft.item.Items;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.BlockItem;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.Entity;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.BlockState;
-
-import java.util.Map;
-
-import industrialeconomy.IndustrialEconomyModVariables;
-
-import industrialeconomy.IndustrialEconomyMod;
+import net.minecraftforge.eventbus.api.Event;
 
 public class SellhandCommandExecutedProcedure {
 
@@ -35,8 +15,10 @@ public class SellhandCommandExecutedProcedure {
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency entity for procedure SellhandCommandExecuted!");
 			return;
 		}
+
 		IWorld world = (IWorld) dependencies.get("world");
 		Entity entity = (Entity) dependencies.get("entity");
+
 		ItemStack itemforsell = ItemStack.EMPTY;
 		double items_amount = 0;
 		double price_from_server = 0;
@@ -317,4 +299,5 @@ public class SellhandCommandExecutedProcedure {
 			}
 		}
 	}
+
 }

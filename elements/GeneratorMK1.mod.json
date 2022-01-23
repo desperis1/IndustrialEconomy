@@ -41,11 +41,11 @@
     "hasGravity": false,
     "isWaterloggable": false,
     "creativeTab": {
-      "value": "No creative tab entry"
+      "value": "CUSTOM:ProjectMEGA"
     },
     "destroyTool": "Not specified",
     "customDrop": {
-      "value": "CUSTOM:GeneratorMK1inactive"
+      "value": ""
     },
     "dropAmount": 1,
     "useLootTableForDrops": false,
