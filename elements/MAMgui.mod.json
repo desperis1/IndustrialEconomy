@@ -1,0 +1,90 @@
+{
+  "_fv": 24,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 350,
+    "height": 200,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "button",
+        "data": {
+          "text": "Steel Upgrade",
+          "width": 93,
+          "height": 20,
+          "name": "Steel Upgrade",
+          "x": 79,
+          "y": 32
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "mamguienergy.png",
+          "use1Xscale": false,
+          "name": "mamguienergy.png",
+          "x": 47,
+          "y": 193
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "<BNBT:number:Energy>",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "<BNBT:number:Energy>",
+          "x": 65,
+          "y": 195
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "<BNBT:number:Money>",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "<BNBT:number:Money>",
+          "x": 276,
+          "y": 195
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "mamguimoney.png",
+          "use1Xscale": false,
+          "name": "mamguimoney.png",
+          "x": 253,
+          "y": 193
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "DIamond Steel Upgrade",
+          "width": 134,
+          "height": 20,
+          "name": "DIamond Steel Upgrade",
+          "x": 79,
+          "y": 52
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

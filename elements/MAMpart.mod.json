@@ -2,15 +2,15 @@
   "_fv": 24,
   "_type": "block",
   "definition": {
-    "texture": "mambok",
-    "textureTop": "mambok",
-    "textureLeft": "mam",
-    "textureFront": "mam",
-    "textureRight": "mam",
+    "texture": "generatormk2_top",
+    "textureTop": "generatormk2_top",
+    "textureLeft": "generatormk2_top",
+    "textureFront": "generatormk2_top",
+    "textureRight": "generatormk2_top",
     "textureBack": "generatormk2_top",
     "renderType": 10,
     "customModelName": "Normal",
-    "rotationMode": 1,
+    "rotationMode": 0,
     "emissiveRendering": false,
     "displayFluidOverlay": false,
     "itemTexture": "",
@@ -32,9 +32,9 @@
         "subtract": false
       }
     ],
-    "name": "M.A.M.",
+    "name": "MAM part",
     "specialInfo": [],
-    "hardness": 3.0,
+    "hardness": 5.0,
     "resistance": 10.0,
     "hasGravity": false,
     "isWaterloggable": false,
@@ -52,7 +52,7 @@
     "canRedstoneConnect": false,
     "lightOpacity": 15,
     "material": {
-      "value": "IRON"
+      "value": "ROCK"
     },
     "tickRate": 10,
     "tickRandomly": false,
@@ -77,7 +77,7 @@
     "isNotColidable": false,
     "isCustomSoundType": false,
     "soundOnStep": {
-      "value": "METAL"
+      "value": "STONE"
     },
     "breakSound": {
       "value": ""
@@ -94,7 +94,7 @@
     "fallSound": {
       "value": ""
     },
-    "luminance": 3,
+    "luminance": 0,
     "unbreakable": false,
     "breakHarvestLevel": 1,
     "spawnParticles": false,
@@ -105,8 +105,8 @@
     "particleSpawningRadious": 0.5,
     "particleAmount": 4,
     "hasInventory": false,
-    "guiBoundTo": "MAMgui",
-    "openGUIOnRightClick": true,
+    "guiBoundTo": "<NONE>",
+    "openGUIOnRightClick": false,
     "inventorySize": 9,
     "inventoryStackSize": 64,
     "inventoryDropWhenDestroyed": true,
@@ -121,12 +121,6 @@
     "isFluidTank": false,
     "fluidCapacity": 8000,
     "fluidRestrictions": [],
-    "onTickUpdate": {
-      "name": "MAMUpdateTick"
-    },
-    "onBlockPlayedBy": {
-      "name": "MAMBlockIsPlacedBy"
-    },
     "spawnWorldTypes": [],
     "restrictionBiomes": [],
     "blocksToReplace": [
