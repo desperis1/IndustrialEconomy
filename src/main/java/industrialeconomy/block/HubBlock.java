@@ -78,7 +78,7 @@ import industrialeconomy.procedures.HubBlockIsPlacedByProcedure;
 
 import industrialeconomy.itemgroup.ProjectMEGAItemGroup;
 
-import industrialeconomy.gui.HubGUIGui;
+import industrialeconomy.gui.HUBGUIGui;
 
 import industrialeconomy.IndustrialEconomyModElements;
 
@@ -226,7 +226,7 @@ public class HubBlock extends IndustrialEconomyModElements.ModElement {
 
 					@Override
 					public Container createMenu(int id, PlayerInventory inventory, PlayerEntity player) {
-						return new HubGUIGui.GuiContainerMod(id, inventory, new PacketBuffer(Unpooled.buffer()).writeBlockPos(new BlockPos(x, y, z)));
+						return new HUBGUIGui.GuiContainerMod(id, inventory, new PacketBuffer(Unpooled.buffer()).writeBlockPos(new BlockPos(x, y, z)));
 					}
 				}, new BlockPos(x, y, z));
 			}
@@ -349,7 +349,7 @@ public class HubBlock extends IndustrialEconomyModElements.ModElement {
 
 		@Override
 		public Container createMenu(int id, PlayerInventory player) {
-			return new HubGUIGui.GuiContainerMod(id, player, new PacketBuffer(Unpooled.buffer()).writeBlockPos(this.getPos()));
+			return new HUBGUIGui.GuiContainerMod(id, player, new PacketBuffer(Unpooled.buffer()).writeBlockPos(this.getPos()));
 		}
 
 		@Override

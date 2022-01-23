@@ -1,6 +1,34 @@
 package industrialeconomy.procedures;
 
-import net.minecraftforge.eventbus.api.Event;
+import net.minecraftforge.items.IItemHandlerModifiable;
+import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.fml.loading.FMLPaths;
+
+import net.minecraft.world.World;
+import net.minecraft.world.IWorld;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.block.BlockState;
+
+import java.util.concurrent.atomic.AtomicReference;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.Map;
+
+import java.io.IOException;
+import java.io.FileWriter;
+import java.io.FileReader;
+import java.io.File;
+import java.io.BufferedReader;
+
+import industrialeconomy.item.TurbofuelitemItem;
+import industrialeconomy.item.Turbofuelitem3Item;
+import industrialeconomy.item.Turbofuelitem2Item;
+
+import industrialeconomy.IndustrialEconomyMod;
+
+import com.google.gson.GsonBuilder;
+import com.google.gson.Gson;
 
 public class GeneratorMK1UpdateTickProcedure {
 
@@ -25,12 +53,10 @@ public class GeneratorMK1UpdateTickProcedure {
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency z for procedure GeneratorMK1UpdateTick!");
 			return;
 		}
-
 		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-
 		String owner = "";
 		double players_hub_x = 0;
 		double players_hub_y = 0;
@@ -106,7 +132,6 @@ public class GeneratorMK1UpdateTickProcedure {
 							return -1;
 						}
 					}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "GeneratorEnergy") + 1315));
-
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
@@ -171,7 +196,6 @@ public class GeneratorMK1UpdateTickProcedure {
 							return -1;
 						}
 					}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "GeneratorEnergy") + 14800));
-
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
@@ -236,7 +260,6 @@ public class GeneratorMK1UpdateTickProcedure {
 							return -1;
 						}
 					}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "GeneratorEnergy") + 50000));
-
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
@@ -250,7 +273,6 @@ public class GeneratorMK1UpdateTickProcedure {
 					jsonstringbuilder.append(line);
 				}
 				bufferedReader.close();
-
 				mainObject = new Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
 				if (mainObject.get("isOnline").getAsBoolean() == true && new Object() {
 					public double getValue(IWorld world, BlockPos pos, String tag) {
@@ -266,7 +288,6 @@ public class GeneratorMK1UpdateTickProcedure {
 						BlockState _bs = world.getBlockState(_bp);
 						if (_tileEntity != null)
 							_tileEntity.getTileData().putBoolean("Working", (true));
-
 						if (world instanceof World)
 							((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 					}
@@ -278,7 +299,6 @@ public class GeneratorMK1UpdateTickProcedure {
 						BlockState _bs = world.getBlockState(_bp);
 						if (_tileEntity != null)
 							_tileEntity.getTileData().putBoolean("Working", (false));
-
 						if (world instanceof World)
 							((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 					}
@@ -290,7 +310,6 @@ public class GeneratorMK1UpdateTickProcedure {
 		}
 		{
 			Gson mainGSONBuilderVariable = new GsonBuilder().setPrettyPrinting().create();
-
 			try {
 				FileWriter fileWriter = new FileWriter(playerConfig);
 				fileWriter.write(mainGSONBuilderVariable.toJson(mainObject));
@@ -320,11 +339,9 @@ public class GeneratorMK1UpdateTickProcedure {
 							return -1;
 						}
 					}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "GeneratorEnergy")) - 1));
-
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
 		}
 	}
-
 }

@@ -45,7 +45,6 @@ import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.ItemStackHelper;
 import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.inventory.ISidedInventory;
-import net.minecraft.fluid.FluidState;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.entity.player.PlayerEntity;
@@ -71,7 +70,6 @@ import io.netty.buffer.Unpooled;
 
 import industrialeconomy.procedures.ConstructorblockUpdateTickProcedure;
 import industrialeconomy.procedures.ConstructorblockBlockIsPlacedByProcedure;
-import industrialeconomy.procedures.ConstructorblockBlockDestroyedByPlayerProcedure;
 
 import industrialeconomy.itemgroup.ProjectMEGAItemGroup;
 
@@ -168,17 +166,6 @@ public class ConstructorblockBlock extends IndustrialEconomyModElements.ModEleme
 							new AbstractMap.SimpleEntry<>("z", z))
 					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			world.getPendingBlockTicks().scheduleTick(pos, this, 30);
-		}
-
-		@Override
-		public boolean removedByPlayer(BlockState blockstate, World world, BlockPos pos, PlayerEntity entity, boolean willHarvest, FluidState fluid) {
-			boolean retval = super.removedByPlayer(blockstate, world, pos, entity, willHarvest, fluid);
-			int x = pos.getX();
-			int y = pos.getY();
-			int z = pos.getZ();
-
-			ConstructorblockBlockDestroyedByPlayerProcedure.executeProcedure(Collections.EMPTY_MAP);
-			return retval;
 		}
 
 		@Override

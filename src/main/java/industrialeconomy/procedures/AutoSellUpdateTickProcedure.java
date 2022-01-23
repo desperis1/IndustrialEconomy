@@ -1,6 +1,25 @@
 package industrialeconomy.procedures;
 
-import net.minecraftforge.eventbus.api.Event;
+import net.minecraftforge.items.IItemHandlerModifiable;
+import net.minecraftforge.items.CapabilityItemHandler;
+
+import net.minecraft.world.IWorld;
+import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.Entity;
+
+import java.util.concurrent.atomic.AtomicReference;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+
+import industrialeconomy.IndustrialEconomyModVariables;
+
+import industrialeconomy.IndustrialEconomyMod;
 
 public class AutoSellUpdateTickProcedure {
 
@@ -25,12 +44,10 @@ public class AutoSellUpdateTickProcedure {
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency z for procedure AutoSellUpdateTick!");
 			return;
 		}
-
 		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-
 		String owner = "";
 		double number_of_items = 0;
 		double price_from_server = 0;
@@ -131,7 +148,7 @@ public class AutoSellUpdateTickProcedure {
 						if (entityiterator instanceof PlayerEntity && !entityiterator.world.isRemote()) {
 							((PlayerEntity) entityiterator).sendStatusMessage(new StringTextComponent(("AutoSell: "
 									+ new java.text.DecimalFormat("#").format(number_of_items) + " " + (items_for_sell).getDisplayName().getString()
-									+ " for " + number_of_items * price_from_server + " \u010F\u017C\u02DD")), (false));
+									+ " for " + number_of_items * price_from_server + " \uFFFD")), (false));
 						}
 					}
 				}
@@ -177,5 +194,4 @@ public class AutoSellUpdateTickProcedure {
 			}
 		}
 	}
-
 }

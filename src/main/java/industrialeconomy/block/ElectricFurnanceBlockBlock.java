@@ -46,7 +46,6 @@ import net.minecraft.inventory.container.Container;
 import net.minecraft.inventory.ItemStackHelper;
 import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.inventory.ISidedInventory;
-import net.minecraft.fluid.FluidState;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.entity.player.PlayerEntity;
@@ -73,7 +72,6 @@ import io.netty.buffer.Unpooled;
 
 import industrialeconomy.procedures.ElectricFurnanceBlockUpdateTickProcedure;
 import industrialeconomy.procedures.ElectricFurnanceBlockClientDisplayRandomTickProcedure;
-import industrialeconomy.procedures.ElectricFurnanceBlockBlockDestroyedByPlayerProcedure;
 
 import industrialeconomy.gui.ElectricFurnanceGui;
 
@@ -187,17 +185,6 @@ public class ElectricFurnanceBlockBlock extends IndustrialEconomyModElements.Mod
 					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
 							new AbstractMap.SimpleEntry<>("z", z))
 					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
-		}
-
-		@Override
-		public boolean removedByPlayer(BlockState blockstate, World world, BlockPos pos, PlayerEntity entity, boolean willHarvest, FluidState fluid) {
-			boolean retval = super.removedByPlayer(blockstate, world, pos, entity, willHarvest, fluid);
-			int x = pos.getX();
-			int y = pos.getY();
-			int z = pos.getZ();
-
-			ElectricFurnanceBlockBlockDestroyedByPlayerProcedure.executeProcedure(Collections.EMPTY_MAP);
-			return retval;
 		}
 
 		@Override

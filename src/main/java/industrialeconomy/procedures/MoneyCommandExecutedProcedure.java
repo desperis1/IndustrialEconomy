@@ -1,6 +1,18 @@
 package industrialeconomy.procedures;
 
-import net.minecraftforge.eventbus.api.Event;
+import net.minecraft.world.IWorld;
+import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.Entity;
+
+import java.util.Map;
+import java.util.List;
+import java.util.HashMap;
+import java.util.ArrayList;
+
+import industrialeconomy.IndustrialEconomyModVariables;
+
+import industrialeconomy.IndustrialEconomyMod;
 
 public class MoneyCommandExecutedProcedure {
 
@@ -20,11 +32,9 @@ public class MoneyCommandExecutedProcedure {
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency cmdparams for procedure MoneyCommandExecuted!");
 			return;
 		}
-
 		IWorld world = (IWorld) dependencies.get("world");
 		Entity entity = (Entity) dependencies.get("entity");
 		HashMap cmdparams = (HashMap) dependencies.get("cmdparams");
-
 		double amount = 0;
 		if ((new Object() {
 			public String getText() {
@@ -38,11 +48,12 @@ public class MoneyCommandExecutedProcedure {
 			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
 				((PlayerEntity) entity)
 						.sendStatusMessage(
-								new StringTextComponent(("You have: "
-										+ new java.text.DecimalFormat("#")
-												.format((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-														.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money)
-										+ " \u010F\u017C\u02DD")),
+								new StringTextComponent(
+										("You have: "
+												+ new java.text.DecimalFormat("#")
+														.format((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
+																.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money)
+												+ " \uFFFD")),
 								(false));
 			}
 		} else if ((new Object() {
@@ -87,7 +98,7 @@ public class MoneyCommandExecutedProcedure {
 						}
 						return "";
 					}
-				}.getText()) + " \u010F\u017C\u02DD " + "sucessfully added.")), (false));
+				}.getText()) + " \uFFFD " + "sucessfully added.")), (false));
 			}
 		} else if ((new Object() {
 			public String getText() {
@@ -178,15 +189,12 @@ public class MoneyCommandExecutedProcedure {
 								}
 								if (entityiterator instanceof PlayerEntity && !entityiterator.world.isRemote()) {
 									((PlayerEntity) entityiterator).sendStatusMessage(
-											new StringTextComponent(
-													("You receive " + amount + "\u010F\u017C\u02DD from " + entity.getDisplayName().getString())),
+											new StringTextComponent(("You receive " + amount + "\uFFFD from " + entity.getDisplayName().getString())),
 											(false));
 								}
 								if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-									((PlayerEntity) entity).sendStatusMessage(
-											new StringTextComponent(
-													("You send " + amount + "\u010F\u017C\u02DD to " + entityiterator.getDisplayName().getString())),
-											(false));
+									((PlayerEntity) entity).sendStatusMessage(new StringTextComponent(
+											("You send " + amount + "\uFFFD to " + entityiterator.getDisplayName().getString())), (false));
 								}
 							}
 						}
@@ -260,7 +268,7 @@ public class MoneyCommandExecutedProcedure {
 								}.getText()) + " have "
 										+ Math.round((entityiterator.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
 												.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money)
-										+ " \u010F\u017C\u02DD")), (false));
+										+ " \uFFFD")), (false));
 							}
 						}
 					}
@@ -268,5 +276,4 @@ public class MoneyCommandExecutedProcedure {
 			}
 		}
 	}
-
 }
