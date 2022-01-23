@@ -121,6 +121,12 @@
     "isFluidTank": false,
     "fluidCapacity": 8000,
     "fluidRestrictions": [],
+    "onTickUpdate": {
+      "name": "MAMUpdateTick"
+    },
+    "onBlockPlayedBy": {
+      "name": "MAMBlockIsPlacedBy"
+    },
     "spawnWorldTypes": [],
     "restrictionBiomes": [],
     "blocksToReplace": [

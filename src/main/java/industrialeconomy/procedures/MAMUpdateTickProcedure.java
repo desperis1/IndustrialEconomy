@@ -11,14 +11,12 @@ import net.minecraft.block.BlockState;
 import java.util.Map;
 
 import java.io.IOException;
-import java.io.FileWriter;
 import java.io.FileReader;
 import java.io.File;
 import java.io.BufferedReader;
 
 import industrialeconomy.IndustrialEconomyMod;
 
-import com.google.gson.GsonBuilder;
 import com.google.gson.Gson;
 
 public class MAMUpdateTickProcedure {
@@ -80,16 +78,6 @@ public class MAMUpdateTickProcedure {
 
 			} catch (IOException e) {
 				e.printStackTrace();
-			}
-		}
-		{
-			Gson mainGSONBuilderVariable = new GsonBuilder().setPrettyPrinting().create();
-			try {
-				FileWriter fileWriter = new FileWriter(playerConfig);
-				fileWriter.write(mainGSONBuilderVariable.toJson(mainObject));
-				fileWriter.close();
-			} catch (IOException exception) {
-				exception.printStackTrace();
 			}
 		}
 	}
