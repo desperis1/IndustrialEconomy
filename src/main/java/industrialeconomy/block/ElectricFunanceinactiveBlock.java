@@ -191,7 +191,7 @@ public class ElectricFunanceinactiveBlock extends IndustrialEconomyModElements.M
 				NetworkHooks.openGui((ServerPlayerEntity) entity, new INamedContainerProvider() {
 					@Override
 					public ITextComponent getDisplayName() {
-						return new StringTextComponent("Electric Furnace MK1");
+						return new StringTextComponent("Electric Furnace MK2");
 					}
 
 					@Override
@@ -325,7 +325,7 @@ public class ElectricFunanceinactiveBlock extends IndustrialEconomyModElements.M
 
 		@Override
 		public ITextComponent getDisplayName() {
-			return new StringTextComponent("Electric Furnace MK1");
+			return new StringTextComponent("Electric Furnace MK2");
 		}
 
 		@Override

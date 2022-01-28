@@ -1,0 +1,42 @@
+{
+  "group": "generatormk3recipe",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "345",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "industrial_economy:generatormk_2"
+    },
+    "1": {
+      "item": "industrial_economy:two_core_cpu"
+    },
+    "2": {
+      "item": "industrial_economy:generatormk_2"
+    },
+    "3": {
+      "item": "industrial_economy:black_opal_ingot"
+    },
+    "4": {
+      "item": "industrial_economy:black_opal"
+    },
+    "5": {
+      "item": "industrial_economy:black_opal_ingot"
+    },
+    "6": {
+      "item": "industrial_economy:generatormk_2"
+    },
+    "7": {
+      "item": "industrial_economy:heavy_diamond_steel"
+    },
+    "8": {
+      "item": "industrial_economy:generatormk_2"
+    }
+  },
+  "result": {
+    "item": "industrial_economy:generatormk_3",
+    "count": 1
+  }
+}

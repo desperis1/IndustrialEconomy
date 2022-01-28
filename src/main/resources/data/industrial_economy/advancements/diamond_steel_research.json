@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "industrial_economy:diamondsteelitem"
+    },
+    "title": {
+      "translate": "advancements.diamond_steel_research.title"
+    },
+    "description": {
+      "translate": "advancements.diamond_steel_research.descr"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "diamond_steel_research": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "experience": 150
+  },
+  "parent": "minecraft:story/root"
+}

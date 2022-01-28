@@ -15,12 +15,12 @@
         "data": {
           "text": "Electric Furnance",
           "color": {
-            "value": -16751002,
+            "value": -16777216,
             "falpha": 0.0
           },
           "name": "Electric Furnance",
-          "x": 170,
-          "y": 41
+          "x": 142,
+          "y": 43
         }
       },
       {
@@ -38,7 +38,7 @@
           "dropItemsWhenNotBound": true,
           "name": "Slot #0",
           "x": 150,
-          "y": 66
+          "y": 57
         }
       },
       {
@@ -52,8 +52,8 @@
           "disableStackInteraction": false,
           "dropItemsWhenNotBound": true,
           "name": "Slot #1",
-          "x": 257,
-          "y": 66
+          "x": 255,
+          "y": 57
         }
       },
       {
@@ -68,21 +68,103 @@
             "name": "GeneratorWorkingLabel"
           },
           "name": "Working",
-          "x": 195,
-          "y": 67
+          "x": 206,
+          "y": 61
         }
       },
       {
         "type": "label",
         "data": {
-          "text": "100MW",
+          "text": "250 MW",
           "color": {
             "value": -16764007,
             "falpha": 0.0
           },
-          "name": "100MW",
-          "x": 267,
-          "y": 41
+          "name": "250 MW",
+          "x": 257,
+          "y": 43
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "mamguienergy.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "GeneratorWorkingLabel"
+          },
+          "name": "mamguienergy.png",
+          "x": 184,
+          "y": 58
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "MK2",
+          "color": {
+            "value": -15762043,
+            "falpha": 0.0
+          },
+          "name": "MK2",
+          "x": 235,
+          "y": 43
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "fire.png",
+          "use1Xscale": false,
+          "name": "fire.png",
+          "x": 205,
+          "y": 78
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "industrial_diamond_block.png",
+          "use1Xscale": false,
+          "name": "industrial_diamond_block.png",
+          "x": 168,
+          "y": 78
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "diamond_imitation.png",
+          "use1Xscale": false,
+          "name": "diamond_imitation.png",
+          "x": 239,
+          "y": 78
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "+",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "+",
+          "x": 193,
+          "y": 81
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "=",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "=",
+          "x": 228,
+          "y": 81
         }
       }
     ],

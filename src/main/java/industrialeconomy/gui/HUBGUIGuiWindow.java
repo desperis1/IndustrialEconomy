@@ -5,16 +5,20 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.api.distmarker.Dist;
 
 import net.minecraft.world.World;
+import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.client.gui.widget.button.Button;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
 import net.minecraft.client.Minecraft;
 
 import java.util.HashMap;
+
+import industrialeconomy.IndustrialEconomyMod;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.matrix.MatrixStack;
@@ -57,13 +61,19 @@ public class HUBGUIGuiWindow extends ContainerScreen<HUBGUIGui.GuiContainerMod> 
 		this.blit(ms, k, l, 0, 0, this.xSize, this.ySize, this.xSize, this.ySize);
 
 		Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("industrial_economy:textures/mamguienergy.png"));
-		this.blit(ms, this.guiLeft + 6, this.guiTop + 135, 0, 0, 16, 16, 16, 16);
+		this.blit(ms, this.guiLeft + 8, this.guiTop + 112, 0, 0, 16, 16, 16, 16);
 
 		Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("industrial_economy:textures/up_green_arrow.png"));
-		this.blit(ms, this.guiLeft + 3, this.guiTop + 157, 0, 0, 16, 16, 16, 16);
+		this.blit(ms, this.guiLeft + 5, this.guiTop + 130, 0, 0, 16, 16, 16, 16);
 
 		Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("industrial_economy:textures/down_red_arrow.png"));
-		this.blit(ms, this.guiLeft + 3, this.guiTop + 178, 0, 0, 16, 16, 16, 16);
+		this.blit(ms, this.guiLeft + 5, this.guiTop + 148, 0, 0, 16, 16, 16, 16);
+
+		Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("industrial_economy:textures/mamguimoney.png"));
+		this.blit(ms, this.guiLeft + 5, this.guiTop + 167, 0, 0, 16, 16, 16, 16);
+
+		Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("industrial_economy:textures/pickaxe_miner.png"));
+		this.blit(ms, this.guiLeft + 5, this.guiTop + 190, 0, 0, 16, 16, 16, 16);
 
 		RenderSystem.disableBlend();
 	}
@@ -84,7 +94,7 @@ public class HUBGUIGuiWindow extends ContainerScreen<HUBGUIGui.GuiContainerMod> 
 
 	@Override
 	protected void drawGuiContainerForegroundLayer(MatrixStack ms, int mouseX, int mouseY) {
-		this.font.drawString(ms, "Energy:", 22, 139, -16724788);
+		this.font.drawString(ms, "Energy:", 24, 116, -16724788);
 		this.font.drawString(ms, "" + (new Object() {
 			public double getValue(BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
@@ -92,7 +102,7 @@ public class HUBGUIGuiWindow extends ContainerScreen<HUBGUIGui.GuiContainerMod> 
 					return tileEntity.getTileData().getDouble(tag);
 				return 0;
 			}
-		}.getValue(new BlockPos((int) x, (int) y, (int) z), "Energy")) + "", 60, 139, -12829636);
+		}.getValue(new BlockPos((int) x, (int) y, (int) z), "Energy")) + "", 63, 117, -12829636);
 		this.font.drawString(ms, "Caterium Mined", 10, 18, -12829636);
 		this.font.drawString(ms, "Coal Mined", 20, 35, -12829636);
 		this.font.drawString(ms, "Iron Mined", 20, 54, -12829636);
@@ -146,9 +156,9 @@ public class HUBGUIGuiWindow extends ContainerScreen<HUBGUIGui.GuiContainerMod> 
 					return tileEntity.getTileData().getDouble(tag);
 				return 0;
 			}
-		}.getValue(new BlockPos((int) x, (int) y, (int) z), "Edown")) + "", 86, 182, -12829636);
-		this.font.drawString(ms, "Production:", 22, 161, -16764160);
-		this.font.drawString(ms, "Consumption:", 22, 182, -13434880);
+		}.getValue(new BlockPos((int) x, (int) y, (int) z), "Edown")) + "", 75, 153, -12829636);
+		this.font.drawString(ms, "Produced:", 24, 133, -16764160);
+		this.font.drawString(ms, "Consumed:", 24, 152, -13434880);
 		this.font.drawString(ms, "" + (new Object() {
 			public double getValue(BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
@@ -156,7 +166,34 @@ public class HUBGUIGuiWindow extends ContainerScreen<HUBGUIGui.GuiContainerMod> 
 					return tileEntity.getTileData().getDouble(tag);
 				return 0;
 			}
-		}.getValue(new BlockPos((int) x, (int) y, (int) z), "Eup")) + "", 82, 161, -12829636);
+		}.getValue(new BlockPos((int) x, (int) y, (int) z), "Eup")) + "", 74, 134, -12829636);
+		this.font.drawString(ms, "Money:", 25, 170, -6711040);
+		this.font.drawString(ms, "Miner Levels:", 25, 187, -12829636);
+		this.font.drawString(ms, "" + (new Object() {
+			public double getValue(BlockPos pos, String tag) {
+				TileEntity tileEntity = world.getTileEntity(pos);
+				if (tileEntity != null)
+					return tileEntity.getTileData().getDouble(tag);
+				return 0;
+			}
+		}.getValue(new BlockPos((int) x, (int) y, (int) z), "Money")) + "", 61, 171, -12829636);
+		this.font.drawString(ms, "" + (new Object() {
+			public double getValue(BlockPos pos, String tag) {
+				TileEntity tileEntity = world.getTileEntity(pos);
+				if (tileEntity != null)
+					return tileEntity.getTileData().getDouble(tag);
+				return 0;
+			}
+		}.getValue(new BlockPos((int) x, (int) y, (int) z), "minerLevels")) + "", 97, 188, -12829636);
+		this.font.drawString(ms, "" + (new Object() {
+			public double getValue(BlockPos pos, String tag) {
+				TileEntity tileEntity = world.getTileEntity(pos);
+				if (tileEntity != null)
+					return tileEntity.getTileData().getDouble(tag);
+				return 0;
+			}
+		}.getValue(new BlockPos((int) x, (int) y, (int) z), "EnergyForMinerUpgrade")) + "", 102, 201, -12829636);
+		this.font.drawString(ms, "Upgrade Price:", 25, 200, -12829636);
 	}
 
 	@Override
@@ -169,5 +206,11 @@ public class HUBGUIGuiWindow extends ContainerScreen<HUBGUIGui.GuiContainerMod> 
 	public void init(Minecraft minecraft, int width, int height) {
 		super.init(minecraft, width, height);
 		minecraft.keyboardListener.enableRepeatEvents(true);
+		this.addButton(new Button(this.guiLeft + 270, this.guiTop + 110, 98, 20, new StringTextComponent("Upgrade Miners"), e -> {
+			if (true) {
+				IndustrialEconomyMod.PACKET_HANDLER.sendToServer(new HUBGUIGui.ButtonPressedMessage(0, x, y, z));
+				HUBGUIGui.handleButtonAction(entity, 0, x, y, z);
+			}
+		}));
 	}
 }

@@ -14,11 +14,14 @@
         "type": "button",
         "data": {
           "text": "Steel Upgrade",
+          "onClick": {
+            "name": "MAMUpgradeSteelOnClick"
+          },
           "width": 93,
           "height": 20,
           "name": "Steel Upgrade",
-          "x": 79,
-          "y": 32
+          "x": 47,
+          "y": 29
         }
       },
       {
@@ -28,7 +31,7 @@
           "use1Xscale": false,
           "name": "mamguienergy.png",
           "x": 47,
-          "y": 193
+          "y": 194
         }
       },
       {
@@ -40,8 +43,8 @@
             "falpha": 0.0
           },
           "name": "<BNBT:number:Energy>",
-          "x": 65,
-          "y": 195
+          "x": 61,
+          "y": 198
         }
       },
       {
@@ -53,8 +56,8 @@
             "falpha": 0.0
           },
           "name": "<BNBT:number:Money>",
-          "x": 276,
-          "y": 195
+          "x": 255,
+          "y": 199
         }
       },
       {
@@ -63,19 +66,190 @@
           "image": "mamguimoney.png",
           "use1Xscale": false,
           "name": "mamguimoney.png",
-          "x": 253,
-          "y": 193
+          "x": 237,
+          "y": 196
         }
       },
       {
         "type": "button",
         "data": {
-          "text": "DIamond Steel Upgrade",
+          "text": "Diamond Steel Upgrade",
+          "onClick": {
+            "name": "MAMUpgradeDiamondSteelOnClick"
+          },
           "width": 134,
           "height": 20,
-          "name": "DIamond Steel Upgrade",
-          "x": 79,
+          "name": "Diamond Steel Upgrade",
+          "x": 47,
+          "y": 50
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Time to complete research: <BNBT:number:TimeToComplete>",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "displayCondition": {
+            "name": "TimetoCompleteShowCondition"
+          },
+          "name": "Time to complete research: <BNBT:number:TimeToComplete>",
+          "x": 43,
+          "y": 179
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Black Opal Upgrade",
+          "onClick": {
+            "name": "MAMUpgradeBlackOpalOnClick"
+          },
+          "width": 119,
+          "height": 20,
+          "name": "Black Opal Upgrade",
+          "x": 47,
+          "y": 71
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "mamguienergy.png",
+          "use1Xscale": false,
+          "name": "mamguienergy.png",
+          "x": 153,
+          "y": 31
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "50 000 MW",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "50 000 MW",
+          "x": 168,
+          "y": 35
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "mamguimoney.png",
+          "use1Xscale": false,
+          "name": "mamguimoney.png",
+          "x": 228,
+          "y": 32
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "5 000 coins",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "5 000 coins",
+          "x": 249,
+          "y": 35
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "mamguimoney.png",
+          "use1Xscale": false,
+          "name": "mamguimoney.png",
+          "x": 290,
+          "y": 53
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "mamguimoney.png",
+          "use1Xscale": false,
+          "name": "mamguimoney.png",
+          "x": 239,
+          "y": 73
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "mamguienergy.png",
+          "use1Xscale": false,
+          "name": "mamguienergy.png",
+          "x": 190,
           "y": 52
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "mamguienergy.png",
+          "use1Xscale": false,
+          "name": "mamguienergy.png",
+          "x": 179,
+          "y": 73
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "5 000 000 MW",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "5 000 000 MW",
+          "x": 208,
+          "y": 56
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "50 000 coins",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "50 000 coins",
+          "x": 310,
+          "y": 56
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "5 E7",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "5 E7",
+          "x": 193,
+          "y": 77
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "150 000 coins",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "150 000 coins",
+          "x": 263,
+          "y": 77
         }
       }
     ],

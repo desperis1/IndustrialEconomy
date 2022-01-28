@@ -119,11 +119,11 @@ public class FoundryGUIGui extends IndustrialEconomyModElements.ModElement {
 					}
 				}
 			}
-			this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 43, 17) {
+			this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 136, 19) {
 			}));
-			this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, 115, 17) {
+			this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, 186, 19) {
 			}));
-			this.customSlots.put(2, this.addSlot(new SlotItemHandler(internal, 2, 79, 53) {
+			this.customSlots.put(2, this.addSlot(new SlotItemHandler(internal, 2, 162, 42) {
 				@Override
 				public boolean isItemValid(ItemStack stack) {
 					return false;
@@ -133,9 +133,9 @@ public class FoundryGUIGui extends IndustrialEconomyModElements.ModElement {
 			int sj;
 			for (si = 0; si < 3; ++si)
 				for (sj = 0; sj < 9; ++sj)
-					this.addSlot(new Slot(inv, sj + (si + 1) * 9, 0 + 8 + sj * 18, 0 + 84 + si * 18));
+					this.addSlot(new Slot(inv, sj + (si + 1) * 9, 28 + 8 + sj * 18, 0 + 84 + si * 18));
 			for (si = 0; si < 9; ++si)
-				this.addSlot(new Slot(inv, si, 0 + 8 + si * 18, 0 + 142));
+				this.addSlot(new Slot(inv, si, 28 + 8 + si * 18, 0 + 142));
 		}
 
 		public Map<Integer, Slot> get() {

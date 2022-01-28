@@ -35,8 +35,8 @@
             "name": "GeneratorWorkingLabel"
           },
           "name": "Working",
-          "x": 196,
-          "y": 51
+          "x": 205,
+          "y": 57
         }
       },
       {
@@ -77,6 +77,19 @@
           "name": "+25 MW",
           "x": 264,
           "y": 40
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "mamguienergy.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "GeneratorWorkingLabel"
+          },
+          "name": "mamguienergy.png",
+          "x": 190,
+          "y": 53
         }
       }
     ],

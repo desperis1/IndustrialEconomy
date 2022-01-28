@@ -119,9 +119,9 @@ public class PresserGUIGui extends IndustrialEconomyModElements.ModElement {
 					}
 				}
 			}
-			this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 28, 33) {
+			this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 106, 19) {
 			}));
-			this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, 124, 33) {
+			this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, 106, 59) {
 				@Override
 				public boolean isItemValid(ItemStack stack) {
 					return false;

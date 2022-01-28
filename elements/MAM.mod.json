@@ -54,7 +54,7 @@
     "material": {
       "value": "IRON"
     },
-    "tickRate": 10,
+    "tickRate": 20,
     "tickRandomly": false,
     "isReplaceable": false,
     "canProvidePower": false,
@@ -104,10 +104,10 @@
     "particleSpawningShape": "Spread",
     "particleSpawningRadious": 0.5,
     "particleAmount": 4,
-    "hasInventory": false,
-    "guiBoundTo": "<NONE>",
-    "openGUIOnRightClick": false,
-    "inventorySize": 9,
+    "hasInventory": true,
+    "guiBoundTo": "MAMGUIMAIN",
+    "openGUIOnRightClick": true,
+    "inventorySize": 1,
     "inventoryStackSize": 64,
     "inventoryDropWhenDestroyed": true,
     "inventoryComparatorPower": true,

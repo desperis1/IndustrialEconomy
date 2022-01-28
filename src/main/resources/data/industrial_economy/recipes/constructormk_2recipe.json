@@ -1,0 +1,42 @@
+{
+  "group": "constructormk2recipe",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "345",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "industrial_economy:diamond_steelblock"
+    },
+    "1": {
+      "item": "industrial_economy:highspeedconectoritem"
+    },
+    "2": {
+      "item": "industrial_economy:diamond_steelblock"
+    },
+    "3": {
+      "item": "industrial_economy:diamondsteelplate"
+    },
+    "4": {
+      "item": "industrial_economy:constructorblock"
+    },
+    "5": {
+      "item": "industrial_economy:diamondsteelplate"
+    },
+    "6": {
+      "item": "industrial_economy:diamond_steelblock"
+    },
+    "7": {
+      "item": "industrial_economy:heavy_diamond_steel"
+    },
+    "8": {
+      "item": "industrial_economy:diamond_steelblock"
+    }
+  },
+  "result": {
+    "item": "industrial_economy:constructor_mk_2",
+    "count": 1
+  }
+}

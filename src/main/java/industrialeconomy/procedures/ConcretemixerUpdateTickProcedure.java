@@ -17,8 +17,6 @@ import java.util.Map;
 
 import industrialeconomy.item.ConcreteItem;
 
-import industrialeconomy.IndustrialEconomyModVariables;
-
 import industrialeconomy.IndustrialEconomyMod;
 
 public class ConcretemixerUpdateTickProcedure {
@@ -67,11 +65,7 @@ public class ConcretemixerUpdateTickProcedure {
 					return tileEntity.getTileData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world,
-				new BlockPos((int) IndustrialEconomyModVariables.WorldVariables.get(world).server_x,
-						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_y,
-						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_z),
-				(owner + "hub_X")));
+		}.getValue(world, new BlockPos((int) players_hub_x, (int) players_hub_x, (int) players_hub_x), (owner + "hub_X")));
 		players_hub_y = (new Object() {
 			public double getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
@@ -79,11 +73,7 @@ public class ConcretemixerUpdateTickProcedure {
 					return tileEntity.getTileData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world,
-				new BlockPos((int) IndustrialEconomyModVariables.WorldVariables.get(world).server_x,
-						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_y,
-						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_z),
-				(owner + "hub_Y")));
+		}.getValue(world, new BlockPos((int) players_hub_x, (int) players_hub_x, (int) players_hub_x), (owner + "hub_Y")));
 		players_hub_z = (new Object() {
 			public double getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
@@ -91,11 +81,7 @@ public class ConcretemixerUpdateTickProcedure {
 					return tileEntity.getTileData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world,
-				new BlockPos((int) IndustrialEconomyModVariables.WorldVariables.get(world).server_x,
-						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_y,
-						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_z),
-				(owner + "hub_Z")));
+		}.getValue(world, new BlockPos((int) players_hub_x, (int) players_hub_x, (int) players_hub_x), (owner + "hub_Z")));
 		if (new Object() {
 			public double getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);

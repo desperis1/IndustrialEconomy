@@ -1,5 +1,6 @@
 package industrialeconomy.procedures;
 
+import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.fml.loading.FMLPaths;
 
 import net.minecraft.world.World;
@@ -8,8 +9,10 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.state.Property;
 import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.item.ItemStack;
 import net.minecraft.block.BlockState;
 
+import java.util.concurrent.atomic.AtomicReference;
 import java.util.Map;
 
 import java.io.IOException;
@@ -17,6 +20,9 @@ import java.io.FileWriter;
 import java.io.FileReader;
 import java.io.File;
 import java.io.BufferedReader;
+
+import industrialeconomy.item.TwoCoreCPUItem;
+import industrialeconomy.item.FourCoreCPUItem;
 
 import industrialeconomy.block.MinerinactiveBlock;
 import industrialeconomy.block.LimestoneactiveBlock;
@@ -58,12 +64,10 @@ public class MinerblockUpdateTickProcedure {
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		String owner = "";
-		double players_hub_x = 0;
-		double players_hub_y = 0;
-		double players_hub_z = 0;
-		double miners_level = 0;
 		File playerConfig = new File("");
 		com.google.gson.JsonObject mainObject = new com.google.gson.JsonObject();
+		double miners_level = 0;
+		double cpu_multipler = 0;
 		owner = (new Object() {
 			public String getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
@@ -72,6 +76,35 @@ public class MinerblockUpdateTickProcedure {
 				return "";
 			}
 		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "owner"));
+		if (TwoCoreCPUItem.block == (new Object() {
+			public ItemStack getItemStack(BlockPos pos, int sltid) {
+				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
+				TileEntity _ent = world.getTileEntity(pos);
+				if (_ent != null) {
+					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_retval.set(capability.getStackInSlot(sltid).copy());
+					});
+				}
+				return _retval.get();
+			}
+		}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (0))).getItem()) {
+			cpu_multipler = 2;
+		} else if (FourCoreCPUItem.block == (new Object() {
+			public ItemStack getItemStack(BlockPos pos, int sltid) {
+				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
+				TileEntity _ent = world.getTileEntity(pos);
+				if (_ent != null) {
+					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_retval.set(capability.getStackInSlot(sltid).copy());
+					});
+				}
+				return _retval.get();
+			}
+		}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (0))).getItem()) {
+			cpu_multipler = 4;
+		} else {
+			cpu_multipler = 1;
+		}
 		playerConfig = (File) new File((FMLPaths.GAMEDIR.get().toString() + "/config/"), File.separator + (owner + ".json"));
 		{
 			try {
@@ -83,55 +116,25 @@ public class MinerblockUpdateTickProcedure {
 				}
 				bufferedReader.close();
 				mainObject = new Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
+				if (!world.isRemote()) {
+					BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
+					TileEntity _tileEntity = world.getTileEntity(_bp);
+					BlockState _bs = world.getBlockState(_bp);
+					if (_tileEntity != null)
+						_tileEntity.getTileData().putDouble("minerLevels", new Object() {
+							double convert(String s) {
+								try {
+									return Double.parseDouble(s.trim());
+								} catch (Exception e) {
+								}
+								return 0;
+							}
+						}.convert(new java.text.DecimalFormat("#").format(mainObject.get("minerLevels").getAsDouble())));
+					if (world instanceof World)
+						((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
+				}
 				if (mainObject.get("Energy").getAsDouble() >= 15) {
-					if (CoalNodeBlock.block == (world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z))).getBlock() && new Object() {
-						public double getValue(IWorld world, BlockPos pos, String tag) {
-							TileEntity tileEntity = world.getTileEntity(pos);
-							if (tileEntity != null)
-								return tileEntity.getTileData().getDouble(tag);
-							return -1;
-						}
-					}.getValue(world, new BlockPos((int) x, (int) (y - 1), (int) z), "can_be_mined") >= 1) {
-						if (!world.isRemote()) {
-							BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
-							TileEntity _tileEntity = world.getTileEntity(_bp);
-							BlockState _bs = world.getBlockState(_bp);
-							if (_tileEntity != null)
-								_tileEntity.getTileData().putBoolean("Working", (true));
-							if (world instanceof World)
-								((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
-						}
-						mainObject.addProperty("Edown", (mainObject.get("Edown").getAsDouble() + 15 * mainObject.get("minerLevels").getAsDouble()));
-						if (Math.random() < 0.5) {
-							mainObject.addProperty("Coal", (mainObject.get("Coal").getAsDouble() + 1));
-							mainObject.addProperty("Energy",
-									(mainObject.get("Energy").getAsDouble() - 15 * mainObject.get("minerLevels").getAsDouble()));
-							if (!world.isRemote()) {
-								BlockPos _bp = new BlockPos((int) x, (int) (y - 1), (int) z);
-								TileEntity _tileEntity = world.getTileEntity(_bp);
-								BlockState _bs = world.getBlockState(_bp);
-								if (_tileEntity != null)
-									_tileEntity.getTileData().putDouble("can_be_mined", ((new Object() {
-										public double getValue(IWorld world, BlockPos pos, String tag) {
-											TileEntity tileEntity = world.getTileEntity(pos);
-											if (tileEntity != null)
-												return tileEntity.getTileData().getDouble(tag);
-											return -1;
-										}
-									}.getValue(world, new BlockPos((int) x, (int) (y - 1), (int) z), "can_be_mined")) - 1));
-								if (world instanceof World)
-									((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
-							}
-						}
-					} else if (IronOreNodeBlockBlock.block == (world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z))).getBlock()
-							&& new Object() {
-								public double getValue(IWorld world, BlockPos pos, String tag) {
-									TileEntity tileEntity = world.getTileEntity(pos);
-									if (tileEntity != null)
-										return tileEntity.getTileData().getDouble(tag);
-									return -1;
-								}
-							}.getValue(world, new BlockPos((int) x, (int) (y - 1), (int) z), "can_be_mined") >= 1) {
+					if (CoalNodeBlock.block == (world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z))).getBlock()) {
 						if (!world.isRemote()) {
 							BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 							TileEntity _tileEntity = world.getTileEntity(_bp);
@@ -142,35 +145,32 @@ public class MinerblockUpdateTickProcedure {
 								((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 						}
 						if (Math.random() < 0.5) {
-							mainObject.addProperty("Iron", (mainObject.get("Iron").getAsDouble() + 1));
+							mainObject.addProperty("Coal",
+									(mainObject.get("Coal").getAsDouble() + mainObject.get("minerLevels").getAsDouble() * cpu_multipler));
 							mainObject.addProperty("Energy",
-									(mainObject.get("Energy").getAsDouble() - 15 * mainObject.get("minerLevels").getAsDouble()));
-							if (!world.isRemote()) {
-								BlockPos _bp = new BlockPos((int) x, (int) (y - 1), (int) z);
-								TileEntity _tileEntity = world.getTileEntity(_bp);
-								BlockState _bs = world.getBlockState(_bp);
-								if (_tileEntity != null)
-									_tileEntity.getTileData().putDouble("can_be_mined", ((new Object() {
-										public double getValue(IWorld world, BlockPos pos, String tag) {
-											TileEntity tileEntity = world.getTileEntity(pos);
-											if (tileEntity != null)
-												return tileEntity.getTileData().getDouble(tag);
-											return -1;
-										}
-									}.getValue(world, new BlockPos((int) x, (int) (y - 1), (int) z), "can_be_mined")) - 1));
-								if (world instanceof World)
-									((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
-							}
+									(mainObject.get("Energy").getAsDouble() - 15 * mainObject.get("minerLevels").getAsDouble() * cpu_multipler));
+							mainObject.addProperty("Edown",
+									(mainObject.get("Edown").getAsDouble() + 15 * mainObject.get("minerLevels").getAsDouble() * cpu_multipler));
 						}
-					} else if (CateriumNODEblockBlock.block == (world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z))).getBlock()
-							&& new Object() {
-								public double getValue(IWorld world, BlockPos pos, String tag) {
-									TileEntity tileEntity = world.getTileEntity(pos);
-									if (tileEntity != null)
-										return tileEntity.getTileData().getDouble(tag);
-									return -1;
-								}
-							}.getValue(world, new BlockPos((int) x, (int) (y - 1), (int) z), "can_be_mined") >= 1) {
+					} else if (IronOreNodeBlockBlock.block == (world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z))).getBlock()) {
+						if (!world.isRemote()) {
+							BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
+							TileEntity _tileEntity = world.getTileEntity(_bp);
+							BlockState _bs = world.getBlockState(_bp);
+							if (_tileEntity != null)
+								_tileEntity.getTileData().putBoolean("Working", (true));
+							if (world instanceof World)
+								((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
+						}
+						if (Math.random() < 0.5) {
+							mainObject.addProperty("Iron",
+									(mainObject.get("Iron").getAsDouble() + mainObject.get("minerLevels").getAsDouble() * cpu_multipler));
+							mainObject.addProperty("Energy", (mainObject.get("Energy").getAsDouble()
+									- 15 * mainObject.get("minerLevels").getAsDouble() * cpu_multipler * cpu_multipler));
+							mainObject.addProperty("Edown",
+									(mainObject.get("Edown").getAsDouble() + 15 * mainObject.get("minerLevels").getAsDouble() * cpu_multipler));
+						}
+					} else if (CateriumNODEblockBlock.block == (world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z))).getBlock()) {
 						if (!world.isRemote()) {
 							BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 							TileEntity _tileEntity = world.getTileEntity(_bp);
@@ -181,35 +181,14 @@ public class MinerblockUpdateTickProcedure {
 								((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 						}
 						if (Math.random() < 0.3) {
-							mainObject.addProperty("Caterium", (mainObject.get("Caterium").getAsDouble() + 1));
+							mainObject.addProperty("Caterium", (mainObject.get("Caterium").getAsDouble()
+									+ mainObject.get("minerLevels").getAsDouble() * cpu_multipler * cpu_multipler));
 							mainObject.addProperty("Energy",
-									(mainObject.get("Energy").getAsDouble() - 15 * mainObject.get("minerLevels").getAsDouble()));
-							if (!world.isRemote()) {
-								BlockPos _bp = new BlockPos((int) x, (int) (y - 1), (int) z);
-								TileEntity _tileEntity = world.getTileEntity(_bp);
-								BlockState _bs = world.getBlockState(_bp);
-								if (_tileEntity != null)
-									_tileEntity.getTileData().putDouble("can_be_mined", ((new Object() {
-										public double getValue(IWorld world, BlockPos pos, String tag) {
-											TileEntity tileEntity = world.getTileEntity(pos);
-											if (tileEntity != null)
-												return tileEntity.getTileData().getDouble(tag);
-											return -1;
-										}
-									}.getValue(world, new BlockPos((int) x, (int) (y - 1), (int) z), "can_be_mined")) - 1));
-								if (world instanceof World)
-									((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
-							}
+									(mainObject.get("Energy").getAsDouble() - 15 * mainObject.get("minerLevels").getAsDouble() * cpu_multipler));
+							mainObject.addProperty("Edown",
+									(mainObject.get("Edown").getAsDouble() + 15 * mainObject.get("minerLevels").getAsDouble() * cpu_multipler));
 						}
-					} else if (CopperNodeBlock.block == (world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z))).getBlock()
-							&& new Object() {
-								public double getValue(IWorld world, BlockPos pos, String tag) {
-									TileEntity tileEntity = world.getTileEntity(pos);
-									if (tileEntity != null)
-										return tileEntity.getTileData().getDouble(tag);
-									return -1;
-								}
-							}.getValue(world, new BlockPos((int) x, (int) (y - 1), (int) z), "can_be_mined") >= 1) {
+					} else if (CopperNodeBlock.block == (world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z))).getBlock()) {
 						if (!world.isRemote()) {
 							BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 							TileEntity _tileEntity = world.getTileEntity(_bp);
@@ -220,35 +199,14 @@ public class MinerblockUpdateTickProcedure {
 								((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 						}
 						if (Math.random() < 0.3) {
-							mainObject.addProperty("Copper", (mainObject.get("Copper").getAsDouble() + 1));
+							mainObject.addProperty("Copper",
+									(mainObject.get("Copper").getAsDouble() + mainObject.get("minerLevels").getAsDouble() * cpu_multipler));
 							mainObject.addProperty("Energy",
-									(mainObject.get("Energy").getAsDouble() - 15 * mainObject.get("minerLevels").getAsDouble()));
-							if (!world.isRemote()) {
-								BlockPos _bp = new BlockPos((int) x, (int) (y - 1), (int) z);
-								TileEntity _tileEntity = world.getTileEntity(_bp);
-								BlockState _bs = world.getBlockState(_bp);
-								if (_tileEntity != null)
-									_tileEntity.getTileData().putDouble("can_be_mined", ((new Object() {
-										public double getValue(IWorld world, BlockPos pos, String tag) {
-											TileEntity tileEntity = world.getTileEntity(pos);
-											if (tileEntity != null)
-												return tileEntity.getTileData().getDouble(tag);
-											return -1;
-										}
-									}.getValue(world, new BlockPos((int) x, (int) (y - 1), (int) z), "can_be_mined")) - 1));
-								if (world instanceof World)
-									((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
-							}
+									(mainObject.get("Energy").getAsDouble() - 15 * mainObject.get("minerLevels").getAsDouble() * cpu_multipler));
+							mainObject.addProperty("Edown",
+									(mainObject.get("Edown").getAsDouble() + 15 * mainObject.get("minerLevels").getAsDouble() * cpu_multipler));
 						}
-					} else if (LimestoneactiveBlock.block == (world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z))).getBlock()
-							&& new Object() {
-								public double getValue(IWorld world, BlockPos pos, String tag) {
-									TileEntity tileEntity = world.getTileEntity(pos);
-									if (tileEntity != null)
-										return tileEntity.getTileData().getDouble(tag);
-									return -1;
-								}
-							}.getValue(world, new BlockPos((int) x, (int) (y - 1), (int) z), "can_be_mined") >= 1) {
+					} else if (LimestoneactiveBlock.block == (world.getBlockState(new BlockPos((int) x, (int) (y - 1), (int) z))).getBlock()) {
 						if (!world.isRemote()) {
 							BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 							TileEntity _tileEntity = world.getTileEntity(_bp);
@@ -259,31 +217,18 @@ public class MinerblockUpdateTickProcedure {
 								((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 						}
 						if (Math.random() < 0.45) {
-							mainObject.addProperty("SandStone", (mainObject.get("SandStone").getAsDouble() + 1));
+							mainObject.addProperty("SandStone",
+									(mainObject.get("SandStone").getAsDouble() + mainObject.get("minerLevels").getAsDouble() * cpu_multipler));
 							mainObject.addProperty("Energy",
-									(mainObject.get("Energy").getAsDouble() - 15 * mainObject.get("minerLevels").getAsDouble()));
+									(mainObject.get("Energy").getAsDouble() - 15 * mainObject.get("minerLevels").getAsDouble() * cpu_multipler));
+							mainObject.addProperty("Edown",
+									(mainObject.get("Edown").getAsDouble() + 15 * mainObject.get("minerLevels").getAsDouble() * cpu_multipler));
 							if (!world.isRemote()) {
 								BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 								TileEntity _tileEntity = world.getTileEntity(_bp);
 								BlockState _bs = world.getBlockState(_bp);
 								if (_tileEntity != null)
 									_tileEntity.getTileData().putBoolean("Working", (true));
-								if (world instanceof World)
-									((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
-							}
-							if (!world.isRemote()) {
-								BlockPos _bp = new BlockPos((int) x, (int) (y - 1), (int) z);
-								TileEntity _tileEntity = world.getTileEntity(_bp);
-								BlockState _bs = world.getBlockState(_bp);
-								if (_tileEntity != null)
-									_tileEntity.getTileData().putDouble("can_be_mined", ((new Object() {
-										public double getValue(IWorld world, BlockPos pos, String tag) {
-											TileEntity tileEntity = world.getTileEntity(pos);
-											if (tileEntity != null)
-												return tileEntity.getTileData().getDouble(tag);
-											return -1;
-										}
-									}.getValue(world, new BlockPos((int) x, (int) (y - 1), (int) z), "can_be_mined")) - 1));
 								if (world instanceof World)
 									((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 							}

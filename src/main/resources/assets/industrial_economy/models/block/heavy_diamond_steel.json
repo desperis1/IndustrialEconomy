@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "industrial_economy:blocks/heavy_diamond_steel",
+    "particle": "industrial_economy:blocks/heavy_diamond_steel"
+  }
+}

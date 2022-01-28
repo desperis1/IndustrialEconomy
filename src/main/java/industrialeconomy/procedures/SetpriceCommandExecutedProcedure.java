@@ -1,31 +1,30 @@
 package industrialeconomy.procedures;
 
-import net.minecraft.world.World;
-import net.minecraft.world.IWorld;
+import net.minecraftforge.fml.loading.FMLPaths;
+
 import net.minecraft.util.text.StringTextComponent;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.Entity;
-import net.minecraft.block.BlockState;
 
 import java.util.Map;
 import java.util.HashMap;
 
-import industrialeconomy.IndustrialEconomyModVariables;
+import java.io.IOException;
+import java.io.FileWriter;
+import java.io.FileReader;
+import java.io.File;
+import java.io.BufferedReader;
 
 import industrialeconomy.IndustrialEconomyMod;
+
+import com.google.gson.GsonBuilder;
+import com.google.gson.Gson;
 
 public class SetpriceCommandExecutedProcedure {
 
 	public static void executeProcedure(Map<String, Object> dependencies) {
-		if (dependencies.get("world") == null) {
-			if (!dependencies.containsKey("world"))
-				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency world for procedure SetpriceCommandExecuted!");
-			return;
-		}
 		if (dependencies.get("entity") == null) {
 			if (!dependencies.containsKey("entity"))
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency entity for procedure SetpriceCommandExecuted!");
@@ -36,11 +35,13 @@ public class SetpriceCommandExecutedProcedure {
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency cmdparams for procedure SetpriceCommandExecuted!");
 			return;
 		}
-		IWorld world = (IWorld) dependencies.get("world");
 		Entity entity = (Entity) dependencies.get("entity");
 		HashMap cmdparams = (HashMap) dependencies.get("cmdparams");
 		double price = 0;
 		ItemStack item_in_hand = ItemStack.EMPTY;
+		com.google.gson.JsonObject mainObject = new com.google.gson.JsonObject();
+		String owner = "";
+		File playerConfig = new File("");
 		if ((new Object() {
 			public String getText() {
 				String param = (String) cmdparams.get("0");
@@ -55,42 +56,47 @@ public class SetpriceCommandExecutedProcedure {
 						(false));
 			}
 		}
-		if (!(new Object() {
-			public String getText() {
-				String param = (String) cmdparams.get("0");
-				if (param != null) {
-					return param;
+		playerConfig = (File) new File((FMLPaths.GAMEDIR.get().toString() + "/config/"), File.separator + "prices.json");
+		{
+			try {
+				BufferedReader bufferedReader = new BufferedReader(new FileReader(playerConfig));
+				StringBuilder jsonstringbuilder = new StringBuilder();
+				String line;
+				while ((line = bufferedReader.readLine()) != null) {
+					jsonstringbuilder.append(line);
 				}
-				return "";
-			}
-		}.getText()).equals("") && !((ItemStack.EMPTY)
-				.getItem() == ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY).getItem())) {
-			item_in_hand = ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY);
-			price = new Object() {
-				double convert(String s) {
-					try {
-						return Double.parseDouble(s.trim());
-					} catch (Exception e) {
+				bufferedReader.close();
+				mainObject = new Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
+				if (!(new Object() {
+					public String getText() {
+						String param = (String) cmdparams.get("0");
+						if (param != null) {
+							return param;
+						}
+						return "";
 					}
-					return 0;
-				}
-			}.convert(new Object() {
-				public String getText() {
-					String param = (String) cmdparams.get("0");
-					if (param != null) {
-						return param;
-					}
-					return "";
-				}
-			}.getText());
-			if (!world.isRemote()) {
-				BlockPos _bp = new BlockPos((int) IndustrialEconomyModVariables.WorldVariables.get(world).server_x,
-						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_y,
-						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_z);
-				TileEntity _tileEntity = world.getTileEntity(_bp);
-				BlockState _bs = world.getBlockState(_bp);
-				if (_tileEntity != null)
-					_tileEntity.getTileData().putDouble(((item_in_hand).getDisplayName().getString() + "_price"), new Object() {
+				}.getText()).equals("") && !((ItemStack.EMPTY)
+						.getItem() == ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
+								.getItem())) {
+					item_in_hand = ((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY);
+					price = new Object() {
+						double convert(String s) {
+							try {
+								return Double.parseDouble(s.trim());
+							} catch (Exception e) {
+							}
+							return 0;
+						}
+					}.convert(new Object() {
+						public String getText() {
+							String param = (String) cmdparams.get("0");
+							if (param != null) {
+								return param;
+							}
+							return "";
+						}
+					}.getText());
+					mainObject.addProperty(((item_in_hand).getDisplayName().getString()), new Object() {
 						double convert(String s) {
 							try {
 								return Double.parseDouble(s.trim());
@@ -107,28 +113,40 @@ public class SetpriceCommandExecutedProcedure {
 							return "";
 						}
 					}.getText()));
-				if (world instanceof World)
-					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
-			}
-			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-				((PlayerEntity) entity).sendStatusMessage(
-						new StringTextComponent(("You set price for " + (item_in_hand).getDisplayName().getString() + " to :" + new Object() {
-							double convert(String s) {
-								try {
-									return Double.parseDouble(s.trim());
-								} catch (Exception e) {
-								}
-								return 0;
-							}
-						}.convert(new Object() {
-							public String getText() {
-								String param = (String) cmdparams.get("0");
-								if (param != null) {
-									return param;
-								}
-								return "";
-							}
-						}.getText()) + " \uFFFD")), (false));
+					{
+						Gson mainGSONBuilderVariable = new GsonBuilder().setPrettyPrinting().create();
+						try {
+							FileWriter fileWriter = new FileWriter(playerConfig);
+							fileWriter.write(mainGSONBuilderVariable.toJson(mainObject));
+							fileWriter.close();
+						} catch (IOException exception) {
+							exception.printStackTrace();
+						}
+					}
+					if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
+						((PlayerEntity) entity).sendStatusMessage(
+								new StringTextComponent(("You set price for " + (item_in_hand).getDisplayName().getString() + " to :" + new Object() {
+									double convert(String s) {
+										try {
+											return Double.parseDouble(s.trim());
+										} catch (Exception e) {
+										}
+										return 0;
+									}
+								}.convert(new Object() {
+									public String getText() {
+										String param = (String) cmdparams.get("0");
+										if (param != null) {
+											return param;
+										}
+										return "";
+									}
+								}.getText()) + " coins ")), (false));
+					}
+				}
+
+			} catch (IOException e) {
+				e.printStackTrace();
 			}
 		}
 	}

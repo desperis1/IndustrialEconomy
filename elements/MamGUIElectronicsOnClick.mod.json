@@ -1,0 +1,243 @@
+{
+  "_fv": 24,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 293,
+    "height": 201,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "button",
+        "data": {
+          "text": "2x Core CPU",
+          "onClick": {
+            "name": "MAMUpgradeTWOCoreCPUOnCLick"
+          },
+          "width": 82,
+          "height": 20,
+          "name": "2x Core CPU",
+          "x": 77,
+          "y": 28
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "4x Core CPU",
+          "onClick": {
+            "name": "MAMUpgradeFourCoreCPUOnCLick"
+          },
+          "width": 82,
+          "height": 20,
+          "name": "4x Core CPU",
+          "x": 77,
+          "y": 50
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "8x Core CPU",
+          "width": 82,
+          "height": 20,
+          "name": "8x Core CPU",
+          "x": 77,
+          "y": 72
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "16x Core CPU",
+          "width": 87,
+          "height": 20,
+          "name": "16x Core CPU",
+          "x": 77,
+          "y": 94
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "32x Core CPU",
+          "width": 87,
+          "height": 20,
+          "name": "32x Core CPU",
+          "x": 77,
+          "y": 116
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "64x Core CPU",
+          "width": 87,
+          "height": 20,
+          "name": "64x Core CPU",
+          "x": 77,
+          "y": 138
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "128x Core CPU",
+          "width": 92,
+          "height": 20,
+          "name": "128x Core CPU",
+          "x": 77,
+          "y": 160
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "mamguienergy.png",
+          "use1Xscale": false,
+          "name": "mamguienergy.png",
+          "x": 76,
+          "y": 196
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Energy: <BNBT:number:Energy>",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "Energy: <BNBT:number:Energy>",
+          "x": 87,
+          "y": 200
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Money: <BNBT:number:Money>",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "Money: <BNBT:number:Money>",
+          "x": 238,
+          "y": 200
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "mamguimoney.png",
+          "use1Xscale": false,
+          "name": "mamguimoney.png",
+          "x": 219,
+          "y": 197
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "mamguienergy.png",
+          "use1Xscale": false,
+          "name": "mamguienergy.png",
+          "x": 164,
+          "y": 30
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "mamguimoney.png",
+          "use1Xscale": false,
+          "name": "mamguimoney.png",
+          "x": 231,
+          "y": 30
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "mamguimoney.png",
+          "use1Xscale": false,
+          "name": "mamguimoney.png",
+          "x": 229,
+          "y": 52
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "mamguienergy.png",
+          "use1Xscale": false,
+          "name": "mamguienergy.png",
+          "x": 165,
+          "y": 52
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "1 E8 MW",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "1 E8 MW",
+          "x": 181,
+          "y": 55
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "150 000 coins",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "150 000 coins",
+          "x": 254,
+          "y": 55
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "2.5 E7 MW",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "2.5 E7 MW",
+          "x": 179,
+          "y": 34
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "25 000 coins",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "25 000 coins",
+          "x": 256,
+          "y": 33
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

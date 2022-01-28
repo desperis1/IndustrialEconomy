@@ -9,6 +9,7 @@ import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.enchantment.EnchantmentType;
 import net.minecraft.enchantment.Enchantment;
 
+import industrialeconomy.item.SteelToolSPickaxeItem;
 import industrialeconomy.item.DiamondSteelpickaxeItem;
 
 import industrialeconomy.IndustrialEconomyModElements;
@@ -57,6 +58,8 @@ public class SmelterEnchantment extends IndustrialEconomyModElements.ModElement 
 			if (stack.getItem() == Items.DIAMOND_PICKAXE)
 				return true;
 			if (stack.getItem() == Items.NETHERITE_PICKAXE)
+				return true;
+			if (stack.getItem() == SteelToolSPickaxeItem.block)
 				return true;
 			return false;
 		}

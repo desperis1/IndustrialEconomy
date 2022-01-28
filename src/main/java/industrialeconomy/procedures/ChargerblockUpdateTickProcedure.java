@@ -14,10 +14,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import java.util.Random;
 import java.util.Map;
 
-import industrialeconomy.item.NodeScannerToolItem;
 import industrialeconomy.item.BuildertoolItem;
-
-import industrialeconomy.IndustrialEconomyModVariables;
 
 import industrialeconomy.IndustrialEconomyMod;
 
@@ -67,11 +64,7 @@ public class ChargerblockUpdateTickProcedure {
 					return tileEntity.getTileData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world,
-				new BlockPos((int) IndustrialEconomyModVariables.WorldVariables.get(world).server_x,
-						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_y,
-						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_z),
-				(owner + "hub_X")));
+		}.getValue(world, new BlockPos((int) players_hub_x, (int) players_hub_x, (int) players_hub_x), (owner + "hub_X")));
 		players_hub_y = (new Object() {
 			public double getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
@@ -79,11 +72,7 @@ public class ChargerblockUpdateTickProcedure {
 					return tileEntity.getTileData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world,
-				new BlockPos((int) IndustrialEconomyModVariables.WorldVariables.get(world).server_x,
-						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_y,
-						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_z),
-				(owner + "hub_Y")));
+		}.getValue(world, new BlockPos((int) players_hub_x, (int) players_hub_x, (int) players_hub_x), (owner + "hub_Y")));
 		players_hub_z = (new Object() {
 			public double getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
@@ -91,75 +80,7 @@ public class ChargerblockUpdateTickProcedure {
 					return tileEntity.getTileData().getDouble(tag);
 				return -1;
 			}
-		}.getValue(world,
-				new BlockPos((int) IndustrialEconomyModVariables.WorldVariables.get(world).server_x,
-						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_y,
-						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_z),
-				(owner + "hub_Z")));
-		if (new Object() {
-			public double getValue(IWorld world, BlockPos pos, String tag) {
-				TileEntity tileEntity = world.getTileEntity(pos);
-				if (tileEntity != null)
-					return tileEntity.getTileData().getDouble(tag);
-				return -1;
-			}
-		}.getValue(world, new BlockPos((int) players_hub_x, (int) players_hub_y, (int) players_hub_z), "Energy") > 10 && (new Object() {
-			public ItemStack getItemStack(BlockPos pos, int sltid) {
-				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
-				TileEntity _ent = world.getTileEntity(pos);
-				if (_ent != null) {
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
-						_retval.set(capability.getStackInSlot(sltid).copy());
-					});
-				}
-				return _retval.get();
-			}
-		}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (0))).getItem() == NodeScannerToolItem.block && ((new Object() {
-			public ItemStack getItemStack(BlockPos pos, int sltid) {
-				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
-				TileEntity _ent = world.getTileEntity(pos);
-				if (_ent != null) {
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
-						_retval.set(capability.getStackInSlot(sltid).copy());
-					});
-				}
-				return _retval.get();
-			}
-		}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (0)))).getDamage() > 1) {
-			if (!world.isRemote()) {
-				BlockPos _bp = new BlockPos((int) players_hub_x, (int) players_hub_y, (int) players_hub_z);
-				TileEntity _tileEntity = world.getTileEntity(_bp);
-				BlockState _bs = world.getBlockState(_bp);
-				if (_tileEntity != null)
-					_tileEntity.getTileData().putDouble("Energy", ((new Object() {
-						public double getValue(IWorld world, BlockPos pos, String tag) {
-							TileEntity tileEntity = world.getTileEntity(pos);
-							if (tileEntity != null)
-								return tileEntity.getTileData().getDouble(tag);
-							return -1;
-						}
-					}.getValue(world, new BlockPos((int) players_hub_x, (int) players_hub_y, (int) players_hub_z), "Energy")) - 10));
-				if (world instanceof World)
-					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
-			}
-			{
-				TileEntity _ent = world.getTileEntity(new BlockPos((int) x, (int) y, (int) z));
-				if (_ent != null) {
-					final int _sltid = (int) (0);
-					final int _amount = (int) (-1);
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
-						if (capability instanceof IItemHandlerModifiable) {
-							ItemStack _stk = capability.getStackInSlot(_sltid).copy();
-							if (_stk.attemptDamageItem(_amount, new Random(), null)) {
-								_stk.shrink(1);
-								_stk.setDamage(0);
-							}
-							((IItemHandlerModifiable) capability).setStackInSlot(_sltid, _stk);
-						}
-					});
-				}
-			}
-		}
+		}.getValue(world, new BlockPos((int) players_hub_x, (int) players_hub_x, (int) players_hub_x), (owner + "hub_Z")));
 		if (new Object() {
 			public double getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);

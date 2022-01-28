@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "industrial_economy:blocks/mk3_bottom",
+    "up": "industrial_economy:blocks/mk3_top",
+    "north": "industrial_economy:blocks/generator_mk3front",
+    "east": "industrial_economy:blocks/mk3_side",
+    "south": "industrial_economy:blocks/mk3_side",
+    "west": "industrial_economy:blocks/mk3_side",
+    "particle": "industrial_economy:blocks/mk3_bottom"
+  }
+}

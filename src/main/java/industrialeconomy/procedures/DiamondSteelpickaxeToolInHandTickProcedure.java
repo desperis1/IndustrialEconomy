@@ -30,9 +30,9 @@ public class DiamondSteelpickaxeToolInHandTickProcedure {
 				}
 				{
 					double _setval = ((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money + 1);
+							.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_minnig_level + 1);
 					entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-						capability.player_money = _setval;
+						capability.player_minnig_level = _setval;
 						capability.syncPlayerVariables(entity);
 					});
 				}
@@ -44,9 +44,9 @@ public class DiamondSteelpickaxeToolInHandTickProcedure {
 				}
 				{
 					double _setval = ((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money + 1);
+							.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_minnig_level + 1);
 					entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-						capability.player_money = _setval;
+						capability.player_minnig_level = _setval;
 						capability.syncPlayerVariables(entity);
 					});
 				}
@@ -58,9 +58,9 @@ public class DiamondSteelpickaxeToolInHandTickProcedure {
 				}
 				{
 					double _setval = ((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money + 1);
+							.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_minnig_level + 1);
 					entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-						capability.player_money = _setval;
+						capability.player_minnig_level = _setval;
 						capability.syncPlayerVariables(entity);
 					});
 				}
@@ -72,9 +72,9 @@ public class DiamondSteelpickaxeToolInHandTickProcedure {
 				}
 				{
 					double _setval = ((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money + 1);
+							.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_minnig_level + 1);
 					entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-						capability.player_money = _setval;
+						capability.player_minnig_level = _setval;
 						capability.syncPlayerVariables(entity);
 					});
 				}
@@ -86,9 +86,9 @@ public class DiamondSteelpickaxeToolInHandTickProcedure {
 				}
 				{
 					double _setval = ((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money + 1);
+							.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_minnig_level + 1);
 					entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-						capability.player_money = _setval;
+						capability.player_minnig_level = _setval;
 						capability.syncPlayerVariables(entity);
 					});
 				}
@@ -100,9 +100,9 @@ public class DiamondSteelpickaxeToolInHandTickProcedure {
 				}
 				{
 					double _setval = ((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-							.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money + 1);
+							.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_minnig_level + 1);
 					entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-						capability.player_money = _setval;
+						capability.player_minnig_level = _setval;
 						capability.syncPlayerVariables(entity);
 					});
 				}

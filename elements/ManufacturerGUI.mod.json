@@ -1,0 +1,73 @@
+{
+  "_fv": 24,
+  "_type": "gui",
+  "definition": {
+    "type": 1,
+    "width": 176,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "text": "Manufacturer",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "Manufacturer",
+          "x": 183,
+          "y": 41
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Recipe: <BNBT:text:Recipe>",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "Recipe: <BNBT:text:Recipe>",
+          "x": 151,
+          "y": 82
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Change Recipe",
+          "onClick": {
+            "name": "ManufacturerChangeRecipeButton"
+          },
+          "width": 93,
+          "height": 20,
+          "name": "Change Recipe",
+          "x": 164,
+          "y": 95
+        }
+      },
+      {
+        "type": "outputslot",
+        "data": {
+          "id": 0,
+          "disableStackInteraction": false,
+          "dropItemsWhenNotBound": true,
+          "name": "Slot #0",
+          "x": 204,
+          "y": 59
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

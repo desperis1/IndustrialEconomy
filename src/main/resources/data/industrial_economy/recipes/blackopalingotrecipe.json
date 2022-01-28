@@ -1,0 +1,26 @@
+{
+  "group": "black_opal_ingotrecipe",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "01 ",
+    " 45"
+  ],
+  "key": {
+    "0": {
+      "item": "industrial_economy:black_opal"
+    },
+    "1": {
+      "item": "industrial_economy:black_opal"
+    },
+    "4": {
+      "item": "industrial_economy:black_opal"
+    },
+    "5": {
+      "item": "industrial_economy:black_opal"
+    }
+  },
+  "result": {
+    "item": "industrial_economy:black_opal_ingot",
+    "count": 1
+  }
+}

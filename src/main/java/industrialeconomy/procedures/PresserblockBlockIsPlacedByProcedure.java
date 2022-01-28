@@ -53,5 +53,14 @@ public class PresserblockBlockIsPlacedByProcedure {
 			if (world instanceof World)
 				((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 		}
+		if (!world.isRemote()) {
+			BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
+			TileEntity _tileEntity = world.getTileEntity(_bp);
+			BlockState _bs = world.getBlockState(_bp);
+			if (_tileEntity != null)
+				_tileEntity.getTileData().putString("RecipePower", "0 MW");
+			if (world instanceof World)
+				((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
+		}
 	}
 }

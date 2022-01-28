@@ -58,6 +58,24 @@ public class ElectricFurnanceGuiWindow extends ContainerScreen<ElectricFurnanceG
 		int k = (this.width - this.xSize) / 2;
 		int l = (this.height - this.ySize) / 2;
 		this.blit(ms, k, l, 0, 0, this.xSize, this.ySize, this.xSize, this.ySize);
+		if (GeneratorWorkingLabelProcedure
+				.executeProcedure(Stream
+						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
+								new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z))
+						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll))) {
+			Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("industrial_economy:textures/mamguienergy.png"));
+			this.blit(ms, this.guiLeft + 58, this.guiTop + 21, 0, 0, 16, 16, 16, 16);
+		}
+
+		Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("industrial_economy:textures/fire.png"));
+		this.blit(ms, this.guiLeft + 79, this.guiTop + 41, 0, 0, 16, 16, 16, 16);
+
+		Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("industrial_economy:textures/industrial_diamond_block.png"));
+		this.blit(ms, this.guiLeft + 42, this.guiTop + 41, 0, 0, 16, 16, 16, 16);
+
+		Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("industrial_economy:textures/diamond_imitation.png"));
+		this.blit(ms, this.guiLeft + 113, this.guiTop + 41, 0, 0, 16, 16, 16, 16);
+
 		RenderSystem.disableBlend();
 	}
 
@@ -77,14 +95,17 @@ public class ElectricFurnanceGuiWindow extends ContainerScreen<ElectricFurnanceG
 
 	@Override
 	protected void drawGuiContainerForegroundLayer(MatrixStack ms, int mouseX, int mouseY) {
-		this.font.drawString(ms, "Electric Furnance", 44, 4, -16751002);
+		this.font.drawString(ms, "Electric Furnance", 16, 6, -16777216);
 		if (GeneratorWorkingLabelProcedure
 				.executeProcedure(Stream
 						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 								new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll)))
-			this.font.drawString(ms, "Working", 69, 30, -13369600);
-		this.font.drawString(ms, "100MW", 141, 4, -16764007);
+			this.font.drawString(ms, "Working", 80, 24, -13369600);
+		this.font.drawString(ms, "250 MW", 131, 6, -16764007);
+		this.font.drawString(ms, "MK2", 109, 6, -15762043);
+		this.font.drawString(ms, "+", 67, 44, -12829636);
+		this.font.drawString(ms, "=", 102, 44, -12829636);
 	}
 
 	@Override

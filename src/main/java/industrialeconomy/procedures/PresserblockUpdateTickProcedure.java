@@ -107,7 +107,7 @@ public class PresserblockUpdateTickProcedure {
 							}
 							return _retval.get();
 						}
-					}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (0)) >= 6) {
+					}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (0)) >= 4) {
 						if (!world.isRemote()) {
 							BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 							TileEntity _tileEntity = world.getTileEntity(_bp);
@@ -156,6 +156,16 @@ public class PresserblockUpdateTickProcedure {
 							}
 						}
 						mainObject.addProperty("Energy", (mainObject.get("Energy").getAsDouble() - 500));
+						mainObject.addProperty("Edown", (mainObject.get("Edown").getAsDouble() + 500));
+						if (!world.isRemote()) {
+							BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
+							TileEntity _tileEntity = world.getTileEntity(_bp);
+							BlockState _bs = world.getBlockState(_bp);
+							if (_tileEntity != null)
+								_tileEntity.getTileData().putString("RecipePower", "500 MW");
+							if (world instanceof World)
+								((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
+						}
 					} else if ((new Object() {
 						public ItemStack getItemStack(BlockPos pos, int sltid) {
 							AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
@@ -227,7 +237,17 @@ public class PresserblockUpdateTickProcedure {
 								});
 							}
 						}
+						mainObject.addProperty("Edown", (mainObject.get("Edown").getAsDouble() + 500));
 						mainObject.addProperty("Energy", (mainObject.get("Energy").getAsDouble() - 500));
+						if (!world.isRemote()) {
+							BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
+							TileEntity _tileEntity = world.getTileEntity(_bp);
+							BlockState _bs = world.getBlockState(_bp);
+							if (_tileEntity != null)
+								_tileEntity.getTileData().putString("RecipePower", "500 MW");
+							if (world instanceof World)
+								((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
+						}
 					} else {
 						if (!world.isRemote()) {
 							BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
@@ -235,6 +255,15 @@ public class PresserblockUpdateTickProcedure {
 							BlockState _bs = world.getBlockState(_bp);
 							if (_tileEntity != null)
 								_tileEntity.getTileData().putBoolean("Working", (false));
+							if (world instanceof World)
+								((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
+						}
+						if (!world.isRemote()) {
+							BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
+							TileEntity _tileEntity = world.getTileEntity(_bp);
+							BlockState _bs = world.getBlockState(_bp);
+							if (_tileEntity != null)
+								_tileEntity.getTileData().putString("RecipePower", "0 MW");
 							if (world instanceof World)
 								((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 						}
@@ -246,6 +275,15 @@ public class PresserblockUpdateTickProcedure {
 						BlockState _bs = world.getBlockState(_bp);
 						if (_tileEntity != null)
 							_tileEntity.getTileData().putBoolean("Working", (false));
+						if (world instanceof World)
+							((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
+					}
+					if (!world.isRemote()) {
+						BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
+						TileEntity _tileEntity = world.getTileEntity(_bp);
+						BlockState _bs = world.getBlockState(_bp);
+						if (_tileEntity != null)
+							_tileEntity.getTileData().putString("RecipePower", "0 MW");
 						if (world instanceof World)
 							((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 					}

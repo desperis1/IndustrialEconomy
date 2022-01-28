@@ -24,7 +24,11 @@
     "damageOnCrafting": false,
     "enableMeleeDamage": false,
     "damageVsEntity": 0.0,
-    "specialInfo": [],
+    "specialInfo": [
+      "Coal: 66",
+      "Iron: 96",
+      "Energy: 7 100 MW"
+    ],
     "hasGlow": false,
     "guiBoundTo": "<NONE>",
     "inventorySize": 9,

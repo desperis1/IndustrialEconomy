@@ -2,24 +2,28 @@ package industrialeconomy.procedures;
 
 import net.minecraftforge.items.IItemHandlerModifiable;
 import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.fml.loading.FMLPaths;
 
 import net.minecraft.world.IWorld;
-import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.Entity;
+import net.minecraft.block.Blocks;
 
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
 
-import industrialeconomy.IndustrialEconomyModVariables;
+import java.io.IOException;
+import java.io.FileWriter;
+import java.io.FileReader;
+import java.io.File;
+import java.io.BufferedReader;
 
 import industrialeconomy.IndustrialEconomyMod;
+
+import com.google.gson.GsonBuilder;
+import com.google.gson.Gson;
 
 public class AutoSellUpdateTickProcedure {
 
@@ -48,30 +52,14 @@ public class AutoSellUpdateTickProcedure {
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-		String owner = "";
-		double number_of_items = 0;
-		double price_from_server = 0;
 		ItemStack items_for_sell = ItemStack.EMPTY;
-		owner = (new Object() {
-			public String getValue(IWorld world, BlockPos pos, String tag) {
-				TileEntity tileEntity = world.getTileEntity(pos);
-				if (tileEntity != null)
-					return tileEntity.getTileData().getString(tag);
-				return "";
-			}
-		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "owner"));
-		number_of_items = (new Object() {
-			public int getAmount(IWorld world, BlockPos pos, int sltid) {
-				AtomicInteger _retval = new AtomicInteger(0);
-				TileEntity _ent = world.getTileEntity(pos);
-				if (_ent != null) {
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
-						_retval.set(capability.getStackInSlot(sltid).getCount());
-					});
-				}
-				return _retval.get();
-			}
-		}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (0)));
+		com.google.gson.JsonObject mainObject = new com.google.gson.JsonObject();
+		File playerConfig = new File("");
+		boolean isonline = false;
+		double number_of_items = 0;
+		double price = 0;
+		String owner = "";
+		String pes = "";
 		items_for_sell = (new Object() {
 			public ItemStack getItemStack(BlockPos pos, int sltid) {
 				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
@@ -84,53 +72,86 @@ public class AutoSellUpdateTickProcedure {
 				return _retval.get();
 			}
 		}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (0)));
-		if (true == (new Object() {
-			public boolean getValue(IWorld world, BlockPos pos, String tag) {
-				TileEntity tileEntity = world.getTileEntity(pos);
-				if (tileEntity != null)
-					return tileEntity.getTileData().getBoolean(tag);
-				return false;
-			}
-		}.getValue(world,
-				new BlockPos((int) IndustrialEconomyModVariables.WorldVariables.get(world).server_x,
-						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_y,
-						(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_z),
-				(owner + "_isOnline"))) && new Object() {
-					public double getValue(IWorld world, BlockPos pos, String tag) {
-						TileEntity tileEntity = world.getTileEntity(pos);
-						if (tileEntity != null)
-							return tileEntity.getTileData().getDouble(tag);
-						return -1;
-					}
-				}.getValue(world,
-						new BlockPos((int) IndustrialEconomyModVariables.WorldVariables.get(world).server_x,
-								(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_y,
-								(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_z),
-						((items_for_sell).getDisplayName().getString() + "_price")) > 0) {
-			price_from_server = (new Object() {
-				public double getValue(IWorld world, BlockPos pos, String tag) {
+		if (!((items_for_sell).getItem() == Blocks.AIR.asItem())) {
+			owner = (new Object() {
+				public String getValue(IWorld world, BlockPos pos, String tag) {
 					TileEntity tileEntity = world.getTileEntity(pos);
 					if (tileEntity != null)
-						return tileEntity.getTileData().getDouble(tag);
-					return -1;
+						return tileEntity.getTileData().getString(tag);
+					return "";
 				}
-			}.getValue(world,
-					new BlockPos((int) IndustrialEconomyModVariables.WorldVariables.get(world).server_x,
-							(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_y,
-							(int) IndustrialEconomyModVariables.WorldVariables.get(world).server_z),
-					((items_for_sell).getDisplayName().getString() + "_price")));
+			}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "owner"));
+			number_of_items = (new Object() {
+				public int getAmount(IWorld world, BlockPos pos, int sltid) {
+					AtomicInteger _retval = new AtomicInteger(0);
+					TileEntity _ent = world.getTileEntity(pos);
+					if (_ent != null) {
+						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+							_retval.set(capability.getStackInSlot(sltid).getCount());
+						});
+					}
+					return _retval.get();
+				}
+			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (0)));
+			playerConfig = (File) new File((FMLPaths.GAMEDIR.get().toString() + "/config/"), File.separator + (owner + ".json"));
 			{
-				List<? extends PlayerEntity> _players = new ArrayList<>(world.getPlayers());
-				for (Entity entityiterator : _players) {
-					if ((entityiterator.getDisplayName().getString()).equals(owner)) {
-						{
-							double _setval = ((entityiterator.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-									.orElse(new IndustrialEconomyModVariables.PlayerVariables())).player_money + number_of_items * price_from_server);
-							entityiterator.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-								capability.player_money = _setval;
-								capability.syncPlayerVariables(entityiterator);
-							});
+				try {
+					BufferedReader bufferedReader = new BufferedReader(new FileReader(playerConfig));
+					StringBuilder jsonstringbuilder = new StringBuilder();
+					String line;
+					while ((line = bufferedReader.readLine()) != null) {
+						jsonstringbuilder.append(line);
+					}
+					bufferedReader.close();
+					mainObject = new Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
+					isonline = mainObject.get("isOnline").getAsBoolean();
+
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+			playerConfig = (File) new File((FMLPaths.GAMEDIR.get().toString() + "/config/"), File.separator + "prices.json");
+			{
+				try {
+					BufferedReader bufferedReader = new BufferedReader(new FileReader(playerConfig));
+					StringBuilder jsonstringbuilder = new StringBuilder();
+					String line;
+					while ((line = bufferedReader.readLine()) != null) {
+						jsonstringbuilder.append(line);
+					}
+					bufferedReader.close();
+					mainObject = new Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
+					try {
+						BufferedReader playerConfigReader = new BufferedReader(new FileReader(playerConfig));
+						String stringiterator = "";
+						while ((stringiterator = playerConfigReader.readLine()) != null) {
+							pes = stringiterator;
+							if (true == isonline && pes.contains((items_for_sell).getDisplayName().getString())) {
+								price = mainObject.get(((items_for_sell).getDisplayName().getString())).getAsDouble();
+							}
 						}
+						playerConfigReader.close();
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+			if (!(price == 0)) {
+				playerConfig = (File) new File((FMLPaths.GAMEDIR.get().toString() + "/config/"), File.separator + (owner + ".json"));
+				{
+					try {
+						BufferedReader bufferedReader = new BufferedReader(new FileReader(playerConfig));
+						StringBuilder jsonstringbuilder = new StringBuilder();
+						String line;
+						while ((line = bufferedReader.readLine()) != null) {
+							jsonstringbuilder.append(line);
+						}
+						bufferedReader.close();
+						mainObject = new Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
+						mainObject.addProperty("Money", (mainObject.get("Money").getAsDouble() + number_of_items * price));
 						{
 							TileEntity _ent = world.getTileEntity(new BlockPos((int) x, (int) y, (int) z));
 							if (_ent != null) {
@@ -145,51 +166,60 @@ public class AutoSellUpdateTickProcedure {
 								});
 							}
 						}
-						if (entityiterator instanceof PlayerEntity && !entityiterator.world.isRemote()) {
-							((PlayerEntity) entityiterator).sendStatusMessage(new StringTextComponent(("AutoSell: "
-									+ new java.text.DecimalFormat("#").format(number_of_items) + " " + (items_for_sell).getDisplayName().getString()
-									+ " for " + number_of_items * price_from_server + " \uFFFD")), (false));
+						{
+							Gson mainGSONBuilderVariable = new GsonBuilder().setPrettyPrinting().create();
+							try {
+								FileWriter fileWriter = new FileWriter(playerConfig);
+								fileWriter.write(mainGSONBuilderVariable.toJson(mainObject));
+								fileWriter.close();
+							} catch (IOException exception) {
+								exception.printStackTrace();
+							}
 						}
+
+					} catch (IOException e) {
+						e.printStackTrace();
 					}
 				}
 			}
-		} else if (new Object() {
-			public int getAmount(IWorld world, BlockPos pos, int sltid) {
-				AtomicInteger _retval = new AtomicInteger(0);
-				TileEntity _ent = world.getTileEntity(pos);
-				if (_ent != null) {
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
-						_retval.set(capability.getStackInSlot(sltid).getCount());
-					});
+			if (new Object() {
+				public int getAmount(IWorld world, BlockPos pos, int sltid) {
+					AtomicInteger _retval = new AtomicInteger(0);
+					TileEntity _ent = world.getTileEntity(pos);
+					if (_ent != null) {
+						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+							_retval.set(capability.getStackInSlot(sltid).getCount());
+						});
+					}
+					return _retval.get();
 				}
-				return _retval.get();
-			}
-		}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (1)) == 0) {
-			{
-				TileEntity _ent = world.getTileEntity(new BlockPos((int) x, (int) y, (int) z));
-				if (_ent != null) {
-					final int _sltid = (int) (1);
-					final ItemStack _setstack = (items_for_sell);
-					_setstack.setCount((int) number_of_items);
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
-						if (capability instanceof IItemHandlerModifiable) {
-							((IItemHandlerModifiable) capability).setStackInSlot(_sltid, _setstack);
-						}
-					});
+			}.getAmount(world, new BlockPos((int) x, (int) y, (int) z), (int) (0)) > 0) {
+				{
+					TileEntity _ent = world.getTileEntity(new BlockPos((int) x, (int) y, (int) z));
+					if (_ent != null) {
+						final int _sltid = (int) (1);
+						final ItemStack _setstack = (items_for_sell);
+						_setstack.setCount((int) number_of_items);
+						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+							if (capability instanceof IItemHandlerModifiable) {
+								((IItemHandlerModifiable) capability).setStackInSlot(_sltid, _setstack);
+							}
+						});
+					}
 				}
-			}
-			{
-				TileEntity _ent = world.getTileEntity(new BlockPos((int) x, (int) y, (int) z));
-				if (_ent != null) {
-					final int _sltid = (int) (0);
-					final int _amount = (int) number_of_items;
-					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
-						if (capability instanceof IItemHandlerModifiable) {
-							ItemStack _stk = capability.getStackInSlot(_sltid).copy();
-							_stk.shrink(_amount);
-							((IItemHandlerModifiable) capability).setStackInSlot(_sltid, _stk);
-						}
-					});
+				{
+					TileEntity _ent = world.getTileEntity(new BlockPos((int) x, (int) y, (int) z));
+					if (_ent != null) {
+						final int _sltid = (int) (0);
+						final int _amount = (int) number_of_items;
+						_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+							if (capability instanceof IItemHandlerModifiable) {
+								ItemStack _stk = capability.getStackInSlot(_sltid).copy();
+								_stk.shrink(_amount);
+								((IItemHandlerModifiable) capability).setStackInSlot(_sltid, _stk);
+							}
+						});
+					}
 				}
 			}
 		}

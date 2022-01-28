@@ -3,7 +3,7 @@
   "_type": "gui",
   "definition": {
     "type": 1,
-    "width": 176,
+    "width": 233,
     "height": 166,
     "inventoryOffsetX": 0,
     "inventoryOffsetY": 0,
@@ -19,7 +19,7 @@
             "falpha": 0.0
           },
           "name": "Foundry",
-          "x": 196,
+          "x": 216,
           "y": 40
         }
       },
@@ -33,8 +33,8 @@
           "disableStackInteraction": false,
           "dropItemsWhenNotBound": true,
           "name": "Slot #0",
-          "x": 168,
-          "y": 53
+          "x": 232,
+          "y": 55
         }
       },
       {
@@ -47,8 +47,8 @@
           "disableStackInteraction": false,
           "dropItemsWhenNotBound": true,
           "name": "Slot #1",
-          "x": 240,
-          "y": 53
+          "x": 282,
+          "y": 55
         }
       },
       {
@@ -58,8 +58,8 @@
           "disableStackInteraction": false,
           "dropItemsWhenNotBound": true,
           "name": "Slot #2",
-          "x": 204,
-          "y": 89
+          "x": 258,
+          "y": 78
         }
       },
       {
@@ -74,21 +74,224 @@
             "name": "GeneratorWorkingLabel"
           },
           "name": "Working",
-          "x": 195,
-          "y": 71
+          "x": 264,
+          "y": 100
         }
       },
       {
         "type": "label",
         "data": {
-          "text": "1000 MW",
+          "text": "<BNBT:text:RecipePower>",
           "color": {
             "value": -16763956,
             "falpha": 0.0
           },
-          "name": "1000 MW",
-          "x": 259,
-          "y": 40
+          "name": "<BNBT:text:RecipePower>",
+          "x": 266,
+          "y": 41
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "mamguienergy.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "GeneratorWorkingLabel"
+          },
+          "name": "mamguienergy.png",
+          "x": 241,
+          "y": 96
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "+",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "+",
+          "x": 133,
+          "y": 46
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "=",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "=",
+          "x": 169,
+          "y": 46
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "ironingot.png",
+          "use1Xscale": false,
+          "name": "ironingot.png",
+          "x": 112,
+          "y": 43
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "6",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "6",
+          "x": 105,
+          "y": 46
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "coal.png",
+          "use1Xscale": false,
+          "name": "coal.png",
+          "x": 149,
+          "y": 43
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "3",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "3",
+          "x": 143,
+          "y": 46
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "steelingot.png",
+          "use1Xscale": false,
+          "name": "steelingot.png",
+          "x": 183,
+          "y": 43
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "1",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "1",
+          "x": 176,
+          "y": 46
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "diamondsteelingot.png",
+          "use1Xscale": false,
+          "name": "diamondsteelingot.png",
+          "x": 183,
+          "y": 60
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "industrial.png",
+          "use1Xscale": false,
+          "name": "industrial.png",
+          "x": 149,
+          "y": 60
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "=",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "=",
+          "x": 169,
+          "y": 64
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "1",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "1",
+          "x": 176,
+          "y": 63
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "steelingot.png",
+          "use1Xscale": false,
+          "name": "steelingot.png",
+          "x": 115,
+          "y": 59
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "16",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "16",
+          "x": 103,
+          "y": 63
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "+",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "+",
+          "x": 134,
+          "y": 62
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "4",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "4",
+          "x": 143,
+          "y": 63
         }
       }
     ],

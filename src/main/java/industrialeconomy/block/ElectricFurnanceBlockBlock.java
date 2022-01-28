@@ -107,7 +107,7 @@ public class ElectricFurnanceBlockBlock extends IndustrialEconomyModElements.Mod
 		public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
 
 		public CustomBlock() {
-			super(Block.Properties.create(Material.ROCK).sound(SoundType.STONE).hardnessAndResistance(1f, 10f).setLightLevel(s -> 0));
+			super(Block.Properties.create(Material.IRON).sound(SoundType.STONE).hardnessAndResistance(1f, 10f).setLightLevel(s -> 0));
 			this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH));
 			setRegistryName("electric_furnance_block");
 		}
@@ -155,7 +155,7 @@ public class ElectricFurnanceBlockBlock extends IndustrialEconomyModElements.Mod
 			int x = pos.getX();
 			int y = pos.getY();
 			int z = pos.getZ();
-			world.getPendingBlockTicks().scheduleTick(pos, this, 20);
+			world.getPendingBlockTicks().scheduleTick(pos, this, 15);
 		}
 
 		@Override
@@ -169,7 +169,7 @@ public class ElectricFurnanceBlockBlock extends IndustrialEconomyModElements.Mod
 					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
 							new AbstractMap.SimpleEntry<>("z", z))
 					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
-			world.getPendingBlockTicks().scheduleTick(pos, this, 20);
+			world.getPendingBlockTicks().scheduleTick(pos, this, 15);
 		}
 
 		@OnlyIn(Dist.CLIENT)
@@ -198,7 +198,7 @@ public class ElectricFurnanceBlockBlock extends IndustrialEconomyModElements.Mod
 				NetworkHooks.openGui((ServerPlayerEntity) entity, new INamedContainerProvider() {
 					@Override
 					public ITextComponent getDisplayName() {
-						return new StringTextComponent("Electric Furnace");
+						return new StringTextComponent("Electric Furnace MK2active");
 					}
 
 					@Override
@@ -332,7 +332,7 @@ public class ElectricFurnanceBlockBlock extends IndustrialEconomyModElements.Mod
 
 		@Override
 		public ITextComponent getDisplayName() {
-			return new StringTextComponent("Electric Furnace");
+			return new StringTextComponent("Electric Furnace MK2active");
 		}
 
 		@Override

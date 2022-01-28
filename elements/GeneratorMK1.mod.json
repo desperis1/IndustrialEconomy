@@ -34,7 +34,7 @@
     ],
     "name": "Generator MK 1",
     "specialInfo": [
-      "Generates 25 power per second which store inside Hub."
+      "Generates 25 MW per second"
     ],
     "hardness": 15.0,
     "resistance": 20.0,

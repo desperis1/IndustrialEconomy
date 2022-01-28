@@ -33,7 +33,9 @@
       }
     ],
     "name": "Generator MK2",
-    "specialInfo": [],
+    "specialInfo": [
+      "Generates 500 MW per second"
+    ],
     "hardness": 25.0,
     "resistance": 15.0,
     "hasGravity": false,

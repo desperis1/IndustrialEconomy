@@ -1,0 +1,123 @@
+{
+  "_fv": 24,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 293,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "button",
+        "data": {
+          "text": "Materials",
+          "onClick": {
+            "name": "MamguimainmaterialsOnClick"
+          },
+          "width": 72,
+          "height": 20,
+          "name": "Materials",
+          "x": 76,
+          "y": 45
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Electronics",
+          "onClick": {
+            "name": "MamGUIElectronicsOnCLickOpen"
+          },
+          "width": 82,
+          "height": 20,
+          "name": "Electronics",
+          "x": 76,
+          "y": 68
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Technology",
+          "width": 77,
+          "height": 20,
+          "name": "Technology",
+          "x": 76,
+          "y": 91
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Time to complete research: <BNBT:number:TimeToComplete>",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "displayCondition": {
+            "name": "TimetoCompleteShowCondition"
+          },
+          "name": "Time to complete research: <BNBT:number:TimeToComplete>",
+          "x": 70,
+          "y": 167
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "mamguimoney.png",
+          "use1Xscale": false,
+          "name": "mamguimoney.png",
+          "x": 211,
+          "y": 180
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "mamguienergy.png",
+          "use1Xscale": false,
+          "name": "mamguienergy.png",
+          "x": 76,
+          "y": 179
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Energy: <BNBT:number:Energy>",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "Energy: <BNBT:number:Energy>",
+          "x": 93,
+          "y": 183
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Money: <BNBT:number:Money>",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "Money: <BNBT:number:Money>",
+          "x": 232,
+          "y": 183
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

@@ -50,6 +50,7 @@ import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.client.Minecraft;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.SoundType;
@@ -113,6 +114,13 @@ public class Generatormk2Block extends IndustrialEconomyModElements.ModElement {
 			super(Block.Properties.create(Material.IRON).sound(SoundType.METAL).hardnessAndResistance(25f, 15f).setLightLevel(s -> 0));
 			this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH));
 			setRegistryName("generatormk_2");
+		}
+
+		@Override
+		@OnlyIn(Dist.CLIENT)
+		public void addInformation(ItemStack itemstack, IBlockReader world, List<ITextComponent> list, ITooltipFlag flag) {
+			super.addInformation(itemstack, world, list, flag);
+			list.add(new StringTextComponent("Generates 500 MW per second"));
 		}
 
 		@Override

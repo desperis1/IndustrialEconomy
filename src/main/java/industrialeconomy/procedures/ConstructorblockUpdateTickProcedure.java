@@ -207,6 +207,7 @@ public class ConstructorblockUpdateTickProcedure {
 							}
 						}
 						mainObject.addProperty("Energy", (mainObject.get("Energy").getAsDouble() - 20));
+						mainObject.addProperty("Edown", (mainObject.get("Edown").getAsDouble() + 20));
 					} else if ((new Object() {
 						public String getValue(IWorld world, BlockPos pos, String tag) {
 							TileEntity tileEntity = world.getTileEntity(pos);
@@ -318,6 +319,7 @@ public class ConstructorblockUpdateTickProcedure {
 							}
 						}
 						mainObject.addProperty("Energy", (mainObject.get("Energy").getAsDouble() - 20));
+						mainObject.addProperty("Edown", (mainObject.get("Edown").getAsDouble() + 20));
 					} else if ((new Object() {
 						public String getValue(IWorld world, BlockPos pos, String tag) {
 							TileEntity tileEntity = world.getTileEntity(pos);
@@ -429,6 +431,7 @@ public class ConstructorblockUpdateTickProcedure {
 							}
 						}
 						mainObject.addProperty("Energy", (mainObject.get("Energy").getAsDouble() - 20));
+						mainObject.addProperty("Edown", (mainObject.get("Edown").getAsDouble() + 20));
 					} else if ((new Object() {
 						public String getValue(IWorld world, BlockPos pos, String tag) {
 							TileEntity tileEntity = world.getTileEntity(pos);
@@ -540,6 +543,7 @@ public class ConstructorblockUpdateTickProcedure {
 							}
 						}
 						mainObject.addProperty("Energy", (mainObject.get("Energy").getAsDouble() - 20));
+						mainObject.addProperty("Edown", (mainObject.get("Edown").getAsDouble() + 20));
 					} else if ((new Object() {
 						public String getValue(IWorld world, BlockPos pos, String tag) {
 							TileEntity tileEntity = world.getTileEntity(pos);
@@ -652,6 +656,7 @@ public class ConstructorblockUpdateTickProcedure {
 							}
 						}
 						mainObject.addProperty("Energy", (mainObject.get("Energy").getAsDouble() - 20));
+						mainObject.addProperty("Edown", (mainObject.get("Edown").getAsDouble() + 20));
 					} else if ((new Object() {
 						public String getValue(IWorld world, BlockPos pos, String tag) {
 							TileEntity tileEntity = world.getTileEntity(pos);
@@ -763,6 +768,7 @@ public class ConstructorblockUpdateTickProcedure {
 							}
 						}
 						mainObject.addProperty("Energy", (mainObject.get("Energy").getAsDouble() - 20));
+						mainObject.addProperty("Edown", (mainObject.get("Edown").getAsDouble() + 20));
 					} else if ((new Object() {
 						public String getValue(IWorld world, BlockPos pos, String tag) {
 							TileEntity tileEntity = world.getTileEntity(pos);
@@ -874,6 +880,7 @@ public class ConstructorblockUpdateTickProcedure {
 							}
 						}
 						mainObject.addProperty("Energy", (mainObject.get("Energy").getAsDouble() - 20));
+						mainObject.addProperty("Edown", (mainObject.get("Edown").getAsDouble() + 20));
 					} else if ((new Object() {
 						public String getValue(IWorld world, BlockPos pos, String tag) {
 							TileEntity tileEntity = world.getTileEntity(pos);
@@ -986,6 +993,7 @@ public class ConstructorblockUpdateTickProcedure {
 							}
 						}
 						mainObject.addProperty("Energy", (mainObject.get("Energy").getAsDouble() - 20));
+						mainObject.addProperty("Edown", (mainObject.get("Edown").getAsDouble() + 20));
 					} else if ((new Object() {
 						public String getValue(IWorld world, BlockPos pos, String tag) {
 							TileEntity tileEntity = world.getTileEntity(pos);
@@ -1097,6 +1105,7 @@ public class ConstructorblockUpdateTickProcedure {
 							}
 						}
 						mainObject.addProperty("Energy", (mainObject.get("Energy").getAsDouble() - 20));
+						mainObject.addProperty("Edown", (mainObject.get("Edown").getAsDouble() + 20));
 					} else if ((new Object() {
 						public String getValue(IWorld world, BlockPos pos, String tag) {
 							TileEntity tileEntity = world.getTileEntity(pos);
@@ -1208,6 +1217,7 @@ public class ConstructorblockUpdateTickProcedure {
 							}
 						}
 						mainObject.addProperty("Energy", (mainObject.get("Energy").getAsDouble() - 20));
+						mainObject.addProperty("Edown", (mainObject.get("Edown").getAsDouble() + 20));
 					} else if ((new Object() {
 						public String getValue(IWorld world, BlockPos pos, String tag) {
 							TileEntity tileEntity = world.getTileEntity(pos);
@@ -1319,6 +1329,7 @@ public class ConstructorblockUpdateTickProcedure {
 							}
 						}
 						mainObject.addProperty("Energy", (mainObject.get("Energy").getAsDouble() - 20));
+						mainObject.addProperty("Edown", (mainObject.get("Edown").getAsDouble() + 20));
 					} else if ((new Object() {
 						public String getValue(IWorld world, BlockPos pos, String tag) {
 							TileEntity tileEntity = world.getTileEntity(pos);
@@ -1431,6 +1442,7 @@ public class ConstructorblockUpdateTickProcedure {
 							}
 						}
 						mainObject.addProperty("Energy", (mainObject.get("Energy").getAsDouble() - 20));
+						mainObject.addProperty("Edown", (mainObject.get("Edown").getAsDouble() + 20));
 					} else {
 						if (!world.isRemote()) {
 							BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);

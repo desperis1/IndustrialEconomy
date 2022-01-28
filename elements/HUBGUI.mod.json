@@ -19,8 +19,8 @@
             "falpha": 0.0
           },
           "name": "Energy:",
-          "x": 46,
-          "y": 150
+          "x": 48,
+          "y": 127
         }
       },
       {
@@ -32,8 +32,8 @@
             "falpha": 0.0
           },
           "name": "<BNBT:number:Energy>",
-          "x": 84,
-          "y": 150
+          "x": 87,
+          "y": 128
         }
       },
       {
@@ -271,8 +271,8 @@
           "image": "mamguienergy.png",
           "use1Xscale": false,
           "name": "mamguienergy.png",
-          "x": 30,
-          "y": 146
+          "x": 32,
+          "y": 123
         }
       },
       {
@@ -281,8 +281,8 @@
           "image": "up_green_arrow.png",
           "use1Xscale": false,
           "name": "up_green_arrow.png",
-          "x": 27,
-          "y": 168
+          "x": 29,
+          "y": 141
         }
       },
       {
@@ -291,8 +291,8 @@
           "image": "down_red_arrow.png",
           "use1Xscale": false,
           "name": "down_red_arrow.png",
-          "x": 27,
-          "y": 189
+          "x": 29,
+          "y": 159
         }
       },
       {
@@ -304,34 +304,34 @@
             "falpha": 0.0
           },
           "name": "<BNBT:number:Edown>",
-          "x": 110,
-          "y": 193
+          "x": 99,
+          "y": 164
         }
       },
       {
         "type": "label",
         "data": {
-          "text": "Production:",
+          "text": "Produced:",
           "color": {
             "value": -16764160,
             "falpha": 0.0
           },
-          "name": "Production:",
-          "x": 46,
-          "y": 172
+          "name": "Produced:",
+          "x": 48,
+          "y": 144
         }
       },
       {
         "type": "label",
         "data": {
-          "text": "Consumption:",
+          "text": "Consumed:",
           "color": {
             "value": -13434880,
             "falpha": 0.0
           },
-          "name": "Consumption:",
-          "x": 46,
-          "y": 193
+          "name": "Consumed:",
+          "x": 48,
+          "y": 163
         }
       },
       {
@@ -343,8 +343,120 @@
             "falpha": 0.0
           },
           "name": "<BNBT:number:Eup>",
-          "x": 106,
-          "y": 172
+          "x": 98,
+          "y": 145
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "mamguimoney.png",
+          "use1Xscale": false,
+          "name": "mamguimoney.png",
+          "x": 29,
+          "y": 178
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "pickaxe_miner.png",
+          "use1Xscale": false,
+          "name": "pickaxe_miner.png",
+          "x": 29,
+          "y": 201
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Money:",
+          "color": {
+            "value": -6711040,
+            "falpha": 0.0
+          },
+          "name": "Money:",
+          "x": 49,
+          "y": 181
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Miner Levels:",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "Miner Levels:",
+          "x": 49,
+          "y": 198
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "<BNBT:number:Money>",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "<BNBT:number:Money>",
+          "x": 85,
+          "y": 182
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "<BNBT:number:minerLevels>",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "<BNBT:number:minerLevels>",
+          "x": 121,
+          "y": 199
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Upgrade Miners",
+          "onClick": {
+            "name": "HubUpgradeMinersOnClick"
+          },
+          "width": 98,
+          "height": 20,
+          "name": "Upgrade Miners",
+          "x": 294,
+          "y": 121
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "<BNBT:number:EnergyForMinerUpgrade>",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "<BNBT:number:EnergyForMinerUpgrade>",
+          "x": 126,
+          "y": 212
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Upgrade Price:",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "Upgrade Price:",
+          "x": 49,
+          "y": 211
         }
       }
     ],

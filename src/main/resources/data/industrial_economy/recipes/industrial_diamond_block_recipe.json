@@ -1,0 +1,42 @@
+{
+  "group": "industialdiamondblock",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "345",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "industrial_economy:industrial_diamond"
+    },
+    "1": {
+      "item": "industrial_economy:industrial_diamond"
+    },
+    "2": {
+      "item": "industrial_economy:industrial_diamond"
+    },
+    "3": {
+      "item": "industrial_economy:industrial_diamond"
+    },
+    "4": {
+      "item": "industrial_economy:industrial_diamond"
+    },
+    "5": {
+      "item": "industrial_economy:industrial_diamond"
+    },
+    "6": {
+      "item": "industrial_economy:industrial_diamond"
+    },
+    "7": {
+      "item": "industrial_economy:industrial_diamond"
+    },
+    "8": {
+      "item": "industrial_economy:industrial_diamond"
+    }
+  },
+  "result": {
+    "item": "industrial_economy:industial_diamond_block",
+    "count": 1
+  }
+}

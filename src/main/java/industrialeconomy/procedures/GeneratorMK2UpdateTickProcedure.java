@@ -292,6 +292,7 @@ public class GeneratorMK2UpdateTickProcedure {
 							((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 					}
 					mainObject.addProperty("Energy", (mainObject.get("Energy").getAsDouble() + 500));
+					mainObject.addProperty("Eup", (mainObject.get("Eup").getAsDouble() + 500));
 				} else {
 					if (!world.isRemote()) {
 						BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);

@@ -60,6 +60,14 @@ public class GeneratorMK1GuiGuiWindow extends ContainerScreen<GeneratorMK1GuiGui
 		int k = (this.width - this.xSize) / 2;
 		int l = (this.height - this.ySize) / 2;
 		this.blit(ms, k, l, 0, 0, this.xSize, this.ySize, this.xSize, this.ySize);
+		if (GeneratorWorkingLabelProcedure
+				.executeProcedure(Stream
+						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
+								new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z))
+						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll))) {
+			Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("industrial_economy:textures/mamguienergy.png"));
+			this.blit(ms, this.guiLeft + 64, this.guiTop + 16, 0, 0, 16, 16, 16, 16);
+		}
 		RenderSystem.disableBlend();
 	}
 
@@ -85,7 +93,7 @@ public class GeneratorMK1GuiGuiWindow extends ContainerScreen<GeneratorMK1GuiGui
 						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 								new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll)))
-			this.font.drawString(ms, "Working", 70, 14, -13369549);
+			this.font.drawString(ms, "Working", 79, 20, -13369549);
 		this.font.drawString(ms, "" + (new Object() {
 			public double getValue(BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);

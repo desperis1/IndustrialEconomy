@@ -1,0 +1,101 @@
+{
+  "_fv": 24,
+  "_type": "gui",
+  "definition": {
+    "type": 1,
+    "width": 174,
+    "height": 176,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 8,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "text": "Learn new Item",
+          "color": {
+            "value": -10027213,
+            "falpha": 0.0
+          },
+          "name": "Learn new Item",
+          "x": 176,
+          "y": 51
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "id": 0,
+          "disableStackInteraction": false,
+          "dropItemsWhenNotBound": true,
+          "name": "Slot #0",
+          "x": 204,
+          "y": 63
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Item will be consumed.",
+          "color": {
+            "value": -52429,
+            "falpha": 0.0
+          },
+          "name": "Item will be consumed.",
+          "x": 158,
+          "y": 84
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "If item is already known",
+          "color": {
+            "value": -52429,
+            "falpha": 0.0
+          },
+          "name": "If item is already known",
+          "x": 152,
+          "y": 104
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "amount will be reseted.",
+          "color": {
+            "value": -52429,
+            "falpha": 0.0
+          },
+          "name": "amount will be reseted.",
+          "x": 156,
+          "y": 115
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Central Storage",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "Central Storage",
+          "x": 174,
+          "y": 37
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "group": "pressermk2recipe",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "345",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "industrial_economy:diamond_steelblock"
+    },
+    "1": {
+      "item": "industrial_economy:cpu"
+    },
+    "2": {
+      "item": "industrial_economy:diamond_steelblock"
+    },
+    "3": {
+      "item": "industrial_economy:highspeedconectoritem"
+    },
+    "4": {
+      "item": "industrial_economy:presserblock"
+    },
+    "5": {
+      "item": "industrial_economy:highspeedconectoritem"
+    },
+    "6": {
+      "item": "industrial_economy:diamond_steelblock"
+    },
+    "7": {
+      "item": "industrial_economy:heavyframe"
+    },
+    "8": {
+      "item": "industrial_economy:diamond_steelblock"
+    }
+  },
+  "result": {
+    "item": "industrial_economy:presser_mk_2",
+    "count": 1
+  }
+}

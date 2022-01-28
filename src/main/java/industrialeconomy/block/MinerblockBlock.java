@@ -5,6 +5,7 @@ import net.minecraftforge.registries.ObjectHolder;
 import net.minecraftforge.items.wrapper.SidedInvWrapper;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.fml.network.NetworkHooks;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -22,13 +23,17 @@ import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.ISelectionContext;
+import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.NonNullList;
+import net.minecraft.util.Hand;
 import net.minecraft.util.Direction;
+import net.minecraft.util.ActionResultType;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.tileentity.LockableLootTileEntity;
 import net.minecraft.network.play.server.SUpdateTileEntityPacket;
+import net.minecraft.network.PacketBuffer;
 import net.minecraft.network.NetworkManager;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.loot.LootContext;
@@ -37,11 +42,12 @@ import net.minecraft.item.Item;
 import net.minecraft.item.BlockItem;
 import net.minecraft.inventory.container.INamedContainerProvider;
 import net.minecraft.inventory.container.Container;
-import net.minecraft.inventory.container.ChestContainer;
 import net.minecraft.inventory.ItemStackHelper;
 import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.inventory.ISidedInventory;
+import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraft.client.renderer.RenderType;
@@ -62,8 +68,12 @@ import java.util.HashMap;
 import java.util.Collections;
 import java.util.AbstractMap;
 
+import io.netty.buffer.Unpooled;
+
 import industrialeconomy.procedures.MinerblockUpdateTickProcedure;
 import industrialeconomy.procedures.MinerblockBlockIsPlacedByProcedure;
+
+import industrialeconomy.gui.MinerGUIGui;
 
 import industrialeconomy.IndustrialEconomyModElements;
 
@@ -175,6 +185,30 @@ public class MinerblockBlock extends IndustrialEconomyModElements.ModElement {
 		}
 
 		@Override
+		public ActionResultType onBlockActivated(BlockState blockstate, World world, BlockPos pos, PlayerEntity entity, Hand hand,
+				BlockRayTraceResult hit) {
+			super.onBlockActivated(blockstate, world, pos, entity, hand, hit);
+			int x = pos.getX();
+			int y = pos.getY();
+			int z = pos.getZ();
+			if (entity instanceof ServerPlayerEntity) {
+				NetworkHooks.openGui((ServerPlayerEntity) entity, new INamedContainerProvider() {
+					@Override
+					public ITextComponent getDisplayName() {
+						return new StringTextComponent("Miner");
+					}
+
+					@Override
+					public Container createMenu(int id, PlayerInventory inventory, PlayerEntity player) {
+						return new MinerGUIGui.GuiContainerMod(id, inventory,
+								new PacketBuffer(Unpooled.buffer()).writeBlockPos(new BlockPos(x, y, z)));
+					}
+				}, new BlockPos(x, y, z));
+			}
+			return ActionResultType.SUCCESS;
+		}
+
+		@Override
 		public INamedContainerProvider getContainer(BlockState state, World worldIn, BlockPos pos) {
 			TileEntity tileEntity = worldIn.getTileEntity(pos);
 			return tileEntity instanceof INamedContainerProvider ? (INamedContainerProvider) tileEntity : null;
@@ -209,24 +243,10 @@ public class MinerblockBlock extends IndustrialEconomyModElements.ModElement {
 				super.onReplaced(state, world, pos, newState, isMoving);
 			}
 		}
-
-		@Override
-		public boolean hasComparatorInputOverride(BlockState state) {
-			return true;
-		}
-
-		@Override
-		public int getComparatorInputOverride(BlockState blockState, World world, BlockPos pos) {
-			TileEntity tileentity = world.getTileEntity(pos);
-			if (tileentity instanceof CustomTileEntity)
-				return Container.calcRedstoneFromInventory((CustomTileEntity) tileentity);
-			else
-				return 0;
-		}
 	}
 
 	public static class CustomTileEntity extends LockableLootTileEntity implements ISidedInventory {
-		private NonNullList<ItemStack> stacks = NonNullList.<ItemStack>withSize(9, ItemStack.EMPTY);
+		private NonNullList<ItemStack> stacks = NonNullList.<ItemStack>withSize(1, ItemStack.EMPTY);
 
 		protected CustomTileEntity() {
 			super(tileEntityType);
@@ -290,7 +310,7 @@ public class MinerblockBlock extends IndustrialEconomyModElements.ModElement {
 
 		@Override
 		public Container createMenu(int id, PlayerInventory player) {
-			return ChestContainer.createGeneric9X3(id, player, this);
+			return new MinerGUIGui.GuiContainerMod(id, player, new PacketBuffer(Unpooled.buffer()).writeBlockPos(this.getPos()));
 		}
 
 		@Override

@@ -82,17 +82,6 @@ public class HubBlockIsPlacedByProcedure {
 				mainObject.addProperty("hubX", (Math.floor(x)));
 				mainObject.addProperty("hubY", (Math.floor(y)));
 				mainObject.addProperty("hubZ", (Math.floor(z)));
-				mainObject.addProperty("Energy", 0);
-				mainObject.addProperty("Coal", 0);
-				mainObject.addProperty("Iron", 0);
-				mainObject.addProperty("minerLevels", 1);
-				mainObject.addProperty("Copper", 0);
-				mainObject.addProperty("Caterium", 0);
-				mainObject.addProperty("SandStone", 0);
-				mainObject.addProperty("Money", 0);
-				mainObject.addProperty("EnergyForMinerUpgrade", 1000000000);
-				mainObject.addProperty("Eup", 0);
-				mainObject.addProperty("Edown", 0);
 
 			} catch (IOException e) {
 				e.printStackTrace();

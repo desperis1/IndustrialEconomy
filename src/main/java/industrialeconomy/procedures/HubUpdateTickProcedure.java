@@ -307,7 +307,15 @@ public class HubUpdateTickProcedure {
 					TileEntity _tileEntity = world.getTileEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_tileEntity != null)
-						_tileEntity.getTileData().putDouble("minerLevels", mainObject.get("minerLevels").getAsDouble());
+						_tileEntity.getTileData().putDouble("minerLevels", new Object() {
+							double convert(String s) {
+								try {
+									return Double.parseDouble(s.trim());
+								} catch (Exception e) {
+								}
+								return 0;
+							}
+						}.convert(new java.text.DecimalFormat("#").format(mainObject.get("minerLevels").getAsDouble())));
 					if (world instanceof World)
 						((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 				}
@@ -326,6 +334,24 @@ public class HubUpdateTickProcedure {
 					BlockState _bs = world.getBlockState(_bp);
 					if (_tileEntity != null)
 						_tileEntity.getTileData().putDouble("Eup", mainObject.get("Eup").getAsDouble());
+					if (world instanceof World)
+						((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
+				}
+				if (!world.isRemote()) {
+					BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
+					TileEntity _tileEntity = world.getTileEntity(_bp);
+					BlockState _bs = world.getBlockState(_bp);
+					if (_tileEntity != null)
+						_tileEntity.getTileData().putDouble("Money", mainObject.get("Money").getAsDouble());
+					if (world instanceof World)
+						((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
+				}
+				if (!world.isRemote()) {
+					BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
+					TileEntity _tileEntity = world.getTileEntity(_bp);
+					BlockState _bs = world.getBlockState(_bp);
+					if (_tileEntity != null)
+						_tileEntity.getTileData().putDouble("EnergyForMinerUpgrade", mainObject.get("EnergyForMinerUpgrade").getAsDouble());
 					if (world instanceof World)
 						((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 				}

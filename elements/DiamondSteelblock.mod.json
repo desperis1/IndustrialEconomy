@@ -33,7 +33,11 @@
       }
     ],
     "name": "Diamond Steel",
-    "specialInfo": [],
+    "specialInfo": [
+      "Coal: 594",
+      "Iron: 864",
+      "Energy: 63 900 MW"
+    ],
     "hardness": 55.0,
     "resistance": 25.0,
     "hasGravity": false,
@@ -58,6 +62,9 @@
     "tickRandomly": false,
     "isReplaceable": false,
     "canProvidePower": false,
+    "emittedRedstonePower": {
+      "fixedValue": 15.0
+    },
     "colorOnMap": "DEFAULT",
     "creativePickItem": {
       "value": ""
@@ -75,6 +82,21 @@
     "isCustomSoundType": false,
     "soundOnStep": {
       "value": "METAL"
+    },
+    "breakSound": {
+      "value": ""
+    },
+    "stepSound": {
+      "value": ""
+    },
+    "placeSound": {
+      "value": ""
+    },
+    "hitSound": {
+      "value": ""
+    },
+    "fallSound": {
+      "value": ""
     },
     "luminance": 0,
     "unbreakable": false,

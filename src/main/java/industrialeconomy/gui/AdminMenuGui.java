@@ -29,7 +29,6 @@ import java.util.HashMap;
 import java.util.AbstractMap;
 
 import industrialeconomy.procedures.ClearlagExecutedProcedure;
-import industrialeconomy.procedures.AdminmenuadmineditorOnClickedProcedure;
 import industrialeconomy.procedures.AdminmenuSurvivalCreativeProcedure;
 import industrialeconomy.procedures.AdminmenuSunRainProcedure;
 import industrialeconomy.procedures.AdminmenuDayNightProcedure;
@@ -210,11 +209,6 @@ public class AdminMenuGui extends IndustrialEconomyModElements.ModElement {
 		if (buttonID == 3) {
 
 			ClearlagExecutedProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
-					(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
-		}
-		if (buttonID == 4) {
-
-			AdminmenuadmineditorOnClickedProcedure.executeProcedure(Stream.of(new AbstractMap.SimpleEntry<>("entity", entity)).collect(HashMap::new,
 					(_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 		}
 	}

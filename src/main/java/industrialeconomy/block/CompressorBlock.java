@@ -12,7 +12,6 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.common.capabilities.Capability;
 
-import net.minecraft.world.server.ServerWorld;
 import net.minecraft.world.World;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.util.text.StringTextComponent;
@@ -60,7 +59,6 @@ import javax.annotation.Nullable;
 
 import java.util.stream.Stream;
 import java.util.stream.IntStream;
-import java.util.Random;
 import java.util.Map;
 import java.util.List;
 import java.util.HashMap;
@@ -69,7 +67,6 @@ import java.util.AbstractMap;
 
 import io.netty.buffer.Unpooled;
 
-import industrialeconomy.procedures.CompressorUpdateTickProcedure;
 import industrialeconomy.procedures.CompressorBlockIsPlacedByProcedure;
 
 import industrialeconomy.gui.CompressorGUIGui;
@@ -146,29 +143,6 @@ public class CompressorBlock extends IndustrialEconomyModElements.ModElement {
 			if (!dropsOriginal.isEmpty())
 				return dropsOriginal;
 			return Collections.singletonList(new ItemStack(this, 1));
-		}
-
-		@Override
-		public void onBlockAdded(BlockState blockstate, World world, BlockPos pos, BlockState oldState, boolean moving) {
-			super.onBlockAdded(blockstate, world, pos, oldState, moving);
-			int x = pos.getX();
-			int y = pos.getY();
-			int z = pos.getZ();
-			world.getPendingBlockTicks().scheduleTick(pos, this, 10);
-		}
-
-		@Override
-		public void tick(BlockState blockstate, ServerWorld world, BlockPos pos, Random random) {
-			super.tick(blockstate, world, pos, random);
-			int x = pos.getX();
-			int y = pos.getY();
-			int z = pos.getZ();
-
-			CompressorUpdateTickProcedure.executeProcedure(Stream
-					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
-							new AbstractMap.SimpleEntry<>("z", z))
-					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
-			world.getPendingBlockTicks().scheduleTick(pos, this, 10);
 		}
 
 		@Override

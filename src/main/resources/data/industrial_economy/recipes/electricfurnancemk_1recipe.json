@@ -1,5 +1,5 @@
 {
-  "group": "electricfurnanacemk1",
+  "group": "electricfurnanacemk2",
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "012",
@@ -8,13 +8,13 @@
   ],
   "key": {
     "0": {
-      "item": "industrial_economy:steel_block"
+      "item": "industrial_economy:diamondsteelplate"
     },
     "1": {
-      "item": "industrial_economy:diamondsteelitem"
+      "item": "industrial_economy:diamondsteelplate"
     },
     "2": {
-      "item": "industrial_economy:steel_block"
+      "item": "industrial_economy:diamondsteelplate"
     },
     "3": {
       "item": "industrial_economy:circuit_boarditem"
@@ -26,13 +26,13 @@
       "item": "industrial_economy:circuit_boarditem"
     },
     "6": {
-      "item": "industrial_economy:steel_block"
+      "item": "industrial_economy:diamond_steelblock"
     },
     "7": {
       "item": "minecraft:furnace"
     },
     "8": {
-      "item": "industrial_economy:steel_block"
+      "item": "industrial_economy:diamond_steelblock"
     }
   },
   "result": {

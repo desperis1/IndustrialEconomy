@@ -261,6 +261,7 @@ public class AssemblerblockUpdateTickProcedure {
 							}
 						}
 						mainObject.addProperty("Energy", (mainObject.get("Energy").getAsDouble() - 200));
+						mainObject.addProperty("Edown", (mainObject.get("Edown").getAsDouble() + 200));
 					} else if ((new Object() {
 						public String getValue(IWorld world, BlockPos pos, String tag) {
 							TileEntity tileEntity = world.getTileEntity(pos);
@@ -428,6 +429,7 @@ public class AssemblerblockUpdateTickProcedure {
 								});
 							}
 						}
+						mainObject.addProperty("Edown", (mainObject.get("Edown").getAsDouble() + 200));
 						mainObject.addProperty("Energy", (mainObject.get("Energy").getAsDouble() - 200));
 					} else if ((new Object() {
 						public String getValue(IWorld world, BlockPos pos, String tag) {
@@ -596,6 +598,7 @@ public class AssemblerblockUpdateTickProcedure {
 							}
 						}
 						mainObject.addProperty("Energy", (mainObject.get("Energy").getAsDouble() - 200));
+						mainObject.addProperty("Edown", (mainObject.get("Edown").getAsDouble() + 200));
 					} else if ((new Object() {
 						public String getValue(IWorld world, BlockPos pos, String tag) {
 							TileEntity tileEntity = world.getTileEntity(pos);
@@ -763,6 +766,7 @@ public class AssemblerblockUpdateTickProcedure {
 							}
 						}
 						mainObject.addProperty("Energy", (mainObject.get("Energy").getAsDouble() - 200));
+						mainObject.addProperty("Edown", (mainObject.get("Edown").getAsDouble() + 200));
 					} else if ((new Object() {
 						public String getValue(IWorld world, BlockPos pos, String tag) {
 							TileEntity tileEntity = world.getTileEntity(pos);
@@ -930,6 +934,7 @@ public class AssemblerblockUpdateTickProcedure {
 							}
 						}
 						mainObject.addProperty("Energy", (mainObject.get("Energy").getAsDouble() - 200));
+						mainObject.addProperty("Edown", (mainObject.get("Edown").getAsDouble() + 200));
 					} else if ((new Object() {
 						public String getValue(IWorld world, BlockPos pos, String tag) {
 							TileEntity tileEntity = world.getTileEntity(pos);
@@ -1097,6 +1102,7 @@ public class AssemblerblockUpdateTickProcedure {
 							}
 						}
 						mainObject.addProperty("Energy", (mainObject.get("Energy").getAsDouble() - 200));
+						mainObject.addProperty("Edown", (mainObject.get("Edown").getAsDouble() + 200));
 					} else {
 						if (!world.isRemote()) {
 							BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);

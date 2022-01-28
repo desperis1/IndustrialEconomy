@@ -30,6 +30,7 @@ import net.minecraft.network.NetworkManager;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.loot.LootContext;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemGroup;
 import net.minecraft.item.Item;
 import net.minecraft.item.BlockItem;
 import net.minecraft.inventory.container.INamedContainerProvider;
@@ -75,7 +76,8 @@ public class LimestoneinactiveBlock extends IndustrialEconomyModElements.ModElem
 	@Override
 	public void initElements() {
 		elements.blocks.add(() -> new CustomBlock());
-		elements.items.add(() -> new BlockItem(block, new Item.Properties().group(null)).setRegistryName(block.getRegistryName()));
+		elements.items
+				.add(() -> new BlockItem(block, new Item.Properties().group(ItemGroup.BUILDING_BLOCKS)).setRegistryName(block.getRegistryName()));
 	}
 
 	private static class TileEntityRegisterHandler {
@@ -241,7 +243,7 @@ public class LimestoneinactiveBlock extends IndustrialEconomyModElements.ModElem
 
 		@Override
 		public ITextComponent getDisplayName() {
-			return new StringTextComponent("Limestone (Inactive)");
+			return new StringTextComponent("Limestone");
 		}
 
 		@Override

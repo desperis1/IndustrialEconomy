@@ -1,0 +1,110 @@
+{
+  "_fv": 24,
+  "_type": "gui",
+  "definition": {
+    "type": 1,
+    "width": 176,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "text": "Electric Furnance",
+          "color": {
+            "value": -16751002,
+            "falpha": 0.0
+          },
+          "name": "Electric Furnance",
+          "x": 165,
+          "y": 41
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "color": {
+            "value": -16751002,
+            "falpha": 0.0
+          },
+          "id": 0,
+          "disableStackInteraction": false,
+          "dropItemsWhenNotBound": true,
+          "name": "Slot #0",
+          "x": 150,
+          "y": 66
+        }
+      },
+      {
+        "type": "outputslot",
+        "data": {
+          "color": {
+            "value": -3368449,
+            "falpha": 0.0
+          },
+          "id": 1,
+          "disableStackInteraction": false,
+          "dropItemsWhenNotBound": true,
+          "name": "Slot #1",
+          "x": 257,
+          "y": 66
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Working",
+          "color": {
+            "value": -13369600,
+            "falpha": 0.0
+          },
+          "displayCondition": {
+            "name": "GeneratorWorkingLabel"
+          },
+          "name": "Working",
+          "x": 206,
+          "y": 70
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "100MW",
+          "color": {
+            "value": -16764007,
+            "falpha": 0.0
+          },
+          "name": "100MW",
+          "x": 265,
+          "y": 42
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "mamguienergy.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "GeneratorWorkingLabel"
+          },
+          "name": "mamguienergy.png",
+          "x": 189,
+          "y": 67
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

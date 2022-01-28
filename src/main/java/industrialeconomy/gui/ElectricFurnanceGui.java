@@ -119,9 +119,9 @@ public class ElectricFurnanceGui extends IndustrialEconomyModElements.ModElement
 					}
 				}
 			}
-			this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 25, 30) {
+			this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 25, 21) {
 			}));
-			this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, 132, 30) {
+			this.customSlots.put(1, this.addSlot(new SlotItemHandler(internal, 1, 130, 21) {
 				@Override
 				public boolean isItemValid(ItemStack stack) {
 					return false;

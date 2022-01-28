@@ -6,7 +6,9 @@ import net.minecraftforge.api.distmarker.Dist;
 
 import net.minecraft.world.World;
 import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
@@ -58,6 +60,27 @@ public class PresserGUIGuiWindow extends ContainerScreen<PresserGUIGui.GuiContai
 		int k = (this.width - this.xSize) / 2;
 		int l = (this.height - this.ySize) / 2;
 		this.blit(ms, k, l, 0, 0, this.xSize, this.ySize, this.xSize, this.ySize);
+		if (GeneratorWorkingLabelProcedure
+				.executeProcedure(Stream
+						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
+								new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z))
+						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll))) {
+			Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("industrial_economy:textures/mamguienergy.png"));
+			this.blit(ms, this.guiLeft + 91, this.guiTop + 38, 0, 0, 16, 16, 16, 16);
+		}
+
+		Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("industrial_economy:textures/industrial.png"));
+		this.blit(ms, this.guiLeft + 50, this.guiTop + 16, 0, 0, 16, 16, 16, 16);
+
+		Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("industrial_economy:textures/coal_block_gui.png"));
+		this.blit(ms, this.guiLeft + 14, this.guiTop + 16, 0, 0, 16, 16, 16, 16);
+
+		Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("industrial_economy:textures/gold_ingot.png"));
+		this.blit(ms, this.guiLeft + 51, this.guiTop + 37, 0, 0, 16, 16, 16, 16);
+
+		Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("industrial_economy:textures/caterium_block.png"));
+		this.blit(ms, this.guiLeft + 14, this.guiTop + 37, 0, 0, 16, 16, 16, 16);
+
 		RenderSystem.disableBlend();
 	}
 
@@ -77,14 +100,27 @@ public class PresserGUIGuiWindow extends ContainerScreen<PresserGUIGui.GuiContai
 
 	@Override
 	protected void drawGuiContainerForegroundLayer(MatrixStack ms, int mouseX, int mouseY) {
-		this.font.drawString(ms, "Presser", 70, 4, -13421773);
+		this.font.drawString(ms, "Presser MK1", 37, 4, -13421773);
 		if (GeneratorWorkingLabelProcedure
 				.executeProcedure(Stream
 						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 								new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll)))
-			this.font.drawString(ms, "Working", 66, 33, -16738048);
-		this.font.drawString(ms, "500 MW", 137, 4, -16763956);
+			this.font.drawString(ms, "Working", 106, 41, -16738048);
+		this.font.drawString(ms, "" + (new Object() {
+			public String getValue(BlockPos pos, String tag) {
+				TileEntity tileEntity = world.getTileEntity(pos);
+				if (tileEntity != null)
+					return tileEntity.getTileData().getString(tag);
+				return "";
+			}
+		}.getValue(new BlockPos((int) x, (int) y, (int) z), "RecipePower")) + "", 108, 4, -16763956);
+		this.font.drawString(ms, "=", 34, 19, -12829636);
+		this.font.drawString(ms, "2", 6, 19, -12829636);
+		this.font.drawString(ms, "1", 45, 19, -12829636);
+		this.font.drawString(ms, "2", 6, 40, -12829636);
+		this.font.drawString(ms, "1", 45, 40, -12829636);
+		this.font.drawString(ms, "=", 34, 40, -12829636);
 	}
 
 	@Override

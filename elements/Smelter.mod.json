@@ -30,6 +30,9 @@
       },
       {
         "value": "Items.NETHERITE_PICKAXE"
+      },
+      {
+        "value": "CUSTOM:SteelToolSPickaxe"
       }
     ],
     "isTreasureEnchantment": false,

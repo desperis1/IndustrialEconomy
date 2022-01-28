@@ -1,0 +1,174 @@
+{
+  "_fv": 24,
+  "_type": "gui",
+  "definition": {
+    "type": 1,
+    "width": 176,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "text": "Presser",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "Presser",
+          "x": 161,
+          "y": 41
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "id": 0,
+          "disableStackInteraction": false,
+          "dropItemsWhenNotBound": true,
+          "name": "Slot #0",
+          "x": 240,
+          "y": 54
+        }
+      },
+      {
+        "type": "outputslot",
+        "data": {
+          "id": 1,
+          "disableStackInteraction": false,
+          "dropItemsWhenNotBound": true,
+          "name": "Slot #1",
+          "x": 240,
+          "y": 95
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Working",
+          "color": {
+            "value": -16738048,
+            "falpha": 0.0
+          },
+          "displayCondition": {
+            "name": "GeneratorWorkingLabel"
+          },
+          "name": "Working",
+          "x": 243,
+          "y": 78
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "<BNBT:text:RecipePower>",
+          "color": {
+            "value": -16763956,
+            "falpha": 0.0
+          },
+          "name": "<BNBT:text:RecipePower>",
+          "x": 229,
+          "y": 41
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "mamguienergy.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "GeneratorWorkingLabel"
+          },
+          "name": "mamguienergy.png",
+          "x": 223,
+          "y": 74
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "MK2",
+          "color": {
+            "value": -14434580,
+            "falpha": 0.0
+          },
+          "name": "MK2",
+          "x": 205,
+          "y": 41
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "black_opal_raw.png",
+          "use1Xscale": false,
+          "name": "black_opal_raw.png",
+          "x": 169,
+          "y": 53
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "heavy_diamond_steel.png",
+          "use1Xscale": false,
+          "name": "heavy_diamond_steel.png",
+          "x": 137,
+          "y": 53
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "9",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "9",
+          "x": 131,
+          "y": 56
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "=",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "=",
+          "x": 157,
+          "y": 56
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "1",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "1",
+          "x": 164,
+          "y": 56
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

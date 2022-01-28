@@ -16,8 +16,6 @@ import net.minecraft.client.Minecraft;
 
 import java.util.HashMap;
 
-import industrialeconomy.IndustrialEconomyModVariables;
-
 import industrialeconomy.IndustrialEconomyMod;
 
 import com.mojang.blaze3d.systems.RenderSystem;
@@ -79,8 +77,6 @@ public class AdminMenuGuiWindow extends ContainerScreen<AdminMenuGui.GuiContaine
 	@Override
 	protected void drawGuiContainerForegroundLayer(MatrixStack ms, int mouseX, int mouseY) {
 		this.font.drawString(ms, "Admin Menu", 116, 15, -10092442);
-		this.font.drawString(ms, "" + ((entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null)
-				.orElse(new IndustrialEconomyModVariables.PlayerVariables())).admin_editor) + "", 95, 142, -12829636);
 	}
 
 	@Override
@@ -115,12 +111,6 @@ public class AdminMenuGuiWindow extends ContainerScreen<AdminMenuGui.GuiContaine
 			if (true) {
 				IndustrialEconomyMod.PACKET_HANDLER.sendToServer(new AdminMenuGui.ButtonPressedMessage(3, x, y, z));
 				AdminMenuGui.handleButtonAction(entity, 3, x, y, z);
-			}
-		}));
-		this.addButton(new Button(this.guiLeft + 12, this.guiTop + 137, 80, 20, new StringTextComponent("AdminEditor"), e -> {
-			if (true) {
-				IndustrialEconomyMod.PACKET_HANDLER.sendToServer(new AdminMenuGui.ButtonPressedMessage(4, x, y, z));
-				AdminMenuGui.handleButtonAction(entity, 4, x, y, z);
 			}
 		}));
 	}

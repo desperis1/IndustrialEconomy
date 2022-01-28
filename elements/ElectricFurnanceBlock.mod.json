@@ -32,7 +32,7 @@
         "subtract": false
       }
     ],
-    "name": "Electric Furnace",
+    "name": "Electric Furnace MK2active",
     "specialInfo": [],
     "hardness": 1.0,
     "resistance": 10.0,
@@ -52,9 +52,9 @@
     "canRedstoneConnect": false,
     "lightOpacity": 15,
     "material": {
-      "value": "ROCK"
+      "value": "IRON"
     },
-    "tickRate": 20,
+    "tickRate": 15,
     "tickRandomly": false,
     "isReplaceable": false,
     "canProvidePower": false,

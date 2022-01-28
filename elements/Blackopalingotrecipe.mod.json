@@ -1,0 +1,46 @@
+{
+  "_fv": 24,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "recipeRetstackSize": 1,
+    "group": "black_opal_ingotrecipe",
+    "recipeShapeless": false,
+    "recipeSlots": [
+      {
+        "value": "CUSTOM:BlackOpal"
+      },
+      {
+        "value": "CUSTOM:BlackOpal"
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": "CUSTOM:BlackOpal"
+      },
+      {
+        "value": "CUSTOM:BlackOpal"
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": ""
+      }
+    ],
+    "recipeReturnStack": {
+      "value": "CUSTOM:BlackOpalIngot"
+    },
+    "name": "blackopalingotrecipe",
+    "namespace": "mod"
+  }
+}

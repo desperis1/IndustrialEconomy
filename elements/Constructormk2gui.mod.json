@@ -1,0 +1,142 @@
+{
+  "_fv": 24,
+  "_type": "gui",
+  "definition": {
+    "type": 1,
+    "width": 176,
+    "height": 187,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 14,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "label",
+        "data": {
+          "text": "CONSTRUCTOR",
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "name": "CONSTRUCTOR",
+          "x": 155,
+          "y": 31
+        }
+      },
+      {
+        "type": "inputslot",
+        "data": {
+          "inputLimit": {
+            "value": ""
+          },
+          "id": 0,
+          "disableStackInteraction": false,
+          "dropItemsWhenNotBound": true,
+          "name": "Slot #0",
+          "x": 155,
+          "y": 60
+        }
+      },
+      {
+        "type": "outputslot",
+        "data": {
+          "id": 1,
+          "disableStackInteraction": false,
+          "dropItemsWhenNotBound": true,
+          "name": "Slot #1",
+          "x": 258,
+          "y": 60
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Working",
+          "color": {
+            "value": -16711936,
+            "falpha": 0.0
+          },
+          "displayCondition": {
+            "name": "GeneratorWorkingLabel"
+          },
+          "name": "Working",
+          "x": 207,
+          "y": 64
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Recipe: <BNBT:text:Recipe>",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "Recipe: <BNBT:text:Recipe>",
+          "x": 158,
+          "y": 44
+        }
+      },
+      {
+        "type": "button",
+        "data": {
+          "text": "Change Recipe",
+          "onClick": {
+            "name": "Constructormk2ChangeRecipe"
+          },
+          "width": 90,
+          "height": 20,
+          "name": "Change Recipe",
+          "x": 168,
+          "y": 106
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "200 MW",
+          "color": {
+            "value": -16763956,
+            "falpha": 0.0
+          },
+          "name": "200 MW",
+          "x": 262,
+          "y": 31
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "MK2",
+          "color": {
+            "value": -13382401,
+            "falpha": 0.0
+          },
+          "name": "MK2",
+          "x": 225,
+          "y": 31
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "mamguienergy.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "GeneratorWorkingLabel"
+          },
+          "name": "mamguienergy.png",
+          "x": 190,
+          "y": 61
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

@@ -73,7 +73,6 @@ import java.util.AbstractMap;
 import io.netty.buffer.Unpooled;
 
 import industrialeconomy.procedures.HubUpdateTickProcedure;
-import industrialeconomy.procedures.HubPlayerStartsToDestroyProcedure;
 import industrialeconomy.procedures.HubBlockIsPlacedByProcedure;
 
 import industrialeconomy.itemgroup.ProjectMEGAItemGroup;
@@ -182,19 +181,6 @@ public class HubBlock extends IndustrialEconomyModElements.ModElement {
 							new AbstractMap.SimpleEntry<>("z", z))
 					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 			world.getPendingBlockTicks().scheduleTick(pos, this, 10);
-		}
-
-		@Override
-		public void onBlockClicked(BlockState blockstate, World world, BlockPos pos, PlayerEntity entity) {
-			super.onBlockClicked(blockstate, world, pos, entity);
-			int x = pos.getX();
-			int y = pos.getY();
-			int z = pos.getZ();
-
-			HubPlayerStartsToDestroyProcedure.executeProcedure(Stream
-					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
-							new AbstractMap.SimpleEntry<>("z", z), new AbstractMap.SimpleEntry<>("entity", entity))
-					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 		}
 
 		@Override

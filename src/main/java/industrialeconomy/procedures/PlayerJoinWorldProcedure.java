@@ -57,7 +57,28 @@ public class PlayerJoinWorldProcedure {
 				exception.printStackTrace();
 			}
 			mainObject.addProperty("MinerLevel", 1);
+			mainObject.addProperty("Money", 1000);
+			mainObject.addProperty("Energy", 0);
+			mainObject.addProperty("Coal", 0);
+			mainObject.addProperty("Iron", 0);
+			mainObject.addProperty("minerLevels", 1);
+			mainObject.addProperty("Copper", 0);
+			mainObject.addProperty("Caterium", 0);
+			mainObject.addProperty("SandStone", 0);
 			mainObject.addProperty("Money", 0);
+			mainObject.addProperty("EnergyForMinerUpgrade", 1000000000);
+			mainObject.addProperty("Eup", 0);
+			mainObject.addProperty("Edown", 0);
+			mainObject.addProperty("mamSteel", (false));
+			mainObject.addProperty("mamDiamondSteel", (false));
+			mainObject.addProperty("mam2CoreCPU", (false));
+			mainObject.addProperty("mam4CoreCPU", (false));
+			mainObject.addProperty("mam8CoreCPU", (false));
+			mainObject.addProperty("mam16CoreCPU", (false));
+			mainObject.addProperty("mam32CoreCPU", (false));
+			mainObject.addProperty("mam64CoreCPU", (false));
+			mainObject.addProperty("mam128CoreCPU", (false));
+			mainObject.addProperty("mam256CoreCPU", (false));
 			{
 				Gson mainGSONBuilderVariable = new GsonBuilder().setPrettyPrinting().create();
 				try {

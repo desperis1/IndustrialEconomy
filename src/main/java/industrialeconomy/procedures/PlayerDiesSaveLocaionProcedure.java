@@ -1,20 +1,29 @@
 package industrialeconomy.procedures;
 
+import net.minecraftforge.fml.loading.FMLPaths;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 
 import net.minecraft.world.World;
 import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.Entity;
 
 import java.util.Map;
 import java.util.HashMap;
 
-import industrialeconomy.IndustrialEconomyModVariables;
+import java.io.IOException;
+import java.io.FileWriter;
+import java.io.FileReader;
+import java.io.File;
+import java.io.BufferedReader;
 
 import industrialeconomy.IndustrialEconomyMod;
+
+import com.google.gson.GsonBuilder;
+import com.google.gson.Gson;
 
 public class PlayerDiesSaveLocaionProcedure {
 	@Mod.EventBusSubscriber
@@ -66,30 +75,43 @@ public class PlayerDiesSaveLocaionProcedure {
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		Entity entity = (Entity) dependencies.get("entity");
-		{
-			double _setval = x;
-			entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-				capability.player_back_x = _setval;
-				capability.syncPlayerVariables(entity);
-			});
-		}
-		{
-			double _setval = y;
-			entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-				capability.player_back_y = _setval;
-				capability.syncPlayerVariables(entity);
-			});
-		}
-		{
-			double _setval = z;
-			entity.getCapability(IndustrialEconomyModVariables.PLAYER_VARIABLES_CAPABILITY, null).ifPresent(capability -> {
-				capability.player_back_z = _setval;
-				capability.syncPlayerVariables(entity);
-			});
-		}
-		if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
-			((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("Location Saved. use /back to teleport back to death location"),
-					(false));
+		com.google.gson.JsonObject mainObject = new com.google.gson.JsonObject();
+		File playerConfig = new File("");
+		if (entity instanceof ServerPlayerEntity || entity instanceof PlayerEntity) {
+			playerConfig = (File) new File((FMLPaths.GAMEDIR.get().toString() + "/config/"),
+					File.separator + (entity.getDisplayName().getString() + ".json"));
+			{
+				try {
+					BufferedReader bufferedReader = new BufferedReader(new FileReader(playerConfig));
+					StringBuilder jsonstringbuilder = new StringBuilder();
+					String line;
+					while ((line = bufferedReader.readLine()) != null) {
+						jsonstringbuilder.append(line);
+					}
+					bufferedReader.close();
+					mainObject = new Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
+					mainObject.addProperty("backX", x);
+					mainObject.addProperty("backY", y);
+					mainObject.addProperty("backZ", z);
+
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+			{
+				Gson mainGSONBuilderVariable = new GsonBuilder().setPrettyPrinting().create();
+				try {
+					FileWriter fileWriter = new FileWriter(playerConfig);
+					fileWriter.write(mainGSONBuilderVariable.toJson(mainObject));
+					fileWriter.close();
+				} catch (IOException exception) {
+					exception.printStackTrace();
+				}
+			}
+			if (entity instanceof PlayerEntity && !entity.world.isRemote()) {
+				((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("Location Saved. use /back to teleport back to death location"),
+						(false));
+			}
 		}
 	}
 }

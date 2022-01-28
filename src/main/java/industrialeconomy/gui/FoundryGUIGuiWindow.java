@@ -6,7 +6,9 @@ import net.minecraftforge.api.distmarker.Dist;
 
 import net.minecraft.world.World;
 import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.ResourceLocation;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
@@ -36,7 +38,7 @@ public class FoundryGUIGuiWindow extends ContainerScreen<FoundryGUIGui.GuiContai
 		this.y = container.y;
 		this.z = container.z;
 		this.entity = container.entity;
-		this.xSize = 176;
+		this.xSize = 233;
 		this.ySize = 166;
 	}
 
@@ -58,6 +60,33 @@ public class FoundryGUIGuiWindow extends ContainerScreen<FoundryGUIGui.GuiContai
 		int k = (this.width - this.xSize) / 2;
 		int l = (this.height - this.ySize) / 2;
 		this.blit(ms, k, l, 0, 0, this.xSize, this.ySize, this.xSize, this.ySize);
+		if (GeneratorWorkingLabelProcedure
+				.executeProcedure(Stream
+						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
+								new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z))
+						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll))) {
+			Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("industrial_economy:textures/mamguienergy.png"));
+			this.blit(ms, this.guiLeft + 144, this.guiTop + 59, 0, 0, 16, 16, 16, 16);
+		}
+
+		Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("industrial_economy:textures/ironingot.png"));
+		this.blit(ms, this.guiLeft + 15, this.guiTop + 6, 0, 0, 16, 16, 16, 16);
+
+		Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("industrial_economy:textures/coal.png"));
+		this.blit(ms, this.guiLeft + 52, this.guiTop + 6, 0, 0, 16, 16, 16, 16);
+
+		Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("industrial_economy:textures/steelingot.png"));
+		this.blit(ms, this.guiLeft + 86, this.guiTop + 6, 0, 0, 16, 16, 16, 16);
+
+		Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("industrial_economy:textures/diamondsteelingot.png"));
+		this.blit(ms, this.guiLeft + 86, this.guiTop + 23, 0, 0, 16, 16, 16, 16);
+
+		Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("industrial_economy:textures/industrial.png"));
+		this.blit(ms, this.guiLeft + 52, this.guiTop + 23, 0, 0, 16, 16, 16, 16);
+
+		Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("industrial_economy:textures/steelingot.png"));
+		this.blit(ms, this.guiLeft + 18, this.guiTop + 22, 0, 0, 16, 16, 16, 16);
+
 		RenderSystem.disableBlend();
 	}
 
@@ -77,14 +106,31 @@ public class FoundryGUIGuiWindow extends ContainerScreen<FoundryGUIGui.GuiContai
 
 	@Override
 	protected void drawGuiContainerForegroundLayer(MatrixStack ms, int mouseX, int mouseY) {
-		this.font.drawString(ms, "Foundry", 70, 3, -65536);
+		this.font.drawString(ms, "Foundry", 119, 3, -65536);
 		if (GeneratorWorkingLabelProcedure
 				.executeProcedure(Stream
 						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
 								new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z))
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll)))
-			this.font.drawString(ms, "Working", 69, 34, -16738048);
-		this.font.drawString(ms, "1000 MW", 133, 3, -16763956);
+			this.font.drawString(ms, "Working", 167, 63, -16738048);
+		this.font.drawString(ms, "" + (new Object() {
+			public String getValue(BlockPos pos, String tag) {
+				TileEntity tileEntity = world.getTileEntity(pos);
+				if (tileEntity != null)
+					return tileEntity.getTileData().getString(tag);
+				return "";
+			}
+		}.getValue(new BlockPos((int) x, (int) y, (int) z), "RecipePower")) + "", 169, 4, -16763956);
+		this.font.drawString(ms, "+", 36, 9, -12829636);
+		this.font.drawString(ms, "=", 72, 9, -12829636);
+		this.font.drawString(ms, "6", 8, 9, -12829636);
+		this.font.drawString(ms, "3", 46, 9, -12829636);
+		this.font.drawString(ms, "1", 79, 9, -12829636);
+		this.font.drawString(ms, "=", 72, 27, -12829636);
+		this.font.drawString(ms, "1", 79, 26, -12829636);
+		this.font.drawString(ms, "16", 6, 26, -12829636);
+		this.font.drawString(ms, "+", 37, 25, -12829636);
+		this.font.drawString(ms, "4", 46, 26, -12829636);
 	}
 
 	@Override
