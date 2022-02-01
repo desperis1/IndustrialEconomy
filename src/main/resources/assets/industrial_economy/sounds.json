@@ -27,5 +27,14 @@
         "stream": false
       }
     ]
+  },
+  "particleaccelerator": {
+    "category": "block",
+    "sounds": [
+      {
+        "name": "industrial_economy:particleaccelerator",
+        "stream": false
+      }
+    ]
   }
 }

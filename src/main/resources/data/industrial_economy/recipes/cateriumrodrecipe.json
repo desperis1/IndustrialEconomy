@@ -1,23 +1,19 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "0  ",
-    " 4 ",
-    "  8"
+    "0 ",
+    " 3"
   ],
   "key": {
     "0": {
       "item": "industrial_economy:caterium_ingot"
     },
-    "4": {
-      "item": "industrial_economy:caterium_ingot"
-    },
-    "8": {
+    "3": {
       "item": "industrial_economy:caterium_ingot"
     }
   },
   "result": {
     "item": "industrial_economy:cateriumroditem",
-    "count": 2
+    "count": 1
   }
 }

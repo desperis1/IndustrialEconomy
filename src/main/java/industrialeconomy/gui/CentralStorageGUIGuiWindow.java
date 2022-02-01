@@ -31,7 +31,7 @@ public class CentralStorageGUIGuiWindow extends ContainerScreen<CentralStorageGU
 		this.y = container.y;
 		this.z = container.z;
 		this.entity = container.entity;
-		this.xSize = 174;
+		this.xSize = 176;
 		this.ySize = 176;
 	}
 
@@ -72,11 +72,11 @@ public class CentralStorageGUIGuiWindow extends ContainerScreen<CentralStorageGU
 
 	@Override
 	protected void drawGuiContainerForegroundLayer(MatrixStack ms, int mouseX, int mouseY) {
-		this.font.drawString(ms, "Learn new Item", 49, 19, -10027213);
-		this.font.drawString(ms, "Item will be consumed.", 31, 52, -52429);
-		this.font.drawString(ms, "If item is already known", 25, 72, -52429);
-		this.font.drawString(ms, "amount will be reseted.", 29, 83, -52429);
-		this.font.drawString(ms, "Central Storage", 47, 5, -12829636);
+		this.font.drawString(ms, "Learn new Item", 50, 19, -10027213);
+		this.font.drawString(ms, "Item will be consumed.", 32, 52, -52429);
+		this.font.drawString(ms, "If item is already known", 26, 72, -52429);
+		this.font.drawString(ms, "amount will be reseted.", 30, 83, -52429);
+		this.font.drawString(ms, "Central Storage", 48, 5, -12829636);
 	}
 
 	@Override

@@ -4,9 +4,9 @@
   "definition": {
     "type": 1,
     "width": 176,
-    "height": 166,
+    "height": 172,
     "inventoryOffsetX": 0,
-    "inventoryOffsetY": 0,
+    "inventoryOffsetY": 5,
     "renderBgLayer": true,
     "doesPauseGame": false,
     "components": [
@@ -19,8 +19,8 @@
             "falpha": 0.0
           },
           "name": "Manufacturer",
-          "x": 183,
-          "y": 41
+          "x": 181,
+          "y": 38
         }
       },
       {
@@ -32,8 +32,8 @@
             "falpha": 0.0
           },
           "name": "Recipe: <BNBT:text:Recipe>",
-          "x": 151,
-          "y": 82
+          "x": 144,
+          "y": 87
         }
       },
       {
@@ -47,7 +47,7 @@
           "height": 20,
           "name": "Change Recipe",
           "x": 164,
-          "y": 95
+          "y": 100
         }
       },
       {
@@ -57,8 +57,37 @@
           "disableStackInteraction": false,
           "dropItemsWhenNotBound": true,
           "name": "Slot #0",
-          "x": 204,
-          "y": 59
+          "x": 201,
+          "y": 50
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "mamguienergy.png",
+          "use1Xscale": false,
+          "displayCondition": {
+            "name": "GeneratorWorkingLabel"
+          },
+          "name": "mamguienergy.png",
+          "x": 187,
+          "y": 69
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "Working",
+          "color": {
+            "value": -13369600,
+            "falpha": 0.0
+          },
+          "displayCondition": {
+            "name": "GeneratorWorkingLabel"
+          },
+          "name": "Working",
+          "x": 207,
+          "y": 73
         }
       }
     ],

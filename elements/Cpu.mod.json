@@ -24,7 +24,12 @@
     "damageOnCrafting": false,
     "enableMeleeDamage": false,
     "damageVsEntity": 0.0,
-    "specialInfo": [],
+    "specialInfo": [
+      "Copper: 2 376",
+      "Caterium: 2 712",
+      "Iron: 10 380",
+      "Coal: 5 472"
+    ],
     "hasGlow": false,
     "guiBoundTo": "<NONE>",
     "inventorySize": 9,

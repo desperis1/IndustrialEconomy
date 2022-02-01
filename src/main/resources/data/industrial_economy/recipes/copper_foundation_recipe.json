@@ -1,0 +1,36 @@
+{
+  "group": "copperfoundation",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    " 4 ",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "industrial_economy:copper_block"
+    },
+    "1": {
+      "item": "industrial_economy:copper_block"
+    },
+    "2": {
+      "item": "industrial_economy:copper_block"
+    },
+    "4": {
+      "item": "industrial_economy:copper_ingot"
+    },
+    "6": {
+      "item": "industrial_economy:copper_block"
+    },
+    "7": {
+      "item": "industrial_economy:copper_block"
+    },
+    "8": {
+      "item": "industrial_economy:copper_block"
+    }
+  },
+  "result": {
+    "item": "industrial_economy:copper_foundation",
+    "count": 1
+  }
+}

@@ -51,7 +51,7 @@ public class DiamondSteelpickaxeItem extends IndustrialEconomyModElements.ModEle
 			}
 
 			public int getHarvestLevel() {
-				return 3;
+				return 4;
 			}
 
 			public int getEnchantability() {

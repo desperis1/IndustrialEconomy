@@ -42,6 +42,9 @@
         "type": "button",
         "data": {
           "text": "8x Core CPU",
+          "onClick": {
+            "name": "MAMUpgradeEightCoreCPUOnClick"
+          },
           "width": 82,
           "height": 20,
           "name": "8x Core CPU",
@@ -53,6 +56,9 @@
         "type": "button",
         "data": {
           "text": "16x Core CPU",
+          "onClick": {
+            "name": "MamUpgradeSixteencoreCPUOnclick"
+          },
           "width": 87,
           "height": 20,
           "name": "16x Core CPU",
@@ -64,6 +70,9 @@
         "type": "button",
         "data": {
           "text": "32x Core CPU",
+          "onClick": {
+            "name": "MAMUpgradethritytwoCoreCPUOnClik"
+          },
           "width": 87,
           "height": 20,
           "name": "32x Core CPU",
@@ -229,6 +238,144 @@
           "name": "25 000 coins",
           "x": 256,
           "y": 33
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "mamguimoney.png",
+          "use1Xscale": false,
+          "name": "mamguimoney.png",
+          "x": 258,
+          "y": 74
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "mamguienergy.png",
+          "use1Xscale": false,
+          "name": "mamguienergy.png",
+          "x": 163,
+          "y": 74
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "350 milions MW",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "350 milions MW",
+          "x": 176,
+          "y": 77
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "150 000 coins",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "150 000 coins",
+          "x": 278,
+          "y": 77
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "mamguienergy.png",
+          "use1Xscale": false,
+          "name": "mamguienergy.png",
+          "x": 171,
+          "y": 96
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "mamguienergy.png",
+          "use1Xscale": false,
+          "name": "mamguienergy.png",
+          "x": 171,
+          "y": 118
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "1 E9 MW",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "1 E9 MW",
+          "x": 186,
+          "y": 99
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "2 E9 MW",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "2 E9 MW",
+          "x": 186,
+          "y": 121
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "mamguimoney.png",
+          "use1Xscale": false,
+          "name": "mamguimoney.png",
+          "x": 237,
+          "y": 96
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "mamguimoney.png",
+          "use1Xscale": false,
+          "name": "mamguimoney.png",
+          "x": 236,
+          "y": 118
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "150 000 coins",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "150 000 coins",
+          "x": 260,
+          "y": 99
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "text": "150 000 coins",
+          "color": {
+            "value": -12829636,
+            "falpha": 0.0
+          },
+          "name": "150 000 coins",
+          "x": 262,
+          "y": 120
         }
       }
     ],

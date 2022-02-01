@@ -21,8 +21,14 @@ import java.io.FileReader;
 import java.io.File;
 import java.io.BufferedReader;
 
+import industrialeconomy.item.TwoHundredFiftySixCoreCPUItem;
 import industrialeconomy.item.TwoCoreCPUItem;
+import industrialeconomy.item.ThirtytwoCoreCPUItem;
+import industrialeconomy.item.SixtyFourCoreCPUItem;
+import industrialeconomy.item.SixteenCoreCPUItem;
+import industrialeconomy.item.OneHundredTwentyEightCoreCPUItem;
 import industrialeconomy.item.FourCoreCPUItem;
+import industrialeconomy.item.EightCoreCPUItem;
 
 import industrialeconomy.block.MinerinactiveBlock;
 import industrialeconomy.block.LimestoneactiveBlock;
@@ -102,6 +108,84 @@ public class MinerblockUpdateTickProcedure {
 			}
 		}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (0))).getItem()) {
 			cpu_multipler = 4;
+		} else if (EightCoreCPUItem.block == (new Object() {
+			public ItemStack getItemStack(BlockPos pos, int sltid) {
+				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
+				TileEntity _ent = world.getTileEntity(pos);
+				if (_ent != null) {
+					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_retval.set(capability.getStackInSlot(sltid).copy());
+					});
+				}
+				return _retval.get();
+			}
+		}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (0))).getItem()) {
+			cpu_multipler = 8;
+		} else if (SixteenCoreCPUItem.block == (new Object() {
+			public ItemStack getItemStack(BlockPos pos, int sltid) {
+				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
+				TileEntity _ent = world.getTileEntity(pos);
+				if (_ent != null) {
+					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_retval.set(capability.getStackInSlot(sltid).copy());
+					});
+				}
+				return _retval.get();
+			}
+		}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (0))).getItem()) {
+			cpu_multipler = 16;
+		} else if (ThirtytwoCoreCPUItem.block == (new Object() {
+			public ItemStack getItemStack(BlockPos pos, int sltid) {
+				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
+				TileEntity _ent = world.getTileEntity(pos);
+				if (_ent != null) {
+					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_retval.set(capability.getStackInSlot(sltid).copy());
+					});
+				}
+				return _retval.get();
+			}
+		}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (0))).getItem()) {
+			cpu_multipler = 32;
+		} else if (SixtyFourCoreCPUItem.block == (new Object() {
+			public ItemStack getItemStack(BlockPos pos, int sltid) {
+				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
+				TileEntity _ent = world.getTileEntity(pos);
+				if (_ent != null) {
+					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_retval.set(capability.getStackInSlot(sltid).copy());
+					});
+				}
+				return _retval.get();
+			}
+		}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (0))).getItem()) {
+			cpu_multipler = 64;
+		} else if (OneHundredTwentyEightCoreCPUItem.block == (new Object() {
+			public ItemStack getItemStack(BlockPos pos, int sltid) {
+				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
+				TileEntity _ent = world.getTileEntity(pos);
+				if (_ent != null) {
+					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_retval.set(capability.getStackInSlot(sltid).copy());
+					});
+				}
+				return _retval.get();
+			}
+		}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (0))).getItem()) {
+			cpu_multipler = 128;
+		} else if (TwoHundredFiftySixCoreCPUItem.block == (new Object() {
+			public ItemStack getItemStack(BlockPos pos, int sltid) {
+				AtomicReference<ItemStack> _retval = new AtomicReference<>(ItemStack.EMPTY);
+				TileEntity _ent = world.getTileEntity(pos);
+				if (_ent != null) {
+					_ent.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY, null).ifPresent(capability -> {
+						_retval.set(capability.getStackInSlot(sltid).copy());
+					});
+				}
+				return _retval.get();
+			}
+		}.getItemStack(new BlockPos((int) x, (int) y, (int) z), (int) (0))).getItem()) {
+			cpu_multipler = 256;
 		} else {
 			cpu_multipler = 1;
 		}
@@ -121,15 +205,7 @@ public class MinerblockUpdateTickProcedure {
 					TileEntity _tileEntity = world.getTileEntity(_bp);
 					BlockState _bs = world.getBlockState(_bp);
 					if (_tileEntity != null)
-						_tileEntity.getTileData().putDouble("minerLevels", new Object() {
-							double convert(String s) {
-								try {
-									return Double.parseDouble(s.trim());
-								} catch (Exception e) {
-								}
-								return 0;
-							}
-						}.convert(new java.text.DecimalFormat("#").format(mainObject.get("minerLevels").getAsDouble())));
+						_tileEntity.getTileData().putDouble("minerLevels", mainObject.get("minerLevels").getAsDouble());
 					if (world instanceof World)
 						((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 				}
@@ -165,8 +241,8 @@ public class MinerblockUpdateTickProcedure {
 						if (Math.random() < 0.5) {
 							mainObject.addProperty("Iron",
 									(mainObject.get("Iron").getAsDouble() + mainObject.get("minerLevels").getAsDouble() * cpu_multipler));
-							mainObject.addProperty("Energy", (mainObject.get("Energy").getAsDouble()
-									- 15 * mainObject.get("minerLevels").getAsDouble() * cpu_multipler * cpu_multipler));
+							mainObject.addProperty("Energy",
+									(mainObject.get("Energy").getAsDouble() - 15 * mainObject.get("minerLevels").getAsDouble() * cpu_multipler));
 							mainObject.addProperty("Edown",
 									(mainObject.get("Edown").getAsDouble() + 15 * mainObject.get("minerLevels").getAsDouble() * cpu_multipler));
 						}
@@ -181,8 +257,8 @@ public class MinerblockUpdateTickProcedure {
 								((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 						}
 						if (Math.random() < 0.3) {
-							mainObject.addProperty("Caterium", (mainObject.get("Caterium").getAsDouble()
-									+ mainObject.get("minerLevels").getAsDouble() * cpu_multipler * cpu_multipler));
+							mainObject.addProperty("Caterium",
+									(mainObject.get("Caterium").getAsDouble() + mainObject.get("minerLevels").getAsDouble() * cpu_multipler));
 							mainObject.addProperty("Energy",
 									(mainObject.get("Energy").getAsDouble() - 15 * mainObject.get("minerLevels").getAsDouble() * cpu_multipler));
 							mainObject.addProperty("Edown",

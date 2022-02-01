@@ -28,8 +28,11 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.AbstractMap;
 
+import industrialeconomy.procedures.MamUpgradeSixteencoreCPUOnclickProcedure;
+import industrialeconomy.procedures.MAMUpgradethritytwoCoreCPUOnClikProcedure;
 import industrialeconomy.procedures.MAMUpgradeTWOCoreCPUOnCLickProcedure;
 import industrialeconomy.procedures.MAMUpgradeFourCoreCPUOnCLickProcedure;
+import industrialeconomy.procedures.MAMUpgradeEightCoreCPUOnClickProcedure;
 
 import industrialeconomy.IndustrialEconomyModElements;
 
@@ -197,6 +200,27 @@ public class MamGUIElectronicsOnClickGui extends IndustrialEconomyModElements.Mo
 		if (buttonID == 1) {
 
 			MAMUpgradeFourCoreCPUOnCLickProcedure.executeProcedure(Stream
+					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
+							new AbstractMap.SimpleEntry<>("z", z))
+					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+		}
+		if (buttonID == 2) {
+
+			MAMUpgradeEightCoreCPUOnClickProcedure.executeProcedure(Stream
+					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
+							new AbstractMap.SimpleEntry<>("z", z))
+					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+		}
+		if (buttonID == 3) {
+
+			MamUpgradeSixteencoreCPUOnclickProcedure.executeProcedure(Stream
+					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
+							new AbstractMap.SimpleEntry<>("z", z))
+					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
+		}
+		if (buttonID == 4) {
+
+			MAMUpgradethritytwoCoreCPUOnClikProcedure.executeProcedure(Stream
 					.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x), new AbstractMap.SimpleEntry<>("y", y),
 							new AbstractMap.SimpleEntry<>("z", z))
 					.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));

@@ -1,0 +1,42 @@
+{
+  "group": "manufacturerrecipe",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "345",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "industrial_economy:diamondsteelplate"
+    },
+    "1": {
+      "item": "industrial_economy:diamondsteelplate"
+    },
+    "2": {
+      "item": "industrial_economy:diamondsteelplate"
+    },
+    "3": {
+      "item": "industrial_economy:diamondsteelplate"
+    },
+    "4": {
+      "item": "industrial_economy:cpu"
+    },
+    "5": {
+      "item": "industrial_economy:diamondsteelplate"
+    },
+    "6": {
+      "item": "industrial_economy:heavyframe"
+    },
+    "7": {
+      "item": "industrial_economy:heavyframe"
+    },
+    "8": {
+      "item": "industrial_economy:heavyframe"
+    }
+  },
+  "result": {
+    "item": "industrial_economy:manufacturer",
+    "count": 1
+  }
+}

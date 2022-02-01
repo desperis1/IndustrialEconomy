@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "industrial_economy:items/one_hundred_twenty_eight_core_cpu"
+  }
+}

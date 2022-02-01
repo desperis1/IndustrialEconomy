@@ -33,7 +33,9 @@
       }
     ],
     "name": "Heavy Iron",
-    "specialInfo": [],
+    "specialInfo": [
+      "Iron: 97"
+    ],
     "hardness": 50.0,
     "resistance": 50.0,
     "hasGravity": false,
@@ -58,6 +60,9 @@
     "tickRandomly": false,
     "isReplaceable": false,
     "canProvidePower": false,
+    "emittedRedstonePower": {
+      "fixedValue": 15.0
+    },
     "colorOnMap": "DEFAULT",
     "creativePickItem": {
       "value": ""
@@ -75,6 +80,21 @@
     "isCustomSoundType": false,
     "soundOnStep": {
       "value": "ANVIL"
+    },
+    "breakSound": {
+      "value": ""
+    },
+    "stepSound": {
+      "value": ""
+    },
+    "placeSound": {
+      "value": ""
+    },
+    "hitSound": {
+      "value": ""
+    },
+    "fallSound": {
+      "value": ""
     },
     "luminance": 0,
     "unbreakable": false,

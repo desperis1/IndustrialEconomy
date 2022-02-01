@@ -1,0 +1,13 @@
+{
+  "group": "industiraldiamondblockreverserecipe",
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "industrial_economy:industial_diamond_block"
+    }
+  ],
+  "result": {
+    "item": "industrial_economy:industrial_diamond",
+    "count": 9
+  }
+}

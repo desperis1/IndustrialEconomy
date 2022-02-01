@@ -53,6 +53,8 @@ public class IndustrialEconomyModElements {
 				new net.minecraft.util.SoundEvent(new ResourceLocation("industrial_economy", "plazma")));
 		sounds.put(new ResourceLocation("industrial_economy", "jetpack_sound"),
 				new net.minecraft.util.SoundEvent(new ResourceLocation("industrial_economy", "jetpack_sound")));
+		sounds.put(new ResourceLocation("industrial_economy", "particleaccelerator"),
+				new net.minecraft.util.SoundEvent(new ResourceLocation("industrial_economy", "particleaccelerator")));
 		try {
 			ModFileScanData modFileInfo = ModList.get().getModFileById("industrial_economy").getFile().getScanResult();
 			Set<ModFileScanData.AnnotationData> annotations = modFileInfo.getAnnotations();

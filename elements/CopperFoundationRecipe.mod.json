@@ -1,0 +1,46 @@
+{
+  "_fv": 24,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "recipeRetstackSize": 1,
+    "group": "copperfoundation",
+    "recipeShapeless": false,
+    "recipeSlots": [
+      {
+        "value": "CUSTOM:CopperBlock"
+      },
+      {
+        "value": "CUSTOM:CopperBlock"
+      },
+      {
+        "value": "CUSTOM:CopperBlock"
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": "CUSTOM:CopperIngot"
+      },
+      {
+        "value": ""
+      },
+      {
+        "value": "CUSTOM:CopperBlock"
+      },
+      {
+        "value": "CUSTOM:CopperBlock"
+      },
+      {
+        "value": "CUSTOM:CopperBlock"
+      }
+    ],
+    "recipeReturnStack": {
+      "value": "CUSTOM:CopperFoundation"
+    },
+    "name": "copper_foundation_recipe",
+    "namespace": "mod"
+  }
+}

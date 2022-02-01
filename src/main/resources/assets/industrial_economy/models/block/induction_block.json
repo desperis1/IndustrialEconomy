@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "industrial_economy:blocks/induciton_block_top",
+    "up": "industrial_economy:blocks/induciton_block_top",
+    "north": "industrial_economy:blocks/induction_block_side",
+    "east": "industrial_economy:blocks/induction_block_inner_side",
+    "south": "industrial_economy:blocks/induction_block_side",
+    "west": "industrial_economy:blocks/induction_block_inner_side",
+    "particle": "industrial_economy:blocks/induciton_block_top"
+  }
+}

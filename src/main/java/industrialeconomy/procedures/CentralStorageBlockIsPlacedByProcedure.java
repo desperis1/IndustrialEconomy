@@ -61,6 +61,7 @@ import industrialeconomy.block.CopperBlockBlock;
 import industrialeconomy.block.ConstructorblockBlock;
 import industrialeconomy.block.CoalExtractorBlock;
 import industrialeconomy.block.CateriumExtractorBlock;
+import industrialeconomy.block.CateriumBlockBlock;
 import industrialeconomy.block.AssemblerblockBlock;
 
 import industrialeconomy.IndustrialEconomyMod;
@@ -160,6 +161,7 @@ public class CentralStorageBlockIsPlacedByProcedure {
 			mainObject.addProperty((new ItemStack(ControlUnitItem.block).getDisplayName().getString()), 1);
 			mainObject.addProperty((new ItemStack(EmptymoduleItem.block).getDisplayName().getString()), 1);
 			mainObject.addProperty((new ItemStack(IndustrialDiamondItem.block).getDisplayName().getString()), 1);
+			mainObject.addProperty((new ItemStack(CateriumBlockBlock.block).getDisplayName().getString()), 1);
 			{
 				Gson mainGSONBuilderVariable = new GsonBuilder().setPrettyPrinting().create();
 				try {

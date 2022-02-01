@@ -54,7 +54,7 @@
     "material": {
       "value": "ROCK"
     },
-    "tickRate": 20,
+    "tickRate": 60,
     "tickRandomly": false,
     "isReplaceable": false,
     "canProvidePower": false,
@@ -105,8 +105,8 @@
     "particleSpawningRadious": 0.5,
     "particleAmount": 4,
     "hasInventory": true,
-    "guiBoundTo": "CentralStorageGUI",
-    "openGUIOnRightClick": true,
+    "guiBoundTo": "<NONE>",
+    "openGUIOnRightClick": false,
     "inventorySize": 1,
     "inventoryStackSize": 64,
     "inventoryDropWhenDestroyed": true,
@@ -123,6 +123,9 @@
     "fluidRestrictions": [],
     "onRightClicked": {
       "name": "CentralStorageOnBlockRightClicked"
+    },
+    "onTickUpdate": {
+      "name": "CentralStorageUpdateTick"
     },
     "onDestroyedByPlayer": {
       "name": "CentralStorageBlockDestroyedByPlayer"

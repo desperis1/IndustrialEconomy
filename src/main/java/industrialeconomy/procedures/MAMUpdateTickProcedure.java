@@ -63,6 +63,9 @@ public class MAMUpdateTickProcedure {
 		boolean mamBlackOpal = false;
 		boolean mam2CoreCPU = false;
 		boolean mam4CoreCPU = false;
+		boolean mam8CoreCPU = false;
+		boolean mam16CoreCPU = false;
+		boolean mam32CoreCPU = false;
 		owner = (new Object() {
 			public String getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
@@ -277,6 +280,120 @@ public class MAMUpdateTickProcedure {
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
+		} else if (new Object() {
+			public double getValue(IWorld world, BlockPos pos, String tag) {
+				TileEntity tileEntity = world.getTileEntity(pos);
+				if (tileEntity != null)
+					return tileEntity.getTileData().getDouble(tag);
+				return -1;
+			}
+		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "CompletedTick8CoreCPU") >= new Object() {
+			public double getValue(IWorld world, BlockPos pos, String tag) {
+				TileEntity tileEntity = world.getTileEntity(pos);
+				if (tileEntity != null)
+					return tileEntity.getTileData().getDouble(tag);
+				return -1;
+			}
+		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Tick")) {
+			if (!world.isRemote()) {
+				BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
+				TileEntity _tileEntity = world.getTileEntity(_bp);
+				BlockState _bs = world.getBlockState(_bp);
+				if (_tileEntity != null)
+					_tileEntity.getTileData().putDouble("TimeToComplete", ((new Object() {
+						public double getValue(IWorld world, BlockPos pos, String tag) {
+							TileEntity tileEntity = world.getTileEntity(pos);
+							if (tileEntity != null)
+								return tileEntity.getTileData().getDouble(tag);
+							return -1;
+						}
+					}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "CompletedTick8CoreCPU")) - (new Object() {
+						public double getValue(IWorld world, BlockPos pos, String tag) {
+							TileEntity tileEntity = world.getTileEntity(pos);
+							if (tileEntity != null)
+								return tileEntity.getTileData().getDouble(tag);
+							return -1;
+						}
+					}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Tick"))));
+				if (world instanceof World)
+					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
+			}
+		} else if (new Object() {
+			public double getValue(IWorld world, BlockPos pos, String tag) {
+				TileEntity tileEntity = world.getTileEntity(pos);
+				if (tileEntity != null)
+					return tileEntity.getTileData().getDouble(tag);
+				return -1;
+			}
+		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "CompletedTick16CoreCPU") >= new Object() {
+			public double getValue(IWorld world, BlockPos pos, String tag) {
+				TileEntity tileEntity = world.getTileEntity(pos);
+				if (tileEntity != null)
+					return tileEntity.getTileData().getDouble(tag);
+				return -1;
+			}
+		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Tick")) {
+			if (!world.isRemote()) {
+				BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
+				TileEntity _tileEntity = world.getTileEntity(_bp);
+				BlockState _bs = world.getBlockState(_bp);
+				if (_tileEntity != null)
+					_tileEntity.getTileData().putDouble("TimeToComplete", ((new Object() {
+						public double getValue(IWorld world, BlockPos pos, String tag) {
+							TileEntity tileEntity = world.getTileEntity(pos);
+							if (tileEntity != null)
+								return tileEntity.getTileData().getDouble(tag);
+							return -1;
+						}
+					}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "CompletedTick16CoreCPU")) - (new Object() {
+						public double getValue(IWorld world, BlockPos pos, String tag) {
+							TileEntity tileEntity = world.getTileEntity(pos);
+							if (tileEntity != null)
+								return tileEntity.getTileData().getDouble(tag);
+							return -1;
+						}
+					}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Tick"))));
+				if (world instanceof World)
+					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
+			}
+		} else if (new Object() {
+			public double getValue(IWorld world, BlockPos pos, String tag) {
+				TileEntity tileEntity = world.getTileEntity(pos);
+				if (tileEntity != null)
+					return tileEntity.getTileData().getDouble(tag);
+				return -1;
+			}
+		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "CompletedTick32CoreCPU") >= new Object() {
+			public double getValue(IWorld world, BlockPos pos, String tag) {
+				TileEntity tileEntity = world.getTileEntity(pos);
+				if (tileEntity != null)
+					return tileEntity.getTileData().getDouble(tag);
+				return -1;
+			}
+		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Tick")) {
+			if (!world.isRemote()) {
+				BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
+				TileEntity _tileEntity = world.getTileEntity(_bp);
+				BlockState _bs = world.getBlockState(_bp);
+				if (_tileEntity != null)
+					_tileEntity.getTileData().putDouble("TimeToComplete", ((new Object() {
+						public double getValue(IWorld world, BlockPos pos, String tag) {
+							TileEntity tileEntity = world.getTileEntity(pos);
+							if (tileEntity != null)
+								return tileEntity.getTileData().getDouble(tag);
+							return -1;
+						}
+					}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "CompletedTick32CoreCPU")) - (new Object() {
+						public double getValue(IWorld world, BlockPos pos, String tag) {
+							TileEntity tileEntity = world.getTileEntity(pos);
+							if (tileEntity != null)
+								return tileEntity.getTileData().getDouble(tag);
+							return -1;
+						}
+					}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Tick"))));
+				if (world instanceof World)
+					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
+			}
 		}
 		playerConfig = (File) new File((FMLPaths.GAMEDIR.get().toString() + "/config/"), File.separator + ((new Object() {
 			public String getValue(IWorld world, BlockPos pos, String tag) {
@@ -319,11 +436,293 @@ public class MAMUpdateTickProcedure {
 				mamBlackOpal = mainObject.get("mamBlackOpal").getAsBoolean();
 				mam2CoreCPU = mainObject.get("mam2CoreCPU").getAsBoolean();
 				mam4CoreCPU = mainObject.get("mam4CoreCPU").getAsBoolean();
+				mam8CoreCPU = mainObject.get("mam8CoreCPU").getAsBoolean();
+				mam16CoreCPU = mainObject.get("mam16CoreCPU").getAsBoolean();
+				mam32CoreCPU = mainObject.get("mam32CoreCPU").getAsBoolean();
 				Money = mainObject.get("Money").getAsDouble();
 				Energy = mainObject.get("Energy").getAsDouble();
 
 			} catch (IOException e) {
 				e.printStackTrace();
+			}
+		}
+		if ((new Object() {
+			public boolean getValue(IWorld world, BlockPos pos, String tag) {
+				TileEntity tileEntity = world.getTileEntity(pos);
+				if (tileEntity != null)
+					return tileEntity.getTileData().getBoolean(tag);
+				return false;
+			}
+		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "32CoreCPUStarted")) == true) {
+			if (Money > 150000 && mam32CoreCPU == false && Energy > 2000000000) {
+				if (!world.isRemote()) {
+					BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
+					TileEntity _tileEntity = world.getTileEntity(_bp);
+					BlockState _bs = world.getBlockState(_bp);
+					if (_tileEntity != null)
+						_tileEntity.getTileData().putDouble("CompletedTick32CoreCPU", (new Object() {
+							public double getValue(IWorld world, BlockPos pos, String tag) {
+								TileEntity tileEntity = world.getTileEntity(pos);
+								if (tileEntity != null)
+									return tileEntity.getTileData().getDouble(tag);
+								return -1;
+							}
+						}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Tick") + 37500));
+					if (world instanceof World)
+						((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
+				}
+				{
+					try {
+						BufferedReader bufferedReader = new BufferedReader(new FileReader(playerConfig));
+						StringBuilder jsonstringbuilder = new StringBuilder();
+						String line;
+						while ((line = bufferedReader.readLine()) != null) {
+							jsonstringbuilder.append(line);
+						}
+						bufferedReader.close();
+						mainObject = new Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
+						mainObject.addProperty("Energy", (mainObject.get("Energy").getAsDouble() - 2000000000));
+						mainObject.addProperty("Edown", (mainObject.get("Edown").getAsDouble() + 2000000000));
+						mainObject.addProperty("Money", (mainObject.get("Money").getAsDouble() - 150000));
+
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+				}
+				{
+					Gson mainGSONBuilderVariable = new GsonBuilder().setPrettyPrinting().create();
+					try {
+						FileWriter fileWriter = new FileWriter(playerConfig);
+						fileWriter.write(mainGSONBuilderVariable.toJson(mainObject));
+						fileWriter.close();
+					} catch (IOException exception) {
+						exception.printStackTrace();
+					}
+				}
+				if (!world.isRemote()) {
+					MinecraftServer mcserv = ServerLifecycleHooks.getCurrentServer();
+					if (mcserv != null)
+						mcserv.getPlayerList().func_232641_a_(new StringTextComponent(("Player: " + owner + " ,just start 32 Core CPU research.")),
+								ChatType.SYSTEM, Util.DUMMY_UUID);
+				}
+			} else if (mam32CoreCPU == true) {
+				if (!world.isRemote()) {
+					MinecraftServer mcserv = ServerLifecycleHooks.getCurrentServer();
+					if (mcserv != null)
+						mcserv.getPlayerList().func_232641_a_(new StringTextComponent((owner + ": 32 Core CPU is already researched!")),
+								ChatType.SYSTEM, Util.DUMMY_UUID);
+				}
+			} else if (mam32CoreCPU == false && Energy < 2000000000) {
+				if (!world.isRemote()) {
+					MinecraftServer mcserv = ServerLifecycleHooks.getCurrentServer();
+					if (mcserv != null)
+						mcserv.getPlayerList().func_232641_a_(
+								new StringTextComponent((owner + ": You dont have enough energy! 2 000 000 000 MW required")), ChatType.SYSTEM,
+								Util.DUMMY_UUID);
+				}
+			} else if (mam32CoreCPU == false && Money < 150000) {
+				if (!world.isRemote()) {
+					MinecraftServer mcserv = ServerLifecycleHooks.getCurrentServer();
+					if (mcserv != null)
+						mcserv.getPlayerList().func_232641_a_(
+								new StringTextComponent((owner + ": You dont have enough Money! 150 000 coins required")), ChatType.SYSTEM,
+								Util.DUMMY_UUID);
+				}
+			}
+			if (!world.isRemote()) {
+				BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
+				TileEntity _tileEntity = world.getTileEntity(_bp);
+				BlockState _bs = world.getBlockState(_bp);
+				if (_tileEntity != null)
+					_tileEntity.getTileData().putBoolean("32CoreCPUStarted", (false));
+				if (world instanceof World)
+					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
+			}
+		}
+		if ((new Object() {
+			public boolean getValue(IWorld world, BlockPos pos, String tag) {
+				TileEntity tileEntity = world.getTileEntity(pos);
+				if (tileEntity != null)
+					return tileEntity.getTileData().getBoolean(tag);
+				return false;
+			}
+		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "16CoreCPUStarted")) == true) {
+			if (Money > 150000 && mam16CoreCPU == false && Energy > 1000000000) {
+				if (!world.isRemote()) {
+					BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
+					TileEntity _tileEntity = world.getTileEntity(_bp);
+					BlockState _bs = world.getBlockState(_bp);
+					if (_tileEntity != null)
+						_tileEntity.getTileData().putDouble("CompletedTick16CoreCPU", (new Object() {
+							public double getValue(IWorld world, BlockPos pos, String tag) {
+								TileEntity tileEntity = world.getTileEntity(pos);
+								if (tileEntity != null)
+									return tileEntity.getTileData().getDouble(tag);
+								return -1;
+							}
+						}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Tick") + 17500));
+					if (world instanceof World)
+						((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
+				}
+				{
+					try {
+						BufferedReader bufferedReader = new BufferedReader(new FileReader(playerConfig));
+						StringBuilder jsonstringbuilder = new StringBuilder();
+						String line;
+						while ((line = bufferedReader.readLine()) != null) {
+							jsonstringbuilder.append(line);
+						}
+						bufferedReader.close();
+						mainObject = new Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
+						mainObject.addProperty("Energy", (mainObject.get("Energy").getAsDouble() - 1000000000));
+						mainObject.addProperty("Edown", (mainObject.get("Edown").getAsDouble() + 1000000000));
+						mainObject.addProperty("Money", (mainObject.get("Money").getAsDouble() - 150000));
+
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+				}
+				{
+					Gson mainGSONBuilderVariable = new GsonBuilder().setPrettyPrinting().create();
+					try {
+						FileWriter fileWriter = new FileWriter(playerConfig);
+						fileWriter.write(mainGSONBuilderVariable.toJson(mainObject));
+						fileWriter.close();
+					} catch (IOException exception) {
+						exception.printStackTrace();
+					}
+				}
+				if (!world.isRemote()) {
+					MinecraftServer mcserv = ServerLifecycleHooks.getCurrentServer();
+					if (mcserv != null)
+						mcserv.getPlayerList().func_232641_a_(new StringTextComponent(("Player: " + owner + " ,just start 16 Core CPU research.")),
+								ChatType.SYSTEM, Util.DUMMY_UUID);
+				}
+			} else if (mam16CoreCPU == true) {
+				if (!world.isRemote()) {
+					MinecraftServer mcserv = ServerLifecycleHooks.getCurrentServer();
+					if (mcserv != null)
+						mcserv.getPlayerList().func_232641_a_(new StringTextComponent((owner + ": 16 Core CPU is already researched!")),
+								ChatType.SYSTEM, Util.DUMMY_UUID);
+				}
+			} else if (mam16CoreCPU == false && Energy < 1000000000) {
+				if (!world.isRemote()) {
+					MinecraftServer mcserv = ServerLifecycleHooks.getCurrentServer();
+					if (mcserv != null)
+						mcserv.getPlayerList().func_232641_a_(
+								new StringTextComponent((owner + ": You dont have enough energy! 1 000 000 000 MW required")), ChatType.SYSTEM,
+								Util.DUMMY_UUID);
+				}
+			} else if (mam16CoreCPU == false && Money < 150000) {
+				if (!world.isRemote()) {
+					MinecraftServer mcserv = ServerLifecycleHooks.getCurrentServer();
+					if (mcserv != null)
+						mcserv.getPlayerList().func_232641_a_(
+								new StringTextComponent((owner + ": You dont have enough Money! 150 000 coins required")), ChatType.SYSTEM,
+								Util.DUMMY_UUID);
+				}
+			}
+			if (!world.isRemote()) {
+				BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
+				TileEntity _tileEntity = world.getTileEntity(_bp);
+				BlockState _bs = world.getBlockState(_bp);
+				if (_tileEntity != null)
+					_tileEntity.getTileData().putBoolean("16CoreCPUStarted", (false));
+				if (world instanceof World)
+					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
+			}
+		}
+		if ((new Object() {
+			public boolean getValue(IWorld world, BlockPos pos, String tag) {
+				TileEntity tileEntity = world.getTileEntity(pos);
+				if (tileEntity != null)
+					return tileEntity.getTileData().getBoolean(tag);
+				return false;
+			}
+		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "8CoreCPUStarted")) == true) {
+			if (Money > 150000 && mam8CoreCPU == false && Energy > 350000000) {
+				if (!world.isRemote()) {
+					BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
+					TileEntity _tileEntity = world.getTileEntity(_bp);
+					BlockState _bs = world.getBlockState(_bp);
+					if (_tileEntity != null)
+						_tileEntity.getTileData().putDouble("CompletedTick8CoreCPU", (new Object() {
+							public double getValue(IWorld world, BlockPos pos, String tag) {
+								TileEntity tileEntity = world.getTileEntity(pos);
+								if (tileEntity != null)
+									return tileEntity.getTileData().getDouble(tag);
+								return -1;
+							}
+						}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Tick") + 10800));
+					if (world instanceof World)
+						((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
+				}
+				{
+					try {
+						BufferedReader bufferedReader = new BufferedReader(new FileReader(playerConfig));
+						StringBuilder jsonstringbuilder = new StringBuilder();
+						String line;
+						while ((line = bufferedReader.readLine()) != null) {
+							jsonstringbuilder.append(line);
+						}
+						bufferedReader.close();
+						mainObject = new Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
+						mainObject.addProperty("Energy", (mainObject.get("Energy").getAsDouble() - 350000000));
+						mainObject.addProperty("Edown", (mainObject.get("Edown").getAsDouble() + 350000000));
+						mainObject.addProperty("Money", (mainObject.get("Money").getAsDouble() - 150000));
+
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+				}
+				{
+					Gson mainGSONBuilderVariable = new GsonBuilder().setPrettyPrinting().create();
+					try {
+						FileWriter fileWriter = new FileWriter(playerConfig);
+						fileWriter.write(mainGSONBuilderVariable.toJson(mainObject));
+						fileWriter.close();
+					} catch (IOException exception) {
+						exception.printStackTrace();
+					}
+				}
+				if (!world.isRemote()) {
+					MinecraftServer mcserv = ServerLifecycleHooks.getCurrentServer();
+					if (mcserv != null)
+						mcserv.getPlayerList().func_232641_a_(new StringTextComponent(("Player: " + owner + " ,just start 8 Core CPU research.")),
+								ChatType.SYSTEM, Util.DUMMY_UUID);
+				}
+			} else if (mam8CoreCPU == true) {
+				if (!world.isRemote()) {
+					MinecraftServer mcserv = ServerLifecycleHooks.getCurrentServer();
+					if (mcserv != null)
+						mcserv.getPlayerList().func_232641_a_(new StringTextComponent((owner + ": 8 Core CPU is already researched!")),
+								ChatType.SYSTEM, Util.DUMMY_UUID);
+				}
+			} else if (mam8CoreCPU == false && Energy < 350000000) {
+				if (!world.isRemote()) {
+					MinecraftServer mcserv = ServerLifecycleHooks.getCurrentServer();
+					if (mcserv != null)
+						mcserv.getPlayerList().func_232641_a_(
+								new StringTextComponent((owner + ": You dont have enough energy! 350 000 000 MW required")), ChatType.SYSTEM,
+								Util.DUMMY_UUID);
+				}
+			} else if (mam8CoreCPU == false && Money < 150000) {
+				if (!world.isRemote()) {
+					MinecraftServer mcserv = ServerLifecycleHooks.getCurrentServer();
+					if (mcserv != null)
+						mcserv.getPlayerList().func_232641_a_(
+								new StringTextComponent((owner + ": You dont have enough Money! 150 000 coins required")), ChatType.SYSTEM,
+								Util.DUMMY_UUID);
+				}
+			}
+			if (!world.isRemote()) {
+				BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
+				TileEntity _tileEntity = world.getTileEntity(_bp);
+				BlockState _bs = world.getBlockState(_bp);
+				if (_tileEntity != null)
+					_tileEntity.getTileData().putBoolean("8CoreCPUStarted", (false));
+				if (world instanceof World)
+					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
 		}
 		if ((new Object() {
@@ -347,7 +746,7 @@ public class MAMUpdateTickProcedure {
 									return tileEntity.getTileData().getDouble(tag);
 								return -1;
 							}
-						}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Tick") + 15));
+						}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Tick") + 5400));
 					if (world instanceof World)
 						((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 				}
@@ -440,7 +839,7 @@ public class MAMUpdateTickProcedure {
 									return tileEntity.getTileData().getDouble(tag);
 								return -1;
 							}
-						}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Tick") + 15));
+						}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Tick") + 3600));
 					if (world instanceof World)
 						((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 				}
@@ -787,6 +1186,174 @@ public class MAMUpdateTickProcedure {
 					_tileEntity.getTileData().putBoolean("BlackOpalStarted", (false));
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
+			}
+		}
+		if (new Object() {
+			public double getValue(IWorld world, BlockPos pos, String tag) {
+				TileEntity tileEntity = world.getTileEntity(pos);
+				if (tileEntity != null)
+					return tileEntity.getTileData().getDouble(tag);
+				return -1;
+			}
+		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "CompletedTick32CoreCPU") == new Object() {
+			public double getValue(IWorld world, BlockPos pos, String tag) {
+				TileEntity tileEntity = world.getTileEntity(pos);
+				if (tileEntity != null)
+					return tileEntity.getTileData().getDouble(tag);
+				return -1;
+			}
+		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Tick")) {
+			playerConfig = (File) new File((FMLPaths.GAMEDIR.get().toString() + "/config/"), File.separator + ((new Object() {
+				public String getValue(IWorld world, BlockPos pos, String tag) {
+					TileEntity tileEntity = world.getTileEntity(pos);
+					if (tileEntity != null)
+						return tileEntity.getTileData().getString(tag);
+					return "";
+				}
+			}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "owner")) + ".json"));
+			{
+				try {
+					BufferedReader bufferedReader = new BufferedReader(new FileReader(playerConfig));
+					StringBuilder jsonstringbuilder = new StringBuilder();
+					String line;
+					while ((line = bufferedReader.readLine()) != null) {
+						jsonstringbuilder.append(line);
+					}
+					bufferedReader.close();
+					mainObject = new Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
+					mainObject.addProperty("mam32CoreCPU", (true));
+
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+			{
+				Gson mainGSONBuilderVariable = new GsonBuilder().setPrettyPrinting().create();
+				try {
+					FileWriter fileWriter = new FileWriter(playerConfig);
+					fileWriter.write(mainGSONBuilderVariable.toJson(mainObject));
+					fileWriter.close();
+				} catch (IOException exception) {
+					exception.printStackTrace();
+				}
+			}
+			if (!world.isRemote()) {
+				MinecraftServer mcserv = ServerLifecycleHooks.getCurrentServer();
+				if (mcserv != null)
+					mcserv.getPlayerList().func_232641_a_(new StringTextComponent(("Player: " + owner + " , just researched 32 Core CPU")),
+							ChatType.SYSTEM, Util.DUMMY_UUID);
+			}
+		}
+		if (new Object() {
+			public double getValue(IWorld world, BlockPos pos, String tag) {
+				TileEntity tileEntity = world.getTileEntity(pos);
+				if (tileEntity != null)
+					return tileEntity.getTileData().getDouble(tag);
+				return -1;
+			}
+		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "CompletedTick16CoreCPU") == new Object() {
+			public double getValue(IWorld world, BlockPos pos, String tag) {
+				TileEntity tileEntity = world.getTileEntity(pos);
+				if (tileEntity != null)
+					return tileEntity.getTileData().getDouble(tag);
+				return -1;
+			}
+		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Tick")) {
+			playerConfig = (File) new File((FMLPaths.GAMEDIR.get().toString() + "/config/"), File.separator + ((new Object() {
+				public String getValue(IWorld world, BlockPos pos, String tag) {
+					TileEntity tileEntity = world.getTileEntity(pos);
+					if (tileEntity != null)
+						return tileEntity.getTileData().getString(tag);
+					return "";
+				}
+			}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "owner")) + ".json"));
+			{
+				try {
+					BufferedReader bufferedReader = new BufferedReader(new FileReader(playerConfig));
+					StringBuilder jsonstringbuilder = new StringBuilder();
+					String line;
+					while ((line = bufferedReader.readLine()) != null) {
+						jsonstringbuilder.append(line);
+					}
+					bufferedReader.close();
+					mainObject = new Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
+					mainObject.addProperty("mam16CoreCPU", (true));
+
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+			{
+				Gson mainGSONBuilderVariable = new GsonBuilder().setPrettyPrinting().create();
+				try {
+					FileWriter fileWriter = new FileWriter(playerConfig);
+					fileWriter.write(mainGSONBuilderVariable.toJson(mainObject));
+					fileWriter.close();
+				} catch (IOException exception) {
+					exception.printStackTrace();
+				}
+			}
+			if (!world.isRemote()) {
+				MinecraftServer mcserv = ServerLifecycleHooks.getCurrentServer();
+				if (mcserv != null)
+					mcserv.getPlayerList().func_232641_a_(new StringTextComponent(("Player: " + owner + " , just researched 16 Core CPU")),
+							ChatType.SYSTEM, Util.DUMMY_UUID);
+			}
+		}
+		if (new Object() {
+			public double getValue(IWorld world, BlockPos pos, String tag) {
+				TileEntity tileEntity = world.getTileEntity(pos);
+				if (tileEntity != null)
+					return tileEntity.getTileData().getDouble(tag);
+				return -1;
+			}
+		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "CompletedTick8CoreCPU") == new Object() {
+			public double getValue(IWorld world, BlockPos pos, String tag) {
+				TileEntity tileEntity = world.getTileEntity(pos);
+				if (tileEntity != null)
+					return tileEntity.getTileData().getDouble(tag);
+				return -1;
+			}
+		}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Tick")) {
+			playerConfig = (File) new File((FMLPaths.GAMEDIR.get().toString() + "/config/"), File.separator + ((new Object() {
+				public String getValue(IWorld world, BlockPos pos, String tag) {
+					TileEntity tileEntity = world.getTileEntity(pos);
+					if (tileEntity != null)
+						return tileEntity.getTileData().getString(tag);
+					return "";
+				}
+			}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "owner")) + ".json"));
+			{
+				try {
+					BufferedReader bufferedReader = new BufferedReader(new FileReader(playerConfig));
+					StringBuilder jsonstringbuilder = new StringBuilder();
+					String line;
+					while ((line = bufferedReader.readLine()) != null) {
+						jsonstringbuilder.append(line);
+					}
+					bufferedReader.close();
+					mainObject = new Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
+					mainObject.addProperty("mam8CoreCPU", (true));
+
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+			{
+				Gson mainGSONBuilderVariable = new GsonBuilder().setPrettyPrinting().create();
+				try {
+					FileWriter fileWriter = new FileWriter(playerConfig);
+					fileWriter.write(mainGSONBuilderVariable.toJson(mainObject));
+					fileWriter.close();
+				} catch (IOException exception) {
+					exception.printStackTrace();
+				}
+			}
+			if (!world.isRemote()) {
+				MinecraftServer mcserv = ServerLifecycleHooks.getCurrentServer();
+				if (mcserv != null)
+					mcserv.getPlayerList().func_232641_a_(new StringTextComponent(("Player: " + owner + " , just researched 8 Core CPU")),
+							ChatType.SYSTEM, Util.DUMMY_UUID);
 			}
 		}
 		if (new Object() {

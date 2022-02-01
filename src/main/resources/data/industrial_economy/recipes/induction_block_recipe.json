@@ -1,0 +1,42 @@
+{
+  "group": "inductionblockrecipe",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "345",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "industrial_economy:copper_foundation"
+    },
+    "1": {
+      "item": "industrial_economy:copper_foundation"
+    },
+    "2": {
+      "item": "industrial_economy:copper_foundation"
+    },
+    "3": {
+      "item": "minecraft:gold_block"
+    },
+    "4": {
+      "item": "minecraft:gold_block"
+    },
+    "5": {
+      "item": "minecraft:gold_block"
+    },
+    "6": {
+      "item": "industrial_economy:copper_foundation"
+    },
+    "7": {
+      "item": "industrial_economy:copper_foundation"
+    },
+    "8": {
+      "item": "industrial_economy:copper_foundation"
+    }
+  },
+  "result": {
+    "item": "industrial_economy:induction_block",
+    "count": 1
+  }
+}

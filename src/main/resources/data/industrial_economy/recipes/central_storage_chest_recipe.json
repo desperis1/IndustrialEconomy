@@ -1,0 +1,39 @@
+{
+  "group": "centralstoragechcest",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "3 5",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "industrial_economy:circuit_boarditem"
+    },
+    "1": {
+      "item": "minecraft:hopper"
+    },
+    "2": {
+      "item": "industrial_economy:circuit_boarditem"
+    },
+    "3": {
+      "item": "industrial_economy:circuit_boarditem"
+    },
+    "5": {
+      "item": "industrial_economy:circuit_boarditem"
+    },
+    "6": {
+      "item": "industrial_economy:heavyframe"
+    },
+    "7": {
+      "item": "industrial_economy:heavyframe"
+    },
+    "8": {
+      "item": "industrial_economy:heavyframe"
+    }
+  },
+  "result": {
+    "item": "industrial_economy:central_storage_chest",
+    "count": 1
+  }
+}

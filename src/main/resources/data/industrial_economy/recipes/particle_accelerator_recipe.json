@@ -1,0 +1,42 @@
+{
+  "group": "particle_accelerator_recipe",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "345",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "industrial_economy:heavy_diamond_steel"
+    },
+    "1": {
+      "item": "industrial_economy:heavy_diamond_steel"
+    },
+    "2": {
+      "item": "industrial_economy:heavy_diamond_steel"
+    },
+    "3": {
+      "item": "industrial_economy:heavy_diamond_steel"
+    },
+    "4": {
+      "item": "industrial_economy:black_opal"
+    },
+    "5": {
+      "item": "industrial_economy:heavy_diamond_steel"
+    },
+    "6": {
+      "item": "industrial_economy:heavy_diamond_steel"
+    },
+    "7": {
+      "item": "industrial_economy:heavy_diamond_steel"
+    },
+    "8": {
+      "item": "industrial_economy:heavy_diamond_steel"
+    }
+  },
+  "result": {
+    "item": "industrial_economy:particle_accelerator",
+    "count": 1
+  }
+}

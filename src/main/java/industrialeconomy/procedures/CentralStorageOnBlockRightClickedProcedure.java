@@ -1,11 +1,18 @@
 package industrialeconomy.procedures;
 
+import net.minecraftforge.fml.network.NetworkHooks;
 import net.minecraftforge.fml.loading.FMLPaths;
 
 import net.minecraft.world.IWorld;
 import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.network.PacketBuffer;
+import net.minecraft.inventory.container.INamedContainerProvider;
+import net.minecraft.inventory.container.Container;
+import net.minecraft.entity.player.ServerPlayerEntity;
+import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.Entity;
 
@@ -15,6 +22,10 @@ import java.io.IOException;
 import java.io.FileReader;
 import java.io.File;
 import java.io.BufferedReader;
+
+import io.netty.buffer.Unpooled;
+
+import industrialeconomy.gui.CentralStorageGUIGui;
 
 import industrialeconomy.IndustrialEconomyMod;
 
@@ -75,6 +86,24 @@ public class CentralStorageOnBlockRightClickedProcedure {
 				playerStorageConfigReader.close();
 			} catch (IOException e) {
 				e.printStackTrace();
+			}
+		} else {
+			{
+				Entity _ent = entity;
+				if (_ent instanceof ServerPlayerEntity) {
+					BlockPos _bpos = new BlockPos((int) x, (int) y, (int) z);
+					NetworkHooks.openGui((ServerPlayerEntity) _ent, new INamedContainerProvider() {
+						@Override
+						public ITextComponent getDisplayName() {
+							return new StringTextComponent("CentralStorageGUI");
+						}
+
+						@Override
+						public Container createMenu(int id, PlayerInventory inventory, PlayerEntity player) {
+							return new CentralStorageGUIGui.GuiContainerMod(id, inventory, new PacketBuffer(Unpooled.buffer()).writeBlockPos(_bpos));
+						}
+					}, _bpos);
+				}
 			}
 		}
 	}

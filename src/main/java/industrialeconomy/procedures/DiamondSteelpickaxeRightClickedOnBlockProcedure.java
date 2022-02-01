@@ -20,12 +20,14 @@ import java.util.Map;
 
 import io.netty.buffer.Unpooled;
 
+import industrialeconomy.item.PlaceToolItem;
 import industrialeconomy.item.DiamondsteelaxeItem;
 import industrialeconomy.item.DiamondSteelpickaxeItem;
 import industrialeconomy.item.DiamondSteelSwordItem;
 import industrialeconomy.item.BuildertoolItem;
 
 import industrialeconomy.gui.SteeldiamondguiGui;
+import industrialeconomy.gui.PlaceToolGUIGui;
 import industrialeconomy.gui.DiamondsteelswordguiGui;
 import industrialeconomy.gui.DiamondsteelAXEguiGui;
 import industrialeconomy.gui.BuilderGUIGui;
@@ -140,6 +142,25 @@ public class DiamondSteelpickaxeRightClickedOnBlockProcedure {
 						@Override
 						public Container createMenu(int id, PlayerInventory inventory, PlayerEntity player) {
 							return new BuilderGUIGui.GuiContainerMod(id, inventory, new PacketBuffer(Unpooled.buffer()).writeBlockPos(_bpos));
+						}
+					}, _bpos);
+				}
+			}
+		}
+		if (((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY).getItem() == PlaceToolItem.block) {
+			{
+				Entity _ent = entity;
+				if (_ent instanceof ServerPlayerEntity) {
+					BlockPos _bpos = new BlockPos((int) x, (int) y, (int) z);
+					NetworkHooks.openGui((ServerPlayerEntity) _ent, new INamedContainerProvider() {
+						@Override
+						public ITextComponent getDisplayName() {
+							return new StringTextComponent("PlaceToolGUI");
+						}
+
+						@Override
+						public Container createMenu(int id, PlayerInventory inventory, PlayerEntity player) {
+							return new PlaceToolGUIGui.GuiContainerMod(id, inventory, new PacketBuffer(Unpooled.buffer()).writeBlockPos(_bpos));
 						}
 					}, _bpos);
 				}

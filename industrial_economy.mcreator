@@ -8195,6 +8195,435 @@
         ]
       },
       "path": "~/Machines/Manufacturer"
+    },
+    {
+      "name": "HeavyDiamondSteelBlockReverseRecipe",
+      "type": "recipe",
+      "sortid": 625,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "heavy_diamond_steel_block_reverse_recipe",
+      "path": "~/Blocks/HeavyDiamondSteelBlock"
+    },
+    {
+      "name": "CentralStorageUpdateTick",
+      "type": "procedure",
+      "sortid": 626,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "central_storage_update_tick",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Machines/CentralStorage"
+    },
+    {
+      "name": "EightCoreCPU",
+      "type": "item",
+      "sortid": 627,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "eight_core_cpu",
+      "path": "~/Items/cpu"
+    },
+    {
+      "name": "MAMUpgradeEightCoreCPUOnClick",
+      "type": "procedure",
+      "sortid": 628,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "mam_upgrade_eight_core_cpu_on_click",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/MAM"
+    },
+    {
+      "name": "ManufacturerRecipe",
+      "type": "recipe",
+      "sortid": 629,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "manufacturer_recipe",
+      "path": "~/Machines/Manufacturer"
+    },
+    {
+      "name": "CentralStorageRecipe",
+      "type": "recipe",
+      "sortid": 630,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "central_storage_recipe",
+      "path": "~/Machines/CentralStorage"
+    },
+    {
+      "name": "CentralStorageChestRecipe",
+      "type": "recipe",
+      "sortid": 631,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "central_storage_chest_recipe",
+      "path": "~/Machines/CentralStorage"
+    },
+    {
+      "name": "SixteenCoreCPU",
+      "type": "item",
+      "sortid": 632,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "sixteen_core_cpu",
+      "path": "~/Items/cpu"
+    },
+    {
+      "name": "ThirtytwoCoreCPU",
+      "type": "item",
+      "sortid": 633,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "thirtytwo_core_cpu",
+      "path": "~/Items/cpu"
+    },
+    {
+      "name": "SixtyFourCoreCPU",
+      "type": "item",
+      "sortid": 634,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "sixty_four_core_cpu",
+      "path": "~/Items/cpu"
+    },
+    {
+      "name": "OneHundredTwentyEightCoreCPU",
+      "type": "item",
+      "sortid": 635,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "one_hundred_twenty_eight_core_cpu",
+      "path": "~/Items/cpu"
+    },
+    {
+      "name": "TwoHundredFiftySixCoreCPU",
+      "type": "item",
+      "sortid": 636,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "two_hundred_fifty_six_core_cpu",
+      "path": "~/Items/cpu"
+    },
+    {
+      "name": "IndustiralDiamondBlockReverseRecipe",
+      "type": "recipe",
+      "sortid": 637,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "industiral_diamond_block_reverse_recipe",
+      "path": "~/Items"
+    },
+    {
+      "name": "PlaceToolRightClickedOnBlock",
+      "type": "procedure",
+      "sortid": 638,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "place_tool_right_clicked_on_block",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Tools/PlaceGun"
+    },
+    {
+      "name": "PlaceTool",
+      "type": "tool",
+      "sortid": 638,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "place_tool",
+      "path": "~/Tools/PlaceGun"
+    },
+    {
+      "name": "PlaceToolGUI",
+      "type": "gui",
+      "sortid": 639,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "place_tool_gui",
+      "path": "~/Tools/PlaceGun"
+    },
+    {
+      "name": "CopperFoundation",
+      "type": "item",
+      "sortid": 640,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "copper_foundation",
+      "path": "~/Items"
+    },
+    {
+      "name": "CopperFoundationRecipe",
+      "type": "recipe",
+      "sortid": 641,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "copper_foundation_recipe",
+      "path": "~/Items"
+    },
+    {
+      "name": "Powerwire",
+      "type": "item",
+      "sortid": 642,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "powerwire",
+      "path": "~/Items"
+    },
+    {
+      "name": "InductionBlock",
+      "type": "block",
+      "sortid": 643,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "induction_block",
+      "path": "~/Machines/ParticeAccelerator"
+    },
+    {
+      "name": "ParticleAcceleratorUpdateTick",
+      "type": "procedure",
+      "sortid": 644,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "particle_accelerator_update_tick",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Machines/ParticeAccelerator"
+    },
+    {
+      "name": "ParticleAccelerator",
+      "type": "block",
+      "sortid": 644,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "particle_accelerator",
+      "path": "~/Machines/ParticeAccelerator"
+    },
+    {
+      "name": "ParticleAcceleratorBlockIsPlacedBy",
+      "type": "procedure",
+      "sortid": 645,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "particle_accelerator_block_is_placed_by",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Machines/ParticeAccelerator"
+    },
+    {
+      "name": "ParticleAcceleratorGUI",
+      "type": "gui",
+      "sortid": 646,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "particle_accelerator_gui",
+      "path": "~/Machines/ParticeAccelerator"
+    },
+    {
+      "name": "ParticleAcceleratorChangeRecipe",
+      "type": "procedure",
+      "sortid": 647,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "particle_accelerator_change_recipe",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Machines/ParticeAccelerator"
+    },
+    {
+      "name": "InductionBlockRecipe",
+      "type": "recipe",
+      "sortid": 648,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "induction_block_recipe",
+      "path": "~/Machines/ParticeAccelerator"
+    },
+    {
+      "name": "ParticleAcceleratorRecipe",
+      "type": "recipe",
+      "sortid": 649,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "particle_accelerator_recipe",
+      "path": "~/Machines/ParticeAccelerator"
+    },
+    {
+      "name": "MamUpgradeSixteencoreCPUOnclick",
+      "type": "procedure",
+      "sortid": 650,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "mam_upgrade_sixteencore_cpu_onclick",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/MAM"
+    },
+    {
+      "name": "MAMUpgradethritytwoCoreCPUOnClik",
+      "type": "procedure",
+      "sortid": 651,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "mam_upgradethritytwo_core_cpu_on_clik",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/MAM"
     }
   ],
   "variable_elements": [
@@ -8317,6 +8746,12 @@
       "type": "file",
       "scope": "global",
       "value": "new File(\"\")"
+    },
+    {
+      "name": "placetool_machine",
+      "type": "string",
+      "scope": "player_persistent",
+      "value": "\"\""
     }
   ],
   "sound_elements": [
@@ -8343,13 +8778,22 @@
       ],
       "category": "player",
       "subtitle": ""
+    },
+    {
+      "name": "particleaccelerator",
+      "files": [
+        "particleaccelerator"
+      ],
+      "category": "block",
+      "subtitle": ""
     }
   ],
   "language_map": {
     "en_us": {
       "block.industrial_economy.orange_concrete_slab": "Orange Concrete Slab",
       "item.industrial_economy.space_suit_with_canister_helmet": "Space Suit With Canister Helmet",
-      "item.industrial_economy.steel_tool_s_pickaxe": "SteelToolS Pickaxe",
+      "block.industrial_economy.particle_accelerator": "Particle Accelerator",
+      "item.industrial_economy.steel_tool_s_pickaxe": "Steel Pickaxe",
       "item.mega_project.redstoneingotitem": "Redstone Ingot",
       "block.mega_project.generatormk_2": "Generator MK2",
       "item.satis_mine.control_unit": "Control Unit",
@@ -8373,6 +8817,7 @@
       "item.industrial_economy.screw": "Screw",
       "block.mega_project.ledlampoff": "Led Lamp",
       "block.industrial_economy.modularframe": "Modular Frame",
+      "item.industrial_economy.place_tool": "Place Tool",
       "block.mega_project.iron_ore_node_block": "Iron Ore Node Block(active)",
       "advancements.cateriumadvancement.title": "Caterium",
       "item.industrial_economy.money_10000": "Money 10 000�",
@@ -8474,6 +8919,7 @@
       "block.mega_project.orange_concrete_stairs": "Orange Concrete Stairs",
       "item.satis_mine.highspeedconectoritem": "High Speed Connector",
       "item.mega_project.control_unit": "Control Unit",
+      "item.industrial_economy.sixteen_core_cpu": "16x Core CPU",
       "item.industrial_economy.diamond_steel_armor_leggings": "Diamond Steel Leggings",
       "block.industrial_economy.position_1block": "Position 1",
       "block.industrial_economy.red_concrete_stairs": "Red Concrete Stairs",
@@ -8504,6 +8950,7 @@
       "item.satis_mine.emptymodule": "Empty Module",
       "item.mega_project.steelingot": "Steel Ingot",
       "block.satis_mine.purple_concrete_slab": "Purple Concrete Slab",
+      "block.industrial_economy.induction_block": "Induction Block",
       "block.satis_mine.white_concrete_stairs": "White Concrete Stairs",
       "item.mega_project.diamond_steel_armor_helmet": "Diamond Steel Helmet",
       "advancements.turbo_fueladvancement.title": "Turbo Fuel",
@@ -8520,6 +8967,7 @@
       "block.satis_mine.generator_mk_1inactive": "Generator MK 1",
       "item.industrial_economy.diamond_steel_h_oe": "Diamond Steel Hoe",
       "item.industrial_economy.space_suit_with_canister_leggings": "Space Suit With Canister Leggings",
+      "item.industrial_economy.two_hundred_fifty_six_core_cpu": "256x Core CPU",
       "block.satis_mine.cyan_concrete_slab": "Cyan Concrete Slab",
       "item.industrial_economy.ai_limiteritem": "Ai Limiter",
       "block.satis_mine.foundyblock": "Foundry",
@@ -8527,10 +8975,12 @@
       "block.industrial_economy.green_concrete_slab": "Green Concrete Slab",
       "block.industrial_economy.steel_stone": "Steel Stone",
       "item.satis_mine.diamond_steelpickaxe": "Diamond Steel Pickaxe",
-      "item.industrial_economy.steel_tool_s_shovel": "SteelToolS Shovel",
+      "item.industrial_economy.steel_tool_s_shovel": "Steel Shovel",
+      "item.industrial_economy.powerwire": "Power Wire",
       "block.mega_project.steel_block": "Steel Block",
       "block.satis_mine.armorchargermk_2": "Armor Charger MK2",
       "block.satis_mine.coal_extractor": "Coal Extractor",
+      "item.industrial_economy.copper_foundation": "Copper Foundation",
       "block.mega_project.copper_extractor": "Copper Extractor",
       "item.industrial_economy.space_suit_with_canister_boots": "Space Suit With Canister Boots",
       "item.mega_project.turbofuelitem": "Turbofuel Mk.1",
@@ -8590,6 +9040,7 @@
       "key.satis_mine.ds_armorkeybind": "Diamond Steel Armor GUI",
       "block.industrial_economy.light_gray_concrete_slab": "Light Gray Concrete Slab",
       "item.industrial_economy.crystalchunk": "Crystal",
+      "item.industrial_economy.eight_core_cpu": "8x Core CPU",
       "block.mega_project.ledlamp": "Led Lamp ON",
       "block.industrial_economy.green_concrete_stairs": "Green Concrete Stairs",
       "block.mega_project.copper_node_inactve": "Copper Node(inactive)",
@@ -8601,6 +9052,7 @@
       "item.industrial_economy.pocketchestitem": "Pocket Chest",
       "item.industrial_economy.money_100": "Money 100�",
       "entity.mega_project.natuswolf": "Natus Wolf",
+      "item.industrial_economy.thirtytwo_core_cpu": "32x Core CPU",
       "block.industrial_economy.blue_concrete_stairs": "Blue Concrete Stairs",
       "block.mega_project.minerinactive": "Miner MK1",
       "block.satis_mine.minerinactive": "Miner MK1",
@@ -8622,7 +9074,7 @@
       "item.satis_mine.diamondsteelitem": "Diamond Steel Ingot",
       "block.satis_mine.armorcharger": "Armor Charger",
       "block.satis_mine.caterium_block": "Block of Caterium",
-      "item.industrial_economy.steel_tool_s_axe": "SteelToolS Axe",
+      "item.industrial_economy.steel_tool_s_axe": "Steel Axe",
       "item.satis_mine.diamond_steel_armor_leggings": "Diamond Steel Leggings",
       "block.industrial_economy.constructorblock": "Constructor",
       "block.industrial_economy.compressor": "Compressor",
@@ -8654,7 +9106,7 @@
       "block.mega_project.generator_mk_2inactive": "Generator MK 2",
       "block.mega_project.copper_block": "Block of Copper",
       "subtitles.jetpack_sound": "",
-      "item.industrial_economy.steel_tool_s_sword": "SteelToolS Sword",
+      "item.industrial_economy.steel_tool_s_sword": "Steel Sword",
       "block.mega_project.caterium_extractor": "Caterium Extractor",
       "item.satis_mine.steelingot": "Steel Ingot",
       "item.mega_project.screw": "Screw",
@@ -8669,6 +9121,7 @@
       "block.mega_project.sandstoneextractor": "SandStone Extractor",
       "enchantment.mega_project.cheap_plasma": "Cheap Plasma",
       "item.industrial_economy.diamondscrewitem": "Diamond screw",
+      "item.industrial_economy.sixty_four_core_cpu": "64x Core CPU",
       "block.mega_project.constructorinactive": "Constructor",
       "block.satis_mine.brown_concrete_slab": "Brown Concrete Slab",
       "block.industrial_economy.hardenedcobble": "Hardened Cobble",
@@ -8729,7 +9182,7 @@
       "block.industrial_economy.magenta_concrete_stairs": "Magenta Concrete Stairs",
       "block.industrial_economy.manufacturer": "Manufacturer MK 1",
       "key.industrial_economy.node_scanner_modes_keybind": "Node Scanner Modes",
-      "item.industrial_economy.steel_tool_s_hoe": "SteelToolS Hoe",
+      "item.industrial_economy.steel_tool_s_hoe": "Steel Hoe",
       "block.mega_project.light_gray_concrete_slab": "Light Gray Concrete Slab",
       "block.mega_project.hub": "Hub",
       "block.mega_project.blue_concrete_stairs": "Blue Concrete Stairs",
@@ -8811,6 +9264,7 @@
       "block.satis_mine.orange_concrete_stairs": "Orange Concrete Stairs",
       "block.satis_mine.light_gray_concrete_slab": "Light Gray Concrete Slab",
       "block.industrial_economy.concretemixer": "Concrete Mixer",
+      "item.industrial_economy.one_hundred_twenty_eight_core_cpu": "128x Core CPU",
       "block.mega_project.brown_concrete_stairs": "Brown Concrete Stairs",
       "block.satis_mine.hub": "Hub",
       "block.industrial_economy.generator_mk_1": "Generator MK 1",
@@ -8823,6 +9277,7 @@
       "block.satis_mine.black_concrete_stairs": "Black Concrete Stairs",
       "item.satis_mine.concrete": "Concrete",
       "block.mega_project.magenta_concrete_stairs": "Magenta Concrete Stairs",
+      "subtitles.particleaccelerator": "",
       "item.mega_project.diamondsteelitem": "Diamond Steel Ingot",
       "item.satis_mine.turbofuelitem": "Turbofuel Mk.1",
       "item.industrial_economy.space_suit_with_canister_chestplate": "SpaceSuit With Oxygen Canister"
@@ -8973,6 +9428,10 @@
           {
             "name": "PocketChest",
             "children": []
+          },
+          {
+            "name": "PlaceGun",
+            "children": []
           }
         ]
       },
@@ -9094,6 +9553,10 @@
           },
           {
             "name": "CentralStorage",
+            "children": []
+          },
+          {
+            "name": "ParticeAccelerator",
             "children": []
           }
         ]

@@ -1,0 +1,42 @@
+{
+  "group": "centralstorageunit",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "345",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "industrial_economy:highspeedconectoritem"
+    },
+    "1": {
+      "item": "industrial_economy:control_unit"
+    },
+    "2": {
+      "item": "industrial_economy:highspeedconectoritem"
+    },
+    "3": {
+      "item": "industrial_economy:ai_limiteritem"
+    },
+    "4": {
+      "item": "industrial_economy:pocketchestitem"
+    },
+    "5": {
+      "item": "industrial_economy:ai_limiteritem"
+    },
+    "6": {
+      "item": "industrial_economy:heavyframe"
+    },
+    "7": {
+      "item": "industrial_economy:heavy_diamond_steel"
+    },
+    "8": {
+      "item": "industrial_economy:heavyframe"
+    }
+  },
+  "result": {
+    "item": "industrial_economy:central_storage",
+    "count": 1
+  }
+}

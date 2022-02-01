@@ -119,15 +119,15 @@ public class CentralStorageGUIGui extends IndustrialEconomyModElements.ModElemen
 					}
 				}
 			}
-			this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 78, 32) {
+			this.customSlots.put(0, this.addSlot(new SlotItemHandler(internal, 0, 79, 32) {
 			}));
 			int si;
 			int sj;
 			for (si = 0; si < 3; ++si)
 				for (sj = 0; sj < 9; ++sj)
-					this.addSlot(new Slot(inv, sj + (si + 1) * 9, -1 + 8 + sj * 18, 13 + 84 + si * 18));
+					this.addSlot(new Slot(inv, sj + (si + 1) * 9, 0 + 8 + sj * 18, 13 + 84 + si * 18));
 			for (si = 0; si < 9; ++si)
-				this.addSlot(new Slot(inv, si, -1 + 8 + si * 18, 13 + 142));
+				this.addSlot(new Slot(inv, si, 0 + 8 + si * 18, 13 + 142));
 		}
 
 		public Map<Integer, Slot> get() {

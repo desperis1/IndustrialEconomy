@@ -16,7 +16,12 @@ import net.minecraft.client.gui.widget.button.Button;
 import net.minecraft.client.gui.screen.inventory.ContainerScreen;
 import net.minecraft.client.Minecraft;
 
+import java.util.stream.Stream;
+import java.util.Map;
 import java.util.HashMap;
+import java.util.AbstractMap;
+
+import industrialeconomy.procedures.GeneratorWorkingLabelProcedure;
 
 import industrialeconomy.IndustrialEconomyMod;
 
@@ -38,7 +43,7 @@ public class ManufacturerGUIGuiWindow extends ContainerScreen<ManufacturerGUIGui
 		this.z = container.z;
 		this.entity = container.entity;
 		this.xSize = 176;
-		this.ySize = 166;
+		this.ySize = 172;
 	}
 
 	private static final ResourceLocation texture = new ResourceLocation("industrial_economy:textures/manufacturer_gui.png");
@@ -59,6 +64,14 @@ public class ManufacturerGUIGuiWindow extends ContainerScreen<ManufacturerGUIGui
 		int k = (this.width - this.xSize) / 2;
 		int l = (this.height - this.ySize) / 2;
 		this.blit(ms, k, l, 0, 0, this.xSize, this.ySize, this.xSize, this.ySize);
+		if (GeneratorWorkingLabelProcedure
+				.executeProcedure(Stream
+						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
+								new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z))
+						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll))) {
+			Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("industrial_economy:textures/mamguienergy.png"));
+			this.blit(ms, this.guiLeft + 61, this.guiTop + 35, 0, 0, 16, 16, 16, 16);
+		}
 		RenderSystem.disableBlend();
 	}
 
@@ -78,7 +91,7 @@ public class ManufacturerGUIGuiWindow extends ContainerScreen<ManufacturerGUIGui
 
 	@Override
 	protected void drawGuiContainerForegroundLayer(MatrixStack ms, int mouseX, int mouseY) {
-		this.font.drawString(ms, "Manufacturer", 57, 4, -12829636);
+		this.font.drawString(ms, "Manufacturer", 55, 4, -12829636);
 		this.font.drawString(ms, "Recipe: " + (new Object() {
 			public String getValue(BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
@@ -86,7 +99,13 @@ public class ManufacturerGUIGuiWindow extends ContainerScreen<ManufacturerGUIGui
 					return tileEntity.getTileData().getString(tag);
 				return "";
 			}
-		}.getValue(new BlockPos((int) x, (int) y, (int) z), "Recipe")) + "", 25, 45, -12829636);
+		}.getValue(new BlockPos((int) x, (int) y, (int) z), "Recipe")) + "", 18, 53, -12829636);
+		if (GeneratorWorkingLabelProcedure
+				.executeProcedure(Stream
+						.of(new AbstractMap.SimpleEntry<>("world", world), new AbstractMap.SimpleEntry<>("x", x),
+								new AbstractMap.SimpleEntry<>("y", y), new AbstractMap.SimpleEntry<>("z", z))
+						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll)))
+			this.font.drawString(ms, "Working", 81, 39, -13369600);
 	}
 
 	@Override
@@ -99,7 +118,7 @@ public class ManufacturerGUIGuiWindow extends ContainerScreen<ManufacturerGUIGui
 	public void init(Minecraft minecraft, int width, int height) {
 		super.init(minecraft, width, height);
 		minecraft.keyboardListener.enableRepeatEvents(true);
-		this.addButton(new Button(this.guiLeft + 38, this.guiTop + 58, 93, 20, new StringTextComponent("Change Recipe"), e -> {
+		this.addButton(new Button(this.guiLeft + 38, this.guiTop + 66, 93, 20, new StringTextComponent("Change Recipe"), e -> {
 			if (true) {
 				IndustrialEconomyMod.PACKET_HANDLER.sendToServer(new ManufacturerGUIGui.ButtonPressedMessage(0, x, y, z));
 				ManufacturerGUIGui.handleButtonAction(entity, 0, x, y, z);

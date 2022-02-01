@@ -1,0 +1,16 @@
+{
+  "group": "heavy_diamond_steel_block_reverse_recipe",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "0"
+  ],
+  "key": {
+    "0": {
+      "item": "industrial_economy:heavy_diamond_steel"
+    }
+  },
+  "result": {
+    "item": "industrial_economy:diamond_steelblock",
+    "count": 9
+  }
+}

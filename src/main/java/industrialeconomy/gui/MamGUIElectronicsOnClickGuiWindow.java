@@ -78,6 +78,24 @@ public class MamGUIElectronicsOnClickGuiWindow extends ContainerScreen<MamGUIEle
 		Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("industrial_economy:textures/mamguienergy.png"));
 		this.blit(ms, this.guiLeft + 98, this.guiTop + 32, 0, 0, 16, 16, 16, 16);
 
+		Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("industrial_economy:textures/mamguimoney.png"));
+		this.blit(ms, this.guiLeft + 191, this.guiTop + 54, 0, 0, 16, 16, 16, 16);
+
+		Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("industrial_economy:textures/mamguienergy.png"));
+		this.blit(ms, this.guiLeft + 96, this.guiTop + 54, 0, 0, 16, 16, 16, 16);
+
+		Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("industrial_economy:textures/mamguienergy.png"));
+		this.blit(ms, this.guiLeft + 104, this.guiTop + 76, 0, 0, 16, 16, 16, 16);
+
+		Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("industrial_economy:textures/mamguienergy.png"));
+		this.blit(ms, this.guiLeft + 104, this.guiTop + 98, 0, 0, 16, 16, 16, 16);
+
+		Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("industrial_economy:textures/mamguimoney.png"));
+		this.blit(ms, this.guiLeft + 170, this.guiTop + 76, 0, 0, 16, 16, 16, 16);
+
+		Minecraft.getInstance().getTextureManager().bindTexture(new ResourceLocation("industrial_economy:textures/mamguimoney.png"));
+		this.blit(ms, this.guiLeft + 169, this.guiTop + 98, 0, 0, 16, 16, 16, 16);
+
 		RenderSystem.disableBlend();
 	}
 
@@ -117,6 +135,12 @@ public class MamGUIElectronicsOnClickGuiWindow extends ContainerScreen<MamGUIEle
 		this.font.drawString(ms, "150 000 coins", 187, 35, -12829636);
 		this.font.drawString(ms, "2.5 E7 MW", 112, 14, -12829636);
 		this.font.drawString(ms, "25 000 coins", 189, 13, -12829636);
+		this.font.drawString(ms, "350 milions MW", 109, 57, -12829636);
+		this.font.drawString(ms, "150 000 coins", 211, 57, -12829636);
+		this.font.drawString(ms, "1 E9 MW", 119, 79, -12829636);
+		this.font.drawString(ms, "2 E9 MW", 119, 101, -12829636);
+		this.font.drawString(ms, "150 000 coins", 193, 79, -12829636);
+		this.font.drawString(ms, "150 000 coins", 195, 100, -12829636);
 	}
 
 	@Override

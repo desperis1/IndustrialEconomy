@@ -94,6 +94,7 @@ public class IndustrialEconomyModVariables {
 			nbt.putDouble("builder_pos1_x", instance.builder_pos1_x);
 			nbt.putDouble("DSA_energy", instance.DSA_energy);
 			nbt.putDouble("DSA_PlasmaShoot_Cooldown", instance.DSA_PlasmaShoot_Cooldown);
+			nbt.putString("placetool_machine", instance.placetool_machine);
 			return nbt;
 		}
 
@@ -119,6 +120,7 @@ public class IndustrialEconomyModVariables {
 			instance.builder_pos1_x = nbt.getDouble("builder_pos1_x");
 			instance.DSA_energy = nbt.getDouble("DSA_energy");
 			instance.DSA_PlasmaShoot_Cooldown = nbt.getDouble("DSA_PlasmaShoot_Cooldown");
+			instance.placetool_machine = nbt.getString("placetool_machine");
 		}
 	}
 
@@ -142,6 +144,7 @@ public class IndustrialEconomyModVariables {
 		public double builder_pos1_x = 0;
 		public double DSA_energy = 0;
 		public double DSA_PlasmaShoot_Cooldown = 0;
+		public String placetool_machine = "\"\"";
 
 		public void syncPlayerVariables(Entity entity) {
 			if (entity instanceof ServerPlayerEntity)
@@ -188,6 +191,7 @@ public class IndustrialEconomyModVariables {
 		clone.builder_pos1_x = original.builder_pos1_x;
 		clone.DSA_energy = original.DSA_energy;
 		clone.DSA_PlasmaShoot_Cooldown = original.DSA_PlasmaShoot_Cooldown;
+		clone.placetool_machine = original.placetool_machine;
 		if (!event.isWasDeath()) {
 			clone.DSA_NightVision = original.DSA_NightVision;
 			clone.DSA_Jetpack = original.DSA_Jetpack;
@@ -240,6 +244,7 @@ public class IndustrialEconomyModVariables {
 					variables.builder_pos1_x = message.data.builder_pos1_x;
 					variables.DSA_energy = message.data.DSA_energy;
 					variables.DSA_PlasmaShoot_Cooldown = message.data.DSA_PlasmaShoot_Cooldown;
+					variables.placetool_machine = message.data.placetool_machine;
 				}
 			});
 			context.setPacketHandled(true);
