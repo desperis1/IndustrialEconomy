@@ -1,17 +1,30 @@
 
 package industrialeconomy.item;
 
-import net.minecraft.entity.ai.attributes.Attributes;
+import net.minecraftforge.registries.ObjectHolder;
+
+import net.minecraft.world.World;
+import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.item.Rarity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Item;
+import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.block.BlockState;
+
+import java.util.List;
+
+import industrialeconomy.itemgroup.ProjectMEGAItemGroup;
+
+import industrialeconomy.IndustrialEconomyModElements;
 
 @IndustrialEconomyModElements.ModElement.Tag
 public class BlackOpalIngotItem extends IndustrialEconomyModElements.ModElement {
-
 	@ObjectHolder("industrial_economy:black_opal_ingot")
 	public static final Item block = null;
 
 	public BlackOpalIngotItem(IndustrialEconomyModElements instance) {
 		super(instance, 589);
-
 	}
 
 	@Override
@@ -20,7 +33,6 @@ public class BlackOpalIngotItem extends IndustrialEconomyModElements.ModElement 
 	}
 
 	public static class ItemCustom extends Item {
-
 		public ItemCustom() {
 			super(new Item.Properties().group(ProjectMEGAItemGroup.tab).maxStackSize(64).isImmuneToFire().rarity(Rarity.RARE));
 			setRegistryName("black_opal_ingot");
@@ -48,7 +60,5 @@ public class BlackOpalIngotItem extends IndustrialEconomyModElements.ModElement 
 			list.add(new StringTextComponent("Iron: 279 936"));
 			list.add(new StringTextComponent("Energy: 20 733 600 MW"));
 		}
-
 	}
-
 }

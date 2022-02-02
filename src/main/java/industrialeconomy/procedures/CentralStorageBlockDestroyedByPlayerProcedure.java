@@ -1,6 +1,23 @@
 package industrialeconomy.procedures;
 
-import net.minecraftforge.eventbus.api.Event;
+import net.minecraftforge.fml.loading.FMLPaths;
+
+import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.Entity;
+
+import java.util.Map;
+
+import java.io.IOException;
+import java.io.FileWriter;
+import java.io.FileReader;
+import java.io.File;
+import java.io.BufferedReader;
+
+import industrialeconomy.IndustrialEconomyMod;
+
+import com.google.gson.GsonBuilder;
+import com.google.gson.Gson;
 
 public class CentralStorageBlockDestroyedByPlayerProcedure {
 
@@ -10,9 +27,7 @@ public class CentralStorageBlockDestroyedByPlayerProcedure {
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency entity for procedure CentralStorageBlockDestroyedByPlayer!");
 			return;
 		}
-
 		Entity entity = (Entity) dependencies.get("entity");
-
 		File playerStorageConfig = new File("");
 		com.google.gson.JsonObject mainObject = new com.google.gson.JsonObject();
 		playerStorageConfig = (File) new File((FMLPaths.GAMEDIR.get().toString() + "/config/"),
@@ -26,12 +41,10 @@ public class CentralStorageBlockDestroyedByPlayerProcedure {
 					jsonstringbuilder.append(line);
 				}
 				bufferedReader.close();
-
 				mainObject = new Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
 				mainObject.addProperty("placed", (false));
 				{
 					Gson mainGSONBuilderVariable = new GsonBuilder().setPrettyPrinting().create();
-
 					try {
 						FileWriter fileWriter = new FileWriter(playerStorageConfig);
 						fileWriter.write(mainGSONBuilderVariable.toJson(mainObject));
@@ -49,5 +62,4 @@ public class CentralStorageBlockDestroyedByPlayerProcedure {
 			((PlayerEntity) entity).sendStatusMessage(new StringTextComponent("Storage was destroyed"), (false));
 		}
 	}
-
 }

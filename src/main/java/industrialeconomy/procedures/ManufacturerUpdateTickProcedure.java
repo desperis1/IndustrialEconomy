@@ -1,6 +1,47 @@
 package industrialeconomy.procedures;
 
-import net.minecraftforge.eventbus.api.Event;
+import net.minecraftforge.items.IItemHandlerModifiable;
+import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.fml.loading.FMLPaths;
+
+import net.minecraft.world.World;
+import net.minecraft.world.IWorld;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.block.BlockState;
+
+import java.util.concurrent.atomic.AtomicReference;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.Map;
+
+import java.io.IOException;
+import java.io.FileWriter;
+import java.io.FileReader;
+import java.io.File;
+import java.io.BufferedReader;
+
+import industrialeconomy.item.IronplateItem;
+import industrialeconomy.item.HighspeedconectoritemItem;
+import industrialeconomy.item.EmptymoduleItem;
+import industrialeconomy.item.DiamondsteelplateItem;
+import industrialeconomy.item.DiamondscrewitemItem;
+import industrialeconomy.item.CpuItem;
+import industrialeconomy.item.CopperSheetItemItem;
+import industrialeconomy.item.ControlUnitItem;
+import industrialeconomy.item.CircuitBoarditemItem;
+import industrialeconomy.item.CateriumwireitemItem;
+import industrialeconomy.item.AiLimiteritemItem;
+
+import industrialeconomy.block.SteelBlockBlock;
+import industrialeconomy.block.HeavyironblockBlock;
+import industrialeconomy.block.DiamondSteelblockBlock;
+import industrialeconomy.block.CateriumBlockBlock;
+
+import industrialeconomy.IndustrialEconomyMod;
+
+import com.google.gson.GsonBuilder;
+import com.google.gson.Gson;
 
 public class ManufacturerUpdateTickProcedure {
 
@@ -25,12 +66,10 @@ public class ManufacturerUpdateTickProcedure {
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency z for procedure ManufacturerUpdateTick!");
 			return;
 		}
-
 		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-
 		com.google.gson.JsonObject mainObject = new com.google.gson.JsonObject();
 		String owner = "";
 		File playerStorageConfig = new File("");
@@ -54,7 +93,6 @@ public class ManufacturerUpdateTickProcedure {
 					jsonstringbuilder.append(line);
 				}
 				bufferedReader.close();
-
 				mainObject = new Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
 				Energy = mainObject.get("Energy").getAsDouble();
 
@@ -80,7 +118,6 @@ public class ManufacturerUpdateTickProcedure {
 						jsonstringbuilder.append(line);
 					}
 					bufferedReader.close();
-
 					mainObject = new Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
 					if (mainObject.get((new ItemStack(CopperSheetItemItem.block).getDisplayName().getString())).getAsDouble() > 2
 							&& mainObject.get((new ItemStack(CircuitBoarditemItem.block).getDisplayName().getString())).getAsDouble() > 3
@@ -128,7 +165,6 @@ public class ManufacturerUpdateTickProcedure {
 							BlockState _bs = world.getBlockState(_bp);
 							if (_tileEntity != null)
 								_tileEntity.getTileData().putBoolean("Working", (true));
-
 							if (world instanceof World)
 								((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 						}
@@ -144,7 +180,6 @@ public class ManufacturerUpdateTickProcedure {
 								(mainObject.get((new ItemStack(SteelBlockBlock.block).getDisplayName().getString())).getAsDouble() - 2));
 						{
 							Gson mainGSONBuilderVariable = new GsonBuilder().setPrettyPrinting().create();
-
 							try {
 								FileWriter fileWriter = new FileWriter(playerStorageConfig);
 								fileWriter.write(mainGSONBuilderVariable.toJson(mainObject));
@@ -184,7 +219,6 @@ public class ManufacturerUpdateTickProcedure {
 							BlockState _bs = world.getBlockState(_bp);
 							if (_tileEntity != null)
 								_tileEntity.getTileData().putBoolean("Working", (false));
-
 							if (world instanceof World)
 								((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 						}
@@ -212,7 +246,6 @@ public class ManufacturerUpdateTickProcedure {
 							jsonstringbuilder.append(line);
 						}
 						bufferedReader.close();
-
 						mainObject = new Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
 						mainObject.addProperty("Energy", (mainObject.get("Energy").getAsDouble() - 2500));
 
@@ -222,7 +255,6 @@ public class ManufacturerUpdateTickProcedure {
 				}
 				{
 					Gson mainGSONBuilderVariable = new GsonBuilder().setPrettyPrinting().create();
-
 					try {
 						FileWriter fileWriter = new FileWriter(playerConfig);
 						fileWriter.write(mainGSONBuilderVariable.toJson(mainObject));
@@ -251,7 +283,6 @@ public class ManufacturerUpdateTickProcedure {
 						jsonstringbuilder.append(line);
 					}
 					bufferedReader.close();
-
 					mainObject = new Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
 					if (mainObject.get((new ItemStack(DiamondscrewitemItem.block).getDisplayName().getString())).getAsDouble() > 4
 							&& mainObject.get((new ItemStack(IronplateItem.block).getDisplayName().getString())).getAsDouble() > 2
@@ -298,7 +329,6 @@ public class ManufacturerUpdateTickProcedure {
 							BlockState _bs = world.getBlockState(_bp);
 							if (_tileEntity != null)
 								_tileEntity.getTileData().putBoolean("Working", (true));
-
 							if (world instanceof World)
 								((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 						}
@@ -312,7 +342,6 @@ public class ManufacturerUpdateTickProcedure {
 								(mainObject.get((new ItemStack(HeavyironblockBlock.block).getDisplayName().getString())).getAsDouble() - 2));
 						{
 							Gson mainGSONBuilderVariable = new GsonBuilder().setPrettyPrinting().create();
-
 							try {
 								FileWriter fileWriter = new FileWriter(playerStorageConfig);
 								fileWriter.write(mainGSONBuilderVariable.toJson(mainObject));
@@ -352,7 +381,6 @@ public class ManufacturerUpdateTickProcedure {
 							BlockState _bs = world.getBlockState(_bp);
 							if (_tileEntity != null)
 								_tileEntity.getTileData().putBoolean("Working", (false));
-
 							if (world instanceof World)
 								((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 						}
@@ -380,7 +408,6 @@ public class ManufacturerUpdateTickProcedure {
 							jsonstringbuilder.append(line);
 						}
 						bufferedReader.close();
-
 						mainObject = new Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
 						mainObject.addProperty("Energy", (mainObject.get("Energy").getAsDouble() - 2500));
 
@@ -390,7 +417,6 @@ public class ManufacturerUpdateTickProcedure {
 				}
 				{
 					Gson mainGSONBuilderVariable = new GsonBuilder().setPrettyPrinting().create();
-
 					try {
 						FileWriter fileWriter = new FileWriter(playerConfig);
 						fileWriter.write(mainGSONBuilderVariable.toJson(mainObject));
@@ -419,7 +445,6 @@ public class ManufacturerUpdateTickProcedure {
 						jsonstringbuilder.append(line);
 					}
 					bufferedReader.close();
-
 					mainObject = new Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
 					if (mainObject.get((new ItemStack(HighspeedconectoritemItem.block).getDisplayName().getString())).getAsDouble() > 4
 							&& mainObject.get((new ItemStack(CateriumwireitemItem.block).getDisplayName().getString())).getAsDouble() > 2
@@ -465,7 +490,6 @@ public class ManufacturerUpdateTickProcedure {
 							BlockState _bs = world.getBlockState(_bp);
 							if (_tileEntity != null)
 								_tileEntity.getTileData().putBoolean("Working", (true));
-
 							if (world instanceof World)
 								((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 						}
@@ -479,7 +503,6 @@ public class ManufacturerUpdateTickProcedure {
 								(mainObject.get((new ItemStack(SteelBlockBlock.block).getDisplayName().getString())).getAsDouble() - 1));
 						{
 							Gson mainGSONBuilderVariable = new GsonBuilder().setPrettyPrinting().create();
-
 							try {
 								FileWriter fileWriter = new FileWriter(playerStorageConfig);
 								fileWriter.write(mainGSONBuilderVariable.toJson(mainObject));
@@ -519,7 +542,6 @@ public class ManufacturerUpdateTickProcedure {
 							BlockState _bs = world.getBlockState(_bp);
 							if (_tileEntity != null)
 								_tileEntity.getTileData().putBoolean("Working", (false));
-
 							if (world instanceof World)
 								((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 						}
@@ -547,7 +569,6 @@ public class ManufacturerUpdateTickProcedure {
 							jsonstringbuilder.append(line);
 						}
 						bufferedReader.close();
-
 						mainObject = new Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
 						mainObject.addProperty("Energy", (mainObject.get("Energy").getAsDouble() - 2500));
 
@@ -557,7 +578,6 @@ public class ManufacturerUpdateTickProcedure {
 				}
 				{
 					Gson mainGSONBuilderVariable = new GsonBuilder().setPrettyPrinting().create();
-
 					try {
 						FileWriter fileWriter = new FileWriter(playerConfig);
 						fileWriter.write(mainGSONBuilderVariable.toJson(mainObject));
@@ -586,7 +606,6 @@ public class ManufacturerUpdateTickProcedure {
 						jsonstringbuilder.append(line);
 					}
 					bufferedReader.close();
-
 					mainObject = new Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
 					if (mainObject.get((new ItemStack(HighspeedconectoritemItem.block).getDisplayName().getString())).getAsDouble() > 2
 							&& mainObject.get((new ItemStack(AiLimiteritemItem.block).getDisplayName().getString())).getAsDouble() > 2
@@ -633,7 +652,6 @@ public class ManufacturerUpdateTickProcedure {
 							BlockState _bs = world.getBlockState(_bp);
 							if (_tileEntity != null)
 								_tileEntity.getTileData().putBoolean("Working", (true));
-
 							if (world instanceof World)
 								((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 						}
@@ -649,7 +667,6 @@ public class ManufacturerUpdateTickProcedure {
 								(mainObject.get((new ItemStack(DiamondsteelplateItem.block).getDisplayName().getString())).getAsDouble() - 1));
 						{
 							Gson mainGSONBuilderVariable = new GsonBuilder().setPrettyPrinting().create();
-
 							try {
 								FileWriter fileWriter = new FileWriter(playerStorageConfig);
 								fileWriter.write(mainGSONBuilderVariable.toJson(mainObject));
@@ -689,7 +706,6 @@ public class ManufacturerUpdateTickProcedure {
 							BlockState _bs = world.getBlockState(_bp);
 							if (_tileEntity != null)
 								_tileEntity.getTileData().putBoolean("Working", (false));
-
 							if (world instanceof World)
 								((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 						}
@@ -717,7 +733,6 @@ public class ManufacturerUpdateTickProcedure {
 							jsonstringbuilder.append(line);
 						}
 						bufferedReader.close();
-
 						mainObject = new Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
 						mainObject.addProperty("Energy", (mainObject.get("Energy").getAsDouble() - 2500));
 
@@ -727,7 +742,6 @@ public class ManufacturerUpdateTickProcedure {
 				}
 				{
 					Gson mainGSONBuilderVariable = new GsonBuilder().setPrettyPrinting().create();
-
 					try {
 						FileWriter fileWriter = new FileWriter(playerConfig);
 						fileWriter.write(mainGSONBuilderVariable.toJson(mainObject));
@@ -756,7 +770,6 @@ public class ManufacturerUpdateTickProcedure {
 						jsonstringbuilder.append(line);
 					}
 					bufferedReader.close();
-
 					mainObject = new Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
 					if (mainObject.get((new ItemStack(HighspeedconectoritemItem.block).getDisplayName().getString())).getAsDouble() > 4
 							&& mainObject.get((new ItemStack(ControlUnitItem.block).getDisplayName().getString())).getAsDouble() > 4
@@ -801,7 +814,6 @@ public class ManufacturerUpdateTickProcedure {
 							BlockState _bs = world.getBlockState(_bp);
 							if (_tileEntity != null)
 								_tileEntity.getTileData().putBoolean("Working", (true));
-
 							if (world instanceof World)
 								((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 						}
@@ -813,7 +825,6 @@ public class ManufacturerUpdateTickProcedure {
 								(mainObject.get((new ItemStack(AiLimiteritemItem.block).getDisplayName().getString())).getAsDouble() - 1));
 						{
 							Gson mainGSONBuilderVariable = new GsonBuilder().setPrettyPrinting().create();
-
 							try {
 								FileWriter fileWriter = new FileWriter(playerStorageConfig);
 								fileWriter.write(mainGSONBuilderVariable.toJson(mainObject));
@@ -853,7 +864,6 @@ public class ManufacturerUpdateTickProcedure {
 							BlockState _bs = world.getBlockState(_bp);
 							if (_tileEntity != null)
 								_tileEntity.getTileData().putBoolean("Working", (false));
-
 							if (world instanceof World)
 								((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 						}
@@ -881,7 +891,6 @@ public class ManufacturerUpdateTickProcedure {
 							jsonstringbuilder.append(line);
 						}
 						bufferedReader.close();
-
 						mainObject = new Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
 						mainObject.addProperty("Energy", (mainObject.get("Energy").getAsDouble() - 2500));
 
@@ -891,7 +900,6 @@ public class ManufacturerUpdateTickProcedure {
 				}
 				{
 					Gson mainGSONBuilderVariable = new GsonBuilder().setPrettyPrinting().create();
-
 					try {
 						FileWriter fileWriter = new FileWriter(playerConfig);
 						fileWriter.write(mainGSONBuilderVariable.toJson(mainObject));
@@ -920,7 +928,6 @@ public class ManufacturerUpdateTickProcedure {
 						jsonstringbuilder.append(line);
 					}
 					bufferedReader.close();
-
 					mainObject = new Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
 					if (mainObject.get((new ItemStack(CpuItem.block).getDisplayName().getString())).getAsDouble() > 1
 							&& mainObject.get((new ItemStack(ControlUnitItem.block).getDisplayName().getString())).getAsDouble() > 7
@@ -964,7 +971,6 @@ public class ManufacturerUpdateTickProcedure {
 							BlockState _bs = world.getBlockState(_bp);
 							if (_tileEntity != null)
 								_tileEntity.getTileData().putBoolean("Working", (true));
-
 							if (world instanceof World)
 								((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 						}
@@ -974,7 +980,6 @@ public class ManufacturerUpdateTickProcedure {
 								(mainObject.get((new ItemStack(ControlUnitItem.block).getDisplayName().getString())).getAsDouble() - 7));
 						{
 							Gson mainGSONBuilderVariable = new GsonBuilder().setPrettyPrinting().create();
-
 							try {
 								FileWriter fileWriter = new FileWriter(playerStorageConfig);
 								fileWriter.write(mainGSONBuilderVariable.toJson(mainObject));
@@ -1014,7 +1019,6 @@ public class ManufacturerUpdateTickProcedure {
 							BlockState _bs = world.getBlockState(_bp);
 							if (_tileEntity != null)
 								_tileEntity.getTileData().putBoolean("Working", (false));
-
 							if (world instanceof World)
 								((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 						}
@@ -1042,7 +1046,6 @@ public class ManufacturerUpdateTickProcedure {
 							jsonstringbuilder.append(line);
 						}
 						bufferedReader.close();
-
 						mainObject = new Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
 						mainObject.addProperty("Energy", (mainObject.get("Energy").getAsDouble() - 2500));
 
@@ -1052,7 +1055,6 @@ public class ManufacturerUpdateTickProcedure {
 				}
 				{
 					Gson mainGSONBuilderVariable = new GsonBuilder().setPrettyPrinting().create();
-
 					try {
 						FileWriter fileWriter = new FileWriter(playerConfig);
 						fileWriter.write(mainGSONBuilderVariable.toJson(mainObject));
@@ -1064,5 +1066,4 @@ public class ManufacturerUpdateTickProcedure {
 			}
 		}
 	}
-
 }

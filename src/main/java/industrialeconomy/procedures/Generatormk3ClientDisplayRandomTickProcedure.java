@@ -1,6 +1,18 @@
 package industrialeconomy.procedures;
 
-import net.minecraftforge.eventbus.api.Event;
+import net.minecraftforge.registries.ForgeRegistries;
+
+import net.minecraft.world.World;
+import net.minecraft.world.IWorld;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.particles.ParticleTypes;
+
+import java.util.Map;
+
+import industrialeconomy.IndustrialEconomyMod;
 
 public class Generatormk3ClientDisplayRandomTickProcedure {
 
@@ -25,12 +37,10 @@ public class Generatormk3ClientDisplayRandomTickProcedure {
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency z for procedure Generatormk3ClientDisplayRandomTick!");
 			return;
 		}
-
 		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-
 		if ((new Object() {
 			public boolean getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
@@ -51,5 +61,4 @@ public class Generatormk3ClientDisplayRandomTickProcedure {
 			}
 		}
 	}
-
 }

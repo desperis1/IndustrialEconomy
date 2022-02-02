@@ -1,17 +1,24 @@
 
 package industrialeconomy.item;
 
-import net.minecraft.entity.ai.attributes.Attributes;
+import net.minecraftforge.registries.ObjectHolder;
+
+import net.minecraft.item.Rarity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Item;
+import net.minecraft.block.BlockState;
+
+import industrialeconomy.itemgroup.ProjectMEGAItemGroup;
+
+import industrialeconomy.IndustrialEconomyModElements;
 
 @IndustrialEconomyModElements.ModElement.Tag
 public class DiamondSteelNuggetItem extends IndustrialEconomyModElements.ModElement {
-
 	@ObjectHolder("industrial_economy:diamond_steel_nugget")
 	public static final Item block = null;
 
 	public DiamondSteelNuggetItem(IndustrialEconomyModElements instance) {
 		super(instance, 652);
-
 	}
 
 	@Override
@@ -20,7 +27,6 @@ public class DiamondSteelNuggetItem extends IndustrialEconomyModElements.ModElem
 	}
 
 	public static class ItemCustom extends Item {
-
 		public ItemCustom() {
 			super(new Item.Properties().group(ProjectMEGAItemGroup.tab).maxStackSize(64).rarity(Rarity.COMMON));
 			setRegistryName("diamond_steel_nugget");
@@ -40,7 +46,5 @@ public class DiamondSteelNuggetItem extends IndustrialEconomyModElements.ModElem
 		public float getDestroySpeed(ItemStack par1ItemStack, BlockState par2Block) {
 			return 1F;
 		}
-
 	}
-
 }

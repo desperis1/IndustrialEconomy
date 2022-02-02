@@ -1,6 +1,38 @@
 package industrialeconomy.procedures;
 
-import net.minecraftforge.eventbus.api.Event;
+import net.minecraftforge.items.IItemHandlerModifiable;
+import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.fml.loading.FMLPaths;
+
+import net.minecraft.world.World;
+import net.minecraft.world.IWorld;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.item.Items;
+import net.minecraft.item.ItemStack;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.BlockState;
+
+import java.util.concurrent.atomic.AtomicReference;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.Map;
+
+import java.io.IOException;
+import java.io.FileWriter;
+import java.io.FileReader;
+import java.io.File;
+import java.io.BufferedReader;
+
+import industrialeconomy.item.CopperIngotItem;
+import industrialeconomy.item.CateriumIngotItem;
+
+import industrialeconomy.block.CopperOreBlock;
+import industrialeconomy.block.CateriumOreBlock;
+
+import industrialeconomy.IndustrialEconomyMod;
+
+import com.google.gson.GsonBuilder;
+import com.google.gson.Gson;
 
 public class ElectricFurnanceMK1UpdateTickProcedure {
 
@@ -25,12 +57,10 @@ public class ElectricFurnanceMK1UpdateTickProcedure {
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency z for procedure ElectricFurnanceMK1UpdateTick!");
 			return;
 		}
-
 		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-
 		String owner = "";
 		File playerConfig = new File("");
 		com.google.gson.JsonObject mainObject = new com.google.gson.JsonObject();
@@ -52,7 +82,6 @@ public class ElectricFurnanceMK1UpdateTickProcedure {
 					jsonstringbuilder.append(line);
 				}
 				bufferedReader.close();
-
 				mainObject = new Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
 				if (mainObject.get("Energy").getAsDouble() > 100) {
 					if (new Object() {
@@ -117,7 +146,6 @@ public class ElectricFurnanceMK1UpdateTickProcedure {
 							BlockState _bs = world.getBlockState(_bp);
 							if (_tileEntity != null)
 								_tileEntity.getTileData().putBoolean("Working", (true));
-
 							if (world instanceof World)
 								((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 						}
@@ -222,7 +250,6 @@ public class ElectricFurnanceMK1UpdateTickProcedure {
 							BlockState _bs = world.getBlockState(_bp);
 							if (_tileEntity != null)
 								_tileEntity.getTileData().putBoolean("Working", (true));
-
 							if (world instanceof World)
 								((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 						}
@@ -327,7 +354,6 @@ public class ElectricFurnanceMK1UpdateTickProcedure {
 							BlockState _bs = world.getBlockState(_bp);
 							if (_tileEntity != null)
 								_tileEntity.getTileData().putBoolean("Working", (true));
-
 							if (world instanceof World)
 								((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 						}
@@ -432,7 +458,6 @@ public class ElectricFurnanceMK1UpdateTickProcedure {
 							BlockState _bs = world.getBlockState(_bp);
 							if (_tileEntity != null)
 								_tileEntity.getTileData().putBoolean("Working", (true));
-
 							if (world instanceof World)
 								((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 						}
@@ -537,7 +562,6 @@ public class ElectricFurnanceMK1UpdateTickProcedure {
 							BlockState _bs = world.getBlockState(_bp);
 							if (_tileEntity != null)
 								_tileEntity.getTileData().putBoolean("Working", (true));
-
 							if (world instanceof World)
 								((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 						}
@@ -642,7 +666,6 @@ public class ElectricFurnanceMK1UpdateTickProcedure {
 							BlockState _bs = world.getBlockState(_bp);
 							if (_tileEntity != null)
 								_tileEntity.getTileData().putBoolean("Working", (true));
-
 							if (world instanceof World)
 								((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 						}
@@ -747,7 +770,6 @@ public class ElectricFurnanceMK1UpdateTickProcedure {
 							BlockState _bs = world.getBlockState(_bp);
 							if (_tileEntity != null)
 								_tileEntity.getTileData().putBoolean("Working", (true));
-
 							if (world instanceof World)
 								((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 						}
@@ -852,7 +874,6 @@ public class ElectricFurnanceMK1UpdateTickProcedure {
 							BlockState _bs = world.getBlockState(_bp);
 							if (_tileEntity != null)
 								_tileEntity.getTileData().putBoolean("Working", (true));
-
 							if (world instanceof World)
 								((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 						}
@@ -957,7 +978,6 @@ public class ElectricFurnanceMK1UpdateTickProcedure {
 							BlockState _bs = world.getBlockState(_bp);
 							if (_tileEntity != null)
 								_tileEntity.getTileData().putBoolean("Working", (true));
-
 							if (world instanceof World)
 								((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 						}
@@ -1062,7 +1082,6 @@ public class ElectricFurnanceMK1UpdateTickProcedure {
 							BlockState _bs = world.getBlockState(_bp);
 							if (_tileEntity != null)
 								_tileEntity.getTileData().putBoolean("Working", (true));
-
 							if (world instanceof World)
 								((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 						}
@@ -1167,7 +1186,6 @@ public class ElectricFurnanceMK1UpdateTickProcedure {
 							BlockState _bs = world.getBlockState(_bp);
 							if (_tileEntity != null)
 								_tileEntity.getTileData().putBoolean("Working", (true));
-
 							if (world instanceof World)
 								((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 						}
@@ -1217,7 +1235,6 @@ public class ElectricFurnanceMK1UpdateTickProcedure {
 							BlockState _bs = world.getBlockState(_bp);
 							if (_tileEntity != null)
 								_tileEntity.getTileData().putBoolean("Working", (false));
-
 							if (world instanceof World)
 								((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 						}
@@ -1229,7 +1246,6 @@ public class ElectricFurnanceMK1UpdateTickProcedure {
 						BlockState _bs = world.getBlockState(_bp);
 						if (_tileEntity != null)
 							_tileEntity.getTileData().putBoolean("Working", (false));
-
 						if (world instanceof World)
 							((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 					}
@@ -1241,7 +1257,6 @@ public class ElectricFurnanceMK1UpdateTickProcedure {
 		}
 		{
 			Gson mainGSONBuilderVariable = new GsonBuilder().setPrettyPrinting().create();
-
 			try {
 				FileWriter fileWriter = new FileWriter(playerConfig);
 				fileWriter.write(mainGSONBuilderVariable.toJson(mainObject));
@@ -1251,5 +1266,4 @@ public class ElectricFurnanceMK1UpdateTickProcedure {
 			}
 		}
 	}
-
 }

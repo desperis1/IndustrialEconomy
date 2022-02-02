@@ -1,9 +1,21 @@
 
 package industrialeconomy.enchantment;
 
+import net.minecraftforge.registries.ObjectHolder;
+
+import net.minecraft.item.Items;
+import net.minecraft.item.ItemStack;
+import net.minecraft.inventory.EquipmentSlotType;
+import net.minecraft.enchantment.EnchantmentType;
+import net.minecraft.enchantment.Enchantment;
+
+import industrialeconomy.item.SteelToolSPickaxeItem;
+import industrialeconomy.item.DiamondSteelpickaxeItem;
+
+import industrialeconomy.IndustrialEconomyModElements;
+
 @IndustrialEconomyModElements.ModElement.Tag
 public class SmelterEnchantment extends IndustrialEconomyModElements.ModElement {
-
 	@ObjectHolder("industrial_economy:smelter")
 	public static final Enchantment enchantment = null;
 
@@ -17,7 +29,6 @@ public class SmelterEnchantment extends IndustrialEconomyModElements.ModElement 
 	}
 
 	public static class CustomEnchantment extends Enchantment {
-
 		public CustomEnchantment(EquipmentSlotType... slots) {
 			super(Enchantment.Rarity.VERY_RARE, EnchantmentType.DIGGER, slots);
 		}
@@ -77,7 +88,5 @@ public class SmelterEnchantment extends IndustrialEconomyModElements.ModElement 
 		public boolean canVillagerTrade() {
 			return true;
 		}
-
 	}
-
 }

@@ -1,6 +1,33 @@
 package industrialeconomy.procedures;
 
-import net.minecraftforge.eventbus.api.Event;
+import net.minecraftforge.fml.network.NetworkHooks;
+import net.minecraftforge.fml.loading.FMLPaths;
+
+import net.minecraft.world.IWorld;
+import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.network.PacketBuffer;
+import net.minecraft.inventory.container.INamedContainerProvider;
+import net.minecraft.inventory.container.Container;
+import net.minecraft.entity.player.ServerPlayerEntity;
+import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.Entity;
+
+import java.util.Map;
+
+import java.io.IOException;
+import java.io.FileReader;
+import java.io.File;
+import java.io.BufferedReader;
+
+import io.netty.buffer.Unpooled;
+
+import industrialeconomy.gui.CentralStorageGUIGui;
+
+import industrialeconomy.IndustrialEconomyMod;
 
 public class CentralStorageOnBlockRightClickedProcedure {
 
@@ -30,13 +57,11 @@ public class CentralStorageOnBlockRightClickedProcedure {
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency entity for procedure CentralStorageOnBlockRightClicked!");
 			return;
 		}
-
 		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		Entity entity = (Entity) dependencies.get("entity");
-
 		com.google.gson.JsonObject mainObject = new com.google.gson.JsonObject();
 		String owner = "";
 		File playerStorageConfig = new File("");
@@ -82,5 +107,4 @@ public class CentralStorageOnBlockRightClickedProcedure {
 			}
 		}
 	}
-
 }

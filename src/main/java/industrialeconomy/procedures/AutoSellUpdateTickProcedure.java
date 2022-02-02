@@ -1,6 +1,29 @@
 package industrialeconomy.procedures;
 
-import net.minecraftforge.eventbus.api.Event;
+import net.minecraftforge.items.IItemHandlerModifiable;
+import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.fml.loading.FMLPaths;
+
+import net.minecraft.world.IWorld;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.tileentity.TileEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.block.Blocks;
+
+import java.util.concurrent.atomic.AtomicReference;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.Map;
+
+import java.io.IOException;
+import java.io.FileWriter;
+import java.io.FileReader;
+import java.io.File;
+import java.io.BufferedReader;
+
+import industrialeconomy.IndustrialEconomyMod;
+
+import com.google.gson.GsonBuilder;
+import com.google.gson.Gson;
 
 public class AutoSellUpdateTickProcedure {
 
@@ -25,12 +48,10 @@ public class AutoSellUpdateTickProcedure {
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency z for procedure AutoSellUpdateTick!");
 			return;
 		}
-
 		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
-
 		ItemStack items_for_sell = ItemStack.EMPTY;
 		com.google.gson.JsonObject mainObject = new com.google.gson.JsonObject();
 		File playerConfig = new File("");
@@ -82,7 +103,6 @@ public class AutoSellUpdateTickProcedure {
 						jsonstringbuilder.append(line);
 					}
 					bufferedReader.close();
-
 					mainObject = new Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
 					isonline = mainObject.get("isOnline").getAsBoolean();
 
@@ -100,7 +120,6 @@ public class AutoSellUpdateTickProcedure {
 						jsonstringbuilder.append(line);
 					}
 					bufferedReader.close();
-
 					mainObject = new Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
 					try {
 						BufferedReader playerConfigReader = new BufferedReader(new FileReader(playerConfig));
@@ -131,7 +150,6 @@ public class AutoSellUpdateTickProcedure {
 							jsonstringbuilder.append(line);
 						}
 						bufferedReader.close();
-
 						mainObject = new Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
 						mainObject.addProperty("Money", (mainObject.get("Money").getAsDouble() + number_of_items * price));
 						{
@@ -150,7 +168,6 @@ public class AutoSellUpdateTickProcedure {
 						}
 						{
 							Gson mainGSONBuilderVariable = new GsonBuilder().setPrettyPrinting().create();
-
 							try {
 								FileWriter fileWriter = new FileWriter(playerConfig);
 								fileWriter.write(mainGSONBuilderVariable.toJson(mainObject));
@@ -207,5 +224,4 @@ public class AutoSellUpdateTickProcedure {
 			}
 		}
 	}
-
 }

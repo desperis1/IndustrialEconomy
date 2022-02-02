@@ -1,17 +1,23 @@
 
 package industrialeconomy.item;
 
-import net.minecraft.entity.ai.attributes.Attributes;
+import net.minecraftforge.registries.ObjectHolder;
+
+import net.minecraft.item.Rarity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.Item;
+import net.minecraft.block.BlockState;
+
+import industrialeconomy.IndustrialEconomyModElements;
 
 @IndustrialEconomyModElements.ModElement.Tag
 public class ThirtytwoCoreCPUItem extends IndustrialEconomyModElements.ModElement {
-
 	@ObjectHolder("industrial_economy:thirtytwo_core_cpu")
 	public static final Item block = null;
 
 	public ThirtytwoCoreCPUItem(IndustrialEconomyModElements instance) {
 		super(instance, 633);
-
 	}
 
 	@Override
@@ -20,7 +26,6 @@ public class ThirtytwoCoreCPUItem extends IndustrialEconomyModElements.ModElemen
 	}
 
 	public static class ItemCustom extends Item {
-
 		public ItemCustom() {
 			super(new Item.Properties().group(ItemGroup.MISC).maxStackSize(64).rarity(Rarity.RARE));
 			setRegistryName("thirtytwo_core_cpu");
@@ -40,7 +45,5 @@ public class ThirtytwoCoreCPUItem extends IndustrialEconomyModElements.ModElemen
 		public float getDestroySpeed(ItemStack par1ItemStack, BlockState par2Block) {
 			return 1F;
 		}
-
 	}
-
 }
