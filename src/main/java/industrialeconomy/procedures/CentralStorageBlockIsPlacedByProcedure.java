@@ -21,7 +21,6 @@ import java.io.File;
 import industrialeconomy.item.TurbofuelitemItem;
 import industrialeconomy.item.Turbofuelitem3Item;
 import industrialeconomy.item.Turbofuelitem2Item;
-import industrialeconomy.item.TurboFuelMK4Item;
 import industrialeconomy.item.SteelingotItem;
 import industrialeconomy.item.ScrewItem;
 import industrialeconomy.item.RedstoneingotitemItem;
@@ -52,6 +51,7 @@ import industrialeconomy.block.IronextractorBlock;
 import industrialeconomy.block.HeavyironblockBlock;
 import industrialeconomy.block.HeavyframeBlock;
 import industrialeconomy.block.HardenedcobbleBlock;
+import industrialeconomy.block.Generatormk2Block;
 import industrialeconomy.block.GeneratorMK1Block;
 import industrialeconomy.block.FoundyblockBlock;
 import industrialeconomy.block.ElectricFunanceinactiveBlock;
@@ -102,8 +102,9 @@ public class CentralStorageBlockIsPlacedByProcedure {
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		Entity entity = (Entity) dependencies.get("entity");
-		com.google.gson.JsonObject mainObject = new com.google.gson.JsonObject();
+		String owner = "";
 		File playerStorageConfig = new File("");
+		com.google.gson.JsonObject mainObject = new com.google.gson.JsonObject();
 		if (!world.isRemote()) {
 			BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
 			TileEntity _tileEntity = world.getTileEntity(_bp);
@@ -134,7 +135,7 @@ public class CentralStorageBlockIsPlacedByProcedure {
 			mainObject.addProperty((new ItemStack(SteelBlockBlock.block).getDisplayName().getString()), 1);
 			mainObject.addProperty((new ItemStack(PresserblockBlock.block).getDisplayName().getString()), 1);
 			mainObject.addProperty((new ItemStack(FoundyblockBlock.block).getDisplayName().getString()), 1);
-			mainObject.addProperty((new ItemStack(CateriumIngotItem.block).getDisplayName().getString()), 1);
+			mainObject.addProperty((new ItemStack(Generatormk2Block.block).getDisplayName().getString()), 1);
 			mainObject.addProperty((new ItemStack(HighspeedconectoritemItem.block).getDisplayName().getString()), 1);
 			mainObject.addProperty((new ItemStack(ElectricFunanceinactiveBlock.block).getDisplayName().getString()), 1);
 			mainObject.addProperty((new ItemStack(AiLimiteritemItem.block).getDisplayName().getString()), 1);
@@ -161,7 +162,6 @@ public class CentralStorageBlockIsPlacedByProcedure {
 			mainObject.addProperty((new ItemStack(EmptymoduleItem.block).getDisplayName().getString()), 1);
 			mainObject.addProperty((new ItemStack(IndustrialDiamondItem.block).getDisplayName().getString()), 1);
 			mainObject.addProperty((new ItemStack(CateriumBlockBlock.block).getDisplayName().getString()), 1);
-			mainObject.addProperty((new ItemStack(TurboFuelMK4Item.block).getDisplayName().getString()), 1);
 			{
 				Gson mainGSONBuilderVariable = new GsonBuilder().setPrettyPrinting().create();
 				try {
