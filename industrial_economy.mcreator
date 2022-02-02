@@ -8671,12 +8671,12 @@
       "path": "~/Items/TurboFuels"
     },
     {
-      "name": "TestDZwindwos",
+      "name": "Matustest",
       "type": "procedure",
       "sortid": 658,
       "compiles": true,
       "locked_code": false,
-      "registry_name": "test_d_zwindwos",
+      "registry_name": "matustest",
       "metadata": {
         "dependencies": [
           {
