@@ -1,40 +1,18 @@
 
 package industrialeconomy.block;
 
-import net.minecraftforge.registries.ObjectHolder;
-
-import net.minecraft.world.IBlockReader;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.Rotation;
-import net.minecraft.util.Mirror;
-import net.minecraft.util.Direction;
-import net.minecraft.state.StateContainer;
-import net.minecraft.state.DirectionProperty;
-import net.minecraft.loot.LootContext;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Item;
-import net.minecraft.item.BlockItemUseContext;
-import net.minecraft.item.BlockItem;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.SoundType;
-import net.minecraft.block.HorizontalBlock;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Block;
-
-import java.util.List;
-import java.util.Collections;
-
-import industrialeconomy.itemgroup.ProjectMEGAItemGroup;
-
-import industrialeconomy.IndustrialEconomyModElements;
+import net.minecraft.util.SoundEvent;
 
 @IndustrialEconomyModElements.ModElement.Tag
 public class InductionBlockBlock extends IndustrialEconomyModElements.ModElement {
+
 	@ObjectHolder("industrial_economy:induction_block")
 	public static final Block block = null;
 
 	public InductionBlockBlock(IndustrialEconomyModElements instance) {
 		super(instance, 643);
+
 	}
 
 	@Override
@@ -45,11 +23,14 @@ public class InductionBlockBlock extends IndustrialEconomyModElements.ModElement
 	}
 
 	public static class CustomBlock extends Block {
+
 		public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
 
 		public CustomBlock() {
 			super(Block.Properties.create(Material.IRON).sound(SoundType.METAL).hardnessAndResistance(1f, 10f).setLightLevel(s -> 0));
+
 			this.setDefaultState(this.stateContainer.getBaseState().with(FACING, Direction.NORTH));
+
 			setRegistryName("induction_block");
 		}
 
@@ -79,10 +60,13 @@ public class InductionBlockBlock extends IndustrialEconomyModElements.ModElement
 
 		@Override
 		public List<ItemStack> getDrops(BlockState state, LootContext.Builder builder) {
+
 			List<ItemStack> dropsOriginal = super.getDrops(state, builder);
 			if (!dropsOriginal.isEmpty())
 				return dropsOriginal;
 			return Collections.singletonList(new ItemStack(this, 1));
 		}
+
 	}
+
 }

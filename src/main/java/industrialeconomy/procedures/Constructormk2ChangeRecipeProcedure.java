@@ -1,14 +1,6 @@
 package industrialeconomy.procedures;
 
-import net.minecraft.world.World;
-import net.minecraft.world.IWorld;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.block.BlockState;
-
-import java.util.Map;
-
-import industrialeconomy.IndustrialEconomyMod;
+import net.minecraftforge.eventbus.api.Event;
 
 public class Constructormk2ChangeRecipeProcedure {
 
@@ -33,10 +25,12 @@ public class Constructormk2ChangeRecipeProcedure {
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency z for procedure Constructormk2ChangeRecipe!");
 			return;
 		}
+
 		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
+
 		if ((new Object() {
 			public String getValue(IWorld world, BlockPos pos, String tag) {
 				TileEntity tileEntity = world.getTileEntity(pos);
@@ -51,6 +45,7 @@ public class Constructormk2ChangeRecipeProcedure {
 				BlockState _bs = world.getBlockState(_bp);
 				if (_tileEntity != null)
 					_tileEntity.getTileData().putString("Recipe", "CoalBlock");
+
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
@@ -68,6 +63,7 @@ public class Constructormk2ChangeRecipeProcedure {
 				BlockState _bs = world.getBlockState(_bp);
 				if (_tileEntity != null)
 					_tileEntity.getTileData().putString("Recipe", "IronBlock");
+
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
@@ -85,6 +81,7 @@ public class Constructormk2ChangeRecipeProcedure {
 				BlockState _bs = world.getBlockState(_bp);
 				if (_tileEntity != null)
 					_tileEntity.getTileData().putString("Recipe", "CateriumBlock");
+
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
@@ -102,6 +99,7 @@ public class Constructormk2ChangeRecipeProcedure {
 				BlockState _bs = world.getBlockState(_bp);
 				if (_tileEntity != null)
 					_tileEntity.getTileData().putString("Recipe", "CopperBlock");
+
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
@@ -119,6 +117,7 @@ public class Constructormk2ChangeRecipeProcedure {
 				BlockState _bs = world.getBlockState(_bp);
 				if (_tileEntity != null)
 					_tileEntity.getTileData().putString("Recipe", "CopperSheet");
+
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
@@ -136,6 +135,7 @@ public class Constructormk2ChangeRecipeProcedure {
 				BlockState _bs = world.getBlockState(_bp);
 				if (_tileEntity != null)
 					_tileEntity.getTileData().putString("Recipe", "SteelBlock");
+
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
@@ -153,6 +153,7 @@ public class Constructormk2ChangeRecipeProcedure {
 				BlockState _bs = world.getBlockState(_bp);
 				if (_tileEntity != null)
 					_tileEntity.getTileData().putString("Recipe", "ModularFrame");
+
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
@@ -170,6 +171,7 @@ public class Constructormk2ChangeRecipeProcedure {
 				BlockState _bs = world.getBlockState(_bp);
 				if (_tileEntity != null)
 					_tileEntity.getTileData().putString("Recipe", "Concrete");
+
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
@@ -187,6 +189,7 @@ public class Constructormk2ChangeRecipeProcedure {
 				BlockState _bs = world.getBlockState(_bp);
 				if (_tileEntity != null)
 					_tileEntity.getTileData().putString("Recipe", "CateriumRod");
+
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
@@ -204,6 +207,7 @@ public class Constructormk2ChangeRecipeProcedure {
 				BlockState _bs = world.getBlockState(_bp);
 				if (_tileEntity != null)
 					_tileEntity.getTileData().putString("Recipe", "StoneBrick");
+
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
@@ -221,6 +225,7 @@ public class Constructormk2ChangeRecipeProcedure {
 				BlockState _bs = world.getBlockState(_bp);
 				if (_tileEntity != null)
 					_tileEntity.getTileData().putString("Recipe", "DiamondSteelBlock");
+
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
@@ -238,6 +243,7 @@ public class Constructormk2ChangeRecipeProcedure {
 				BlockState _bs = world.getBlockState(_bp);
 				if (_tileEntity != null)
 					_tileEntity.getTileData().putString("Recipe", "2CoreCPU");
+
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
@@ -255,6 +261,7 @@ public class Constructormk2ChangeRecipeProcedure {
 				BlockState _bs = world.getBlockState(_bp);
 				if (_tileEntity != null)
 					_tileEntity.getTileData().putString("Recipe", "4CoreCPU");
+
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
@@ -272,6 +279,7 @@ public class Constructormk2ChangeRecipeProcedure {
 				BlockState _bs = world.getBlockState(_bp);
 				if (_tileEntity != null)
 					_tileEntity.getTileData().putString("Recipe", "8CoreCPU");
+
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
@@ -289,6 +297,7 @@ public class Constructormk2ChangeRecipeProcedure {
 				BlockState _bs = world.getBlockState(_bp);
 				if (_tileEntity != null)
 					_tileEntity.getTileData().putString("Recipe", "16CoreCPU");
+
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
@@ -306,6 +315,7 @@ public class Constructormk2ChangeRecipeProcedure {
 				BlockState _bs = world.getBlockState(_bp);
 				if (_tileEntity != null)
 					_tileEntity.getTileData().putString("Recipe", "32CoreCPU");
+
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
@@ -316,9 +326,11 @@ public class Constructormk2ChangeRecipeProcedure {
 				BlockState _bs = world.getBlockState(_bp);
 				if (_tileEntity != null)
 					_tileEntity.getTileData().putString("Recipe", "Screw");
+
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
 		}
 	}
+
 }

@@ -1,23 +1,17 @@
 
 package industrialeconomy.item;
 
-import net.minecraftforge.registries.ObjectHolder;
-
-import net.minecraft.item.Rarity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.Item;
-import net.minecraft.block.BlockState;
-
-import industrialeconomy.IndustrialEconomyModElements;
+import net.minecraft.entity.ai.attributes.Attributes;
 
 @IndustrialEconomyModElements.ModElement.Tag
 public class CopperFoundationItem extends IndustrialEconomyModElements.ModElement {
+
 	@ObjectHolder("industrial_economy:copper_foundation")
 	public static final Item block = null;
 
 	public CopperFoundationItem(IndustrialEconomyModElements instance) {
 		super(instance, 640);
+
 	}
 
 	@Override
@@ -26,6 +20,7 @@ public class CopperFoundationItem extends IndustrialEconomyModElements.ModElemen
 	}
 
 	public static class ItemCustom extends Item {
+
 		public ItemCustom() {
 			super(new Item.Properties().group(ItemGroup.MISC).maxStackSize(64).rarity(Rarity.COMMON));
 			setRegistryName("copper_foundation");
@@ -45,5 +40,7 @@ public class CopperFoundationItem extends IndustrialEconomyModElements.ModElemen
 		public float getDestroySpeed(ItemStack par1ItemStack, BlockState par2Block) {
 			return 1F;
 		}
+
 	}
+
 }

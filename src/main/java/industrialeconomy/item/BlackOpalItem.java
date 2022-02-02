@@ -1,29 +1,17 @@
 
 package industrialeconomy.item;
 
-import net.minecraftforge.registries.ObjectHolder;
-
-import net.minecraft.world.World;
-import net.minecraft.util.text.StringTextComponent;
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.item.Rarity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.Item;
-import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.block.BlockState;
-
-import java.util.List;
-
-import industrialeconomy.IndustrialEconomyModElements;
+import net.minecraft.entity.ai.attributes.Attributes;
 
 @IndustrialEconomyModElements.ModElement.Tag
 public class BlackOpalItem extends IndustrialEconomyModElements.ModElement {
+
 	@ObjectHolder("industrial_economy:black_opal")
 	public static final Item block = null;
 
 	public BlackOpalItem(IndustrialEconomyModElements instance) {
 		super(instance, 577);
+
 	}
 
 	@Override
@@ -32,6 +20,7 @@ public class BlackOpalItem extends IndustrialEconomyModElements.ModElement {
 	}
 
 	public static class ItemCustom extends Item {
+
 		public ItemCustom() {
 			super(new Item.Properties().group(ItemGroup.MISC).maxStackSize(64).isImmuneToFire().rarity(Rarity.RARE));
 			setRegistryName("black_opal");
@@ -59,5 +48,7 @@ public class BlackOpalItem extends IndustrialEconomyModElements.ModElement {
 			list.add(new StringTextComponent("Iron: 69 984"));
 			list.add(new StringTextComponent("Energy: 5 183 400 MW"));
 		}
+
 	}
+
 }

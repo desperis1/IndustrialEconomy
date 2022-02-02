@@ -1,25 +1,6 @@
 package industrialeconomy.procedures;
 
-import net.minecraftforge.fml.loading.FMLPaths;
-
-import net.minecraft.util.text.StringTextComponent;
-import net.minecraft.item.ItemStack;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.Entity;
-
-import java.util.Map;
-
-import java.io.IOException;
-import java.io.FileWriter;
-import java.io.FileReader;
-import java.io.File;
-import java.io.BufferedReader;
-
-import industrialeconomy.IndustrialEconomyMod;
-
-import com.google.gson.GsonBuilder;
-import com.google.gson.Gson;
+import net.minecraftforge.eventbus.api.Event;
 
 public class SellhandCommandExecutedProcedure {
 
@@ -29,7 +10,9 @@ public class SellhandCommandExecutedProcedure {
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency entity for procedure SellhandCommandExecuted!");
 			return;
 		}
+
 		Entity entity = (Entity) dependencies.get("entity");
+
 		ItemStack itemforsell = ItemStack.EMPTY;
 		double items_amount = 0;
 		double price_from_server = 0;
@@ -50,6 +33,7 @@ public class SellhandCommandExecutedProcedure {
 					jsonstringbuilder.append(line);
 				}
 				bufferedReader.close();
+
 				mainObject = new Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
 				if (mainObject.get((((entity instanceof LivingEntity) ? ((LivingEntity) entity).getHeldItemMainhand() : ItemStack.EMPTY)
 						.getDisplayName().getString())).getAsDouble() > 0) {
@@ -83,10 +67,12 @@ public class SellhandCommandExecutedProcedure {
 					jsonstringbuilder.append(line);
 				}
 				bufferedReader.close();
+
 				mainObject = new Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
 				mainObject.addProperty("Money", (mainObject.get("Money").getAsDouble() + items_amount * price_from_server));
 				{
 					Gson mainGSONBuilderVariable = new GsonBuilder().setPrettyPrinting().create();
+
 					try {
 						FileWriter fileWriter = new FileWriter(playerConfig);
 						fileWriter.write(mainGSONBuilderVariable.toJson(mainObject));
@@ -101,4 +87,5 @@ public class SellhandCommandExecutedProcedure {
 			}
 		}
 	}
+
 }

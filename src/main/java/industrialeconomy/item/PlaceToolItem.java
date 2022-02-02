@@ -1,39 +1,11 @@
 
 package industrialeconomy.item;
 
-import net.minecraftforge.registries.ObjectHolder;
-
-import net.minecraft.world.World;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.Direction;
-import net.minecraft.util.ActionResultType;
-import net.minecraft.item.ItemUseContext;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Item;
-import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.ai.attributes.Attributes;
-import net.minecraft.entity.ai.attributes.AttributeModifier;
-import net.minecraft.entity.ai.attributes.Attribute;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.block.BlockState;
-
-import java.util.stream.Stream;
-import java.util.Map;
-import java.util.HashMap;
-import java.util.AbstractMap;
-
-import industrialeconomy.procedures.PlaceToolRightClickedOnBlockProcedure;
-
-import industrialeconomy.itemgroup.ProjectMEGAItemGroup;
-
-import industrialeconomy.IndustrialEconomyModElements;
-
-import com.google.common.collect.Multimap;
-import com.google.common.collect.ImmutableMultimap;
 
 @IndustrialEconomyModElements.ModElement.Tag
 public class PlaceToolItem extends IndustrialEconomyModElements.ModElement {
+
 	@ObjectHolder("industrial_economy:place_tool")
 	public static final Item block = null;
 
@@ -44,6 +16,7 @@ public class PlaceToolItem extends IndustrialEconomyModElements.ModElement {
 	@Override
 	public void initElements() {
 		elements.items.add(() -> new ItemToolCustom() {
+
 			@Override
 			public ActionResultType onItemUse(ItemUseContext context) {
 				ActionResultType retval = super.onItemUse(context);
@@ -64,10 +37,12 @@ public class PlaceToolItem extends IndustrialEconomyModElements.ModElement {
 						.collect(HashMap::new, (_m, _e) -> _m.put(_e.getKey(), _e.getValue()), Map::putAll));
 				return retval;
 			}
+
 		}.setRegistryName("place_tool"));
 	}
 
 	private static class ItemToolCustom extends Item {
+
 		protected ItemToolCustom() {
 			super(new Item.Properties().group(ProjectMEGAItemGroup.tab).maxDamage(100));
 		}
@@ -105,7 +80,10 @@ public class PlaceToolItem extends IndustrialEconomyModElements.ModElement {
 						new AttributeModifier(ATTACK_SPEED_MODIFIER, "Tool modifier", -3, AttributeModifier.Operation.ADDITION));
 				return builder.build();
 			}
+
 			return super.getAttributeModifiers(equipmentSlot);
 		}
+
 	}
+
 }

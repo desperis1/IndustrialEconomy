@@ -1,53 +1,6 @@
 package industrialeconomy.procedures;
 
-import net.minecraftforge.items.IItemHandlerModifiable;
-import net.minecraftforge.items.CapabilityItemHandler;
-import net.minecraftforge.fml.loading.FMLPaths;
-
-import net.minecraft.world.World;
-import net.minecraft.world.IWorld;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.item.Items;
-import net.minecraft.item.ItemStack;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.BlockState;
-
-import java.util.concurrent.atomic.AtomicReference;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.Map;
-
-import java.io.IOException;
-import java.io.FileWriter;
-import java.io.FileReader;
-import java.io.File;
-import java.io.BufferedReader;
-
-import industrialeconomy.item.TwoCoreCPUItem;
-import industrialeconomy.item.ThirtytwoCoreCPUItem;
-import industrialeconomy.item.SteelingotItem;
-import industrialeconomy.item.SixteenCoreCPUItem;
-import industrialeconomy.item.ScrewItem;
-import industrialeconomy.item.FourCoreCPUItem;
-import industrialeconomy.item.EightCoreCPUItem;
-import industrialeconomy.item.DiamondsteelitemItem;
-import industrialeconomy.item.CpuItem;
-import industrialeconomy.item.CopperSheetItemItem;
-import industrialeconomy.item.CopperIngotItem;
-import industrialeconomy.item.ConcreteItem;
-import industrialeconomy.item.CateriumroditemItem;
-import industrialeconomy.item.CateriumIngotItem;
-
-import industrialeconomy.block.SteelBlockBlock;
-import industrialeconomy.block.ModularframeBlock;
-import industrialeconomy.block.DiamondSteelblockBlock;
-import industrialeconomy.block.CopperBlockBlock;
-import industrialeconomy.block.CateriumBlockBlock;
-
-import industrialeconomy.IndustrialEconomyMod;
-
-import com.google.gson.GsonBuilder;
-import com.google.gson.Gson;
+import net.minecraftforge.eventbus.api.Event;
 
 public class ConstructorMK2UpdateTickProcedure {
 
@@ -72,10 +25,12 @@ public class ConstructorMK2UpdateTickProcedure {
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency z for procedure ConstructorMK2UpdateTick!");
 			return;
 		}
+
 		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
+
 		String owner = "";
 		File playerConfig = new File("");
 		com.google.gson.JsonObject mainObject = new com.google.gson.JsonObject();
@@ -102,6 +57,7 @@ public class ConstructorMK2UpdateTickProcedure {
 					jsonstringbuilder.append(line);
 				}
 				bufferedReader.close();
+
 				mainObject = new Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
 				mam2CoreCPU = mainObject.get("mam2CoreCPU").getAsBoolean();
 				mam4CoreCPU = mainObject.get("mam4CoreCPU").getAsBoolean();
@@ -178,6 +134,7 @@ public class ConstructorMK2UpdateTickProcedure {
 							BlockState _bs = world.getBlockState(_bp);
 							if (_tileEntity != null)
 								_tileEntity.getTileData().putBoolean("Working", (true));
+
 							if (world instanceof World)
 								((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 						}
@@ -290,6 +247,7 @@ public class ConstructorMK2UpdateTickProcedure {
 							BlockState _bs = world.getBlockState(_bp);
 							if (_tileEntity != null)
 								_tileEntity.getTileData().putBoolean("Working", (true));
+
 							if (world instanceof World)
 								((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 						}
@@ -402,6 +360,7 @@ public class ConstructorMK2UpdateTickProcedure {
 							BlockState _bs = world.getBlockState(_bp);
 							if (_tileEntity != null)
 								_tileEntity.getTileData().putBoolean("Working", (true));
+
 							if (world instanceof World)
 								((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 						}
@@ -514,6 +473,7 @@ public class ConstructorMK2UpdateTickProcedure {
 							BlockState _bs = world.getBlockState(_bp);
 							if (_tileEntity != null)
 								_tileEntity.getTileData().putBoolean("Working", (true));
+
 							if (world instanceof World)
 								((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 						}
@@ -627,6 +587,7 @@ public class ConstructorMK2UpdateTickProcedure {
 							BlockState _bs = world.getBlockState(_bp);
 							if (_tileEntity != null)
 								_tileEntity.getTileData().putBoolean("Working", (true));
+
 							if (world instanceof World)
 								((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 						}
@@ -739,6 +700,7 @@ public class ConstructorMK2UpdateTickProcedure {
 							BlockState _bs = world.getBlockState(_bp);
 							if (_tileEntity != null)
 								_tileEntity.getTileData().putBoolean("Working", (true));
+
 							if (world instanceof World)
 								((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 						}
@@ -851,6 +813,7 @@ public class ConstructorMK2UpdateTickProcedure {
 							BlockState _bs = world.getBlockState(_bp);
 							if (_tileEntity != null)
 								_tileEntity.getTileData().putBoolean("Working", (true));
+
 							if (world instanceof World)
 								((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 						}
@@ -964,6 +927,7 @@ public class ConstructorMK2UpdateTickProcedure {
 							BlockState _bs = world.getBlockState(_bp);
 							if (_tileEntity != null)
 								_tileEntity.getTileData().putBoolean("Working", (true));
+
 							if (world instanceof World)
 								((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 						}
@@ -1076,6 +1040,7 @@ public class ConstructorMK2UpdateTickProcedure {
 							BlockState _bs = world.getBlockState(_bp);
 							if (_tileEntity != null)
 								_tileEntity.getTileData().putBoolean("Working", (true));
+
 							if (world instanceof World)
 								((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 						}
@@ -1188,6 +1153,7 @@ public class ConstructorMK2UpdateTickProcedure {
 							BlockState _bs = world.getBlockState(_bp);
 							if (_tileEntity != null)
 								_tileEntity.getTileData().putBoolean("Working", (true));
+
 							if (world instanceof World)
 								((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 						}
@@ -1300,6 +1266,7 @@ public class ConstructorMK2UpdateTickProcedure {
 							BlockState _bs = world.getBlockState(_bp);
 							if (_tileEntity != null)
 								_tileEntity.getTileData().putBoolean("Working", (true));
+
 							if (world instanceof World)
 								((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 						}
@@ -1413,6 +1380,7 @@ public class ConstructorMK2UpdateTickProcedure {
 							BlockState _bs = world.getBlockState(_bp);
 							if (_tileEntity != null)
 								_tileEntity.getTileData().putBoolean("Working", (true));
+
 							if (world instanceof World)
 								((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 						}
@@ -1525,6 +1493,7 @@ public class ConstructorMK2UpdateTickProcedure {
 							BlockState _bs = world.getBlockState(_bp);
 							if (_tileEntity != null)
 								_tileEntity.getTileData().putBoolean("Working", (true));
+
 							if (world instanceof World)
 								((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 						}
@@ -1637,6 +1606,7 @@ public class ConstructorMK2UpdateTickProcedure {
 							BlockState _bs = world.getBlockState(_bp);
 							if (_tileEntity != null)
 								_tileEntity.getTileData().putBoolean("Working", (true));
+
 							if (world instanceof World)
 								((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 						}
@@ -1749,6 +1719,7 @@ public class ConstructorMK2UpdateTickProcedure {
 							BlockState _bs = world.getBlockState(_bp);
 							if (_tileEntity != null)
 								_tileEntity.getTileData().putBoolean("Working", (true));
+
 							if (world instanceof World)
 								((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 						}
@@ -1861,6 +1832,7 @@ public class ConstructorMK2UpdateTickProcedure {
 							BlockState _bs = world.getBlockState(_bp);
 							if (_tileEntity != null)
 								_tileEntity.getTileData().putBoolean("Working", (true));
+
 							if (world instanceof World)
 								((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 						}
@@ -1973,6 +1945,7 @@ public class ConstructorMK2UpdateTickProcedure {
 							BlockState _bs = world.getBlockState(_bp);
 							if (_tileEntity != null)
 								_tileEntity.getTileData().putBoolean("Working", (true));
+
 							if (world instanceof World)
 								((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 						}
@@ -2023,6 +1996,7 @@ public class ConstructorMK2UpdateTickProcedure {
 							BlockState _bs = world.getBlockState(_bp);
 							if (_tileEntity != null)
 								_tileEntity.getTileData().putBoolean("Working", (false));
+
 							if (world instanceof World)
 								((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 						}
@@ -2034,6 +2008,7 @@ public class ConstructorMK2UpdateTickProcedure {
 						BlockState _bs = world.getBlockState(_bp);
 						if (_tileEntity != null)
 							_tileEntity.getTileData().putBoolean("Working", (false));
+
 						if (world instanceof World)
 							((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 					}
@@ -2045,6 +2020,7 @@ public class ConstructorMK2UpdateTickProcedure {
 		}
 		{
 			Gson mainGSONBuilderVariable = new GsonBuilder().setPrettyPrinting().create();
+
 			try {
 				FileWriter fileWriter = new FileWriter(playerConfig);
 				fileWriter.write(mainGSONBuilderVariable.toJson(mainObject));
@@ -2054,4 +2030,5 @@ public class ConstructorMK2UpdateTickProcedure {
 			}
 		}
 	}
+
 }

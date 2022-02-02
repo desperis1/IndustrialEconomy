@@ -1,30 +1,6 @@
 package industrialeconomy.procedures;
 
-import net.minecraftforge.fml.server.ServerLifecycleHooks;
-import net.minecraftforge.fml.loading.FMLPaths;
-
-import net.minecraft.world.World;
-import net.minecraft.world.IWorld;
-import net.minecraft.util.text.StringTextComponent;
-import net.minecraft.util.text.ChatType;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.Util;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.block.BlockState;
-
-import java.util.Map;
-
-import java.io.IOException;
-import java.io.FileWriter;
-import java.io.FileReader;
-import java.io.File;
-import java.io.BufferedReader;
-
-import industrialeconomy.IndustrialEconomyMod;
-
-import com.google.gson.GsonBuilder;
-import com.google.gson.Gson;
+import net.minecraftforge.eventbus.api.Event;
 
 public class MAMUpdateTickProcedure {
 
@@ -49,10 +25,12 @@ public class MAMUpdateTickProcedure {
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency z for procedure MAMUpdateTick!");
 			return;
 		}
+
 		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
+
 		File playerConfig = new File("");
 		com.google.gson.JsonObject mainObject = new com.google.gson.JsonObject();
 		String owner = "";
@@ -87,6 +65,7 @@ public class MAMUpdateTickProcedure {
 						return -1;
 					}
 				}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Tick") + 1));
+
 			if (world instanceof World)
 				((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 		}
@@ -125,6 +104,7 @@ public class MAMUpdateTickProcedure {
 							return -1;
 						}
 					}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Tick"))));
+
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
@@ -163,6 +143,7 @@ public class MAMUpdateTickProcedure {
 							return -1;
 						}
 					}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Tick"))));
+
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
@@ -201,6 +182,7 @@ public class MAMUpdateTickProcedure {
 							return -1;
 						}
 					}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Tick"))));
+
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
@@ -239,6 +221,7 @@ public class MAMUpdateTickProcedure {
 							return -1;
 						}
 					}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Tick"))));
+
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
@@ -277,6 +260,7 @@ public class MAMUpdateTickProcedure {
 							return -1;
 						}
 					}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Tick"))));
+
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
@@ -315,6 +299,7 @@ public class MAMUpdateTickProcedure {
 							return -1;
 						}
 					}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Tick"))));
+
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
@@ -353,6 +338,7 @@ public class MAMUpdateTickProcedure {
 							return -1;
 						}
 					}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Tick"))));
+
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
@@ -391,6 +377,7 @@ public class MAMUpdateTickProcedure {
 							return -1;
 						}
 					}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Tick"))));
+
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
@@ -412,6 +399,7 @@ public class MAMUpdateTickProcedure {
 					jsonstringbuilder.append(line);
 				}
 				bufferedReader.close();
+
 				mainObject = new Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
 				if (!world.isRemote()) {
 					BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
@@ -419,6 +407,7 @@ public class MAMUpdateTickProcedure {
 					BlockState _bs = world.getBlockState(_bp);
 					if (_tileEntity != null)
 						_tileEntity.getTileData().putDouble("Energy", mainObject.get("Energy").getAsDouble());
+
 					if (world instanceof World)
 						((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 				}
@@ -428,6 +417,7 @@ public class MAMUpdateTickProcedure {
 					BlockState _bs = world.getBlockState(_bp);
 					if (_tileEntity != null)
 						_tileEntity.getTileData().putDouble("Money", mainObject.get("Money").getAsDouble());
+
 					if (world instanceof World)
 						((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 				}
@@ -468,6 +458,7 @@ public class MAMUpdateTickProcedure {
 								return -1;
 							}
 						}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Tick") + 37500));
+
 					if (world instanceof World)
 						((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 				}
@@ -480,6 +471,7 @@ public class MAMUpdateTickProcedure {
 							jsonstringbuilder.append(line);
 						}
 						bufferedReader.close();
+
 						mainObject = new Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
 						mainObject.addProperty("Energy", (mainObject.get("Energy").getAsDouble() - 2000000000));
 						mainObject.addProperty("Edown", (mainObject.get("Edown").getAsDouble() + 2000000000));
@@ -491,6 +483,7 @@ public class MAMUpdateTickProcedure {
 				}
 				{
 					Gson mainGSONBuilderVariable = new GsonBuilder().setPrettyPrinting().create();
+
 					try {
 						FileWriter fileWriter = new FileWriter(playerConfig);
 						fileWriter.write(mainGSONBuilderVariable.toJson(mainObject));
@@ -535,6 +528,7 @@ public class MAMUpdateTickProcedure {
 				BlockState _bs = world.getBlockState(_bp);
 				if (_tileEntity != null)
 					_tileEntity.getTileData().putBoolean("32CoreCPUStarted", (false));
+
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
@@ -561,6 +555,7 @@ public class MAMUpdateTickProcedure {
 								return -1;
 							}
 						}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Tick") + 17500));
+
 					if (world instanceof World)
 						((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 				}
@@ -573,6 +568,7 @@ public class MAMUpdateTickProcedure {
 							jsonstringbuilder.append(line);
 						}
 						bufferedReader.close();
+
 						mainObject = new Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
 						mainObject.addProperty("Energy", (mainObject.get("Energy").getAsDouble() - 1000000000));
 						mainObject.addProperty("Edown", (mainObject.get("Edown").getAsDouble() + 1000000000));
@@ -584,6 +580,7 @@ public class MAMUpdateTickProcedure {
 				}
 				{
 					Gson mainGSONBuilderVariable = new GsonBuilder().setPrettyPrinting().create();
+
 					try {
 						FileWriter fileWriter = new FileWriter(playerConfig);
 						fileWriter.write(mainGSONBuilderVariable.toJson(mainObject));
@@ -628,6 +625,7 @@ public class MAMUpdateTickProcedure {
 				BlockState _bs = world.getBlockState(_bp);
 				if (_tileEntity != null)
 					_tileEntity.getTileData().putBoolean("16CoreCPUStarted", (false));
+
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
@@ -654,6 +652,7 @@ public class MAMUpdateTickProcedure {
 								return -1;
 							}
 						}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Tick") + 10800));
+
 					if (world instanceof World)
 						((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 				}
@@ -666,6 +665,7 @@ public class MAMUpdateTickProcedure {
 							jsonstringbuilder.append(line);
 						}
 						bufferedReader.close();
+
 						mainObject = new Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
 						mainObject.addProperty("Energy", (mainObject.get("Energy").getAsDouble() - 350000000));
 						mainObject.addProperty("Edown", (mainObject.get("Edown").getAsDouble() + 350000000));
@@ -677,6 +677,7 @@ public class MAMUpdateTickProcedure {
 				}
 				{
 					Gson mainGSONBuilderVariable = new GsonBuilder().setPrettyPrinting().create();
+
 					try {
 						FileWriter fileWriter = new FileWriter(playerConfig);
 						fileWriter.write(mainGSONBuilderVariable.toJson(mainObject));
@@ -721,6 +722,7 @@ public class MAMUpdateTickProcedure {
 				BlockState _bs = world.getBlockState(_bp);
 				if (_tileEntity != null)
 					_tileEntity.getTileData().putBoolean("8CoreCPUStarted", (false));
+
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
@@ -747,6 +749,7 @@ public class MAMUpdateTickProcedure {
 								return -1;
 							}
 						}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Tick") + 5400));
+
 					if (world instanceof World)
 						((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 				}
@@ -759,6 +762,7 @@ public class MAMUpdateTickProcedure {
 							jsonstringbuilder.append(line);
 						}
 						bufferedReader.close();
+
 						mainObject = new Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
 						mainObject.addProperty("Energy", (mainObject.get("Energy").getAsDouble() - 100000000));
 						mainObject.addProperty("Edown", (mainObject.get("Edown").getAsDouble() + 100000000));
@@ -770,6 +774,7 @@ public class MAMUpdateTickProcedure {
 				}
 				{
 					Gson mainGSONBuilderVariable = new GsonBuilder().setPrettyPrinting().create();
+
 					try {
 						FileWriter fileWriter = new FileWriter(playerConfig);
 						fileWriter.write(mainGSONBuilderVariable.toJson(mainObject));
@@ -814,6 +819,7 @@ public class MAMUpdateTickProcedure {
 				BlockState _bs = world.getBlockState(_bp);
 				if (_tileEntity != null)
 					_tileEntity.getTileData().putBoolean("4CoreCPUStarted", (false));
+
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
@@ -840,6 +846,7 @@ public class MAMUpdateTickProcedure {
 								return -1;
 							}
 						}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Tick") + 3600));
+
 					if (world instanceof World)
 						((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 				}
@@ -852,6 +859,7 @@ public class MAMUpdateTickProcedure {
 							jsonstringbuilder.append(line);
 						}
 						bufferedReader.close();
+
 						mainObject = new Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
 						mainObject.addProperty("Energy", (mainObject.get("Energy").getAsDouble() - 25000000));
 						mainObject.addProperty("Edown", (mainObject.get("Edown").getAsDouble() + 25000000));
@@ -863,6 +871,7 @@ public class MAMUpdateTickProcedure {
 				}
 				{
 					Gson mainGSONBuilderVariable = new GsonBuilder().setPrettyPrinting().create();
+
 					try {
 						FileWriter fileWriter = new FileWriter(playerConfig);
 						fileWriter.write(mainGSONBuilderVariable.toJson(mainObject));
@@ -907,6 +916,7 @@ public class MAMUpdateTickProcedure {
 				BlockState _bs = world.getBlockState(_bp);
 				if (_tileEntity != null)
 					_tileEntity.getTileData().putBoolean("2CoreCPUStarted", (false));
+
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
@@ -933,6 +943,7 @@ public class MAMUpdateTickProcedure {
 								return -1;
 							}
 						}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Tick") + 600));
+
 					if (world instanceof World)
 						((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 				}
@@ -945,6 +956,7 @@ public class MAMUpdateTickProcedure {
 							jsonstringbuilder.append(line);
 						}
 						bufferedReader.close();
+
 						mainObject = new Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
 						mainObject.addProperty("Energy", (mainObject.get("Energy").getAsDouble() - 1000000));
 						mainObject.addProperty("Edown", (mainObject.get("Edown").getAsDouble() + 1000000));
@@ -956,6 +968,7 @@ public class MAMUpdateTickProcedure {
 				}
 				{
 					Gson mainGSONBuilderVariable = new GsonBuilder().setPrettyPrinting().create();
+
 					try {
 						FileWriter fileWriter = new FileWriter(playerConfig);
 						fileWriter.write(mainGSONBuilderVariable.toJson(mainObject));
@@ -998,6 +1011,7 @@ public class MAMUpdateTickProcedure {
 				BlockState _bs = world.getBlockState(_bp);
 				if (_tileEntity != null)
 					_tileEntity.getTileData().putBoolean("SteelStarted", (false));
+
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
@@ -1024,6 +1038,7 @@ public class MAMUpdateTickProcedure {
 								return -1;
 							}
 						}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Tick") + 1800));
+
 					if (world instanceof World)
 						((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 				}
@@ -1036,6 +1051,7 @@ public class MAMUpdateTickProcedure {
 							jsonstringbuilder.append(line);
 						}
 						bufferedReader.close();
+
 						mainObject = new Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
 						mainObject.addProperty("Energy", (mainObject.get("Energy").getAsDouble() - 5000000));
 						mainObject.addProperty("Edown", (mainObject.get("Edown").getAsDouble() + 5000000));
@@ -1047,6 +1063,7 @@ public class MAMUpdateTickProcedure {
 				}
 				{
 					Gson mainGSONBuilderVariable = new GsonBuilder().setPrettyPrinting().create();
+
 					try {
 						FileWriter fileWriter = new FileWriter(playerConfig);
 						fileWriter.write(mainGSONBuilderVariable.toJson(mainObject));
@@ -1091,6 +1108,7 @@ public class MAMUpdateTickProcedure {
 				BlockState _bs = world.getBlockState(_bp);
 				if (_tileEntity != null)
 					_tileEntity.getTileData().putBoolean("DiamondSteelStarted", (false));
+
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
@@ -1117,6 +1135,7 @@ public class MAMUpdateTickProcedure {
 								return -1;
 							}
 						}.getValue(world, new BlockPos((int) x, (int) y, (int) z), "Tick") + 5400));
+
 					if (world instanceof World)
 						((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 				}
@@ -1129,6 +1148,7 @@ public class MAMUpdateTickProcedure {
 							jsonstringbuilder.append(line);
 						}
 						bufferedReader.close();
+
 						mainObject = new Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
 						mainObject.addProperty("Energy", (mainObject.get("Energy").getAsDouble() - 50000000));
 						mainObject.addProperty("Edown", (mainObject.get("Edown").getAsDouble() + 50000000));
@@ -1140,6 +1160,7 @@ public class MAMUpdateTickProcedure {
 				}
 				{
 					Gson mainGSONBuilderVariable = new GsonBuilder().setPrettyPrinting().create();
+
 					try {
 						FileWriter fileWriter = new FileWriter(playerConfig);
 						fileWriter.write(mainGSONBuilderVariable.toJson(mainObject));
@@ -1184,6 +1205,7 @@ public class MAMUpdateTickProcedure {
 				BlockState _bs = world.getBlockState(_bp);
 				if (_tileEntity != null)
 					_tileEntity.getTileData().putBoolean("BlackOpalStarted", (false));
+
 				if (world instanceof World)
 					((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 			}
@@ -1220,6 +1242,7 @@ public class MAMUpdateTickProcedure {
 						jsonstringbuilder.append(line);
 					}
 					bufferedReader.close();
+
 					mainObject = new Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
 					mainObject.addProperty("mam32CoreCPU", (true));
 
@@ -1229,6 +1252,7 @@ public class MAMUpdateTickProcedure {
 			}
 			{
 				Gson mainGSONBuilderVariable = new GsonBuilder().setPrettyPrinting().create();
+
 				try {
 					FileWriter fileWriter = new FileWriter(playerConfig);
 					fileWriter.write(mainGSONBuilderVariable.toJson(mainObject));
@@ -1276,6 +1300,7 @@ public class MAMUpdateTickProcedure {
 						jsonstringbuilder.append(line);
 					}
 					bufferedReader.close();
+
 					mainObject = new Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
 					mainObject.addProperty("mam16CoreCPU", (true));
 
@@ -1285,6 +1310,7 @@ public class MAMUpdateTickProcedure {
 			}
 			{
 				Gson mainGSONBuilderVariable = new GsonBuilder().setPrettyPrinting().create();
+
 				try {
 					FileWriter fileWriter = new FileWriter(playerConfig);
 					fileWriter.write(mainGSONBuilderVariable.toJson(mainObject));
@@ -1332,6 +1358,7 @@ public class MAMUpdateTickProcedure {
 						jsonstringbuilder.append(line);
 					}
 					bufferedReader.close();
+
 					mainObject = new Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
 					mainObject.addProperty("mam8CoreCPU", (true));
 
@@ -1341,6 +1368,7 @@ public class MAMUpdateTickProcedure {
 			}
 			{
 				Gson mainGSONBuilderVariable = new GsonBuilder().setPrettyPrinting().create();
+
 				try {
 					FileWriter fileWriter = new FileWriter(playerConfig);
 					fileWriter.write(mainGSONBuilderVariable.toJson(mainObject));
@@ -1388,6 +1416,7 @@ public class MAMUpdateTickProcedure {
 						jsonstringbuilder.append(line);
 					}
 					bufferedReader.close();
+
 					mainObject = new Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
 					mainObject.addProperty("mam4CoreCPU", (true));
 
@@ -1397,6 +1426,7 @@ public class MAMUpdateTickProcedure {
 			}
 			{
 				Gson mainGSONBuilderVariable = new GsonBuilder().setPrettyPrinting().create();
+
 				try {
 					FileWriter fileWriter = new FileWriter(playerConfig);
 					fileWriter.write(mainGSONBuilderVariable.toJson(mainObject));
@@ -1444,6 +1474,7 @@ public class MAMUpdateTickProcedure {
 						jsonstringbuilder.append(line);
 					}
 					bufferedReader.close();
+
 					mainObject = new Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
 					mainObject.addProperty("mam2CoreCPU", (true));
 
@@ -1453,6 +1484,7 @@ public class MAMUpdateTickProcedure {
 			}
 			{
 				Gson mainGSONBuilderVariable = new GsonBuilder().setPrettyPrinting().create();
+
 				try {
 					FileWriter fileWriter = new FileWriter(playerConfig);
 					fileWriter.write(mainGSONBuilderVariable.toJson(mainObject));
@@ -1500,6 +1532,7 @@ public class MAMUpdateTickProcedure {
 						jsonstringbuilder.append(line);
 					}
 					bufferedReader.close();
+
 					mainObject = new Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
 					mainObject.addProperty("mamBlackOpal", (true));
 
@@ -1509,6 +1542,7 @@ public class MAMUpdateTickProcedure {
 			}
 			{
 				Gson mainGSONBuilderVariable = new GsonBuilder().setPrettyPrinting().create();
+
 				try {
 					FileWriter fileWriter = new FileWriter(playerConfig);
 					fileWriter.write(mainGSONBuilderVariable.toJson(mainObject));
@@ -1556,6 +1590,7 @@ public class MAMUpdateTickProcedure {
 						jsonstringbuilder.append(line);
 					}
 					bufferedReader.close();
+
 					mainObject = new Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
 					mainObject.addProperty("mamSteel", (true));
 
@@ -1565,6 +1600,7 @@ public class MAMUpdateTickProcedure {
 			}
 			{
 				Gson mainGSONBuilderVariable = new GsonBuilder().setPrettyPrinting().create();
+
 				try {
 					FileWriter fileWriter = new FileWriter(playerConfig);
 					fileWriter.write(mainGSONBuilderVariable.toJson(mainObject));
@@ -1612,6 +1648,7 @@ public class MAMUpdateTickProcedure {
 						jsonstringbuilder.append(line);
 					}
 					bufferedReader.close();
+
 					mainObject = new Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
 					mainObject.addProperty("mamDiamondSteel", (true));
 
@@ -1621,6 +1658,7 @@ public class MAMUpdateTickProcedure {
 			}
 			{
 				Gson mainGSONBuilderVariable = new GsonBuilder().setPrettyPrinting().create();
+
 				try {
 					FileWriter fileWriter = new FileWriter(playerConfig);
 					fileWriter.write(mainGSONBuilderVariable.toJson(mainObject));
@@ -1637,4 +1675,5 @@ public class MAMUpdateTickProcedure {
 			}
 		}
 	}
+
 }

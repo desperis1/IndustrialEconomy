@@ -1,24 +1,17 @@
 
 package industrialeconomy.item;
 
-import net.minecraftforge.registries.ObjectHolder;
-
-import net.minecraft.item.Rarity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Item;
-import net.minecraft.block.BlockState;
-
-import industrialeconomy.itemgroup.ProjectMEGAItemGroup;
-
-import industrialeconomy.IndustrialEconomyModElements;
+import net.minecraft.entity.ai.attributes.Attributes;
 
 @IndustrialEconomyModElements.ModElement.Tag
 public class EightCoreCPUItem extends IndustrialEconomyModElements.ModElement {
+
 	@ObjectHolder("industrial_economy:eight_core_cpu")
 	public static final Item block = null;
 
 	public EightCoreCPUItem(IndustrialEconomyModElements instance) {
 		super(instance, 627);
+
 	}
 
 	@Override
@@ -27,6 +20,7 @@ public class EightCoreCPUItem extends IndustrialEconomyModElements.ModElement {
 	}
 
 	public static class ItemCustom extends Item {
+
 		public ItemCustom() {
 			super(new Item.Properties().group(ProjectMEGAItemGroup.tab).maxStackSize(64).rarity(Rarity.RARE));
 			setRegistryName("eight_core_cpu");
@@ -46,5 +40,7 @@ public class EightCoreCPUItem extends IndustrialEconomyModElements.ModElement {
 		public float getDestroySpeed(ItemStack par1ItemStack, BlockState par2Block) {
 			return 1F;
 		}
+
 	}
+
 }

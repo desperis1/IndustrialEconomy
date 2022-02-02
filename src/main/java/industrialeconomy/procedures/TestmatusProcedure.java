@@ -1,13 +1,6 @@
 package industrialeconomy.procedures;
 
-import net.minecraft.world.IWorld;
-import net.minecraft.util.math.BlockPos;
-
-import java.util.Map;
-
-import industrialeconomy.block.CoalNodeInactiveBlock;
-
-import industrialeconomy.IndustrialEconomyMod;
+import net.minecraftforge.eventbus.api.Event;
 
 public class TestmatusProcedure {
 
@@ -32,10 +25,13 @@ public class TestmatusProcedure {
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency z for procedure Testmatus!");
 			return;
 		}
+
 		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
+
 		world.setBlockState(new BlockPos((int) x, (int) y, (int) z), CoalNodeInactiveBlock.block.getDefaultState(), 3);
 	}
+
 }

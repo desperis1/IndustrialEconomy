@@ -1,25 +1,17 @@
 
 package industrialeconomy.item;
 
-import net.minecraftforge.registries.ObjectHolder;
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.api.distmarker.Dist;
-
-import net.minecraft.item.Rarity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.Item;
-import net.minecraft.block.BlockState;
-
-import industrialeconomy.IndustrialEconomyModElements;
+import net.minecraft.entity.ai.attributes.Attributes;
 
 @IndustrialEconomyModElements.ModElement.Tag
 public class SixtyFourCoreCPUItem extends IndustrialEconomyModElements.ModElement {
+
 	@ObjectHolder("industrial_economy:sixty_four_core_cpu")
 	public static final Item block = null;
 
 	public SixtyFourCoreCPUItem(IndustrialEconomyModElements instance) {
 		super(instance, 634);
+
 	}
 
 	@Override
@@ -28,6 +20,7 @@ public class SixtyFourCoreCPUItem extends IndustrialEconomyModElements.ModElemen
 	}
 
 	public static class ItemCustom extends Item {
+
 		public ItemCustom() {
 			super(new Item.Properties().group(ItemGroup.MISC).maxStackSize(64).rarity(Rarity.RARE));
 			setRegistryName("sixty_four_core_cpu");
@@ -53,5 +46,7 @@ public class SixtyFourCoreCPUItem extends IndustrialEconomyModElements.ModElemen
 		public boolean hasEffect(ItemStack itemstack) {
 			return true;
 		}
+
 	}
+
 }

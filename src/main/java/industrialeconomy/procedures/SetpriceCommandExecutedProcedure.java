@@ -1,26 +1,6 @@
 package industrialeconomy.procedures;
 
-import net.minecraftforge.fml.loading.FMLPaths;
-
-import net.minecraft.util.text.StringTextComponent;
-import net.minecraft.item.ItemStack;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.Entity;
-
-import java.util.Map;
-import java.util.HashMap;
-
-import java.io.IOException;
-import java.io.FileWriter;
-import java.io.FileReader;
-import java.io.File;
-import java.io.BufferedReader;
-
-import industrialeconomy.IndustrialEconomyMod;
-
-import com.google.gson.GsonBuilder;
-import com.google.gson.Gson;
+import net.minecraftforge.eventbus.api.Event;
 
 public class SetpriceCommandExecutedProcedure {
 
@@ -35,8 +15,10 @@ public class SetpriceCommandExecutedProcedure {
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency cmdparams for procedure SetpriceCommandExecuted!");
 			return;
 		}
+
 		Entity entity = (Entity) dependencies.get("entity");
 		HashMap cmdparams = (HashMap) dependencies.get("cmdparams");
+
 		double price = 0;
 		ItemStack item_in_hand = ItemStack.EMPTY;
 		com.google.gson.JsonObject mainObject = new com.google.gson.JsonObject();
@@ -66,6 +48,7 @@ public class SetpriceCommandExecutedProcedure {
 					jsonstringbuilder.append(line);
 				}
 				bufferedReader.close();
+
 				mainObject = new Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
 				if (!(new Object() {
 					public String getText() {
@@ -115,6 +98,7 @@ public class SetpriceCommandExecutedProcedure {
 					}.getText()));
 					{
 						Gson mainGSONBuilderVariable = new GsonBuilder().setPrettyPrinting().create();
+
 						try {
 							FileWriter fileWriter = new FileWriter(playerConfig);
 							fileWriter.write(mainGSONBuilderVariable.toJson(mainObject));
@@ -150,4 +134,5 @@ public class SetpriceCommandExecutedProcedure {
 			}
 		}
 	}
+
 }

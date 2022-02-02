@@ -1,25 +1,17 @@
 
 package industrialeconomy.item;
 
-import net.minecraftforge.registries.ObjectHolder;
-import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.api.distmarker.Dist;
-
-import net.minecraft.item.Rarity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.Item;
-import net.minecraft.block.BlockState;
-
-import industrialeconomy.IndustrialEconomyModElements;
+import net.minecraft.entity.ai.attributes.Attributes;
 
 @IndustrialEconomyModElements.ModElement.Tag
 public class Money100000Item extends IndustrialEconomyModElements.ModElement {
+
 	@ObjectHolder("industrial_economy:money_100000")
 	public static final Item block = null;
 
 	public Money100000Item(IndustrialEconomyModElements instance) {
 		super(instance, 520);
+
 	}
 
 	@Override
@@ -28,6 +20,7 @@ public class Money100000Item extends IndustrialEconomyModElements.ModElement {
 	}
 
 	public static class ItemCustom extends Item {
+
 		public ItemCustom() {
 			super(new Item.Properties().group(ItemGroup.MISC).maxStackSize(64).rarity(Rarity.EPIC));
 			setRegistryName("money_100000");
@@ -53,5 +46,7 @@ public class Money100000Item extends IndustrialEconomyModElements.ModElement {
 		public boolean hasEffect(ItemStack itemstack) {
 			return true;
 		}
+
 	}
+
 }

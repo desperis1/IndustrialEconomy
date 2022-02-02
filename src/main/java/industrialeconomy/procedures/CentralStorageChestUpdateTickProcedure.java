@@ -1,28 +1,6 @@
 package industrialeconomy.procedures;
 
-import net.minecraftforge.items.IItemHandlerModifiable;
-import net.minecraftforge.items.CapabilityItemHandler;
-import net.minecraftforge.fml.loading.FMLPaths;
-
-import net.minecraft.world.IWorld;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.item.ItemStack;
-
-import java.util.concurrent.atomic.AtomicReference;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.Map;
-
-import java.io.IOException;
-import java.io.FileWriter;
-import java.io.FileReader;
-import java.io.File;
-import java.io.BufferedReader;
-
-import industrialeconomy.IndustrialEconomyMod;
-
-import com.google.gson.GsonBuilder;
-import com.google.gson.Gson;
+import net.minecraftforge.eventbus.api.Event;
 
 public class CentralStorageChestUpdateTickProcedure {
 
@@ -47,10 +25,12 @@ public class CentralStorageChestUpdateTickProcedure {
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency z for procedure CentralStorageChestUpdateTick!");
 			return;
 		}
+
 		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
+
 		com.google.gson.JsonObject mainObject = new com.google.gson.JsonObject();
 		File playerStorageConfig = new File("");
 		double amount_of_items = 0;
@@ -108,6 +88,7 @@ public class CentralStorageChestUpdateTickProcedure {
 						jsonstringbuilder.append(line);
 					}
 					bufferedReader.close();
+
 					mainObject = new Gson().fromJson(jsonstringbuilder.toString(), com.google.gson.JsonObject.class);
 					try {
 						BufferedReader playerStorageConfigReader = new BufferedReader(new FileReader(playerStorageConfig));
@@ -117,6 +98,7 @@ public class CentralStorageChestUpdateTickProcedure {
 								mainObject.addProperty(itemName, (mainObject.get(itemName).getAsDouble() + amount_of_items));
 								{
 									Gson mainGSONBuilderVariable = new GsonBuilder().setPrettyPrinting().create();
+
 									try {
 										FileWriter fileWriter = new FileWriter(playerStorageConfig);
 										fileWriter.write(mainGSONBuilderVariable.toJson(mainObject));
@@ -152,4 +134,5 @@ public class CentralStorageChestUpdateTickProcedure {
 			}
 		}
 	}
+
 }

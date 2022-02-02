@@ -8,13 +8,13 @@
   ],
   "key": {
     "0": {
-      "item": "industrial_economy:copper_foundation"
+      "item": "industrial_economy:deleted_mod_element"
     },
     "1": {
-      "item": "industrial_economy:copper_foundation"
+      "item": "industrial_economy:deleted_mod_element"
     },
     "2": {
-      "item": "industrial_economy:copper_foundation"
+      "item": "industrial_economy:deleted_mod_element"
     },
     "3": {
       "item": "minecraft:gold_block"
@@ -26,17 +26,17 @@
       "item": "minecraft:gold_block"
     },
     "6": {
-      "item": "industrial_economy:copper_foundation"
+      "item": "industrial_economy:deleted_mod_element"
     },
     "7": {
-      "item": "industrial_economy:copper_foundation"
+      "item": "industrial_economy:deleted_mod_element"
     },
     "8": {
-      "item": "industrial_economy:copper_foundation"
+      "item": "industrial_economy:deleted_mod_element"
     }
   },
   "result": {
-    "item": "industrial_economy:induction_block",
+    "item": "industrial_economy:deleted_mod_element",
     "count": 1
   }
 }

@@ -1,22 +1,11 @@
 
 package industrialeconomy.item;
 
-import net.minecraftforge.registries.ObjectHolder;
-
-import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.item.PickaxeItem;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Item;
-import net.minecraft.item.IItemTier;
-
-import industrialeconomy.itemgroup.ProjectMEGAItemGroup;
-
-import industrialeconomy.block.SteelBlockBlock;
-
-import industrialeconomy.IndustrialEconomyModElements;
+import net.minecraft.entity.ai.attributes.Attributes;
 
 @IndustrialEconomyModElements.ModElement.Tag
 public class SteelToolSPickaxeItem extends IndustrialEconomyModElements.ModElement {
+
 	@ObjectHolder("industrial_economy:steel_tool_s_pickaxe")
 	public static final Item block = null;
 
@@ -51,6 +40,8 @@ public class SteelToolSPickaxeItem extends IndustrialEconomyModElements.ModEleme
 				return Ingredient.fromStacks(new ItemStack(SteelBlockBlock.block));
 			}
 		}, 1, -3f, new Item.Properties().group(ProjectMEGAItemGroup.tab)) {
+
 		}.setRegistryName("steel_tool_s_pickaxe"));
 	}
+
 }

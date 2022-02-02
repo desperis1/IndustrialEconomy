@@ -1,11 +1,6 @@
 package industrialeconomy.procedures;
 
-import net.minecraft.util.DamageSource;
-import net.minecraft.entity.Entity;
-
-import java.util.Map;
-
-import industrialeconomy.IndustrialEconomyMod;
+import net.minecraftforge.eventbus.api.Event;
 
 public class LiquidHydrogenMobplayerCollidesBlockProcedure {
 
@@ -15,7 +10,11 @@ public class LiquidHydrogenMobplayerCollidesBlockProcedure {
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency entity for procedure LiquidHydrogenMobplayerCollidesBlock!");
 			return;
 		}
+
 		Entity entity = (Entity) dependencies.get("entity");
+
 		entity.attackEntityFrom(DamageSource.GENERIC, (float) 5);
+
 	}
+
 }

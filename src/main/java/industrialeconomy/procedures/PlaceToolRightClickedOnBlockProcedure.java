@@ -1,16 +1,6 @@
 package industrialeconomy.procedures;
 
-import net.minecraft.world.IWorld;
-import net.minecraft.util.math.RayTraceContext;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.Direction;
-import net.minecraft.entity.Entity;
-
-import java.util.Map;
-
-import industrialeconomy.block.PresserMK2Block;
-
-import industrialeconomy.IndustrialEconomyMod;
+import net.minecraftforge.eventbus.api.Event;
 
 public class PlaceToolRightClickedOnBlockProcedure {
 
@@ -40,11 +30,13 @@ public class PlaceToolRightClickedOnBlockProcedure {
 				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency entity for procedure PlaceToolRightClickedOnBlock!");
 			return;
 		}
+
 		IWorld world = (IWorld) dependencies.get("world");
 		double x = dependencies.get("x") instanceof Integer ? (int) dependencies.get("x") : (double) dependencies.get("x");
 		double y = dependencies.get("y") instanceof Integer ? (int) dependencies.get("y") : (double) dependencies.get("y");
 		double z = dependencies.get("z") instanceof Integer ? (int) dependencies.get("z") : (double) dependencies.get("z");
 		Entity entity = (Entity) dependencies.get("entity");
+
 		Direction looking_at_side = Direction.NORTH;
 		looking_at_side = (entity.world.rayTraceBlocks(new RayTraceContext(entity.getEyePosition(1f),
 				entity.getEyePosition(1f).add(entity.getLook(1f).x * 5, entity.getLook(1f).y * 5, entity.getLook(1f).z * 5),
@@ -63,4 +55,5 @@ public class PlaceToolRightClickedOnBlockProcedure {
 			world.setBlockState(new BlockPos((int) (x - 1), (int) y, (int) z), PresserMK2Block.block.getDefaultState(), 3);
 		}
 	}
+
 }
