@@ -1,0 +1,13 @@
+{
+  "group": "diamonmdsteelnugget",
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "industrial_economy:diamondsteelitem"
+    }
+  ],
+  "result": {
+    "item": "industrial_economy:diamond_steel_nugget",
+    "count": 2
+  }
+}

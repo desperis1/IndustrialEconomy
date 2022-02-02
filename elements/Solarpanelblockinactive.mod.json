@@ -34,7 +34,7 @@
     ],
     "name": "Solar panel ",
     "specialInfo": [
-      "Generates 100 MW per second"
+      "Generates 350 MW per second"
     ],
     "hardness": 1.0,
     "resistance": 10.0,

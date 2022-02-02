@@ -1,0 +1,42 @@
+{
+  "group": "turbofuelmk4",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "012",
+    "345",
+    "678"
+  ],
+  "key": {
+    "0": {
+      "item": "industrial_economy:turbofuelitem_3"
+    },
+    "1": {
+      "item": "industrial_economy:turbofuelitem_3"
+    },
+    "2": {
+      "item": "industrial_economy:turbofuelitem_3"
+    },
+    "3": {
+      "item": "industrial_economy:turbofuelitem_3"
+    },
+    "4": {
+      "item": "industrial_economy:diamond_steel_nugget"
+    },
+    "5": {
+      "item": "industrial_economy:turbofuelitem_3"
+    },
+    "6": {
+      "item": "industrial_economy:turbofuelitem_3"
+    },
+    "7": {
+      "item": "industrial_economy:turbofuelitem_3"
+    },
+    "8": {
+      "item": "industrial_economy:turbofuelitem_3"
+    }
+  },
+  "result": {
+    "item": "industrial_economy:turbo_fuel_mk_4",
+    "count": 1
+  }
+}

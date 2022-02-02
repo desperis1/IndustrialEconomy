@@ -120,7 +120,7 @@ public class Generatormk3Block extends IndustrialEconomyModElements.ModElement {
 		@OnlyIn(Dist.CLIENT)
 		public void addInformation(ItemStack itemstack, IBlockReader world, List<ITextComponent> list, ITooltipFlag flag) {
 			super.addInformation(itemstack, world, list, flag);
-			list.add(new StringTextComponent("Generates 10 000 MW per second"));
+			list.add(new StringTextComponent("Generates 25 000 MW per second"));
 		}
 
 		@Override

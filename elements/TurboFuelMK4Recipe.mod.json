@@ -1,0 +1,46 @@
+{
+  "_fv": 24,
+  "_type": "recipe",
+  "definition": {
+    "recipeType": "Crafting",
+    "xpReward": 0.0,
+    "cookingTime": 200,
+    "recipeRetstackSize": 1,
+    "group": "turbofuelmk4",
+    "recipeShapeless": false,
+    "recipeSlots": [
+      {
+        "value": "CUSTOM:Turbofuelitem3"
+      },
+      {
+        "value": "CUSTOM:Turbofuelitem3"
+      },
+      {
+        "value": "CUSTOM:Turbofuelitem3"
+      },
+      {
+        "value": "CUSTOM:Turbofuelitem3"
+      },
+      {
+        "value": "CUSTOM:DiamondSteelNugget"
+      },
+      {
+        "value": "CUSTOM:Turbofuelitem3"
+      },
+      {
+        "value": "CUSTOM:Turbofuelitem3"
+      },
+      {
+        "value": "CUSTOM:Turbofuelitem3"
+      },
+      {
+        "value": "CUSTOM:Turbofuelitem3"
+      }
+    ],
+    "recipeReturnStack": {
+      "value": "CUSTOM:TurboFuelMK4"
+    },
+    "name": "turbo_fuel_mk_4_recipe",
+    "namespace": "mod"
+  }
+}

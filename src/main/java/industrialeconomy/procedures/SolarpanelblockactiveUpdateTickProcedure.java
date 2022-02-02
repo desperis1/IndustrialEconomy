@@ -88,8 +88,8 @@ public class SolarpanelblockactiveUpdateTickProcedure {
 						if (world instanceof World)
 							((World) world).notifyBlockUpdate(_bp, _bs, _bs, 3);
 					}
-					mainObject.addProperty("Energy", (mainObject.get("Energy").getAsDouble() + 100));
-					mainObject.addProperty("Eup", (mainObject.get("Eup").getAsDouble() + 100));
+					mainObject.addProperty("Energy", (mainObject.get("Energy").getAsDouble() + 350));
+					mainObject.addProperty("Eup", (mainObject.get("Eup").getAsDouble() + 350));
 				} else {
 					if (!world.isRemote()) {
 						BlockPos _bp = new BlockPos((int) x, (int) y, (int) z);
