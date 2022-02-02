@@ -8,27 +8,27 @@ import java.util.Map;
 
 import industrialeconomy.IndustrialEconomyMod;
 
-public class TesttProcedure {
+public class TestnewbranchProcedure {
 
 	public static void executeProcedure(Map<String, Object> dependencies) {
 		if (dependencies.get("world") == null) {
 			if (!dependencies.containsKey("world"))
-				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency world for procedure Testt!");
+				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency world for procedure Testnewbranch!");
 			return;
 		}
 		if (dependencies.get("x") == null) {
 			if (!dependencies.containsKey("x"))
-				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency x for procedure Testt!");
+				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency x for procedure Testnewbranch!");
 			return;
 		}
 		if (dependencies.get("y") == null) {
 			if (!dependencies.containsKey("y"))
-				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency y for procedure Testt!");
+				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency y for procedure Testnewbranch!");
 			return;
 		}
 		if (dependencies.get("z") == null) {
 			if (!dependencies.containsKey("z"))
-				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency z for procedure Testt!");
+				IndustrialEconomyMod.LOGGER.warn("Failed to load dependency z for procedure Testnewbranch!");
 			return;
 		}
 		IWorld world = (IWorld) dependencies.get("world");
