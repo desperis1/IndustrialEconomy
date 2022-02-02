@@ -123,9 +123,6 @@
     "isFluidTank": false,
     "fluidCapacity": 8000,
     "fluidRestrictions": [],
-    "onTickUpdate": {
-      "name": "GeneratorMK2UpdateTick"
-    },
     "onRandomUpdateEvent": {
       "name": "Generatormk2ClientDisplayRandomTick"
     },
