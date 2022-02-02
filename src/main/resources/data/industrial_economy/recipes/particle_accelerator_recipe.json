@@ -8,35 +8,35 @@
   ],
   "key": {
     "0": {
-      "item": "industrial_economy:heavy_diamond_steel"
+      "item": "industrial_economy:deleted_mod_element"
     },
     "1": {
-      "item": "industrial_economy:heavy_diamond_steel"
+      "item": "industrial_economy:deleted_mod_element"
     },
     "2": {
-      "item": "industrial_economy:heavy_diamond_steel"
+      "item": "industrial_economy:deleted_mod_element"
     },
     "3": {
-      "item": "industrial_economy:heavy_diamond_steel"
+      "item": "industrial_economy:deleted_mod_element"
     },
     "4": {
-      "item": "industrial_economy:black_opal"
+      "item": "industrial_economy:deleted_mod_element"
     },
     "5": {
-      "item": "industrial_economy:heavy_diamond_steel"
+      "item": "industrial_economy:deleted_mod_element"
     },
     "6": {
-      "item": "industrial_economy:heavy_diamond_steel"
+      "item": "industrial_economy:deleted_mod_element"
     },
     "7": {
-      "item": "industrial_economy:heavy_diamond_steel"
+      "item": "industrial_economy:deleted_mod_element"
     },
     "8": {
-      "item": "industrial_economy:heavy_diamond_steel"
+      "item": "industrial_economy:deleted_mod_element"
     }
   },
   "result": {
-    "item": "industrial_economy:particle_accelerator",
+    "item": "industrial_economy:deleted_mod_element",
     "count": 1
   }
 }

@@ -29,14 +29,14 @@
       "item": "industrial_economy:heavyframe"
     },
     "7": {
-      "item": "industrial_economy:heavy_diamond_steel"
+      "item": "industrial_economy:deleted_mod_element"
     },
     "8": {
       "item": "industrial_economy:heavyframe"
     }
   },
   "result": {
-    "item": "industrial_economy:central_storage",
+    "item": "industrial_economy:deleted_mod_element",
     "count": 1
   }
 }

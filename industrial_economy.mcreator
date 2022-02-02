@@ -8669,6 +8669,64 @@
       "locked_code": false,
       "registry_name": "turbo_fuel_mk_4_fuel",
       "path": "~/Items/TurboFuels"
+    },
+    {
+      "name": "Txtsetpricetest",
+      "type": "procedure",
+      "sortid": 474,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "txtsetpricetest",
+      "path": "~/Test"
+    },
+    {
+      "name": "Txtprice",
+      "type": "command",
+      "sortid": 475,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "txtprice",
+      "path": "~/Test"
+    },
+    {
+      "name": "TxtpriceCommandExecuted",
+      "type": "procedure",
+      "sortid": 475,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "txtprice_command_executed",
+      "metadata": {
+        "dependencies": []
+      }
+    },
+    {
+      "name": "Testmatus",
+      "type": "procedure",
+      "sortid": 658,
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "testmatus",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Test"
     }
   ],
   "variable_elements": [
@@ -9391,15 +9449,15 @@
             "children": []
           },
           {
+            "name": "HeavyDiamondSteelBlock",
+            "children": []
+          },
+          {
             "name": "Ores",
             "children": []
           },
           {
             "name": "Autosell",
-            "children": []
-          },
-          {
-            "name": "HeavyDiamondSteelBlock",
             "children": []
           }
         ]
@@ -9432,11 +9490,7 @@
         "name": "Items",
         "children": [
           {
-            "name": "TurboFuels",
-            "children": []
-          },
-          {
-            "name": "Money",
+            "name": "cpu",
             "children": []
           },
           {
@@ -9444,7 +9498,11 @@
             "children": []
           },
           {
-            "name": "cpu",
+            "name": "TurboFuels",
+            "children": []
+          },
+          {
+            "name": "Money",
             "children": []
           }
         ]
@@ -9502,11 +9560,23 @@
         "name": "Machines",
         "children": [
           {
+            "name": "constructorMK2",
+            "children": []
+          },
+          {
             "name": "Foundry",
             "children": []
           },
           {
             "name": "SolarPanel",
+            "children": []
+          },
+          {
+            "name": "PresserMK2",
+            "children": []
+          },
+          {
+            "name": "ParticeAccelerator",
             "children": []
           },
           {
@@ -9538,7 +9608,23 @@
             "children": []
           },
           {
+            "name": "ElectricFurnanceMK2",
+            "children": []
+          },
+          {
+            "name": "Generatormk3",
+            "children": []
+          },
+          {
             "name": "Crusher",
+            "children": []
+          },
+          {
+            "name": "Manufacturer",
+            "children": []
+          },
+          {
+            "name": "CentralStorage",
             "children": []
           },
           {
@@ -9577,34 +9663,6 @@
                 "children": []
               }
             ]
-          },
-          {
-            "name": "ElectricFurnanceMK2",
-            "children": []
-          },
-          {
-            "name": "PresserMK2",
-            "children": []
-          },
-          {
-            "name": "Generatormk3",
-            "children": []
-          },
-          {
-            "name": "constructorMK2",
-            "children": []
-          },
-          {
-            "name": "Manufacturer",
-            "children": []
-          },
-          {
-            "name": "CentralStorage",
-            "children": []
-          },
-          {
-            "name": "ParticeAccelerator",
-            "children": []
           }
         ]
       },
